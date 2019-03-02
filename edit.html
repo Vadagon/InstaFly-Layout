@@ -1,0 +1,77 @@
+<div class="edit_wrapper" ng-controller="editCtrl">
+    <div class="header_wrapper">
+        <div class="header">
+            <a href="#!">
+                <img alt="" class="info btn_routed" src="assets/img/back.png">
+              
+            </a>
+            <div class="onoffswitch">
+                <input ng-checked="false" class="onoffswitch-checkbox" id="myonoffswitch" name="onoffswitch" type="checkbox">
+                    <label class="onoffswitch-label" for="myonoffswitch">
+                        <span class="onoffswitch-inner">
+                        </span>
+                        <span class="onoffswitch-switch">
+                        </span>
+                    </label>
+                
+            </div>
+        </div>
+        <div class="mar5 flex">
+            <h2 class="fvh4_8 fcl_w F_RCC">
+                <div class="dot mar5">
+                </div>
+                New Task Creation
+            </h2>
+        </div>
+    </div>
+    <div class="progress">
+        <div class="progress_bar" style="width: 100%; height: 100%">
+        </div>
+    </div>
+    <div class="content">
+        <div class="flex">
+            
+        
+    <h2  class="w70 mart15 fcl_w fvh2_4 " id="filter" >Filter:</h2>
+    <div class="select  fvh3_6" ng-click="options_val = !options_val">
+        {{selected_option}}
+        <div class="options" ng-show="options_val">
+            <a ng-repeat="x in select_names" >
+                <span ng-click="selected($index)" class="fvh3_6" title="{{select_names[$index]}}">
+                {{select_names[$index]}}
+                 </span>
+            </a>
+        </div>
+        <div class="select_arrow" >
+            <img alt="ellipse1" class="ellipse_img" src="assets/img/ellipse1.png">
+                <img alt="ellipse2" class="ellipse2_img" src="assets/img/ellipse2.png">
+                    <img alt="arrow" class="arrow_img" src="assets/img/arrow.png">
+                  
+              
+          
+        </div>
+    </div>
+
+<div class="task_filter pad10 w80">
+    <div class="status_dot" ng-class="active_dot"></div>
+    <p class="fcl_w fvh2_4">#swag #instalike #igers #tbt #picoftheday #follow4follow
+#instatag #l4l #beautiful #likeforlike#me #love #instaday
+#me #love #instadaily #selfie #photooftheday#summer
+ #swag #instalike #igers #tbt #picoftheday #follow4follow 
+#like4like #follow #instagood #amazing #cute #friends 
+#swag #instalike #igers #tbt #picoftheday #follow4follow </p>
+</div>
+</div>
+<img alt="points" class="points_img" src="assets/img/points.jpg" width="100%">
+</div>
+    <div class="footer">
+        <div class="buttons_group F_RCC">
+            <div class="btn ta_c hover_btn_pulse active_btn_pulse fvh3_6 fcl_w txta_c">
+                Save
+            </div>
+            <div class="btn ta_c hover_btn_pulse active_btn_pulse fvh3_6 fcl_w txta_c">
+                Cancel
+            </div>
+        </div>
+    </div>
+</div>

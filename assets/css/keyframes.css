@@ -318,28 +318,3 @@
   } 
 }
 
-
-/*
-@keyframes heard_b{
-   0% {
-     left: -10px;  
-    }
-    70% {
-       left: -14px;  
-    }
-    100% {
-      left: -10px;  
-    }
-}
-
-@keyframes heard_a{
-     0% {
-       top: -10px; 
-    }
-    70% {
-        top: -5px; 
-    }
-    100% {
-       top: -10px; 
-    }
-}*/

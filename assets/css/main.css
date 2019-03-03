@@ -383,7 +383,6 @@ body {
     overflow-x: scroll;
     z-index: 3;
     position: absolute;
-    animation: move_wave 10s cubic-bezier(0.38, -0.03, 0.63, 1.09) infinite;
 }
 .atvImg {
     transform-style: preserve-3d;
@@ -774,6 +773,7 @@ body {
     display: none;
 }
 .auth_wrapper {
+    position: absolute;
     height: 100%;
     width: 100%;
     background: url(../img/bg_logo.png);
@@ -1185,6 +1185,7 @@ input:-webkit-autofill, input:-webkit-autofill:hover, input:-webkit-autofill:foc
 }
 
 .cover_wrapper{
+    overflow-x: scroll;
         width: 100vw;
     display: flex;
     position: relative;
@@ -1195,7 +1196,9 @@ input:-webkit-autofill, input:-webkit-autofill:hover, input:-webkit-autofill:foc
 /*----------------------------------------------------------------------------------------------------*/
 
 @media screen and (orientation:landscape) and (max-height: 1000px) {
-
+.auth_wrapper{
+    position: relative;
+}
 .wave_wrapper .wave_img1, .wave_wrapper  .wave_img2, .wave_wrapper  .wave_img3 {
 
     top: 100vh;

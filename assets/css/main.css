@@ -120,6 +120,7 @@ body {
 }
 .card_wrapper .header {
     height: 15vh;
+
 }
 .logo_img {
     height: 5vh;
@@ -199,7 +200,7 @@ body {
 .null {
     position: relative;
 }
-.wave_img1, .wave_img2, .wave_img3 {
+..wave_img1, .wave_img2, .wave_img3 {
     background-size: 400%;
     position: absolute;
     height: 50vh;
@@ -378,12 +379,10 @@ body {
     justify-content: center;
 }
 .cover {
-    display: flex;
+      display: flex;
     overflow-x: scroll;
     z-index: 3;
     position: absolute;
-    top: calc(50vh - 100px);
-    padding: 20px;
     animation: move_wave 10s cubic-bezier(0.38, -0.03, 0.63, 1.09) infinite;
 }
 .atvImg {
@@ -671,7 +670,7 @@ body {
     width: 200vw;
 }
 .card_wrapper .header {
-    z-index: 100;
+    z-index: 3;
 }
 .plus {
     padding: 10px;
@@ -720,7 +719,7 @@ body {
     box-sizing: border-box;
     line-height: 25px;
     margin: 50px 20px;
-    z-index: 10;
+    z-index: 3;
 }
 .about_plus2 {
     position: absolute;
@@ -1083,27 +1082,26 @@ input:-webkit-autofill, input:-webkit-autofill:hover, input:-webkit-autofill:foc
     background-repeat: no-repeat;
 }
 .wave_liked1 {
-    position: absolute;
+    position: fixed;
     width: 100vw;
-    z-index: -1;
+        z-index: -1;
     height: 100vh;
     top: 0;
     left: 0;
     background: url(../img/liked_wave.png);
     background-size: cover;
-    animation: background_wave_back 600s linear -2s;
+    animation: background_wave_back 600s linear;
 }
 .wave_liked2 {
-    position: absolute;
+     position: fixed;
     width: 100vw;
-    z-index: -2;
+        z-index: -1;
     height: 100vh;
     top: 0;
     left: 0;
     background: url(../img/liked_wave.png);
     background-size: cover;
-    background-attachment: fixed;
-    animation: background_wave 550s linear -3s;
+    animation: background_wave 550s linear ;
 }
 .liked_photos_wrapper .heart-shape {
     top: 8%;
@@ -1172,9 +1170,39 @@ input:-webkit-autofill, input:-webkit-autofill:hover, input:-webkit-autofill:foc
 .lesson_img {
     width: 100vw;
 }
+.info_button{
+        height: 22px;
+        z-index: 10;
+        position: relative;
+    width: 22px;
+    justify-content: space-between !important;
+}
+.dot_info{
+       width: 5px;
+    height: 5px;
+    border-radius: 50%;
+    background: white;
+}
+
+.cover_wrapper{
+        width: 100vw;
+    display: flex;
+    position: relative;
+    padding: 10px;
+    height: 200px;
+    box-sizing: border-box;
+}
 /*----------------------------------------------------------------------------------------------------*/
 
 @media screen and (orientation:landscape) and (max-height: 1000px) {
+
+.wave_wrapper .wave_img1, .wave_wrapper  .wave_img2, .wave_wrapper  .wave_img3 {
+
+    top: 100vh;
+    background-size: 160%;
+    height: 100vh;
+
+}
     .logo_auth_img img {
         width: 56vh;
     height: 40vh;
@@ -1261,9 +1289,7 @@ input:-webkit-autofill, input:-webkit-autofill:hover, input:-webkit-autofill:foc
     .footer_wave {
         bottom: -100vh;
     }
-    .cover {
-        top: calc(100vh - 75px);
-    }
+    
     .content_card {
         height: 170vh;
     }
@@ -1333,7 +1359,11 @@ input:-webkit-autofill, input:-webkit-autofill:hover, input:-webkit-autofill:foc
         bottom: 0;
     }
     .wave_img {
-        height: 20vh;
+        height: 40vh;
+    }
+    .footer_wave{
+        background-attachment: local; 
+            background-size: 150%;
     }
     .logo_img {
         height: 10vh;

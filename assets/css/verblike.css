@@ -13,6 +13,15 @@ body {
     justify-content: space-between;
     overflow-x: hidden;
 }
+.ng-hide {
+  opacity: 0;
+  transform: translateY(9vh);
+  transform-origin: 50% 0%;
+}
+.ng-show {
+ 
+
+}
 .r{
     position: relative;
 }
@@ -28,13 +37,24 @@ text-align: left;
 .ta_r{
 text-align: right;
 }
-
+.F_RAC{
+    display: flex;
+    flex-flow: row;
+    justify-content: space-around;
+    align-items: center;
+}
 .F_RCC {
     display: flex;
     flex-flow: row;
     justify-content: center;
     align-items: center;
     
+}
+.F_CBC{
+         display: flex;
+    flex-flow: column;
+        justify-content: space-between;
+    align-items: center;
 }
 .F_RBC{
          display: flex;
@@ -370,7 +390,7 @@ text-align: right;
 /*------------width-----------------*/
 @media screen and (orientation:landscape) and (max-height: 1000px) {
 body{
-    height: 200vh;
+    min-height: 200vh;
 }
 /*------------font-size-----------------*/
 

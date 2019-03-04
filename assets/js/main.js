@@ -1,9 +1,19 @@
-var storage = window.localStorage;
-var app = angular.module("Routing", ["ngRoute", 'ngAnimate']);
+let storage = window.localStorage;
+console.log(storage)
+let payed = 1;
+let pro_stor = storage.getItem('pro');
+if (payed == 1) {
+    pro_stor = "pro.html";
+    storage.setItem('pro', 'pro.html')
+} else {
+    pro_stor = "index.html";
+}
+
+let app = angular.module("Routing", ["ngRoute", 'ngAnimate']);
 //Routing
 app.config(($routeProvider) => {
     $routeProvider.when("/", {
-        templateUrl: "index.html",
+        templateUrl: pro_stor,
     }).when("/edit", {
         templateUrl: "edit.html",
     }).when("/logo", {
@@ -14,29 +24,32 @@ app.config(($routeProvider) => {
         templateUrl: "info.html",
     }).when("/auth", {
         templateUrl: "auth.html",
-    }).when("/pro", {
-        templateUrl: "pro.html",
     }).when("/liked", {
         templateUrl: "liked.html",
     }).when("/lessons", {
         templateUrl: "lessons.html",
     }).when("/extension", {
         templateUrl: "extension.html",
+    }).when("/settings", {
+        templateUrl: "settings.html",
     })
 });
 app.run(($rootScope) => {
-    $rootScope.APPNAME = "Liker";
+    //    $rootScope.pro = true;
+    //        if ($rootScope.pro == true) {
+    // window.location.href = "#!pro";
+    //    }
+    $rootScope.APPNAME = "Instafly";
+    $rootScope.status1 = "sleeping";
     $rootScope.select_names = ["Like by hashtags", "Like my feed", "Like by locations", "Like user's followers", "Like user's followings"]
     $rootScope.$on('$routeChangeStart', function(event, current, next, previous, reject) {})
 })
-app.controller('indexCtrl', function($scope, $rootScope) {
-});
+app.controller('indexCtrl', function($scope, $rootScope) {});
 app.controller('editCtrl', function($scope, $rootScope) {
     $scope.selected_option = $rootScope.select_names[0];
     let selected_option;
     $scope.selected = function(a) {
         $scope.selected_option = $rootScope.select_names[a]
-        $scope.options_val = !$scope.options_val
     }
 });
 app.controller('logoCtrl', function($scope, $rootScope) {
@@ -63,26 +76,19 @@ app.controller('logoCtrl', function($scope, $rootScope) {
         ["animation-delay: 0.7s;   background-color: #e92a89 "]
     ]
 });
-app.controller('cardCtrl', function($scope, $rootScope) {
-});
-app.controller('infoCtrl', function($scope, $rootScope) {
-});
-app.controller('proCtrl', function($scope, $rootScope) {
-});
-app.controller('lessonsCtrl', function($scope, $rootScope) {
-});
-app.controller('extCtrl', function($scope, $rootScope) {
-});
-
+app.controller('cardCtrl', function($scope, $rootScope) {});
+app.controller('infoCtrl', function($scope, $rootScope) {});
+app.controller('proCtrl', function($scope, $rootScope) {});
+app.controller('lessonsCtrl', function($scope, $rootScope) {});
+app.controller('extCtrl', function($scope, $rootScope) {});
+app.controller('settingsCtrl', function($scope, $rootScope) {});
 app.controller('likedCtrl', function($scope, $rootScope) {
     let d = new Date(new Date().toString().split('GMT')[0] + ' UTC').toISOString().split('.')[0].replace('T', ' ');
     $scope.d = d;
 });
-
 app.controller('authCtrl', function($scope, $rootScope) {
     console.log($scope.pass)
     $scope.$watch('eye_pass', () => {
-
         if ($scope.eye_pass == true) {
             $scope.pass = "text"
         } else {
@@ -90,3 +96,6 @@ app.controller('authCtrl', function($scope, $rootScope) {
         }
     })
 });
+function goBack() {
+  window.history.back();
+}

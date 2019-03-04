@@ -19,7 +19,7 @@
                 
             
     </head>
-    <body class="page page-home" ng-view="">
+    <body class="page page-home r" ng-view="">
         <div class="page">
             <div class="header_wrapper">
                 <div class="header">
@@ -49,19 +49,22 @@
                 </div>
             </div>
         </div>
-        <div class="status">
-            <div class="w70 r fcl_w fvh1_5_3 ta_c">
-                Sleeping
+        <div class="status pad10">
+            <div class=" w70 r fcl_w fvh1_5_3 ta_c" ng-class="{'was_liked':status = 'sleeping'}">
+                {{status1}}
             </div>
             <div class="w70 r fcl_w fvh2_4 ta_c">
                 Likes made today: {{0}} of {{500}}
+                
             </div>
         </div>
-        <div class="flex pad10 padt30">
+        <div class="flex  ">
             <a class="getpro_wrapper mar10 marb30" href="#!card">
                 <div class="getpro gradient_purple fcl_w pad15 ">
                     <!-- <img src="assets/img/pro.png" class="pro_img " alt="">
-                 -->
+                 <-->
+                     <div class="wave_bg"></div>
+              
                     <img alt="" class="stars_pro" src="assets/img/stars.png">
                         <img alt="" class="cup_pro" src="assets/img/cup.png">
                             <div class="wawe_bg">

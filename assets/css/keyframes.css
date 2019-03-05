@@ -255,6 +255,26 @@
 
 }
 
+@keyframes number_translate{
+ 0%{
+    transform: scale(1.4);
+
+  }
+  100%{
+    transform: scale(1);
+      }
+
+}
+@keyframes number_translate_top{
+ 0%{
+    transform: scale(1.4);
+
+  }
+  100%{
+    transform: scale(1);
+      }
+
+}
 @-webkit-keyframes Gradient {
   0% {
     background-position: 0% 50%

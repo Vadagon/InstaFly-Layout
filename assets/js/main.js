@@ -1,6 +1,6 @@
 let storage = window.localStorage;
 console.log(storage)
-let payed = 1;
+let payed = 0;
 let pro_stor = storage.getItem('pro');
 if (payed == 1) {
     pro_stor = "pro.html";
@@ -32,16 +32,23 @@ app.config(($routeProvider) => {
         templateUrl: "extension.html",
     }).when("/settings", {
         templateUrl: "settings.html",
-    })
+    }).otherwise({redirectTo:'/'});
 });
 app.run(($rootScope) => {
-    //    $rootScope.pro = true;
-    //        if ($rootScope.pro == true) {
-    // window.location.href = "#!pro";
-    //    }
     $rootScope.APPNAME = "Instafly";
     $rootScope.status1 = "sleeping";
-    $rootScope.select_names = ["Like by hashtags", "Like my feed", "Like by locations", "Like user's followers", "Like user's followings"]
+    $rootScope.select_names = ["Like by hashtags", "Like my feed", "Like by locations", "Like user's followers", "Like user's followings"];
+    $rootScope.tasks_count = 1;
+     $rootScope.liked = 200;
+ $rootScope.max_likes_per_day = 500;
+     setInterval(() => 
+        {
+            $rootScope.$apply(()=>{
+              $rootScope.liked++;
+              $rootScope.liked1 = $rootScope.liked;
+        })
+            console.log($rootScope.liked)}
+        , 1000);
     $rootScope.$on('$routeChangeStart', function(event, current, next, previous, reject) {})
 })
 app.controller('indexCtrl', function($scope, $rootScope) {});
@@ -78,7 +85,10 @@ app.controller('logoCtrl', function($scope, $rootScope) {
 });
 app.controller('cardCtrl', function($scope, $rootScope) {});
 app.controller('infoCtrl', function($scope, $rootScope) {});
-app.controller('proCtrl', function($scope, $rootScope) {});
+app.controller('proCtrl', function($scope, $rootScope) {
+    
+
+});
 app.controller('lessonsCtrl', function($scope, $rootScope) {});
 app.controller('extCtrl', function($scope, $rootScope) {});
 app.controller('settingsCtrl', function($scope, $rootScope) {});

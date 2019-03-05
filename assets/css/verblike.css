@@ -22,6 +22,12 @@ body {
  
 
 }
+.o_h{
+    overflow: hidden;
+}
+.in_block{
+    display: inline-block;
+}
 .r{
     position: relative;
 }

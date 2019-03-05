@@ -49,11 +49,13 @@
                 </div>
             </div>
         </div>
+        <div class="index_wrapper F_RBS">
+            <div class="status_wrapper">
         <div class="status pad10">
             <div class=" w70 r fcl_w fvh1_5_3 ta_c" ng-class="{'was_liked':status = 'sleeping'}">
                 {{status1}}
             </div>
-            <div class="w70 r F_RCC fcl_w fvh2_4 ta_c o_h">
+            <div class=" r F_RCC fcl_w fvh2_4 ta_c o_h">
                 Likes made today: <div class="r in_block"><span ng-class="{true:'translate25px', false:'translate0px' }[liked == liked1%2*liked1]" class="number_animation">{{liked}}</span></div> of {{max_likes_per_day}}
                 
             </div>
@@ -98,7 +100,7 @@
                             </div>
                         </label>
                     </div>
-                    <div class="info_task fcl_w">
+                    <a href="#!edit"><div class="info_task fcl_w">
                         <h2 class="fvh2_4 pad10 padb0">
                             #instagram
                         </h2>
@@ -108,6 +110,7 @@
                                 advanced settings:pro version only
                         </p>
                     </div>
+                    </a>
                 </div>
                 <!-- <div class="tasc_block ">
                     <div class="edit_task">
@@ -172,7 +175,42 @@
                 </div> -->
                 
             </div>
-            <ang-click ng-click="modal_cant_add_task = !modal_cant_add_task">
+          
+        </div>
+    </div>
+        <div class="modal_cant_add_task fcl_w F_CCC" ng-hide="!modal_cant_add_task" ng-click="modal_cant_add_task = !modal_cant_add_task">
+            <h1 class="ta_c pad10 fvh5_10">You cant add more tasks</h1>
+            <a class="getpro_wrapper mar10 mart30 w90" href="#!card">
+                <div class="getpro gradient_purple fcl_w pad15 ">
+                    <!-- <img src="assets/img/pro.png" class="pro_img " alt="">
+                 <-->
+                     <div class="wave_bg"></div>
+              
+                    <img alt="" class="stars_pro" src="assets/img/stars.png">
+                        <img alt="" class="cup_pro" src="assets/img/cup.png">
+                            <div class="wawe_bg">
+                            </div>
+                            <!--  <h1 class="r fvh5_10">50%</h1>
+                <h3 class="r fvh2_4">GO PRO account</h3> -->
+                        
+                    
+                </div>
+                <span class="pro_go pulse">
+                    GO PRO
+                </span>
+            </a>
+            <div class="close" >
+                    <svg class="" enable-background="new 0 0 64 64" height="512px" version="1.1" viewbox="0 0 64 64" width="512px" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+                        <g>
+                            <g>
+                                <path class="active-path" d="M28.941,31.786L0.613,60.114c-0.787,0.787-0.787,2.062,0,2.849c0.393,0.394,0.909,0.59,1.424,0.59   c0.516,0,1.031-0.196,1.424-0.59l28.541-28.541l28.541,28.541c0.394,0.394,0.909,0.59,1.424,0.59c0.515,0,1.031-0.196,1.424-0.59   c0.787-0.787,0.787-2.062,0-2.849L35.064,31.786L63.41,3.438c0.787-0.787,0.787-2.062,0-2.849c-0.787-0.786-2.062-0.786-2.848,0   L32.003,29.15L3.441,0.59c-0.787-0.786-2.061-0.786-2.848,0c-0.787,0.787-0.787,2.062,0,2.849L28.941,31.786z" data-old_color="#FCFCFC" data-original="#1D1D1B" fill="#666666">
+                                </path>
+                            </g>
+                        </g>
+                    </svg>
+                </div>
+        </div>
+          <ang-click ng-click="modal_cant_add_task = !modal_cant_add_task">
             <a   ng-if="tasks_count >= 1" >
                
             <div class="add_btn disabled F_RCC mar10">
@@ -195,20 +233,7 @@
             </div>
              </a>
         </div>
-        <div class="modal_cant_add_task fcl_w F_CCC" ng-hide="!modal_cant_add_task" ng-click="modal_cant_add_task = !modal_cant_add_task">
-            <h1>You cant add more tasks</h1>
-            <h2>only in pro version</h2>
-            <div class="close" >
-                    <svg class="" enable-background="new 0 0 64 64" height="512px" version="1.1" viewbox="0 0 64 64" width="512px" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
-                        <g>
-                            <g>
-                                <path class="active-path" d="M28.941,31.786L0.613,60.114c-0.787,0.787-0.787,2.062,0,2.849c0.393,0.394,0.909,0.59,1.424,0.59   c0.516,0,1.031-0.196,1.424-0.59l28.541-28.541l28.541,28.541c0.394,0.394,0.909,0.59,1.424,0.59c0.515,0,1.031-0.196,1.424-0.59   c0.787-0.787,0.787-2.062,0-2.849L35.064,31.786L63.41,3.438c0.787-0.787,0.787-2.062,0-2.849c-0.787-0.786-2.062-0.786-2.848,0   L32.003,29.15L3.441,0.59c-0.787-0.786-2.061-0.786-2.848,0c-0.787,0.787-0.787,2.062,0,2.849L28.941,31.786z" data-old_color="#FCFCFC" data-original="#1D1D1B" fill="#666666">
-                                </path>
-                            </g>
-                        </g>
-                    </svg>
-                </div>
-        </div>
+
     </body>
 </html>
 <!-- <div class="null">

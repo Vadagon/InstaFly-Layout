@@ -8,7 +8,6 @@ if (payed == 1) {
 } else {
     pro_stor = "index.html";
 }
-
 let app = angular.module("Routing", ["ngRoute", 'ngAnimate']);
 //Routing
 app.config(($routeProvider) => {
@@ -26,30 +25,48 @@ app.config(($routeProvider) => {
         templateUrl: "auth.html",
     }).when("/liked", {
         templateUrl: "liked.html",
-    }).when("/lessons", {
+    }).when("/lessons:count_less", {
         templateUrl: "lessons.html",
     }).when("/extension", {
         templateUrl: "extension.html",
     }).when("/settings", {
         templateUrl: "settings.html",
-    }).otherwise({redirectTo:'/'});
+    }).when("/list_lessons", {
+        templateUrl: "list_lessons.html",
+    }).otherwise({
+        redirectTo: '/'
+    });
 });
 app.run(($rootScope) => {
     $rootScope.APPNAME = "Instafly";
     $rootScope.status1 = "sleeping";
     $rootScope.select_names = ["Like by hashtags", "Like my feed", "Like by locations", "Like user's followers", "Like user's followings"];
+    
     $rootScope.tasks_count = 1;
-     $rootScope.liked = 200;
- $rootScope.max_likes_per_day = 500;
-     setInterval(() => 
-        {
-            $rootScope.$apply(()=>{
-              $rootScope.liked++;
-              $rootScope.liked1 = $rootScope.liked;
-        })
-            console.log($rootScope.liked)}
-        , 1000);
-    $rootScope.$on('$routeChangeStart', function(event, current, next, previous, reject) {})
+    $rootScope.liked = 495;
+    $rootScope.max_likes_per_day = 500;
+    setInterval(() => {
+        if (Number($rootScope.liked) < Number($rootScope.max_likes_per_day)) {
+            $rootScope.$apply(() => {
+                $rootScope.liked++;
+                $rootScope.liked1 = $rootScope.liked;
+            })
+            console.log($rootScope.liked)
+        } else {
+            $rootScope.$apply(() => {
+                $rootScope.status1 = "Exceeded daily limit";
+            })
+        }
+    }, 1000);
+    $rootScope.$on('$routeChangeStart', function(event, current, next, previous, reject) {
+        $rootScope.count_less = arguments[1].params.count_less;
+        if ($rootScope.count_less != undefined) {
+             $rootScope.count_less = $rootScope.count_less.slice(1)
+console.log($rootScope.count_less)
+        }
+       
+    })
+
 })
 app.controller('indexCtrl', function($scope, $rootScope) {});
 app.controller('editCtrl', function($scope, $rootScope) {
@@ -85,10 +102,8 @@ app.controller('logoCtrl', function($scope, $rootScope) {
 });
 app.controller('cardCtrl', function($scope, $rootScope) {});
 app.controller('infoCtrl', function($scope, $rootScope) {});
-app.controller('proCtrl', function($scope, $rootScope) {
-    
-
-});
+app.controller('proCtrl', function($scope, $rootScope) {});
+app.controller('list_lessCtrl', function($scope, $rootScope) {});
 app.controller('lessonsCtrl', function($scope, $rootScope) {});
 app.controller('extCtrl', function($scope, $rootScope) {});
 app.controller('settingsCtrl', function($scope, $rootScope) {});
@@ -106,6 +121,7 @@ app.controller('authCtrl', function($scope, $rootScope) {
         }
     })
 });
+
 function goBack() {
-  window.history.back();
+    window.history.back();
 }

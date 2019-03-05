@@ -14,20 +14,21 @@
           
     </div>
     <div class="progress">
-        <div class="progress_bar" style="width: 70%; height: 100%">
-            <div class="progress_bar_animation">
+        <div class="progress_bar" style="width:{{liked/(max_likes_per_day/5)*100/5}}%; height: 100%">
+                    <div class="progress_bar_animation">
+                    </div>
+                </div>
+    </div>
+</div>
+ <div class="status pad10">
+            <div class=" w70 r fcl_w fvh1_5_3 ta_c" ng-class="{'was_liked':status = 'sleeping'}">
+                {{status1}}
+            </div>
+            <div class="w100 r F_RCC fcl_w fvh2_4 ta_c o_h">
+                Likes made today: <div class="r in_block"><span ng-class="{true:'translate25px', false:'translate0px' }[liked == liked1%2*liked1]" class="number_animation">{{liked}}</span></div> of {{max_likes_per_day}}
+                
             </div>
         </div>
-    </div>
-</div>
-<div class="status">
-    <div class="w70 r fcl_w fvh1_5_3 ta_c">
-        Sleeping
-    </div>
-    <div class="w70 r fcl_w fvh2_4 ta_c">
-        Likes made today: {{0}} of {{5000}}
-    </div>
-</div>
 
 <a href="#!lessons" class="lessons_block">
     <div class="getpro gradient_purple fcl_w pad15 ">
@@ -97,7 +98,7 @@
                     </div>
                 </label>
             </div>
-            <div class="info_task fcl_w">
+            <a href="#!edit"><div class="info_task fcl_w">
                 <h2 class="fvh2_4 pad10 padb0">
                     #instagram
                 </h2>
@@ -108,6 +109,7 @@
                     </br>
                 </p>
             </div>
+            </a>
         </div>
         <div class="tasc_block ">
             <div class="edit_task">
@@ -127,7 +129,7 @@
                     </div>
                 </label>
             </div>
-            <div class="info_task fcl_w">
+            <a href="#!edit"><div class="info_task fcl_w">
                 <h2 class="fvh2_4 pad10 padb0">
                     #instagram
                 </h2>
@@ -135,9 +137,9 @@
                     likes per day: 500/ today:0
                     <br>
                         advanced settings:pro version only
-                    </br>
                 </p>
             </div>
+            </a>
         </div>
         <a href="#!edit">
         </a>

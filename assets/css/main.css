@@ -45,6 +45,9 @@ body {
     height: 0.6vh;
     width: 100%;
 }
+.index_wrapper {
+    height: 79vh;
+}
 .hash {
     background-image: url(../img/hash.png);
     background-size: contain;
@@ -457,6 +460,7 @@ body {
     width: 100%;
     height: 100%;
     background: #000000db;
+    transition: all .4s ease;
 }
 .active_card {
     position: fixed !important;
@@ -476,24 +480,14 @@ body {
     position: absolute;
     transform: rotateZ(20deg);
     z-index: 5;
-    animation: slide 2s ease-in-out infinite;
-    /* 
-  CSS Gradient - complete browser support from http://www.colorzilla.com/gradient-editor/ 
-  */
+    animation: slide 2s linear infinite;
     background: -moz-linear-gradient(left, rgba(255, 255, 255, 0) 0%, rgba(255, 255, 255, 0.8) 50%, rgba(128, 186, 232, 0) 99%, rgba(125, 185, 232, 0) 100%);
-    /* FF3.6+ */
     background: -webkit-gradient(linear, left top, right top, color-stop(0%, rgba(255, 255, 255, 0)), color-stop(50%, rgba(255, 255, 255, 0.8)), color-stop(99%, rgba(128, 186, 232, 0)), color-stop(100%, rgba(125, 185, 232, 0)));
-    /* Chrome,Safari4+ */
     background: -webkit-linear-gradient(left, rgba(255, 255, 255, 0) 0%, rgba(255, 255, 255, 0.8) 50%, rgba(128, 186, 232, 0) 99%, rgba(125, 185, 232, 0) 100%);
-    /* Chrome10+,Safari5.1+ */
     background: -o-linear-gradient(left, rgba(255, 255, 255, 0) 0%, rgba(255, 255, 255, 0.8) 50%, rgba(128, 186, 232, 0) 99%, rgba(125, 185, 232, 0) 100%);
-    /* Opera 11.10+ */
     background: -ms-linear-gradient(left, rgba(255, 255, 255, 0) 0%, rgba(255, 255, 255, 0.8) 50%, rgba(128, 186, 232, 0) 99%, rgba(125, 185, 232, 0) 100%);
-    /* IE10+ */
     background: linear-gradient(to right, rgba(255, 255, 255, 0) 0%, rgba(255, 255, 255, 0.8) 50%, rgba(128, 186, 232, 0) 99%, rgba(125, 185, 232, 0) 100%);
-    /* W3C */
     filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#00ffffff', endColorstr='#007db9e8', GradientType=1);
-    /* IE6-9 */
 }
 .atvImg .img2:after {
     content: '';
@@ -504,7 +498,7 @@ body {
     position: absolute;
     transform: rotateZ(20deg);
     z-index: 5;
-    animation: slide 2s ease-in-out infinite 1s;
+    animation: slide 2s linear infinite 1s;
     background: -moz-linear-gradient(left, rgba(255, 255, 255, 0) 0%, rgba(255, 255, 255, 0.8) 50%, rgba(128, 186, 232, 0) 99%, rgba(125, 185, 232, 0) 100%);
     background: -webkit-gradient(linear, left top, right top, color-stop(0%, rgba(255, 255, 255, 0)), color-stop(50%, rgba(255, 255, 255, 0.8)), color-stop(99%, rgba(128, 186, 232, 0)), color-stop(100%, rgba(125, 185, 232, 0)));
     background: -webkit-linear-gradient(left, rgba(255, 255, 255, 0) 0%, rgba(255, 255, 255, 0.8) 50%, rgba(128, 186, 232, 0) 99%, rgba(125, 185, 232, 0) 100%);
@@ -522,7 +516,7 @@ body {
     position: absolute;
     transform: rotateZ(20deg);
     z-index: 5;
-    animation: slide 2s ease-in-out infinite 2s;
+    animation: slide 2s linear infinite 2s;
     background: -moz-linear-gradient(left, rgba(255, 255, 255, 0) 0%, rgba(255, 255, 255, 0.8) 50%, rgba(128, 186, 232, 0) 99%, rgba(125, 185, 232, 0) 100%);
     background: -webkit-gradient(linear, left top, right top, color-stop(0%, rgba(255, 255, 255, 0)), color-stop(50%, rgba(255, 255, 255, 0.8)), color-stop(99%, rgba(128, 186, 232, 0)), color-stop(100%, rgba(125, 185, 232, 0)));
     background: -webkit-linear-gradient(left, rgba(255, 255, 255, 0) 0%, rgba(255, 255, 255, 0.8) 50%, rgba(128, 186, 232, 0) 99%, rgba(125, 185, 232, 0) 100%);
@@ -1266,9 +1260,54 @@ input:-webkit-autofill, input:-webkit-autofill:hover, input:-webkit-autofill:foc
 .translate0px {
     animation: number_translate 0.5s linear;
 }
+.modal_cant_add_task .getpro {
+    height: 30vh;
+}
+.modal_cant_add_task .getpro .cup_pro {
+    top: 23%;
+    width: 50%;
+    z-index: 2;
+    position: absolute;
+    left: 25%;
+}
+
+
+.modal_cant_add_task .getpro .stars_pro{
+        width: 30%;
+    top: 13%;
+    z-index: 2;
+    left: 35%;
+    position: absolute;
+}
+.modal_cant_add_task .getpro .wave_bg{
+    background-size: 400%;
+}
 /*----------------------------------------------------------------------------------------------------*/
 
 @media screen and (orientation:landscape) and (max-height: 1000px) {
+    .modal_cant_add_task .getpro .stars_pro {
+    width: 17%;
+    top: 28%;
+    z-index: 2;
+    left: 41%;
+    position: absolute;
+}
+    .modal_cant_add_task .getpro .cup_pro {
+    top: 39%;
+    width: 25%;
+    z-index: 2;
+    position: absolute;
+    left: 37%;
+}
+    .modal_cant_add_task .getpro .wave_bg {
+    background-size: 200%;
+}
+    .modal_cant_add_task .getpro {
+        height: 60vh;
+    }
+    .index_wrapper {
+        height: 138vh;
+    }
     .lessons_wrapper .wave_liked1, .lessons_wrapper .wave_liked2 {
         height: 250vh;
     }

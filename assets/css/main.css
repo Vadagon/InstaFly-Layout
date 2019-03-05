@@ -25,6 +25,11 @@ html {
 body {
     background: #161c24;
 }
+p{
+    text-align: center;
+    color: #fff;
+    letter-spacing: 0;
+}
 .page .header_wrapper {
     height: 20vh;
     position: relative;
@@ -97,11 +102,17 @@ body {
 }
 .pulse {
     animation: pulse 2s infinite;
-    border-radius: 3px;
 }
 .pulse_black {
     animation: pulse_black 2s infinite;
-    border-radius: 3px;
+}
+.btn_pulse_bg_wave{
+    animation: pulse 2s infinite, Gradient 15s  infinite;
+     background: linear-gradient(-45deg, #0e53c2, #902465);
+    background-size: 400% 400%;
+    padding: 10px;
+    border-radius: 20px;
+    color: #fff;
 }
 .waves_pro {
     position: relative;
@@ -498,7 +509,7 @@ body {
     position: absolute;
     transform: rotateZ(20deg);
     z-index: 5;
-    animation: slide 2s linear infinite 1s;
+    animation: slide 2s linear infinite 1.3s;
     background: -moz-linear-gradient(left, rgba(255, 255, 255, 0) 0%, rgba(255, 255, 255, 0.8) 50%, rgba(128, 186, 232, 0) 99%, rgba(125, 185, 232, 0) 100%);
     background: -webkit-gradient(linear, left top, right top, color-stop(0%, rgba(255, 255, 255, 0)), color-stop(50%, rgba(255, 255, 255, 0.8)), color-stop(99%, rgba(128, 186, 232, 0)), color-stop(100%, rgba(125, 185, 232, 0)));
     background: -webkit-linear-gradient(left, rgba(255, 255, 255, 0) 0%, rgba(255, 255, 255, 0.8) 50%, rgba(128, 186, 232, 0) 99%, rgba(125, 185, 232, 0) 100%);
@@ -516,7 +527,7 @@ body {
     position: absolute;
     transform: rotateZ(20deg);
     z-index: 5;
-    animation: slide 2s linear infinite 2s;
+    animation: slide 2s linear infinite 2.6s;
     background: -moz-linear-gradient(left, rgba(255, 255, 255, 0) 0%, rgba(255, 255, 255, 0.8) 50%, rgba(128, 186, 232, 0) 99%, rgba(125, 185, 232, 0) 100%);
     background: -webkit-gradient(linear, left top, right top, color-stop(0%, rgba(255, 255, 255, 0)), color-stop(50%, rgba(255, 255, 255, 0.8)), color-stop(99%, rgba(128, 186, 232, 0)), color-stop(100%, rgba(125, 185, 232, 0)));
     background: -webkit-linear-gradient(left, rgba(255, 255, 255, 0) 0%, rgba(255, 255, 255, 0.8) 50%, rgba(128, 186, 232, 0) 99%, rgba(125, 185, 232, 0) 100%);
@@ -550,7 +561,9 @@ body {
     border-radius: 0 50px 50px 0;
     border-left: 0.4vh solid #ee2981;
 }
-.mar5.flex h2 {}
+ .task_wrapper p{
+        text-align: left;
+    }
 .task_filter {
     position: relative;
     border: 1px solid rgba(255, 255, 255, .1);
@@ -817,27 +830,18 @@ body {
     box-sizing: border-box;
 }
 .logo_auth_img {
-    position: relative;
-    top: 10vh;
+    margin:30% auto 10% auto;
 }
 .logo_auth_img img {
-    width: 28vh;
     height: 20vh;
 }
 .auth_wrapper button {
     border: none;
     outline: none;
-    background: rgb(142, 47, 180);
-    background: -moz-linear-gradient(left, rgba(142, 47, 180, 1) 0%, rgba(249, 42, 135, 1) 100%);
-    background: -webkit-linear-gradient(left, rgba(142, 47, 180, 1) 0%, rgba(249, 42, 135, 1) 100%);
-    background: linear-gradient(to right, rgba(142, 47, 180, 1) 0%, rgba(249, 42, 135, 1) 100%);
-    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#8e2fb4', endColorstr='#f92a87', GradientType=1);
-    border-radius: 20px;
     width: 200px;
     padding: 10px;
 }
 .auth_form {
-    top: 15vh;
     position: relative;
 }
 .input__field {
@@ -1096,6 +1100,10 @@ input:-webkit-autofill, input:-webkit-autofill:hover, input:-webkit-autofill:foc
     background: url(../img/1.png);
     background-size: cover;
 }
+.l_p.ng-enter{
+    animation: unshift .5s linear;
+}
+
 .was_liked {
     animation: was_liked 1s linear infinite;
 }
@@ -1202,10 +1210,7 @@ input:-webkit-autofill, input:-webkit-autofill:hover, input:-webkit-autofill:foc
     left: calc(50% - 52px);
     top: -20px;
 }
-.about_lesson {
-    line-height: 30px;
-    letter-spacing: .5px;
-}
+
 .lesson_img {
     width: 100vw;
 }
@@ -1285,6 +1290,9 @@ input:-webkit-autofill, input:-webkit-autofill:hover, input:-webkit-autofill:foc
 /*----------------------------------------------------------------------------------------------------*/
 
 @media screen and (orientation:landscape) and (max-height: 1000px) {
+    .logo_auth_img{
+            margin: 10% auto 10% auto
+    }
     .modal_cant_add_task .getpro .stars_pro {
     width: 17%;
     top: 28%;
@@ -1321,7 +1329,6 @@ input:-webkit-autofill, input:-webkit-autofill:hover, input:-webkit-autofill:foc
         height: 100vh;
     }
     .logo_auth_img img {
-        width: 56vh;
         height: 40vh;
     }
     .auth_wrapper #heart {
@@ -1380,7 +1387,7 @@ input:-webkit-autofill, input:-webkit-autofill:hover, input:-webkit-autofill:foc
     .info_wrapper {
         background: url(../img/info_bg.png) no-repeat;
     }
-    .task_wrapper {}
+   
     .licens {
         bottom: -30vh;
     }

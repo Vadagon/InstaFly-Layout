@@ -1,6 +1,6 @@
 let storage = window.localStorage;
 console.log(storage)
-let payed = 0;
+let payed = 1;
 let pro_stor = storage.getItem('pro');
 if (payed == 1) {
     pro_stor = "pro.html";
@@ -33,15 +33,16 @@ app.config(($routeProvider) => {
         templateUrl: "settings.html",
     }).when("/list_lessons", {
         templateUrl: "list_lessons.html",
+    }).when("/privacy_policy", {
+        templateUrl: "privacy_policy.html",
     }).otherwise({
         redirectTo: '/'
     });
 });
 app.run(($rootScope) => {
-    $rootScope.APPNAME = "Instafly";
+    $rootScope.APPNAME = "InstaFly";
     $rootScope.status1 = "sleeping";
     $rootScope.select_names = ["Like by hashtags", "Like my feed", "Like by locations", "Like user's followers", "Like user's followings"];
-    
     $rootScope.tasks_count = 1;
     $rootScope.liked = 495;
     $rootScope.max_likes_per_day = 500;
@@ -110,6 +111,18 @@ app.controller('settingsCtrl', function($scope, $rootScope) {});
 app.controller('likedCtrl', function($scope, $rootScope) {
     let d = new Date(new Date().toString().split('GMT')[0] + ' UTC').toISOString().split('.')[0].replace('T', ' ');
     $scope.d = d;
+    $scope.count = 0;
+    $scope.liked_photos = [0];
+
+        setInterval(() => {
+        $scope.count++;
+
+        $scope.liked_photos.unshift($scope.count)
+
+       console.log($scope.liked_photos[0])
+    }, 3000);
+
+
 });
 app.controller('authCtrl', function($scope, $rootScope) {
     console.log($scope.pass)

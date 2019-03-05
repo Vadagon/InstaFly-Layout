@@ -53,6 +53,12 @@ text-align: right;
     justify-content: space-between;
     align-items: stretch;
 }
+.F_RSC{
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: flex-start;
+    align-items: center;
+}
 .F_RAC{
     display: flex;
     flex-flow: row;
@@ -97,6 +103,10 @@ text-align: right;
 
 .fcl_w {
     color: #fff;
+}
+
+.br_r20{
+    border-radius: 20px;
 }
 /*------------font-size-----------------*/
 

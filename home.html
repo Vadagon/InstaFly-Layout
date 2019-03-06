@@ -1,0 +1,201 @@
+<div class="page">
+  <div class="header_wrapper">
+    <div class="header">
+      <a href="#!logo">
+        <img alt="" class="info " src="assets/img/indicator.png">
+
+      </a>
+      <div class="logo_wrapper r">
+        <img alt="logo" class="logo_img" src="assets/img/logo.png">
+        <!-- <div id="heart"></div>   -->
+
+      </div>
+      <a href="#!info">
+        <div class="F_CCC info_button">
+          <div class="dot_info"></div>
+          <div class="dot_info"></div>
+          <div class="dot_info"></div>
+        </div>
+
+      </a>
+    </div>
+  </div>
+  <div class="progress">
+    <div class="progress_bar" style="width:{{liked/(max_likes_per_day/5)*100/5}}%; height: 100%">
+      <div class="progress_bar_animation">
+      </div>
+    </div>
+  </div>
+</div>
+<div class="index_wrapper F_RBS">
+  <div class="status_wrapper">
+    <div class="status pad10">
+      <div class=" w70 r fcl_w fvh1_5_3 ta_c" ng-class="{'was_liked':status = 'sleeping'}">
+        {{status1}}
+      </div>
+      <div class=" r F_RCC fcl_w fvh2_4 ta_c o_h">
+        Likes made today: <div class="r in_block"><span ng-class="{true:'translate25px', false:'translate0px' }[liked == liked1%2*liked1]" class="number_animation">{{liked}}</span></div> of {{max_likes_per_day}}
+
+      </div>
+    </div>
+    <div class="flex  ">
+      <a class="getpro_wrapper mar10 marb30" href="#!card">
+        <div class="getpro gradient_purple fcl_w pad15 ">
+          <!-- <img src="assets/img/pro.png" class="pro_img " alt="">
+               <-->
+          <div class="wave_bg"></div>
+
+          <img alt="" class="stars_pro" src="assets/img/stars.png">
+          <img alt="" class="cup_pro" src="assets/img/cup.png">
+          <div class="wawe_bg">
+          </div>
+          <!--  <h1 class="r fvh5_10">50%</h1>
+              <h3 class="r fvh2_4">GO PRO account</h3> -->
+
+
+        </div>
+        <span class="pro_go pulse">
+          GO PRO
+        </span>
+      </a>
+      <div class="task_wrapper ">
+        <div class="tasc_block" ng-repeat="i in data.tasks">
+          <div class="edit_task">
+            <label for="s1" class="edit_wrapper F_CAC">
+
+              <div class="hash">
+              </div>
+
+              <div class="onoffswitch">
+                <input class="onoffswitch-checkbox" id="s1" name="onoffswitch" ng-checked="i.isEnabled" type="checkbox">
+                <label class="onoffswitch-label" for="s1">
+                  <span class="onoffswitch-inner">
+                  </span>
+                  <span class="onoffswitch-switch">
+                  </span>
+                </label>
+
+              </div>
+            </label>
+          </div>
+          <a href="#!edit">
+            <div class="info_task fcl_w">
+              <h2 class="fvh2_4 pad10 padb0">
+                {{i.type}}
+              </h2>
+              <p class="fvh1_5_3 ta_l pad10 nls padt5">
+                {{i.textarea}}
+                <br>
+                advanced settings:pro version only
+              </p>
+            </div>
+          </a>
+        </div>
+        <!-- <div class="tasc_block ">
+                  <div class="edit_task">
+                      <div class="edit_wrapper F_CAC">
+                          <a href="#!edit">
+                              <div class="hash">
+                              </div>
+                          </a>
+                          <div class="onoffswitch">
+                              <input class="onoffswitch-checkbox" id="s2" name="onoffswitch" ng-checked="true" type="checkbox">
+                                  <label class="onoffswitch-label" for="s2">
+                                      <span class="onoffswitch-inner">
+                                      </span>
+                                      <span class="onoffswitch-switch">
+                                      </span>
+                                  </label>
+
+                          </div>
+                      </div>
+                  </div>
+                  <div class="info_task fcl_w">
+                      <h2 class="fvh2_4 pad10 padb0">
+                          #instagram
+                      </h2>
+                      <p class="fvh1_5_3 pad10 nls padt5">
+                          likes per day: 500/ today:0
+                          <br>
+                              advanced settings:pro version only
+                      </p>
+                  </div>
+              </div>
+              <div class="tasc_block ">
+                  <div class="edit_task">
+                      <div class="edit_wrapper F_CAC">
+                          <a href="#!edit">
+                              <div class="hash">
+                              </div>
+                          </a>
+                          <div class="onoffswitch">
+                              <input class="onoffswitch-checkbox" id="s3" name="onoffswitch" ng-checked="true" type="checkbox">
+                                  <label class="onoffswitch-label" for="s3">
+                                      <span class="onoffswitch-inner">
+                                      </span>
+                                      <span class="onoffswitch-switch">
+                                      </span>
+                                  </label>
+
+                          </div>
+                      </div>
+                  </div>
+                  <div class="info_task fcl_w">
+                      <h2 class="fvh2_4 pad10 padb0">
+                          #instagram
+                      </h2>
+                      <p class="fvh1_5_3 pad10 nls padt5">
+                          likes per day: 500/ today:0
+                          <br>
+                              advanced settings:pro version only
+                          </br>
+                      </p>
+                  </div>
+              </div> -->
+
+      </div>
+
+    </div>
+  </div>
+  <div class="modal_cant_add_task fcl_w F_CCC" ng-hide="!modal_cant_add_task" ng-click="modal_cant_add_task = !modal_cant_add_task">
+    <h1 class="ta_c pad10 fvh5_10">You cant add more tasks</h1>
+    <a class="getpro_wrapper mar10 mart30 w90" href="#!card">
+      <div class="getpro gradient_purple fcl_w pad15 ">
+        <!-- <img src="assets/img/pro.png" class="pro_img " alt="">
+               <-->
+        <div class="wave_bg"></div>
+
+        <img alt="" class="stars_pro" src="assets/img/stars.png">
+        <img alt="" class="cup_pro" src="assets/img/cup.png">
+        <div class="wawe_bg">
+        </div>
+        <!--  <h1 class="r fvh5_10">50%</h1>
+              <h3 class="r fvh2_4">GO PRO account</h3> -->
+
+
+      </div>
+      <span class="pro_go pulse">
+        GO PRO
+      </span>
+    </a>
+    <div class="close">
+      <div class="close_img"></div>
+    </div>
+  </div>
+  <a ng-click="modal_cant_add_task = !modal_cant_add_task" ng-if="data.tasks.length">
+    <div class="add_btn disabled F_RCC mar10">
+      <img alt="" class="info ico_plus" src="assets/img/plus.png">
+      <span class="fcl_w fvh2_4 marl10">
+        CANT ADD TASK
+      </span>
+    </div>
+  </a>
+  <a ng-if="!data.tasks.length" ng-click="taskFunc('add')">
+    <div class="add_btn  F_RCC mar10  ">
+      <img alt="" class="info ico_plus" src="assets/img/plus.png">
+      <span class="fcl_w fvh2_4 marl10">
+        ADD TASK
+      </span>
+    </div>
+  </a>
+</div>

@@ -6,7 +6,7 @@ if (payed == 1) {
     pro_stor = "pro.html";
     storage.setItem('pro', 'pro.html')
 } else {
-    pro_stor = "index.html";
+    pro_stor = "home.html";
 }
 let app = angular.module("Routing", ["ngRoute", 'ngAnimate']);
 //Routing
@@ -68,8 +68,117 @@ app.run(($rootScope) => {
              $rootScope.count_less = $rootScope.count_less.slice(1)
 console.log($rootScope.count_less)
         }
-       
+
     })
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    $rootScope.data = {
+        tasks: [],
+        feed: [],
+        status: 'Sleeping'
+    }
+    var blankTask = {
+        isEnabled: !0,
+        type: 'hashtag',
+        textarea: ''
+    }
+    $rootScope.window = window;
+    $rootScope.document = document;
+    $rootScope.ap = {
+        showError1: !1,
+        showError2: !1,
+        showError3: !1,
+        taskFunc: 'add'
+    };
+    $rootScope.newTask = blankTask;
+
+
+    $rootScope.taskFunc = function(e){
+        $rootScope.ap.taskFunc = e;
+        if(e !== 'add'){
+          console.log($rootScope.ap.taskFunc);
+          $rootScope.newTask = angular.copy($rootScope.data.tasks[$rootScope.ap.taskFunc])
+          console.log($rootScope.newTask);
+        }else{
+          $rootScope.newTask = angular.copy(blankTask)
+        }
+        window.location.href = '#!edit';
+    }
+
+    $rootScope.get = function(cb){
+        chrome.runtime.sendMessage({why: "getData"}, function(response) {
+            if(!cb){
+                console.log(response)
+                $rootScope.data = response;
+                $rootScope.data.feed = $rootScope.data.feed.reverse();
+                if(!$rootScope.data.tasks.length) window.location.href = '#!task';
+                $rootScope.$apply();
+                $($rootScope.data.user.form).insertAfter('.main_container').css('display', 'none').attr('target', '_blank')
+            }else{
+                cb(response)
+            }
+        });
+    }
+    // $rootScope.get();
+    $rootScope.save = function(){
+        if($rootScope.ap.taskFunc == 'add'){
+            $rootScope.data.tasks.push(angular.copy($rootScope.newTask))
+        }else{
+            $rootScope.data.tasks[$rootScope.ap.taskFunc] = angular.copy($rootScope.newTask);
+        }
+        $rootScope.newTask = blankTask;
+        chrome.runtime.sendMessage({why: "setData", data: angular.copy($rootScope.data)});
+        window.location.href = '#!home';
+    }
+    $rootScope.cancel = function(){
+      $rootScope.newTask = blankTask;
+      window.location.href = '#!home';
+    }
+
+
+    $rootScope.pay = function(){
+        chrome.runtime.sendMessage({why: "popup", what: 'clicked on payement button'}, function(){
+          $('form').submit();
+        });
+    }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    $rootScope.goBack = function goBack() {
+        // window.history.back();
+        window.location.href = '#!home';
+    }
 
 })
 app.controller('indexCtrl', function($scope, $rootScope) {});
@@ -137,7 +246,3 @@ app.controller('authCtrl', function($scope, $rootScope) {
         }
     })
 });
-
-function goBack() {
-    window.history.back();
-}

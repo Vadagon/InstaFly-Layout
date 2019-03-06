@@ -1,9 +1,9 @@
 <div class="edit_wrapper" ng-controller="editCtrl">
     <div class="header_wrapper">
         <div class="header">
-            <a onclick="goBack()">
+            <a ng-click="goBack()">
                 <img alt="" class="info " src="assets/img/back.png">
-              
+
             </a>
             <div class="onoffswitch">
                 <input ng-checked="false" class="onoffswitch-checkbox" id="myonoffswitch" name="onoffswitch" type="checkbox">
@@ -13,7 +13,7 @@
                         <span class="onoffswitch-switch">
                         </span>
                     </label>
-                
+
             </div>
         </div>
         <div class="mar5 flex">
@@ -30,8 +30,8 @@
     </div>
     <div class="content">
         <div class="flex">
-            
-        
+
+
     <h2  class="w70 mart15 fcl_w fvh2_4 " id="filter" >Filter:</h2>
     <div class="select   fvh3_6" ng-click="options_val = !options_val; selected1 = !selected1">
         {{selected_option}}
@@ -46,9 +46,9 @@
             <img alt="ellipse1" class="ellipse_img" ng-class="{'ellipse_img_selected':selected1 == true}" src="assets/img/ellipse1.png">
                 <img alt="ellipse2" class="ellipse2_img" src="assets/img/ellipse2.png">
                     <img alt="arrow" class="arrow_img" ng-class="{'arrow_img_reverse':selected1 == true}" src="assets/img/arrow.png">
-                  
-              
-          
+
+
+
         </div>
     </div>
 
@@ -57,8 +57,8 @@
         <textarea class="fcl_w"  name="hash" id="edit_hash" cols="30" rows="10" placeholder="#swag #instalike #igers #tbt #picoftheday #follow4follow
 #instatag #l4l #beautiful #likeforlike#me #love #instaday
 #me #love #instadaily #selfie #photooftheday#summer
- #swag #instalike #igers #tbt #picoftheday #follow4follow 
-#like4like #follow #instagood #amazing #cute #friends 
+ #swag #instalike #igers #tbt #picoftheday #follow4follow
+#like4like #follow #instagood #amazing #cute #friends
 #swag #instalike #igers #tbt #picoftheday #follow4follow "></textarea>
 </div>
 </div>
@@ -69,7 +69,7 @@
             <div class="btn ta_c hover_btn_pulse active_btn_pulse fvh3_6 fcl_w txta_c">
                 Save
             </div>
-            <div class="btn ta_c hover_btn_pulse active_btn_pulse fvh3_6 fcl_w txta_c"><a onclick="goBack()">
+            <div class="btn ta_c hover_btn_pulse active_btn_pulse fvh3_6 fcl_w txta_c"><a ng-click="goBack()">
                 Cancel</a>
             </div>
         </div>

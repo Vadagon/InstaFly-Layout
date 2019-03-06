@@ -35,6 +35,9 @@ body {
 .r{
     position: relative;
 }
+.a{
+    position: absolute;
+}
 .nls{
     letter-spacing: normal;
 }

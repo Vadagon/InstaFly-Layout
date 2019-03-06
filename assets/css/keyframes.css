@@ -290,11 +290,41 @@
   } 
 }
 
+@keyframes bounceIn{
+  0%{
+    opacity: 0;
+    transform: scale(0.3) translate3d(0,0,0);
+  }
+  50%{
+    opacity: 0.9;
+    transform: scale(1.1);
+  }
+  80%{
+    opacity: 1;
+    transform: scale(0.89);
+  }
+  100%{
+    opacity: 1;
+    transform: scale(1) translate3d(0,0,0);
+  }
+}
+
 @keyframes unshift {
     0% {
-       transform: translateX(-200px);
+      margin-left:  -100px;
     }
     100% {
-        transform: translateX(0px);
+        margin:5px;
+    }
+}
+
+@keyframes unshift_fifth {
+   0% {
+
+      margin-right: -25%;
+    }
+    100% {
+        margin-left: 5px;
+      margin-top: 5px;
     }
 }

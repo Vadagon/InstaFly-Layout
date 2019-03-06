@@ -26,8 +26,8 @@ Liker has a built-in pornspam detection mechanism
     <h3 class="fvh1_5_3 marb10 ta_c">
         {{d}}
     </h3>
-    <div class="F_RSC">
-        <div ng-repeat="x in liked_photos" class="l_p r">
+    <div class="F_RSC r liked_photos_block">
+        <div ng-repeat="x in liked_photos" ng-class="{'reverse_img':(count%5 == 0)-1}"  class="l_p ">
         </div>
         
     </div>

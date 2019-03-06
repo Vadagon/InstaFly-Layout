@@ -116,10 +116,10 @@ app.controller('likedCtrl', function($scope, $rootScope) {
 
         setInterval(() => {
         $scope.count++;
-
+        $scope.count1 = 0;
+        $scope.count1 += $scope.count;
         $scope.liked_photos.unshift($scope.count)
-
-       console.log($scope.liked_photos[0])
+        
     }, 3000);
 
 

@@ -1097,12 +1097,25 @@ input:-webkit-autofill, input:-webkit-autofill:hover, input:-webkit-autofill:foc
     width: 22vw;
     height: 100px;
     margin: 5px;
-    background: url(../img/1.png);
+    background: /*url(../img/1.png)*/ red;
     background-size: cover;
+    transition: all .5s linear;
 }
-.l_p.ng-enter{
-    animation: unshift .5s linear;
+/*.reverse_img{
+    transform: rotateZ(45deg);
+}*/
+.l_p:first-child{
+    animation:  unshift .5s linear;
+    background-color: white;
+
 }
+
+.l_p:nth-child(4n+5){
+    background-color: blue;
+    animation:  unshift_fifth .5s linear;
+    
+}
+
 
 .was_liked {
     animation: was_liked 1s linear infinite;

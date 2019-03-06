@@ -41,6 +41,14 @@ p{
     width: 100%;
     align-items: center;
 }
+.welcome_block{
+        background: #1b232c;
+    padding: 30px 20px;
+    width: 95%;
+    margin: 0 auto;
+    box-sizing: border-box;
+
+}
 #enable_disable {
     background: #121921;
     width: 100%;

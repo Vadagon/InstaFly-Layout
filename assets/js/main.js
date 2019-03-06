@@ -1,6 +1,6 @@
 let storage = window.localStorage;
 console.log(storage)
-let payed = 1;
+let payed = 0;
 let pro_stor = storage.getItem('pro');
 if (payed == 1) {
     pro_stor = "pro.html";
@@ -35,10 +35,13 @@ app.config(($routeProvider) => {
         templateUrl: "list_lessons.html",
     }).when("/privacy_policy", {
         templateUrl: "privacy_policy.html",
+    }).when("/welcome", {
+        templateUrl: "welcome.html",
     }).otherwise({
         redirectTo: '/'
     });
 });
+
 app.run(($rootScope) => {
     $rootScope.APPNAME = "InstaFly";
     $rootScope.status1 = "sleeping";
@@ -119,7 +122,7 @@ app.controller('likedCtrl', function($scope, $rootScope) {
         $scope.count1 = 0;
         $scope.count1 += $scope.count;
         $scope.liked_photos.unshift($scope.count)
-        
+
     }, 3000);
 
 

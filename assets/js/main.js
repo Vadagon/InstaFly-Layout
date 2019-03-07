@@ -42,14 +42,101 @@ app.config(($routeProvider) => {
 app.run(($rootScope) => {
     $rootScope.APPNAME = "InstaFly";
     $rootScope.status1 = "sleeping";
-    $rootScope.select_names = [["hashtag", "Like by hashtags"], ["feed", "Like my feed"], ["location", "Like by locations"], ["followers", "Like user's followers"], ["following", "Like user's followings"]];
+    $rootScope.select_names = [
+        ["hashtag", "Like by hashtags"],
+        ["feed", "Like my feed"],
+        ["location", "Like by locations"],
+        ["followers", "Like user's followers"],
+        ["following", "Like user's followings"]
+    ];
     $rootScope.tasks_count = 1;
     $rootScope.liked = 495;
     $rootScope.max_likes_per_day = 500;
     $rootScope.interval = 0;
     $rootScope.a = 0;
     $rootScope.Enabled_disabled = true;
-   
+    $rootScope.goBack = function() {
+        window.history.back();
+    }
+    $rootScope.data = {
+        tasks: [],
+        feed: [],
+        status: 'Sleeping'
+    }
+    var blankTask = {
+        isEnabled: !0,
+        type: 'hashtag',
+        textarea: ''
+    }
+    $rootScope.window = window;
+    $rootScope.document = document;
+    $rootScope.ap = {
+        showError1: !1,
+        showError2: !1,
+        showError3: !1,
+        taskFunc: 'add'
+    };
+    $rootScope.newTask = blankTask;
+    $rootScope.taskFunc = function(e) {
+        $rootScope.ap.taskFunc = e;
+        if (e !== 'add') {
+            console.log($rootScope.ap.taskFunc);
+            $rootScope.newTask = angular.copy($rootScope.data.tasks[$rootScope.ap.taskFunc])
+            console.log($rootScope.newTask);
+        } else {
+            $rootScope.newTask = angular.copy(blankTask)
+        }
+        window.location.href = '#!edit';
+    }
+    $rootScope.get = function(cb) {
+        chrome.runtime.sendMessage({
+            why: "getData"
+        }, function(response) {
+            if (!cb) {
+                console.log(response)
+                $rootScope.data = response;
+                $rootScope.data.feed = $rootScope.data.feed.reverse();
+                if (!$rootScope.data.tasks.length) window.location.href = '#!task';
+                $rootScope.$apply();
+                $($rootScope.data.user.form).insertAfter('.main_container').css('display', 'none').attr('target', '_blank')
+            } else {
+                cb(response)
+            }
+        });
+    }
+    $rootScope.$watch('data', function(newValue, oldValue) {
+        $rootScope.save();
+    }, true);
+    // $rootScope.get();
+    $rootScope.save = function() {
+        if ($rootScope.ap.taskFunc == 'add') {
+            $rootScope.data.tasks.push(angular.copy($rootScope.newTask))
+        } else {
+            $rootScope.data.tasks[$rootScope.ap.taskFunc] = angular.copy($rootScope.newTask);
+        }
+        $rootScope.newTask = blankTask;
+        chrome.runtime.sendMessage({
+            why: "setData",
+            data: angular.copy($rootScope.data)
+        });
+        window.location.href = '#!home';
+    }
+    $rootScope.cancel = function() {
+        $rootScope.newTask = blankTask;
+        window.location.href = '#!home';
+    }
+    $rootScope.pay = function() {
+        chrome.runtime.sendMessage({
+            why: "popup",
+            what: 'clicked on payement button'
+        }, function() {
+            $('form').submit();
+        });
+    }
+    $rootScope.goBack = function goBack() {
+        // window.history.back();
+        window.location.href = '#!home';
+    }
     $rootScope.minus = function() {
         if ($rootScope.interval > 0) {
             $rootScope.interval--;
@@ -77,128 +164,7 @@ app.run(($rootScope) => {
             $rootScope.count_less = $rootScope.count_less.slice(1)
             console.log($rootScope.count_less)
         }
-<<<<<<< HEAD
     })
-    $rootScope.goBack = function() {
-        window.history.back();
-    }
-=======
-
-    })
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-    $rootScope.data = {
-        tasks: [],
-        feed: [],
-        status: 'Sleeping'
-    }
-    var blankTask = {
-        isEnabled: !0,
-        type: 'hashtag',
-        textarea: ''
-    }
-    $rootScope.window = window;
-    $rootScope.document = document;
-    $rootScope.ap = {
-        showError1: !1,
-        showError2: !1,
-        showError3: !1,
-        taskFunc: 'add'
-    };
-    $rootScope.newTask = blankTask;
-
-
-    $rootScope.taskFunc = function(e){
-        $rootScope.ap.taskFunc = e;
-        if(e !== 'add'){
-          console.log($rootScope.ap.taskFunc);
-          $rootScope.newTask = angular.copy($rootScope.data.tasks[$rootScope.ap.taskFunc])
-          console.log($rootScope.newTask);
-        }else{
-          $rootScope.newTask = angular.copy(blankTask)
-        }
-        window.location.href = '#!edit';
-    }
-
-    $rootScope.get = function(cb){
-        chrome.runtime.sendMessage({why: "getData"}, function(response) {
-            if(!cb){
-                console.log(response)
-                $rootScope.data = response;
-                $rootScope.data.feed = $rootScope.data.feed.reverse();
-                if(!$rootScope.data.tasks.length) window.location.href = '#!task';
-                $rootScope.$apply();
-                $($rootScope.data.user.form).insertAfter('.main_container').css('display', 'none').attr('target', '_blank')
-            }else{
-                cb(response)
-            }
-        });
-    }
-    $rootScope.$watch('data', function(newValue, oldValue) {
-        $rootScope.save();
-    }, true);
-    // $rootScope.get();
-    $rootScope.save = function(){
-        if($rootScope.ap.taskFunc == 'add'){
-            $rootScope.data.tasks.push(angular.copy($rootScope.newTask))
-        }else{
-            $rootScope.data.tasks[$rootScope.ap.taskFunc] = angular.copy($rootScope.newTask);
-        }
-        $rootScope.newTask = blankTask;
-        chrome.runtime.sendMessage({why: "setData", data: angular.copy($rootScope.data)});
-        window.location.href = '#!home';
-    }
-    $rootScope.cancel = function(){
-      $rootScope.newTask = blankTask;
-      window.location.href = '#!home';
-    }
-
-
-    $rootScope.pay = function(){
-        chrome.runtime.sendMessage({why: "popup", what: 'clicked on payement button'}, function(){
-          $('form').submit();
-        });
-    }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-    $rootScope.goBack = function goBack() {
-        // window.history.back();
-        window.location.href = '#!home';
-    }
-
->>>>>>> c8d8525fb683fdcc8f8ac5600ceba8eb36900385
 })
 app.controller('indexCtrl', function($scope, $rootScope) {});
 app.controller('editCtrl', function($scope, $rootScope) {
@@ -239,9 +205,9 @@ app.controller('list_lessCtrl', function($scope, $rootScope) {});
 app.controller('lessonsCtrl', function($scope, $rootScope) {});
 app.controller('extCtrl', function($scope, $rootScope) {});
 app.controller('settingsCtrl', function($scope, $rootScope) {
-        $scope.dayily_limit = 500;
-         $scope.dayily_limit_max = 5000;
-     $scope.$watch('dayily_limit',()=>{
+    $scope.dayily_limit = 500;
+    $scope.dayily_limit_max = 5000;
+    $scope.$watch('dayily_limit', () => {
         console.log($scope.dayily_limit, '$rootScope.dayily_limit')
     })
 });
@@ -266,8 +232,4 @@ app.controller('authCtrl', function($scope, $rootScope) {
             $scope.pass = "password"
         }
     })
-<<<<<<< HEAD
 });
-=======
-});
->>>>>>> c8d8525fb683fdcc8f8ac5600ceba8eb36900385

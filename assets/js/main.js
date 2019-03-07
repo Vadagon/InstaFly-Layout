@@ -1,6 +1,6 @@
 let storage = window.localStorage;
 console.log(storage)
-let payed = 0;
+let payed = 1;
 let pro_stor = storage.getItem('pro');
 if (payed == 1) {
     pro_stor = "pro.html";
@@ -33,15 +33,12 @@ app.config(($routeProvider) => {
         templateUrl: "settings.html",
     }).when("/list_lessons", {
         templateUrl: "list_lessons.html",
-    }).when("/privacy_policy", {
-        templateUrl: "privacy_policy.html",
     }).when("/welcome", {
         templateUrl: "welcome.html",
     }).otherwise({
         redirectTo: '/'
     });
 });
-
 app.run(($rootScope) => {
     $rootScope.APPNAME = "InstaFly";
     $rootScope.status1 = "sleeping";
@@ -49,6 +46,18 @@ app.run(($rootScope) => {
     $rootScope.tasks_count = 1;
     $rootScope.liked = 495;
     $rootScope.max_likes_per_day = 500;
+    $rootScope.interval = 0;
+    $rootScope.a = 0;
+    $rootScope.Enabled_disabled = true;
+   
+    $rootScope.minus = function() {
+        if ($rootScope.interval > 0) {
+            $rootScope.interval--;
+        }
+    }
+    $rootScope.plus = function() {
+        $rootScope.interval++;
+    }
     setInterval(() => {
         if (Number($rootScope.liked) < Number($rootScope.max_likes_per_day)) {
             $rootScope.$apply(() => {
@@ -65,12 +74,13 @@ app.run(($rootScope) => {
     $rootScope.$on('$routeChangeStart', function(event, current, next, previous, reject) {
         $rootScope.count_less = arguments[1].params.count_less;
         if ($rootScope.count_less != undefined) {
-             $rootScope.count_less = $rootScope.count_less.slice(1)
-console.log($rootScope.count_less)
+            $rootScope.count_less = $rootScope.count_less.slice(1)
+            console.log($rootScope.count_less)
         }
-       
     })
-
+    $rootScope.goBack = function() {
+        window.history.back();
+    }
 })
 app.controller('indexCtrl', function($scope, $rootScope) {});
 app.controller('editCtrl', function($scope, $rootScope) {
@@ -110,22 +120,24 @@ app.controller('proCtrl', function($scope, $rootScope) {});
 app.controller('list_lessCtrl', function($scope, $rootScope) {});
 app.controller('lessonsCtrl', function($scope, $rootScope) {});
 app.controller('extCtrl', function($scope, $rootScope) {});
-app.controller('settingsCtrl', function($scope, $rootScope) {});
+app.controller('settingsCtrl', function($scope, $rootScope) {
+        $scope.dayily_limit = 500;
+         $scope.dayily_limit_max = 5000;
+     $scope.$watch('dayily_limit',()=>{
+        console.log($scope.dayily_limit, '$rootScope.dayily_limit')
+    })
+});
 app.controller('likedCtrl', function($scope, $rootScope) {
     let d = new Date(new Date().toString().split('GMT')[0] + ' UTC').toISOString().split('.')[0].replace('T', ' ');
     $scope.d = d;
     $scope.count = 0;
     $scope.liked_photos = [0];
-
-        setInterval(() => {
+    setInterval(() => {
         $scope.count++;
         $scope.count1 = 0;
         $scope.count1 += $scope.count;
         $scope.liked_photos.unshift($scope.count)
-
     }, 3000);
-
-
 });
 app.controller('authCtrl', function($scope, $rootScope) {
     console.log($scope.pass)
@@ -137,7 +149,3 @@ app.controller('authCtrl', function($scope, $rootScope) {
         }
     })
 });
-
-function goBack() {
-    window.history.back();
-}

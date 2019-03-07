@@ -1,1 +1,59 @@
-settings.html
+<div class="F_RBC ">
+    <a ng-click="goBack()">
+        <img alt="" class="info pad20" src="assets/img/back.png">
+        
+    </a>
+    <h1 class="fcl_w fvh4_8">
+        Settings
+    </h1>
+    <div class="pad30">
+    </div>
+</div>
+<div class="settings_wrapper" ng-controller="settingsCtrl">
+    <div class=" mart20 ta_c fcl_w welcome_block F_RBC">
+        <h2 class="fvh3_6">
+            Interval spacing
+        </h2>
+        <div class="interval_svaper pad10 F_RBC">
+            <div class="minus_interval" ng-click="minus()">
+            </div>
+            <span class="fvh2_4 marl5 marr5 ta_c fcl_w">
+                {{interval}}
+            </span>
+            <div class="plus_interval" ng-click="plus()">
+            </div>
+        </div>
+    </div>
+    <div class=" mart20 ta_c fcl_w welcome_block F_RBC">
+            <span class="fvh3_6" ng-if="Enabled_disabled == true">
+                Enabled
+            </span>
+            <span  class="fvh3_6" ng-if="Enabled_disabled == false">
+                Disabled
+            </span>
+        <div class="onoffswitch">
+            <input class="onoffswitch-checkbox" id="s2" name="onoffswitch" ng-checked="Enabled_disabled" ng-model="Enabled_disabled" type="checkbox">
+                <label class="onoffswitch-label" for="s2">
+                    <span class="onoffswitch-inner">
+                    </span>
+                    <span class="onoffswitch-switch">
+                    </span>
+                </label>
+        </div>
+    </div>
+    <div class="fvh2_4 mart20 ta_c fcl_w welcome_block F_RBC">
+        <span class="fvh3_6">
+            Dayily limit
+        </span>
+       
+        <div class="slider">
+        	<div class="range r">
+        		 <span class="a tooltip fvh1_5_3 " style="top: -25px; left: calc({{dayily_limit/90}}% + 5% )">{{dayily_limit}}</span>
+            <input type="range" min="{{500}}" max="{{5000}}" ng-value="dayily_limit" ng-model="dayily_limit">
+            </div>
+        </div>
+    </div>
+</div>
+<div class="btn_pulse_bg_wave w50 marb20 ta_c">
+    Save
+</div>

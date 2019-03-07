@@ -30,6 +30,23 @@ p{
     color: #fff;
     letter-spacing: 0;
 }
+::-moz-scrollbar-button:decrement,
+::-moz-scrollbar-button:increment,
+::-webkit-scrollbar-button:decrement,
+::-webkit-scrollbar-button:increment {
+  width: 0px;
+}
+::-webkit-scrollbar-thumb {
+  background: #fa2a87;
+  border-radius: 20px;
+}
+::-webkit-scrollbar-track {
+  background: #ddd;
+  border-radius: 20px;
+}
+::-webkit-scrollbar {
+  width: 10px;
+}
 .page .header_wrapper {
     height: 20vh;
     position: relative;
@@ -61,7 +78,8 @@ p{
 }
 .progress {
     background: #141f28;
-    height: 0.6vh;
+        height: 3.5vh;
+        position: relative;
     width: 100%;
 }
 .index_wrapper {
@@ -342,7 +360,7 @@ p{
     width: 100%;
     border-radius: 10px;
     outline: none;
-    height: 100%;
+    height: 320px;
     background: #121921;
     padding: 15px;
 }
@@ -445,12 +463,8 @@ p{
 .cover {
     display: flex;
     z-index: 3;
-        transform: translateX(181px);
 }
-.atvImg {
-    transform-style: preserve-3d;
-    -webkit-tap-highlight-color: rgba(#000, 0);
-}
+
 .atvImg .img {
     margin: 0 10px;
     position: relative;
@@ -466,14 +480,21 @@ p{
     background: url('../img/card2.png');
     background-repeat: no-repeat;
     background-size: cover;
+    /*animation: card 10.5s linear infinite;*/
+
+
 }
 .atvImg .img:nth-child(1) {
     /*animation: card 6s infinite;*/
-    background-image: url('../img/card.png');
+    /*background-image: url('../img/card.png');*/
+    /*animation: card 10.5s linear infinite ;*/
+
 }
 .atvImg .img:nth-child(3) {
     /*animation: card 6s infinite;*/
     background-image: url('../img/card.png');
+    animation: card 10.5s linear infinite ;
+
 }
 .active_card_wrapper {
     display: flex;
@@ -1331,7 +1352,7 @@ input:-webkit-autofill, input:-webkit-autofill:hover, input:-webkit-autofill:foc
 .plus_interval{
     transform: rotateY(180deg);
 }
-.welcome_block .onoffswitch-inner:before, .onoffswitch-inner:after{
+.welcome_block .onoffswitch-inner:before,.welcome_block .onoffswitch-inner:after{
     font-size: 0;
 }
 .welcome_block .onoffswitch-checkbox:checked+.onoffswitch-label .onoffswitch-switch{
@@ -1592,7 +1613,7 @@ input[type="range"]::-ms-thumb {
         background-size: 17.6vh;
     }
     .progress {
-        height: 1.2vh;
+           height: 7vh;
     }
     .header_wrapper {
         height: 30vh;

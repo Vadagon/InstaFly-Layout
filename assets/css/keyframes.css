@@ -18,6 +18,10 @@
         transform: rotate(360deg);
     }
 }
+@keyframes card {
+  0% {transform:translateX(-200vw) }
+  100% {transform:translateX(150vw) }
+}
 @keyframes slide {
   0% {transform:translateX(0%) rotateZ(20deg);}
   100% {transform:translateX(100vw) rotateZ(20deg);}

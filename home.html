@@ -67,7 +67,7 @@
               </div>
 
               <div class="onoffswitch">
-                <input class="onoffswitch-checkbox" id="s1" name="onoffswitch" ng-checked="i.isEnabled" type="checkbox">
+                <input class="onoffswitch-checkbox" id="s1" name="onoffswitch" ng-model="i.isEnabled" type="checkbox">
                 <label class="onoffswitch-label" for="s1">
                   <span class="onoffswitch-inner">
                   </span>
@@ -78,7 +78,7 @@
               </div>
             </label>
           </div>
-          <a href="#!edit">
+          <a ng-click="taskFunc($index)">
             <div class="info_task fcl_w">
               <h2 class="fvh2_4 pad10 padb0">
                 {{i.type}}
@@ -190,7 +190,7 @@
       </span>
     </div>
   </a>
-  <a ng-if="!data.tasks.length" ng-click="taskFunc('add')">
+  <a ng-if="!data.tasks.length" ng-click="(data.tasks.length > 0 && !data.user.isMember)?ap.showError1 = true:taskFunc('add')">
     <div class="add_btn  F_RCC mar10  ">
       <img alt="" class="info ico_plus" src="assets/img/plus.png">
       <span class="fcl_w fvh2_4 marl10">

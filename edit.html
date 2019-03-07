@@ -6,7 +6,7 @@
 
             </a>
             <div class="onoffswitch">
-                <input ng-checked="false" class="onoffswitch-checkbox" id="myonoffswitch" name="onoffswitch" type="checkbox">
+                <input ng-model="newTask.isEnabled" class="onoffswitch-checkbox" id="myonoffswitch" name="onoffswitch" type="checkbox">
                     <label class="onoffswitch-label" for="myonoffswitch">
                         <span class="onoffswitch-inner">
                         </span>
@@ -34,11 +34,11 @@
 
     <h2  class="w70 mart15 fcl_w fvh2_4 " id="filter" >Filter:</h2>
     <div class="select   fvh3_6" ng-click="options_val = !options_val; selected1 = !selected1">
-        {{selected_option}}
+        {{selected_option[1]}}
         <div class="options " ng-show="options_val">
             <a ng-repeat="x in select_names" >
-                <span ng-click="selected($index)" class="fvh3_6" title="{{select_names[$index]}}">
-                {{select_names[$index]}}
+                <span ng-click="newTask.type = select_names[$index][0]; selected($index)" class="fvh3_6" title="{{select_names[$index][1]}}">
+                {{select_names[$index][1]}}
                  </span>
             </a>
         </div>
@@ -52,24 +52,21 @@
         </div>
     </div>
 
-<div class="task_filter  w80">
+<div class="task_filter  w80" ng-if="(newTask.type == 'hashtag' || newTask.type == 'location')">
     <div class="status_dot" ng-class="active_dot"></div>
-        <textarea class="fcl_w"  name="hash" id="edit_hash" cols="30" rows="10" placeholder="#swag #instalike #igers #tbt #picoftheday #follow4follow
-#instatag #l4l #beautiful #likeforlike#me #love #instaday
-#me #love #instadaily #selfie #photooftheday#summer
- #swag #instalike #igers #tbt #picoftheday #follow4follow
-#like4like #follow #instagood #amazing #cute #friends
-#swag #instalike #igers #tbt #picoftheday #follow4follow "></textarea>
+        <textarea id="edit_hash" cols="30" rows="10" class="fcl_w" ng-if="newTask.type == 'hashtag'" placeholder="#love #instagood #me #cute #tbt #photooftheday #instamood #iphonesia #tweegram #picoftheday #igers #girl #beautiful #instadaily #summer #instagramhub #iphoneonly #follow #igdaily" ng-model="newTask.textarea"></textarea>
+        <textarea id="edit_hash" cols="30" rows="10" class="fcl_w" ng-if="newTask.type == 'location'" placeholder="New York; London; Brazil; Ukraine; Los Angeles; United Kingdom" ng-model="newTask.textarea"></textarea>
+        <!-- <textarea class="fcl_w"  name="hash" id="edit_hash" cols="30" rows="10" placeholder=""></textarea> -->
 </div>
 </div>
 <img alt="points" class="points_img" src="assets/img/points.jpg" width="100%">
 </div>
     <div class="footer">
         <div class="buttons_group F_RCC">
-            <div class="btn ta_c hover_btn_pulse active_btn_pulse fvh3_6 fcl_w txta_c">
+            <div class="btn ta_c hover_btn_pulse active_btn_pulse fvh3_6 fcl_w txta_c" ng-click="save()">
                 Save
             </div>
-            <div class="btn ta_c hover_btn_pulse active_btn_pulse fvh3_6 fcl_w txta_c"><a ng-click="goBack()">
+            <div class="btn ta_c hover_btn_pulse active_btn_pulse fvh3_6 fcl_w txta_c"><a ng-click="cancel()">
                 Cancel</a>
             </div>
         </div>

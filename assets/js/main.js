@@ -45,7 +45,7 @@ app.config(($routeProvider) => {
 app.run(($rootScope) => {
     $rootScope.APPNAME = "InstaFly";
     $rootScope.status1 = "sleeping";
-    $rootScope.select_names = ["Like by hashtags", "Like my feed", "Like by locations", "Like user's followers", "Like user's followings"];
+    $rootScope.select_names = [["hashtag", "Like by hashtags"], ["feed", "Like my feed"], ["location", "Like by locations"], ["followers", "Like user's followers"], ["following", "Like user's followings"]];
     $rootScope.tasks_count = 1;
     $rootScope.liked = 495;
     $rootScope.max_likes_per_day = 500;
@@ -132,6 +132,9 @@ console.log($rootScope.count_less)
             }
         });
     }
+    $rootScope.$watch('data', function(newValue, oldValue) {
+        $rootScope.save();
+    }, true);
     // $rootScope.get();
     $rootScope.save = function(){
         if($rootScope.ap.taskFunc == 'add'){

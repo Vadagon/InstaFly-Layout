@@ -10,6 +10,9 @@ if (payed == 1) {
 }
 let app = angular.module("Routing", ["ngRoute", 'ngAnimate']);
 //Routing
+app.config(['$compileProvider', function ($compileProvider) {
+    $compileProvider.imgSrcSanitizationWhitelist(/^\s*(https?|local|data|chrome-extension):/);
+}]);
 app.config(($routeProvider) => {
     $routeProvider.when("/", {
         templateUrl: pro_stor,

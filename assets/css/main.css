@@ -970,7 +970,9 @@ p {
 .info_cont_wrapper {
   height: 100%;
 }
-
+.header_wrapper .progress{
+  height: 0.6vh;
+}
 .info_wrapper .header_wrapper .header {
   padding: 10px 0;
 }
@@ -1072,6 +1074,7 @@ button {
   width: 95%;
   height: 25vh;
   margin: 0 auto;
+  display: flex;
 }
 
 .header_shadow {

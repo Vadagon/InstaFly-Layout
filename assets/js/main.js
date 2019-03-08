@@ -63,7 +63,7 @@ app.run(($rootScope) => {
         feed: [],
         status: 'Sleeping'
     }
-    var blankTask = {
+    window.blankTask = {
         isEnabled: !0,
         type: 'hashtag',
         textarea: ''
@@ -76,7 +76,7 @@ app.run(($rootScope) => {
         showError3: !1,
         taskFunc: 'add'
     };
-    $rootScope.newTask = blankTask;
+    $rootScope.newTask = window.blankTask;
     $rootScope.taskFunc = function(e) {
         $rootScope.ap.taskFunc = e;
         if (e !== 'add') {
@@ -84,7 +84,7 @@ app.run(($rootScope) => {
             $rootScope.newTask = angular.copy($rootScope.data.tasks[$rootScope.ap.taskFunc])
             console.log($rootScope.newTask);
         } else {
-            $rootScope.newTask = angular.copy(blankTask)
+            $rootScope.newTask = angular.copy(window.blankTask)
         }
         window.location.href = '#!edit';
     }
@@ -105,27 +105,23 @@ app.run(($rootScope) => {
         });
     }
     $rootScope.$watch('data', function(newValue, oldValue) {
-        $rootScope.save(!0);
+        $rootScope.save();
     }, true);
-    // $rootScope.get();
+    $rootScope.get();
+
+    $rootScope.saveTask = function(){
+      if ($rootScope.ap.taskFunc == 'add') {
+        $rootScope.data.tasks.push(angular.copy($rootScope.newTask))
+      } else {
+        $rootScope.data.tasks[$rootScope.ap.taskFunc] = angular.copy($rootScope.newTask);
+      }
+      $rootScope.save();
+    }
     $rootScope.save = function(e) {
-        if (!e) {
-            if ($rootScope.ap.taskFunc == 'add') {
-                $rootScope.data.tasks.push(angular.copy($rootScope.newTask))
-            } else {
-                $rootScope.data.tasks[$rootScope.ap.taskFunc] = angular.copy($rootScope.newTask);
-            }
-        }
-        $rootScope.newTask = blankTask;
         chrome.runtime.sendMessage({
             why: "setData",
             data: angular.copy($rootScope.data)
         });
-        window.location.href = '#!home';
-    }
-    $rootScope.cancel = function() {
-        $rootScope.newTask = blankTask;
-        window.location.href = '#!home';
     }
     $rootScope.pay = function() {
         chrome.runtime.sendMessage({
@@ -146,6 +142,9 @@ app.run(($rootScope) => {
     }
     $rootScope.plus = function() {
         $rootScope.interval++;
+    }
+    $rootScope.goTo = function(e){
+      window.location.href = '#!'+e;
     }
     setInterval(() => {
         if (Number($rootScope.liked) < Number($rootScope.max_likes_per_day)) {
@@ -170,6 +169,7 @@ app.run(($rootScope) => {
 })
 app.controller('indexCtrl', function($scope, $rootScope) {});
 app.controller('editCtrl', function($scope, $rootScope) {
+    $rootScope.newTask = window.blankTask;
     $scope.selected_option = $rootScope.select_names[0];
     let selected_option;
     $scope.selected = function(a) {

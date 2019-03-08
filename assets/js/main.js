@@ -77,7 +77,8 @@ app.run(($rootScope) => {
         showError1: !1,
         showError2: !1,
         showError3: !1,
-        taskFunc: 'add'
+        taskFunc: 'add',
+        goProPopup: false
     };
     $rootScope.newTask = window.blankTask;
     $rootScope.taskFunc = function(e) {

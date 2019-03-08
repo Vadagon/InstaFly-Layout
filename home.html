@@ -95,36 +95,11 @@
       </div>
     </div>
     <div class="add_btn F_RAC mar10  fcl_w" ng-hide="a">
-      <span class="fvh2_4">Only
+      <span class="fvh2_4" ng-click="ap.goProPopup = true">Only
         <span class="purple_cl fvh2_4">PLUS member</span>
         is able to add
       </span>
       <div class="close_img" ng-click="a=!a">
-      </div>
-    </div>
-    <div class="modal_cant_add_task fcl_w F_CCC" ng-hide="!modal_cant_add_task" ng-click="modal_cant_add_task = !modal_cant_add_task">
-      <h1 class="ta_c pad10 fvh5_10">You cant add more tasks</h1>
-      <a class="getpro_wrapper mar10 mart30 w90" href="#!card">
-        <div class="getpro gradient_purple fcl_w pad15 ">
-          <!-- <img src="assets/img/pro.png" class="pro_img " alt="">
-               <-->
-          <div class="wave_bg"></div>
-
-          <img alt="" class="stars_pro" src="assets/img/stars.png">
-          <img alt="" class="cup_pro" src="assets/img/cup.png">
-          <div class="wawe_bg">
-          </div>
-          <!--  <h1 class="r fvh5_10">50%</h1>
-              <h3 class="r fvh2_4">GO PRO account</h3> -->
-
-
-        </div>
-        <span class="pro_go pulse">
-          GO PRO
-        </span>
-      </a>
-      <div class="close">
-        <div class="close_img"></div>
       </div>
     </div>
     <a ng-click="modal_cant_add_task = !modal_cant_add_task" ng-if="data.tasks.length">

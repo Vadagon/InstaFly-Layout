@@ -1,7 +1,7 @@
 let storage = window.localStorage;
 console.log(storage)
-let payed = 1;
-let pro_stor = storage.getItem('pro');
+let payed = 0;
+// let pro_stor = storage.getItem('pro');
 if (payed == 1) {
     pro_stor = "pro.html";
     storage.setItem('pro', 'pro.html')

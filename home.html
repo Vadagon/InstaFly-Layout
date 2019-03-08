@@ -94,23 +94,23 @@
         </div>
       </div>
     </div>
-    <div class="add_btn F_RAC mar10  fcl_w" ng-hide="a">
+    <div class="add_btn F_RAC mar10  fcl_w" ng-if="ap.showError1">
       <span class="fvh2_4" ng-click="ap.goProPopup = true">Only
         <span class="purple_cl fvh2_4">PLUS member</span>
         is able to add
       </span>
-      <div class="close_img" ng-click="a=!a">
+      <div class="close_img" ng-click="ap.showError1=!1">
       </div>
     </div>
-    <a ng-click="modal_cant_add_task = !modal_cant_add_task" ng-if="data.tasks.length">
+    <!-- <a ng-click="modal_cant_add_task = !modal_cant_add_task" ng-if="data.tasks.length">
       <div class="add_btn disabled F_RCC mar10">
         <img alt="" class="info ico_plus" src="assets/img/plus.png">
         <span class="fcl_w fvh2_4 marl10">
           CANT ADD TASK
         </span>
       </div>
-    </a>
-    <a ng-if="!data.tasks.length" ng-click="(data.tasks.length > 0 && !data.user.isMember)?ap.showError1 = true:taskFunc('add')">
+    </a> -->
+    <a ng-click="(data.tasks.length > 0 && !data.user.isMember)?ap.showError1 = true:taskFunc('add')">
       <div class="add_btn  F_RCC mar10  ">
         <img alt="" class="info ico_plus" src="assets/img/plus.png">
         <span class="fcl_w fvh2_4 marl10">
@@ -127,7 +127,7 @@
       <div ng-click="goTo('liked')" class="firs_like ">
       </div>
     </div>
-    <div class="l_b_p marr5 marb5 " ng-repeat="x in [1,2,3,4,5] | limitTo : 5">
-      <img src="assets/img/logo.png" alt="">
+    <div class="l_b_p marr5 marb5 " ng-repeat="x in data.feed | limitTo : 5">
+      <img ng-src="{{x.display_url}}" alt="">
     </div>
   </div>

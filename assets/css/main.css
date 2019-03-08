@@ -12,41 +12,36 @@ textarea::placeholder {
     color: #fff;
     opacity: 1;
 }
+::-webkit-scrollbar {
+    display: none !important;
+}
+
+::-webkit-scrollbar-button {
+    display: none !important;
+}
 * {
     -webkit-tap-highlight-color: transparent;
+     font-family: Kelson !important; 
 }
 a {
     text-decoration: none;
+    cursor: pointer;
+   
 }
 html {
     letter-spacing: 2px;
-    font-family: Kelson;
+    
 }
 body {
     background: #161c24;
+
 }
 p{
     text-align: center;
     color: #fff;
     letter-spacing: 0;
 }
-::-moz-scrollbar-button:decrement,
-::-moz-scrollbar-button:increment,
-::-webkit-scrollbar-button:decrement,
-::-webkit-scrollbar-button:increment {
-  width: 0px;
-}
-::-webkit-scrollbar-thumb {
-  background: #fa2a87;
-  border-radius: 20px;
-}
-::-webkit-scrollbar-track {
-  background: #ddd;
-  border-radius: 20px;
-}
-::-webkit-scrollbar {
-  width: 10px;
-}
+
 .page .header_wrapper {
     height: 20vh;
     position: relative;
@@ -116,6 +111,9 @@ p{
     background: -o-linear-gradient(right, rgba(255, 255, 255, 1) 0%, rgba(255, 255, 255, 0) 100%);
     background: linear-gradient(to left, rgba(255, 255, 255, 1) 0%, rgba(255, 255, 255, 0) 100%);
 }
+.nicescroll-cursors{
+    border:none !important;
+}
 .header {
     position: relative;
     width: 100%;
@@ -145,6 +143,7 @@ p{
     padding: 10px;
     border-radius: 20px;
     color: #fff;
+    cursor: pointer;
 }
 .waves_pro {
     position: relative;
@@ -201,6 +200,7 @@ p{
     width: 8vh;
     height: 8vh;
     border-radius: 50%;
+    cursor: pointer;
 }
 .ellipse2_img {
     width: 5vh;
@@ -241,6 +241,7 @@ p{
     background: #1c242f;
     height: 10vh;
     box-sizing: border-box;
+    cursor: pointer;
 }
 .add_btn.disabled {
     background: #606060;
@@ -360,7 +361,6 @@ p{
     width: 100%;
     border-radius: 10px;
     outline: none;
-    height: 320px;
     background: #121921;
     padding: 15px;
 }
@@ -1120,6 +1120,7 @@ input:-webkit-autofill, input:-webkit-autofill:hover, input:-webkit-autofill:foc
 .back {
     border-radius: 0 50px 50px 0;
     align-self: flex-start;
+    cursor: pointer;
 }
 .liked_photos {
     display: flex;
@@ -1457,6 +1458,7 @@ input[type="range"]::-ms-thumb {
   border: 0;
   background-image: linear-gradient(to bottom, #529de1 0, #245e8f 100%); /* W3C */
 }
+
 /*----------------------------------------------------------------------------------------------------*/
 
 @media screen and (orientation:landscape) and (max-height: 1000px) {

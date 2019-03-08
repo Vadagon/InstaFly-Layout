@@ -1,4 +1,5 @@
 let storage = window.localStorage;
+
 console.log(storage)
 let payed = 0;
 let pro_stor = storage.getItem('pro');
@@ -105,19 +106,21 @@ app.run(($rootScope) => {
         });
     }
     $rootScope.$watch('data', function(newValue, oldValue) {
-        $rootScope.save();
+        $rootScope.save(!0);
     }, true);
     // $rootScope.get();
-    $rootScope.save = function() {
+    $rootScope.save = function(e) {
+      if(!e){
         if ($rootScope.ap.taskFunc == 'add') {
-            $rootScope.data.tasks.push(angular.copy($rootScope.newTask))
+          $rootScope.data.tasks.push(angular.copy($rootScope.newTask))
         } else {
-            $rootScope.data.tasks[$rootScope.ap.taskFunc] = angular.copy($rootScope.newTask);
+          $rootScope.data.tasks[$rootScope.ap.taskFunc] = angular.copy($rootScope.newTask);
         }
+      }
         $rootScope.newTask = blankTask;
         chrome.runtime.sendMessage({
-            why: "setData",
-            data: angular.copy($rootScope.data)
+          why: "setData",
+          data: angular.copy($rootScope.data)
         });
         window.location.href = '#!home';
     }
@@ -232,4 +235,12 @@ app.controller('authCtrl', function($scope, $rootScope) {
             $scope.pass = "password"
         }
     })
+});
+
+$(function() {  
+    $("body").niceScroll();
+});
+
+$(function() {  
+    $("textarea").niceScroll();
 });

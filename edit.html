@@ -53,9 +53,11 @@
     </div>
 
 <div class="task_filter  w80" ng-if="(newTask.type == 'hashtag' || newTask.type == 'location')">
+    <div class="scroll-wrapper scrollbar-inner" style="position: relative;"><div class="scrollbar-inner scroll-content scroll-scrolly_visible" style="height: auto; margin-bottom: 0px; margin-right: 0px; max-height: 250px;">
+
     <div class="status_dot" ng-class="active_dot"></div>
-        <textarea id="edit_hash" cols="30" rows="10" class="fcl_w" ng-if="newTask.type == 'hashtag'" placeholder="#love #instagood #me #cute #tbt #photooftheday #instamood #iphonesia #tweegram #picoftheday #igers #girl #beautiful #instadaily #summer #instagramhub #iphoneonly #follow #igdaily" ng-model="newTask.textarea"></textarea>
-        <textarea id="edit_hash" cols="30" rows="10" class="fcl_w" ng-if="newTask.type == 'location'" placeholder="New York; London; Brazil; Ukraine; Los Angeles; United Kingdom" ng-model="newTask.textarea"></textarea>
+        <textarea  id="edit_hash" cols="30" rows="10" class="fcl_w " ng-if="newTask.type == 'hashtag'" placeholder="#love #instagood #me #cute #tbt #photooftheday #instamood #iphonesia #tweegram #picoftheday #igers #girl #beautiful #instadaily #summer #instagramhub #iphoneonly #follow #igdaily" ng-model="newTask.textarea"></textarea>
+        <textarea id="edit_hash" cols="30" rows="10" class="fcl_w " ng-if="newTask.type == 'location'" placeholder="New York; London; Brazil; Ukraine; Los Angeles; United Kingdom" ng-model="newTask.textarea"></textarea>
         <!-- <textarea class="fcl_w"  name="hash" id="edit_hash" cols="30" rows="10" placeholder=""></textarea> -->
 </div>
 </div>
@@ -63,7 +65,7 @@
 </div>
     <div class="footer">
         <div class="buttons_group F_RCC">
-            <div class="btn ta_c hover_btn_pulse active_btn_pulse fvh3_6 fcl_w txta_c" ng-click="save()">
+            <div class="w40 ta_c btn_pulse_bg_wave mart15  fvh3_6 fcl_w txta_c" ng-click="save()">
                 Save
             </div>
         </div>

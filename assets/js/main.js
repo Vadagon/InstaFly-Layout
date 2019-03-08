@@ -91,26 +91,26 @@ app.run(($rootScope) => {
         }
         window.location.href = '#!edit';
     }
-    $rootScope.get = function(cb) {
-        api.sendMessage({
-            why: "getData"
-        }, function(response) {
-            if (!cb) {
-                console.log(response)
-                $rootScope.data = response;
-                $rootScope.data.feed = $rootScope.data.feed.reverse();
-                if (!$rootScope.data.tasks.length) window.location.href = '#!task';
-                $rootScope.$apply();
-                $($rootScope.data.user.form).insertAfter('.main_container').css('display', 'none').attr('target', '_blank')
-            } else {
-                cb(response)
-            }
-        });
-    }
+    // $rootScope.get = function(cb) {
+    //     api.sendMessage({
+    //         why: "getData"
+    //     }, function(response) {
+    //         if (!cb) {
+    //             console.log(response)
+    //             $rootScope.data = response;
+    //             $rootScope.data.feed = $rootScope.data.feed.reverse();
+    //             if (!$rootScope.data.tasks.length) window.location.href = '#!task';
+    //             $rootScope.$apply();
+    //             $($rootScope.data.user.form).insertAfter('.main_container').css('display', 'none').attr('target', '_blank')
+    //         } else {
+    //             cb(response)
+    //         }
+    //     });
+    // }
     $rootScope.$watch('data', function(newValue, oldValue) {
         $rootScope.save();
     }, true);
-    $rootScope.get();
+    // $rootScope.get();
 
     $rootScope.saveTask = function(){
       if ($rootScope.ap.taskFunc == 'add') {

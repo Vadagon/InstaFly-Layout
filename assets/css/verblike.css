@@ -23,7 +23,7 @@ body {
   transform-origin: 50% 0%;
 }
 .ng-show {
- 
+
 
 }
 .o_h{
@@ -73,7 +73,7 @@ text-align: right;
     flex-flow: row;
     justify-content: center;
     align-items: center;
-    
+
 }
 .F_CBC{
          display: flex;
@@ -92,7 +92,13 @@ text-align: right;
     flex-flow: column;
     justify-content: space-around;
     align-items: center;
-    
+
+}
+.F_RSCNW {
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: flex-start;
+  align-items: center;
 }
 
 .F_CCC{
@@ -100,7 +106,7 @@ text-align: right;
     flex-flow: column;
     justify-content: center;
     align-items: center;
-    
+
     height: 100%;
 }
 

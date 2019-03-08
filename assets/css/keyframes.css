@@ -181,7 +181,7 @@
     50%   { transform: scale(1.1); opacity:1; }
     100% {transform: scale(1.0); opacity:1;}
 }
-   
+
 
 @keyframes background_wave{
   0%{
@@ -271,27 +271,27 @@
   0%
   {
     transform: scale( .88 ) rotateZ(20deg) ;
-  } 
+  }
   20%
   {
     transform: scale( 1 ) rotateZ(20deg) ;
-  } 
+  }
   40%
   {
     transform: scale( .88 ) rotateZ(20deg) ;
-  } 
+  }
   60%
   {
     transform: scale( 1 ) rotateZ(20deg) ;
-  } 
+  }
   80%
   {
     transform: scale( .88 ) rotateZ(20deg) ;
-  } 
+  }
   100%
   {
     transform: scale( .88 ) rotateZ(20deg) ;
-  } 
+  }
 }
 
 @keyframes bounceIn{

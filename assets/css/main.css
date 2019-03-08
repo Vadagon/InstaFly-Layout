@@ -496,13 +496,13 @@ p {
 }
 
 .circle {
-  visibility: hidden;
   width: 25px;
+  visibility: hidden;
   height: 25px;
   background-color: white;
   border-radius: 50%;
   position: absolute;
-  animation: orbit 2s infinite;
+  animation: heartbeat 2s infinite;
   animation-delay: 0.1s
 }
 
@@ -1484,7 +1484,7 @@ input:-webkit-autofill, input:-webkit-autofill:hover, input:-webkit-autofill:foc
   height: 100%;
 }
 
-.status .r.in_block {
+.in_block {
   width: 50px;
   vertical-align: middle;
   height: 18px;
@@ -2001,6 +2001,17 @@ input[type="range"]::-ms-thumb {
 
 /* for chrome ext css */
 @media only screen and (width:360px) {
+  *{
+      -webkit-tap-highlight-color: blue;
+  }
+  ::selection {
+    background: blue;
+  }
+
+  ::-moz-selection {
+    background: blue;
+  }
+
   .active_card {
     transform: scale(1.2);
   }
@@ -2009,4 +2020,5 @@ input[type="range"]::-ms-thumb {
     margin: 20px;
     margin-top: 50px;
   }
+
 }

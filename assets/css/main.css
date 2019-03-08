@@ -15,6 +15,11 @@ textarea::placeholder {
   color: #fff;
   opacity: 1;
 }
+textarea{
+  resize:vertical;
+  max-height: 200px;
+  min-height: 100px;
+}
 
 ::-webkit-scrollbar {
   display: none !important;
@@ -382,7 +387,7 @@ p {
   padding: 0px 12px;
   box-sizing: border-box;
   display: flex;
-  width: 80%;
+  width: 95%;
   height: 9vh;
   background: #121921;
   background-repeat: no-repeat;
@@ -455,8 +460,8 @@ p {
 
 .arrow_img, .small_ellipse_img {
   width: 2vh;
-  position: absolute;
   height: 2vh;
+  cursor: pointer;
 }
 
 .elipses_with_points {
@@ -694,9 +699,10 @@ p {
 }
 
 .points_img {
-  position: absolute;
+  position: fixed;
   top: 25vh;
   z-index: -1;
+  background-attachment: fixed;
 }
 
 .status_dot {
@@ -1338,7 +1344,9 @@ input:-webkit-autofill, input:-webkit-autofill:hover, input:-webkit-autofill:foc
 .logo_img {
   height: 20vh;
 }
-
+.edit_wrapper .progress{
+  height: 0.6vh;
+}
 .edit_task .edit_wrapper {
   height: 100%;
 }
@@ -1716,6 +1724,9 @@ input[type="range"]::-ms-thumb {
 
 /*----------------------------------------------------------------------------------------------------*/
 @media screen and (orientation:landscape) and (max-height: 1000px) {
+  .edit_wrapper .progress{
+    height: 1.2vh;
+  }
   .logo_auth_img {
     margin: 10% auto 10% auto
   }
@@ -2021,4 +2032,17 @@ input[type="range"]::-ms-thumb {
     margin-top: 50px;
   }
 
+.select .options{
+  border-radius: 10px;
+  width: 101%;
+  top: 66px;
+}
+.options{
+  left: -2px;
+  height: 266px;
+}
+.status_dot{
+  height: 2vh;
+  width: 2vh;
+}
 }

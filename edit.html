@@ -6,7 +6,7 @@
 
             </a>
             <div class="onoffswitch">
-                <input ng-model="newTask.isEnabled" class="onoffswitch-checkbox" id="myonoffswitch" name="onoffswitch" type="checkbox">
+                <input ng-checked="newTask.isEnabled" class="onoffswitch-checkbox" id="myonoffswitch" name="onoffswitch" type="checkbox">
                     <label class="onoffswitch-label" for="myonoffswitch">
                         <span class="onoffswitch-inner">
                         </span>
@@ -31,6 +31,7 @@
     <div class="content">
         <div class="flex">
 
+          {{newTask.isEnabled}}
 
     <h2  class="w70 mart15 fcl_w fvh2_4 " id="filter" >Filter:</h2>
     <div class="select   fvh3_6" ng-click="options_val = !options_val; selected1 = !selected1">

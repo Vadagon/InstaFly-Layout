@@ -23,7 +23,7 @@
      <div class="progress">
                 <div class="progress_bar F_CCC" style="width:{{liked/(max_likes_per_day/5)*100/5}}%; height: 100%">
                     <div class=" w70 r fcl_w fvh1_5_3 ta_c" ng-class="{'was_liked':status = 'sleeping'}">
-                {{status1}}
+                {{data.status}}
             </div>
                     <div class="progress_bar_animation">
                     </div>
@@ -33,7 +33,7 @@
   <div class="status_wrapper">
     <div class="status pad10">
       <div class=" r F_RCC fcl_w fvh2_4 ta_c o_h">
-        Likes made today: <div class="r in_block"><span ng-class="{true:'translate25px', false:'translate0px' }[liked == liked1%2*liked1]" class="number_animation">{{liked}}</span></div> of {{max_likes_per_day}}
+        Likes made today: <div class="r in_block"><span ng-class="{true:'translate25px', false:'translate0px' }[liked == liked1%2*liked1]" class="number_animation">{{data.feed.length}}</span></div> of {{data.user.limitTo}}
 
       </div>
     </div>

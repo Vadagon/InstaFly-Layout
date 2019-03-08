@@ -89,7 +89,7 @@ app.run(($rootScope) => {
         window.location.href = '#!edit';
     }
     $rootScope.get = function(cb) {
-        chrome.runtime.sendMessage({
+        api.sendMessage({
             why: "getData"
         }, function(response) {
             if (!cb) {
@@ -118,19 +118,29 @@ app.run(($rootScope) => {
       $rootScope.save();
     }
     $rootScope.save = function(e) {
-        chrome.runtime.sendMessage({
+        api.sendMessage({
             why: "setData",
             data: angular.copy($rootScope.data)
         });
     }
     $rootScope.pay = function() {
-        chrome.runtime.sendMessage({
+        api.sendMessage({
             why: "popup",
             what: 'clicked on payement button'
         }, function() {
             $('form').submit();
         });
     }
+    $rootScope.goTo = function(e){
+      window.location.href = '#!'+e;
+    }
+    $rootScope.log = function(){
+      setTimeout(function () {
+        $('#myonoffswitch').prop('checked', $rootScope.newTask.isEnabled);
+      }, 100);
+    }
+
+
     $rootScope.goBack = function goBack() {
         // window.history.back();
         window.location.href = '#!home';
@@ -143,22 +153,8 @@ app.run(($rootScope) => {
     $rootScope.plus = function() {
         $rootScope.interval++;
     }
-    $rootScope.goTo = function(e){
-      window.location.href = '#!'+e;
-    }
-    setInterval(() => {
-        if (Number($rootScope.liked) < Number($rootScope.max_likes_per_day)) {
-            $rootScope.$apply(() => {
-                $rootScope.liked++;
-                $rootScope.liked1 = $rootScope.liked;
-            })
-            console.log($rootScope.liked)
-        } else {
-            $rootScope.$apply(() => {
-                $rootScope.status1 = "Exceeded daily limit";
-            })
-        }
-    }, 1000);
+
+
     $rootScope.$on('$routeChangeStart', function(event, current, next, previous, reject) {
         $rootScope.count_less = arguments[1].params.count_less;
         if ($rootScope.count_less != undefined) {
@@ -169,7 +165,6 @@ app.run(($rootScope) => {
 })
 app.controller('indexCtrl', function($scope, $rootScope) {});
 app.controller('editCtrl', function($scope, $rootScope) {
-    $rootScope.newTask = window.blankTask;
     $scope.selected_option = $rootScope.select_names[0];
     let selected_option;
     $scope.selected = function(a) {

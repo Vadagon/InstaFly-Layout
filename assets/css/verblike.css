@@ -100,6 +100,12 @@ text-align: right;
     align-items: center;
 
 }
+.F_RACNW{
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: center;
+  align-items: space-around;
+}
 .F_RSCNW {
   display: flex;
   flex-flow: row nowrap;
@@ -426,6 +432,46 @@ text-align: right;
     width: 5%;
     margin: 0 auto;
 }
+.w100{
+    width: 100%;
+}
+.w95{
+    width: 95%;
+    margin: 0 auto;
+}
+.w85{
+    width: 85%;
+    margin: 0 auto;
+}
+.w75{
+    width: 75%;
+    margin: 0 auto;
+}
+.w65{
+    width: 65%;
+    margin: 0 auto;
+}
+.w55{
+    width: 55%;
+    margin: 0 auto;
+}
+.w45{
+    width: 45%;
+    margin: 0 auto;
+}
+.w35{
+    width: 35%;
+    margin: 0 auto;
+}
+.w25{
+    width: 25%;
+    margin: 0 auto;
+}
+.w15{
+    width: 15%;
+    margin: 0 auto;
+}
+
 /*------------width-----------------*/
 @media screen and (orientation:landscape) and (max-height: 1000px) {
 body{

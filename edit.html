@@ -1,73 +1,81 @@
 <div class="edit_wrapper" ng-controller="editCtrl">
-    <div class="header_wrapper">
-        <div class="header">
-            <a ng-click="goBack()">
-                <img alt="" class="info " src="assets/img/back.png">
+  <div class="header_wrapper">
+    <div class="header">
+      <a ng-click="goBack()">
+        <img alt="" class="info " src="assets/img/back.png">
 
-            </a>
-            <div class="onoffswitch">
-                <input ng-checked="newTask.isEnabled" class="onoffswitch-checkbox" id="myonoffswitch" name="onoffswitch" type="checkbox">
-                    <label class="onoffswitch-label" for="myonoffswitch">
-                        <span class="onoffswitch-inner">
-                        </span>
-                        <span class="onoffswitch-switch">
-                        </span>
-                    </label>
+      </a>
+      <div class="onoffswitch">
+        <input ng-checked="newTask.isEnabled" class="onoffswitch-checkbox" id="myonoffswitch" name="onoffswitch" type="checkbox">
+        <label class="onoffswitch-label" for="myonoffswitch">
+          <span class="onoffswitch-inner">
+          </span>
+          <span class="onoffswitch-switch">
+          </span>
+        </label>
 
-            </div>
-        </div>
-        <div class="mar5 flex">
-            <h2 class="fvh4_8 fcl_w F_RCC">
-                <div class="dot mar5">
-                </div>
-                New Task Creation
-            </h2>
-        </div>
+      </div>
     </div>
-    <div class="progress">
-        <div class="progress_bar" style="width: 100%; height: 100%">
+    <div class="mar5 flex">
+      <h2 class="fvh4_8 fcl_w F_RCC">
+        <div class="dot mar5">
         </div>
+        New Task Creation
+      </h2>
     </div>
-    <div class="content">
-        <div class="flex">
+  </div>
+  <div class="progress">
+    <div class="progress_bar" style="width: 100%; height: 100%">
+    </div>
+  </div>
+  <div class="content">
+    <div class="flex">
 
-          {{newTask.isEnabled}}
+      {{newTask.isEnabled}}
 
-    <h2  class="w70 mart15 fcl_w fvh2_4 " id="filter" >Filter:</h2>
-    <div class="select   fvh3_6" ng-click="options_val = !options_val; selected1 = !selected1">
-        {{selected_option[1]}}
+      <h2 class="w70 mart15 fcl_w fvh2_4 " id="filter">Filter:</h2>
+      <div class="select F_RSC fvh3_6" ng-click="options_val = !options_val; selected1 = !selected1">
+        <div class="F_RCC">
+
+        <div class="dot marr10"></div>{{selected_option[1]}}
+        </div>
         <div class="options " ng-show="options_val">
-            <a ng-repeat="x in select_names" >
-                <span ng-click="newTask.type = select_names[$index][0]; selected($index)" class="fvh3_6" title="{{select_names[$index][1]}}">
+          <a ng-repeat="x in select_names">
+            <span ng-click="newTask.type = select_names[$index][0]; selected($index)" class="fvh3_6 marb10 F_RSCNW" title="{{select_names[$index][1]}}">
+                <div class="dot marr10"></div>
                 {{select_names[$index][1]}}
-                 </span>
-            </a>
+            </span>
+          </a>
         </div>
-        <div class="select_arrow " >
-            <img alt="ellipse1" class="ellipse_img" ng-class="{'ellipse_img_selected':selected1 == true}" src="assets/img/ellipse1.png">
-                <img alt="ellipse2" class="ellipse2_img" src="assets/img/ellipse2.png">
-                    <img alt="arrow" class="arrow_img" ng-class="{'arrow_img_reverse':selected1 == true}" src="assets/img/arrow.png">
-
-
-
+        <div class="select_arrow ">
+          <img alt="arrow" class="arrow_img" ng-class="{'arrow_img_reverse':selected1 == true}" src="assets/img/arrow.png">
         </div>
-    </div>
+      </div>
+      <div class="add_btn F_RAC mar10  fcl_w" ng-hide="a">
+        <span class="fvh2_4">Only
+          <span class="purple_cl fvh2_4">PLUS member</span>
+          is able to add
+        </span>
+        <div class="close_img" ng-click="a=!a">
+        </div>
+      </div>
+      <div class="task_filter  w95" ng-if="(newTask.type == 'hashtag' || newTask.type == 'location')">
+        <div class="scroll-wrapper scrollbar-inner" style="position: relative;">
+          <div class="scrollbar-inner scroll-content scroll-scrolly_visible" style="height: auto; margin-bottom: 0px; margin-right: 0px; max-height: 250px;">
 
-<div class="task_filter  w80" ng-if="(newTask.type == 'hashtag' || newTask.type == 'location')">
-    <div class="scroll-wrapper scrollbar-inner" style="position: relative;"><div class="scrollbar-inner scroll-content scroll-scrolly_visible" style="height: auto; margin-bottom: 0px; margin-right: 0px; max-height: 250px;">
-
-    <div class="status_dot" ng-class="active_dot"></div>
-        <textarea  id="edit_hash" cols="30" rows="10" class="fcl_w " ng-if="newTask.type == 'hashtag'" placeholder="#love #instagood #me #cute #tbt #photooftheday #instamood #iphonesia #tweegram #picoftheday #igers #girl #beautiful #instadaily #summer #instagramhub #iphoneonly #follow #igdaily" ng-model="newTask.textarea"></textarea>
-        <textarea id="edit_hash" cols="30" rows="10" class="fcl_w " ng-if="newTask.type == 'location'" placeholder="New York; London; Brazil; Ukraine; Los Angeles; United Kingdom" ng-model="newTask.textarea"></textarea>
-        <!-- <textarea class="fcl_w"  name="hash" id="edit_hash" cols="30" rows="10" placeholder=""></textarea> -->
-</div>
-</div>
-<img alt="points" class="points_img" src="assets/img/points.jpg" width="100%">
-</div>
-    <div class="footer">
+            <div class="status_dot" ng-class="active_dot"></div>
+            <textarea id="edit_hash" cols="30" rows="10" class="fcl_w " ng-if="newTask.type == 'hashtag'"
+              placeholder="#love #instagood #me #cute #tbt #photooftheday #instamood #iphonesia #tweegram #picoftheday #igers #girl #beautiful #instadaily #summer #instagramhub #iphoneonly #follow #igdaily" ng-model="newTask.textarea"></textarea>
+            <textarea id="edit_hash" cols="30" rows="10" class="fcl_w " ng-if="newTask.type == 'location'" placeholder="New York; London; Brazil; Ukraine; Los Angeles; United Kingdom" ng-model="newTask.textarea"></textarea>
+            <!-- <textarea class="fcl_w"  name="hash" id="edit_hash" cols="30" rows="10" placeholder=""></textarea> -->
+          </div>
+        </div>
+        <img alt="points" class="points_img" src="assets/img/points.jpg" width="100%">
+      </div>
+      <div class="footer">
         <div class="buttons_group F_RCC">
-            <div class="w40 ta_c btn_pulse_bg_wave mart15  fvh3_6 fcl_w txta_c" ng-click="saveTask(); goTo('home')">
-                Save
-            </div>
+          <div class="w40 ta_c btn_pulse_bg_wave mart15  fvh3_6 fcl_w txta_c" ng-click="saveTask(); goTo('home')">
+            Save
+          </div>
         </div>
-    </div>
+      </div>

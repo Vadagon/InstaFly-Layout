@@ -16,8 +16,37 @@
 
     </head>
 
-    <body class="page page-home r" ng-view >
-       
-     
+    <body class="page page-home r">
+
+      <div class="modal_cant_add_task fcl_w F_CCC" ng-if="ap.goProPopup" ng-click="modal_cant_add_task = !modal_cant_add_task">
+        <h1 class="ta_c pad10 fvh5_10">You cant add more tasks</h1>
+        <a class="getpro_wrapper mar10 mart30 w90" href="#!card">
+          <div class="getpro gradient_purple fcl_w pad15 ">
+            <!-- <img src="assets/img/pro.png" class="pro_img " alt="">
+                 <-->
+            <div class="wave_bg"></div>
+
+            <img alt="" class="stars_pro" src="assets/img/stars.png">
+            <img alt="" class="cup_pro" src="assets/img/cup.png">
+            <div class="wawe_bg">
+            </div>
+            <!--  <h1 class="r fvh5_10">50%</h1>
+                <h3 class="r fvh2_4">GO PRO account</h3> -->
+
+
+          </div>
+          <span class="pro_go pulse">
+            GO PRO
+          </span>
+        </a>
+        <div class="close" ng-click="ap.goProPopup = false;">
+          <div class="close_img"></div>
+        </div>
+      </div>
+
+       <div ng-view>
+
+       </div>
+
     </body>
 </html>

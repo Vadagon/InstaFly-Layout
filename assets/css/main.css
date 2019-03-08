@@ -721,9 +721,6 @@ p {
 
 .status {}
 
-.active_dot {
-  background: #a1a1a1;
-}
 
 .task_wrapper {
   flex-flow: column;
@@ -1459,7 +1456,9 @@ input:-webkit-autofill, input:-webkit-autofill:hover, input:-webkit-autofill:foc
 .lesson_img {
   width: 100vw;
 }
-
+.lesson_img_wrapper > img {
+  width: 100%;
+}
 .info_button {
   height: 22px;
   z-index: 10;
@@ -1606,6 +1605,9 @@ input:-webkit-autofill, input:-webkit-autofill:hover, input:-webkit-autofill:foc
   height: 4vh;
 }
 
+.active_dot {
+  background: #f95783;
+}
 .plus_interval {
   transform: rotateY(180deg);
 }
@@ -2016,14 +2018,14 @@ input[type="range"]::-ms-thumb {
 /* for chrome ext css */
 @media only screen and (width:360px) {
   *{
-      -webkit-tap-highlight-color: blue;
+      -webkit-tap-highlight-color: rgba(0,0,0,.4);
   }
   ::selection {
-    background: blue;
+    background: rgba(255,255,255,.4);
   }
 
   ::-moz-selection {
-    background: blue;
+    background: rgba(255,255,255,.4);
   }
 
   .active_card {

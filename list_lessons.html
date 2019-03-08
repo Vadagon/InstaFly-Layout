@@ -1,10 +1,29 @@
 <div class="list_wrapper fcl_w">
-<a href="#!lessons:1">1</a>
-<a href="#!lessons:2">2</a>
-<a href="#!lessons:3">3</a>
-<a href="#!lessons:4">4</a>
-<a href="#!lessons:count_less"></a>
-<a href="#!lessons:count_less"></a>
-<a href="#!lessons:count_less"></a>
-<a href="#!lessons:count_less"></a>
+<div class="F_RBC ">
+  <a ng-click="goBack()">
+    <img alt="" class="info pad20" src="assets/img/back.png">
+  </a>
+  <a href="#!info">
+    <div class="F_CCC info_button pad20">
+      <div class="dot_info"></div>
+      <div class="dot_info"></div>
+      <div class="dot_info"></div>
+    </div>
+  </a>
+</div>
+<div class="lesson_img_wrapper">
+  <img src="assets/img/lessons/lessons1.png" alt="">
+</div>
+<h1 class="fvh4_8  w80 mart15 marb15">What is important in instagram</h1>
+<p class="fvh2_4 ta_l w80 mart15 marb15">The most important thing in Instagram is your subscribers!
+  For them, you create content, share your thoughts,
+  and if you are a business account holder,
+   then they are your potential customer base.</p>
+<div class="w40 ta_c btn_pulse_bg_wave mart15 fvh3_6 fcl_w">
+  Continue
+</div>
+<h6 class="fvh1_5_3 ta_c mar20 marb5">{{1}}/{{31}} lessons</h6>
+<div class="lessons_dot_counter mart0 F_RCC  marb20 w50">
+  <a href="#!lessons:1" ng-repeat="x in [0,1,2,3,4,5,6,7,8,9,10]"><div ng-class="{'active_dot': $index == 1}"  class="dot_info  mar5"></div></a>
+</div>
 </div>

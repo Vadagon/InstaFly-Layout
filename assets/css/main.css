@@ -12,7 +12,7 @@
 }
 
 textarea::placeholder {
-  color: #fff;
+  color: silver;
   opacity: 1;
 }
 textarea{

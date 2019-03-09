@@ -379,8 +379,11 @@ p {
 }
 
 .wave_back_gradient {
-  height: 30vh;
-  z-index: 2;
+  height: 20vh;
+  z-index: 0;
+  position: absolute;
+  width: 100%;
+  bottom: 0;
   background: linear-gradient(to top, rgba(0, 0, 0, 1) 0%, rgba(255, 255, 255, 0) 100%);
 }
 
@@ -545,10 +548,16 @@ p {
   animation-delay: 0.1s
 }
 
-
+.card_wrapper {
+  height: 100%;
+}
 .cover {
   display: flex;
   z-index: 3;
+  overflow: hidden;
+outline: none;
+touch-action: none;
+padding: 20px;
 }
 
 .atvImg .img {
@@ -581,35 +590,6 @@ p {
   /* animation: card 10.5s linear infinite; */
 }
 
-.active_card_wrapper {
-  display: flex;
-  position: fixed;
-  z-index: 999;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background: #000000db;
-  transition: all .4s ease;
-}
-
-.active_card_wrapper .btn_pulse_bg_wave {
-  width: 50%;
-  position: absolute;
-  top: 80%;
-  left: calc(25%);
-}
-
-.active_card {
-  position: fixed !important;
-  left: calc(50% - 128px);
-  transform: scale(1.4);
-  z-index: 1000;
-  margin: 0 auto !important;
-  top: calc(50% - 80px);
-  animation: none !important;
-}
-
 .atvImg .img:nth-child(1):after {
   content: '';
   top: -20px;
@@ -629,43 +609,6 @@ p {
   filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#00ffffff', endColorstr='#007db9e8', GradientType=1);
 }
 
-.atvImg .img:nth-child(2):after {
-  content: '';
-  top: -20px;
-  left: -40px;
-  width: 20px;
-  height: 130px;
-  position: absolute;
-  transform: rotateZ(20deg);
-  z-index: 5;
-  animation: slide 2s linear infinite 1.3s;
-  background: -moz-linear-gradient(left, rgba(255, 255, 255, 0) 0%, rgba(255, 255, 255, 0.8) 50%, rgba(128, 186, 232, 0) 99%, rgba(125, 185, 232, 0) 100%);
-  background: -webkit-gradient(linear, left top, right top, color-stop(0%, rgba(255, 255, 255, 0)), color-stop(50%, rgba(255, 255, 255, 0.8)), color-stop(99%, rgba(128, 186, 232, 0)), color-stop(100%, rgba(125, 185, 232, 0)));
-  background: -webkit-linear-gradient(left, rgba(255, 255, 255, 0) 0%, rgba(255, 255, 255, 0.8) 50%, rgba(128, 186, 232, 0) 99%, rgba(125, 185, 232, 0) 100%);
-  background: -o-linear-gradient(left, rgba(255, 255, 255, 0) 0%, rgba(255, 255, 255, 0.8) 50%, rgba(128, 186, 232, 0) 99%, rgba(125, 185, 232, 0) 100%);
-  background: -ms-linear-gradient(left, rgba(255, 255, 255, 0) 0%, rgba(255, 255, 255, 0.8) 50%, rgba(128, 186, 232, 0) 99%, rgba(125, 185, 232, 0) 100%);
-  background: linear-gradient(to right, rgba(255, 255, 255, 0) 0%, rgba(255, 255, 255, 0.8) 50%, rgba(128, 186, 232, 0) 99%, rgba(125, 185, 232, 0) 100%);
-  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#00ffffff', endColorstr='#007db9e8', GradientType=1);
-}
-
-.atvImg .img:nth-child(3):after {
-  content: '';
-  top: -20px;
-  left: -40px;
-  width: 20px;
-  height: 130px;
-  position: absolute;
-  transform: rotateZ(20deg);
-  z-index: 5;
-  animation: slide 2s linear infinite 2.6s;
-  background: -moz-linear-gradient(left, rgba(255, 255, 255, 0) 0%, rgba(255, 255, 255, 0.8) 50%, rgba(128, 186, 232, 0) 99%, rgba(125, 185, 232, 0) 100%);
-  background: -webkit-gradient(linear, left top, right top, color-stop(0%, rgba(255, 255, 255, 0)), color-stop(50%, rgba(255, 255, 255, 0.8)), color-stop(99%, rgba(128, 186, 232, 0)), color-stop(100%, rgba(125, 185, 232, 0)));
-  background: -webkit-linear-gradient(left, rgba(255, 255, 255, 0) 0%, rgba(255, 255, 255, 0.8) 50%, rgba(128, 186, 232, 0) 99%, rgba(125, 185, 232, 0) 100%);
-  background: -o-linear-gradient(left, rgba(255, 255, 255, 0) 0%, rgba(255, 255, 255, 0.8) 50%, rgba(128, 186, 232, 0) 99%, rgba(125, 185, 232, 0) 100%);
-  background: -ms-linear-gradient(left, rgba(255, 255, 255, 0) 0%, rgba(255, 255, 255, 0.8) 50%, rgba(128, 186, 232, 0) 99%, rgba(125, 185, 232, 0) 100%);
-  background: linear-gradient(to right, rgba(255, 255, 255, 0) 0%, rgba(255, 255, 255, 0.8) 50%, rgba(128, 186, 232, 0) 99%, rgba(125, 185, 232, 0) 100%);
-  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#00ffffff', endColorstr='#007db9e8', GradientType=1);
-}
 
 .btn {
   background: #121921;
@@ -864,7 +807,7 @@ p {
 .reverse {
   transform: rotateX(180deg);
   position: absolute;
-  top: 49.9vh;
+  top: 50vh;
 }
 
 .card_wrapper .wawes_2 img, .card_wrapper .wawes_1 img {
@@ -918,8 +861,6 @@ p {
   flex-flow: column;
   background: #141921;
   z-index: 2;
-  height: 85vh;
-  justify-content: space-between;
 }
 
 .about_plus {
@@ -937,7 +878,7 @@ p {
   line-height: 25px;
   margin: 0;
   padding: 0 20px;
-  z-index: 10;
+  z-index: 2;
 }
 
 .about_plus3 {
@@ -945,7 +886,7 @@ p {
   position: absolute;
   width: 100%;
   line-height: 25px;
-  z-index: 4;
+  z-index: 1;
   padding: 0 20px;
   box-sizing: border-box;
 }
@@ -1509,7 +1450,6 @@ input:-webkit-autofill, input:-webkit-autofill:hover, input:-webkit-autofill:foc
   width: 100vw;
   display: flex;
   position: relative;
-  padding: 10px;
   height: 200px;
   box-sizing: border-box;
 }

@@ -247,13 +247,20 @@ app.controller('authCtrl', function($scope, $rootScope) {
         }
     })
 });
-$(function() {
-    $("#ng_viev").niceScroll({
-      enableobserver: true,
-      smoothscroll: true, // scroll with ease movement
-    sensitiverail: true,
-    });
-});
-$(function() {
-    $("textarea").niceScroll();
-});
+  $(function() {
+      $("#ng_viev").niceScroll({
+        enableobserver: true,
+        smoothscroll: true, // scroll with ease movement
+      sensitiverail: true,
+      });
+      $(".cover").niceScroll({
+        enableobserver: true,
+        smoothscroll: true, // scroll with ease movement
+      sensitiverail: true,
+      });
+      $("textarea").niceScroll({
+        enableobserver: true,
+        smoothscroll: true, // scroll with ease movement
+      sensitiverail: true,
+      });
+  });

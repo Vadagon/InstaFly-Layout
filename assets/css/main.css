@@ -1597,16 +1597,17 @@ position: absolute;
 }
 
 .bottom_liked .wave_bg {
-  background-size: 400% 100%;
-  z-index: 1;
+  background-size: 399% 62%;
+z-index: 3;
 }
 
 .firs_like_wrapper {
-  width: 10vh;
+  width: 11vh;
   height: 10vh;
-  z-index: 2;
+  z-index: 5;
   background: #1b232c;
   cursor: pointer;
+  margin: 0 0 0 -5px;
 }
 
 .firs_like {

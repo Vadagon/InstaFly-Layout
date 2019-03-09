@@ -1594,11 +1594,13 @@ position: absolute;
   background: #1b232c;
   width: 100vw;
   box-sizing: border-box;
+  position: sticky;
+  bottom: 0
 }
 
 .bottom_liked .wave_bg {
   background-size: 399% 62%;
-z-index: 3;
+  z-index: 3;
 }
 
 .firs_like_wrapper {

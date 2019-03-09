@@ -149,6 +149,7 @@ app.run(($rootScope) => {
         // window.history.back();
         window.location.href = '#!home';
     }
+    // ДЛЯ СТОРІНКИ НАСТРОЙКИ
     $rootScope.minus = function() {
         if ($rootScope.interval > 0) {
             $rootScope.interval--;

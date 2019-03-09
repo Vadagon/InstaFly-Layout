@@ -40,7 +40,6 @@ a {
 }
 
 html {
-  letter-spacing: 2px;
 }
 
 body {
@@ -124,7 +123,10 @@ p {
   filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#8e2fb4', endColorstr='#f92a87', GradientType=1);
   /* IE6-9 */
 }
-
+.progress_bar .fvh2_4{
+  z-index: 3;
+      text-shadow: -3px 3px 6px #000;
+}
 .progress_bar_animation {
   animation: pulse_inset 2s infinite;
   position: absolute;
@@ -132,6 +134,7 @@ p {
   left: 0;
   width: 25%;
   height: 100%;
+  z-index: 1
   background: -webkit-linear-gradient(right, rgba(255, 255, 255, 1) 0%, rgba(255, 255, 255, 0) 100%);
   background: -o-linear-gradient(right, rgba(255, 255, 255, 1) 0%, rgba(255, 255, 255, 0) 100%);
   background: linear-gradient(to left, rgba(255, 255, 255, 1) 0%, rgba(255, 255, 255, 0) 100%);

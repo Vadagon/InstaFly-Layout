@@ -1,199 +1,201 @@
 <div class="page" ng-controller="proCtrl">
-    <div class="header_wrapper">
-        <div class="header_shadow">
-        </div>
-        <div class="waves_pro">
-            <div class="wavepro1">
-            </div>
-            <div class="wavepro2">
-            </div>
-        </div>
-        <img alt="" class="pro_img pro_img_header" src="assets/img/pro.png">
-        <img alt="" class="logo_pro_img" src="assets/img/logo.png">
-            <a href="#!settings"><img alt="" class="setting_img pro_img " src="assets/img/setting.png"></a>
-
+  <div class="header_wrapper">
+    <div class="header_shadow">
     </div>
-    <div class="progress">
-        <div class="progress_bar F_RCC" style="width:{{liked/(max_likes_per_day/5)*100/5}}%; height: 100%"><div class=" w70 r fcl_w fvh1_5_3 ta_c" ng-class="{'was_liked':status = 'sleeping'}">
-                {{status1}}
-            </div>
-                    <div class="progress_bar_animation">
-
-                    </div>
-                </div>
+    <div class="waves_pro">
+      <div class="wavepro1">
+      </div>
+      <div class="wavepro2">
+      </div>
     </div>
+    <img alt="" class="pro_img pro_img_header" src="assets/img/pro.png">
+    <img alt="" class="logo_pro_img" src="assets/img/logo.png">
+    <a href="#!settings"><img alt="" class="setting_img pro_img " src="assets/img/setting.png"></a>
+
+  </div>
+  <div class="progress">
+    <div class="progress_bar F_RCC" style="width:{{liked/(max_likes_per_day/5)*100/5}}%; height: 100%">
+        <div class="w100 r F_RCC fcl_w fvh2_4 ta_c o_h">
+          Likes made today: <div class="r in_block"><span ng-class="{true:'translate25px', false:'translate0px' }[liked == liked1%2*liked1]" class="number_animation F_CCC">{{liked}}</span></div> of {{max_likes_per_day}}
+        </div>
+      </div>
+      <div class="progress_bar_animation">
+
+      </div>
+    </div>
+  </div>
 </div>
- <div class="status pad10">
-
-            <div class="w100 r F_RCC fcl_w fvh2_4 ta_c o_h">
-                Likes made today: <div class="r in_block"><span ng-class="{true:'translate25px', false:'translate0px' }[liked == liked1%2*liked1]" class="number_animation F_CCC">{{liked}}</span></div> of {{max_likes_per_day}}
-
-            </div>
-        </div>
+<div class=" w70 r fcl_w fvh1_5_3 ta_c" ng-class="{'was_liked':status = 'sleeping'}">
+{{status1}}
+</div>
 
 <a href="#!list_lessons" class="lessons_block">
-    <div class="getpro gradient_purple fcl_w pad15 ">
+  <div class="getpro gradient_purple fcl_w pad15 ">
 
-                 <img src="assets/img/stars.png" class="stars_pro" alt="">
-                 <img src="assets/img/cup.png" class="cup_pro" alt="">
-                <div class="wave_bg"></div>
+    <img src="assets/img/stars.png" class="stars_pro" alt="">
+    <img src="assets/img/cup.png" class="cup_pro" alt="">
+    <div class="wave_bg"></div>
 
-                <h1 class="lessons_text fvh3_6">30 LESSONS</h1>
-                <h2 class="lessons_text1 fvh1_5_3">instagram promotion</h2>
-                <span href="#!lessons" class="pro_go_1 pulse">GO</span>
+    <h1 class="lessons_text fvh3_6">30 LESSONS</h1>
+    <h2 class="lessons_text1 fvh1_5_3">instagram promotion</h2>
+    <span href="#!lessons" class="pro_go_1 pulse">GO</span>
 
-</div>
+  </div>
 </a>
 <div class="flex ">
-    <div class="task_wrapper ">
-        <div class="tasc_block ">
-            <div class="edit_task">
-                <label for="s2" class="edit_wrapper F_CAC" >
+  <div class="task_wrapper ">
+    <div class="tasc_block ">
+      <div class="edit_task">
+        <label for="s2" class="edit_wrapper F_CAC">
 
-                        <div class="hash">
-                        </div>
+          <div class="hash">
+          </div>
 
-                    <div class="onoffswitch">
-                        <input class="onoffswitch-checkbox" id="s2" name="onoffswitch" ng-checked="true" type="checkbox">
-                            <label class="onoffswitch-label" for="s2">
-                                <span class="onoffswitch-inner">
-                                </span>
-                                <span class="onoffswitch-switch">
-                                </span>
-                            </label>
+          <div class="onoffswitch">
+            <input class="onoffswitch-checkbox" id="s2" name="onoffswitch" ng-checked="true" type="checkbox">
+            <label class="onoffswitch-label" for="s2">
+              <span class="onoffswitch-inner">
+              </span>
+              <span class="onoffswitch-switch">
+              </span>
+            </label>
 
-                    </div>
-                </label>
-            </div>
-            <a href="#!edit" class="gradient_purple"><div class="info_task bg_gradient  fcl_w">
-                <h2 class="fvh2_4 pad10 padb0">
-                    #instagram
-                </h2>
-                <p class="fvh1_5_3 pad10 nls padt5">
-                    likes per day: 500/ today:0
-                    <br>
-                        advanced settings:pro version only
-                    </br>
-                </p>
-            </div>
-            </a>
+          </div>
+        </label>
+      </div>
+      <a href="#!edit" class="gradient_purple">
+        <div class="info_task bg_gradient  fcl_w">
+          <h2 class="fvh2_4 pad10 padb0">
+            #instagram
+          </h2>
+          <p class="fvh1_5_3 pad10 nls padt5">
+            likes per day: 500/ today:0
+            <br>
+            advanced settings:pro version only
+            </br>
+          </p>
         </div>
-        <div class="tasc_block ">
-            <div class="edit_task">
-                <label for="s2" class="edit_wrapper F_CAC" >
-
-                        <div class="hash">
-                        </div>
-
-                    <div class="onoffswitch">
-                        <input class="onoffswitch-checkbox" id="s2" name="onoffswitch" ng-checked="true" type="checkbox">
-                            <label class="onoffswitch-label" for="s2">
-                                <span class="onoffswitch-inner">
-                                </span>
-                                <span class="onoffswitch-switch">
-                                </span>
-                            </label>
-
-                    </div>
-                </label>
-            </div>
-            <a href="#!edit" class="gradient_purple"><div class="info_task bg_gradient  fcl_w">
-                <h2 class="fvh2_4 pad10 padb0">
-                    #instagram
-                </h2>
-                <p class="fvh1_5_3 pad10 nls padt5">
-                    likes per day: 500/ today:0
-                    <br>
-                        advanced settings:pro version only
-                    </br>
-                </p>
-            </div>
-            </a>
-        </div>
-        <div class="tasc_block ">
-            <div class="edit_task">
-                <label for="s2" class="edit_wrapper F_CAC" >
-
-                        <div class="hash">
-                        </div>
-
-                    <div class="onoffswitch">
-                        <input class="onoffswitch-checkbox" id="s2" name="onoffswitch" ng-checked="true" type="checkbox">
-                            <label class="onoffswitch-label" for="s2">
-                                <span class="onoffswitch-inner">
-                                </span>
-                                <span class="onoffswitch-switch">
-                                </span>
-                            </label>
-
-                    </div>
-                </label>
-            </div>
-            <a href="#!edit" class="gradient_purple"><div class="info_task bg_gradient  fcl_w">
-                <h2 class="fvh2_4 pad10 padb0">
-                    #instagram
-                </h2>
-                <p class="fvh1_5_3 pad10 nls padt5">
-                    likes per day: 500/ today:0
-                    <br>
-                        advanced settings:pro version only
-                    </br>
-                </p>
-            </div>
-            </a>
-        </div>
-        <div class="tasc_block ">
-            <div class="edit_task">
-                <label for="s2" class="edit_wrapper F_CAC" >
-
-                        <div class="hash">
-                        </div>
-
-                    <div class="onoffswitch">
-                        <input class="onoffswitch-checkbox" id="s2" name="onoffswitch" ng-checked="true" type="checkbox">
-                            <label class="onoffswitch-label" for="s2">
-                                <span class="onoffswitch-inner">
-                                </span>
-                                <span class="onoffswitch-switch">
-                                </span>
-                            </label>
-
-                    </div>
-                </label>
-            </div>
-            <a href="#!edit" class="gradient_purple"><div class="info_task bg_gradient  fcl_w">
-                <h2 class="fvh2_4 pad10 padb0">
-                    #instagram
-                </h2>
-                <p class="fvh1_5_3 pad10 nls padt5">
-                    likes per day: 500/ today:0
-                    <br>
-                        advanced settings:pro version only
-                    </br>
-                </p>
-            </div>
-            </a>
-        </div>
-        <a href="#!edit">
-        </a>
+      </a>
     </div>
-      <a href="#!edit">
+    <div class="tasc_block ">
+      <div class="edit_task">
+        <label for="s2" class="edit_wrapper F_CAC">
+
+          <div class="hash">
+          </div>
+
+          <div class="onoffswitch">
+            <input class="onoffswitch-checkbox" id="s2" name="onoffswitch" ng-checked="true" type="checkbox">
+            <label class="onoffswitch-label" for="s2">
+              <span class="onoffswitch-inner">
+              </span>
+              <span class="onoffswitch-switch">
+              </span>
+            </label>
+
+          </div>
+        </label>
+      </div>
+      <a href="#!edit" class="gradient_purple">
+        <div class="info_task bg_gradient  fcl_w">
+          <h2 class="fvh2_4 pad10 padb0">
+            #instagram
+          </h2>
+          <p class="fvh1_5_3 pad10 nls padt5">
+            likes per day: 500/ today:0
+            <br>
+            advanced settings:pro version only
+            </br>
+          </p>
+        </div>
+      </a>
+    </div>
+    <div class="tasc_block ">
+      <div class="edit_task">
+        <label for="s2" class="edit_wrapper F_CAC">
+
+          <div class="hash">
+          </div>
+
+          <div class="onoffswitch">
+            <input class="onoffswitch-checkbox" id="s2" name="onoffswitch" ng-checked="true" type="checkbox">
+            <label class="onoffswitch-label" for="s2">
+              <span class="onoffswitch-inner">
+              </span>
+              <span class="onoffswitch-switch">
+              </span>
+            </label>
+
+          </div>
+        </label>
+      </div>
+      <a href="#!edit" class="gradient_purple">
+        <div class="info_task bg_gradient  fcl_w">
+          <h2 class="fvh2_4 pad10 padb0">
+            #instagram
+          </h2>
+          <p class="fvh1_5_3 pad10 nls padt5">
+            likes per day: 500/ today:0
+            <br>
+            advanced settings:pro version only
+            </br>
+          </p>
+        </div>
+      </a>
+    </div>
+    <div class="tasc_block ">
+      <div class="edit_task">
+        <label for="s2" class="edit_wrapper F_CAC">
+
+          <div class="hash">
+          </div>
+
+          <div class="onoffswitch">
+            <input class="onoffswitch-checkbox" id="s2" name="onoffswitch" ng-checked="true" type="checkbox">
+            <label class="onoffswitch-label" for="s2">
+              <span class="onoffswitch-inner">
+              </span>
+              <span class="onoffswitch-switch">
+              </span>
+            </label>
+
+          </div>
+        </label>
+      </div>
+      <a href="#!edit" class="gradient_purple">
+        <div class="info_task bg_gradient  fcl_w">
+          <h2 class="fvh2_4 pad10 padb0">
+            #instagram
+          </h2>
+          <p class="fvh1_5_3 pad10 nls padt5">
+            likes per day: 500/ today:0
+            <br>
+            advanced settings:pro version only
+            </br>
+          </p>
+        </div>
+      </a>
+    </div>
+    <a href="#!edit">
+    </a>
+  </div>
+  <a href="#!edit">
     <div class="add_btn F_RCC mar10 pulse_black ">
-        <img alt="" class="info ico_plus" src="assets/img/plus.png">
-            <span class="fcl_w fvh2_4 marl10">
-                ADD TASK
-            </span>
+      <img alt="" class="info ico_plus" src="assets/img/plus.png">
+      <span class="fcl_w fvh2_4 marl10">
+        ADD TASK
+      </span>
     </div>
-</a>
-<div class="bottom_liked  pad5  r F_RSCNW boxs">
-  <div class="wave_bg">
-  </div>
-  <div class="firs_like_wrapper marr5 marb5 F_CCC">
-    <div ng-click="goTo('liked')" class="firs_like ">
+  </a>
+  <div class="bottom_liked  pad5  r F_RSCNW boxs">
+    <div class="wave_bg">
+    </div>
+    <div class="firs_like_wrapper marr5 marb5 F_CCC">
+      <div ng-click="goTo('liked')" class="firs_like ">
+      </div>
+    </div>
+    <div class="l_b_p marr5 marb5 " ng-repeat="x in [1,2,3,4,5] | limitTo : 5">
+      <img src="assets/img/logo.png" alt="">
     </div>
   </div>
-  <div class="l_b_p marr5 marb5 " ng-repeat="x in [1,2,3,4,5] | limitTo : 5">
-    <img src="assets/img/logo.png" alt="">
-  </div>
-</div>
 </div>

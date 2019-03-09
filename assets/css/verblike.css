@@ -48,6 +48,11 @@ body {
 .o_h{
     overflow: hidden;
 }
+.list_n{
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
 .in_block{
     display: inline-block;
 }

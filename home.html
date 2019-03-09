@@ -3,20 +3,24 @@
     <div class="header">
       <a href="#!logo">
         <img alt="" class="info " src="assets/img/indicator.png">
-
       </a>
       <div class="logo_wrapper r">
         <img alt="logo" class="logo_img" src="assets/img/logo.png">
         <!-- <div id="heart"></div>   -->
 
       </div>
-      <a href="#!info">
+      <div ng-click="drop = !drop" class="r">
         <div class="F_CCC info_button">
-          <div class="dot_info"></div>
-          <div class="dot_info"></div>
-          <div class="dot_info"></div>
+          <div ng-repeat="x in [0,1,2]" class="dot_info" ng-class="{'dot_line': drop}"></div>
         </div>
-      </a>
+        <div class="dropdown" ng-hide="!drop">
+          <ul class="list_n  fvh2_4">
+            <li ng-click="goTo(info)" class="fcl_w fvh3_6 pad5">Info</li>
+            <li ng-click="goTo(settings)" class="fcl_w fvh3_6 pad5">Settings</li>
+            <li ng-click="goTo(about)" class="fcl_w fvh3_6 pad5">About us</li>
+          </ul>
+        </div>
+      </div>
     </div>
   </div>
   <div class="progress">
@@ -74,7 +78,7 @@
                 <p class="fvh1_5_3 ta_l pad10 nls padt5">
                   <span class="tov_el">{{i.textarea}}</span>
                   <br>
-                  <span >
+                  <span>
                     advanced settings:pro version only
                   </span>
                 </p>
@@ -100,15 +104,15 @@
         </span>
       </div>
     </a>
-  <div class="bottom_liked pad5  r F_RSCNW boxs">
-    <div class="wave_bg">
-    </div>
-    <div  class="firs_like_wrapper  F_CCC">
-      <div ng-click="goTo('liked')" class="firs_like ">
+    <div class="bottom_liked pad5  r F_RSCNW boxs">
+      <div class="wave_bg">
+      </div>
+      <div class="firs_like_wrapper  F_CCC">
+        <div ng-click="goTo('liked')" class="firs_like ">
+        </div>
+      </div>
+      <div class="l_b_p marr5  " ng-repeat="x in data.feed | limitTo : 5">
+        <img ng-src="{{x.display_url}}" alt="">
       </div>
     </div>
-    <div  class="l_b_p marr5  " ng-repeat="x in data.feed | limitTo : 5">
-      <img ng-src="{{x.display_url}}" alt="">
-    </div>
   </div>
-</div>

@@ -38,6 +38,8 @@ app.config(($routeProvider) => {
         templateUrl: "list_lessons.html",
     }).when("/welcome", {
         templateUrl: "welcome.html",
+    }).when("/about", {
+        templateUrl: "about.html",
     }).otherwise({
         redirectTo: '/'
     });

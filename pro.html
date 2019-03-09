@@ -7,11 +7,22 @@
       </div>
       <div class="wavepro2">
       </div>
+      <!-- <img alt="" class="setting_img pro_img " src="assets/img/setting.png"> -->
     </div>
     <img alt="" class="pro_img pro_img_header" src="assets/img/pro.png">
     <img alt="" class="logo_pro_img" src="assets/img/logo.png">
-    <a href="#!settings"><img alt="" class="setting_img pro_img " src="assets/img/setting.png"></a>
-
+    <div ng-click="drop = !drop" class="a drop_pro">
+      <div class="F_CCC info_button">
+        <div ng-repeat="x in [0,1,2]" class="dot_info" ng-class="{'dot_line': drop}"></div>
+      </div>
+      <div class="dropdown" ng-hide="!drop">
+        <ul class="list_n  fvh2_4">
+          <li ng-click="goTo(info)" class="fcl_w fvh3_6 pad5">Info</li>
+          <li ng-click="goTo(settings)" class="fcl_w fvh3_6 pad5">Settings</li>
+          <li ng-click="goTo(about)" class="fcl_w fvh3_6 pad5">About us</li>
+        </ul>
+      </div>
+    </div>
   </div>
   <div class="progress">
     <div class="progress_bar F_RCC" style="width:{{liked/(max_likes_per_day/5)*100/5}}%; height: 100%">

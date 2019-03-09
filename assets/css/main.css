@@ -15,8 +15,9 @@ textarea::placeholder {
   color: silver;
   opacity: 1;
 }
-textarea{
-  resize:vertical;
+
+textarea {
+  resize: vertical;
   max-height: 200px;
   min-height: 100px;
 }
@@ -39,21 +40,22 @@ a {
   cursor: pointer;
 }
 
-html {
-}
+html {}
 
 body {
   background: #161c24;
 }
-.page{
-  min-height: 100%;
-display: flex;
-flex-flow: column;
+
+.page {
+  display: flex;
+  flex-flow: column;
 }
+
 #ng_viev {
   height: 100%;
   min-height: 100vh;
 }
+
 p {
   text-align: center;
   color: #fff;
@@ -72,9 +74,11 @@ p {
   background-size: cover;
   cursor: pointer;
 }
-.header_simple{
+
+.header_simple {
   height: 60px;
 }
+
 .header_wrapper {
   display: flex;
   height: 15vh;
@@ -124,10 +128,12 @@ p {
   filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#8e2fb4', endColorstr='#f92a87', GradientType=1);
   /* IE6-9 */
 }
-.progress_bar .fvh2_4{
+
+.progress_bar .fvh2_4 {
   z-index: 3;
-      text-shadow: -3px 3px 6px #000;
+  text-shadow: -3px 3px 6px #000;
 }
+
 .progress_bar_animation {
   animation: pulse_inset 2s infinite;
   position: absolute;
@@ -135,8 +141,7 @@ p {
   left: 0;
   width: 25%;
   height: 100%;
-  z-index: 1
-  background: -webkit-linear-gradient(right, rgba(255, 255, 255, 1) 0%, rgba(255, 255, 255, 0) 100%);
+  z-index: 1 background: -webkit-linear-gradient(right, rgba(255, 255, 255, 1) 0%, rgba(255, 255, 255, 0) 100%);
   background: -o-linear-gradient(right, rgba(255, 255, 255, 1) 0%, rgba(255, 255, 255, 0) 100%);
   background: linear-gradient(to left, rgba(255, 255, 255, 1) 0%, rgba(255, 255, 255, 0) 100%);
 }
@@ -396,10 +401,12 @@ p {
 .logo_page .wave_img {
   position: fixed;
 }
+
 .arrow_img_reverse {
   transform: rotateZ(180deg);
   transition: all .2s linear;
 }
+
 #edit_hash {
   box-sizing: border-box;
   border: none;
@@ -416,6 +423,7 @@ p {
   width: 2vh;
   height: 2vh;
 }
+
 .select {
   padding: 0px 12px;
   box-sizing: border-box;
@@ -437,26 +445,26 @@ p {
   transition: all .5 ease;
 }
 
-
 .select .options {
   border-radius: 10px;
-width: 100%;
-position: absolute;
-z-index: 9999;
-border: 1px solid rgba(255, 255, 255, 0.1);
-border-radius: 0px 0px 10px 10px;
-border-top: 0px;
-top: 7vh;
-transform: scale(1) translateX(-1px);
+  width: 100%;
+  position: absolute;
+  z-index: 9999;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 0px 0px 10px 10px;
+  border-top: 0px;
+  top: 7vh;
+  transform: scale(1) translateX(-1px);
 }
-.select .options.ng-hide{
+
+.select .options.ng-hide {
   top: 0;
   transform: rotateX(90deg);
-    transform-origin: 50% 0;
-    color: #000;
-    background: rgba(0,0,0,0)
-
+  transform-origin: 50% 0;
+  color: #000;
+  background: rgba(0, 0, 0, 0)
 }
+
 .options {
   -webkit-transition: all linear 0.2s;
   transition: all linear 0.2s;
@@ -468,15 +476,15 @@ transform: scale(1) translateX(-1px);
   background: #121921;
   color: #fff;
 }
-.options > a{
+
+.options>a {
   padding: 5px 12px;
-
 }
-.options > a:hover{
-background: rgba(255, 255, 255, .1);
 
-
+.options>a:hover {
+  background: rgba(255, 255, 255, .1);
 }
+
 .select_arrow {
   display: flex;
   justify-content: center;
@@ -747,7 +755,6 @@ background: rgba(255, 255, 255, .1);
 
 .status {}
 
-
 .task_wrapper {
   flex-flow: column;
   margin: 10px;
@@ -992,12 +999,15 @@ background: rgba(255, 255, 255, .1);
 .info_cont_wrapper {
   height: 100%;
 }
-.header_wrapper .progress{
+
+.header_wrapper .progress {
   height: 0.4vh;
 }
-.info_wrapper .header_wrapper{
+
+.info_wrapper .header_wrapper {
   height: 10vh;
 }
+
 .info_wrapper .header_wrapper .header {
   padding: 10px 0;
   height: 100%
@@ -1336,10 +1346,12 @@ input:-webkit-autofill, input:-webkit-autofill:hover, input:-webkit-autofill:foc
   background-size: cover;
   transition: all .5s linear;
 }
-.l_p > img{
+
+.l_p>img {
   width: 100%;
   height: 100%;
 }
+
 /*.reverse_img{
     transform: rotateZ(45deg);
 }*/
@@ -1369,21 +1381,27 @@ input:-webkit-autofill, input:-webkit-autofill:hover, input:-webkit-autofill:foc
 .logo_img {
   height: 20vh;
 }
-.edit_wrapper .progress{
+
+.edit_wrapper .progress {
   height: 0.4vh;
 }
-.info_wrapper .progress{
+
+.info_wrapper .progress {
   height: 0.4vh;
 }
+
 .edit_task .edit_wrapper {
   height: 100%;
 }
-.edit_wrapper .header_wrapper{
+
+.edit_wrapper .header_wrapper {
   height: 10vh;
 }
-.edit_wrapper .header{
+
+.edit_wrapper .header {
   height: 10vh;
 }
+
 .liked_photos_wrapper {
   background: url(../img/liked_wave.png);
   background-size: cover;
@@ -1489,15 +1507,18 @@ input:-webkit-autofill, input:-webkit-autofill:hover, input:-webkit-autofill:foc
 .lesson_img {
   width: 100vw;
 }
-.lesson_img_wrapper > img {
+
+.lesson_img_wrapper>img {
   width: 100%;
 }
+
 .info_button {
   height: 22px;
   z-index: 9;
   position: relative;
   width: 22px;
   justify-content: space-between !important;
+  cursor: pointer;
 }
 
 .dot_info {
@@ -1505,6 +1526,7 @@ input:-webkit-autofill, input:-webkit-autofill:hover, input:-webkit-autofill:foc
   height: 5px;
   border-radius: 50%;
   background: white;
+  transition: all .2s linear;
 }
 
 .cover_wrapper {
@@ -1515,6 +1537,7 @@ input:-webkit-autofill, input:-webkit-autofill:hover, input:-webkit-autofill:foc
   height: 200px;
   box-sizing: border-box;
 }
+
 /* Styles for home_modal */
 .modal_cant_add_task {
   position: fixed;
@@ -1526,7 +1549,8 @@ input:-webkit-autofill, input:-webkit-autofill:hover, input:-webkit-autofill:foc
   width: 100%;
   height: 100%;
 }
-.home_modal{
+
+.home_modal {
   position: absolute;
   top: 6%;
   left: 7%;
@@ -1534,11 +1558,13 @@ input:-webkit-autofill, input:-webkit-autofill:hover, input:-webkit-autofill:foc
   z-index: 2;
   height: 20px;
 }
-.modal_cant_add_task .getpro_wrapper{
+
+.modal_cant_add_task .getpro_wrapper {
   height: 100%;
 }
-.modal_cant_add_task .getpro {
-}
+
+.modal_cant_add_task .getpro {}
+
 .in_block {
   width: 50px;
   vertical-align: middle;
@@ -1568,33 +1594,34 @@ input:-webkit-autofill, input:-webkit-autofill:hover, input:-webkit-autofill:foc
 
 .modal_cant_add_task .getpro .cup_pro {
   top: 63%;
-width: 75%;
-z-index: 2;
-position: absolute;
-left: 12.5%;
+  width: 75%;
+  z-index: 2;
+  position: absolute;
+  left: 12.5%;
 }
 
 .modal_cant_add_task .getpro .stars_pro {
   width: 50%;
-top: 56%;
-z-index: 2;
-left: 25%;
-position: absolute;
+  top: 56%;
+  z-index: 2;
+  left: 25%;
+  position: absolute;
 }
 
 .modal_cant_add_task .getpro .wave_bg {
   background-size: 400%;
 }
+
 .modal_cant_add_task .pro_go {
   width: 30vw;
-
 }
+
 /* home page */
 .bottom_liked {
   background: #1b232c;
   width: 100vw;
   box-sizing: border-box;
-  position: sticky;
+  position: fixed;
   bottom: 0
 }
 
@@ -1602,7 +1629,73 @@ position: absolute;
   background-size: 399% 62%;
   z-index: 3;
 }
+.dropdown.ng-hide{
+  transform: scale(0);
+  opacity: 0;
+  transform-origin: 100% 0;
+}
+.dropdown {
+  z-index: 15;
+  position: absolute;
+  left: calc(100% - 215px);
+  top: -5px;
+  background: #1c242f;
+  border-radius: 10px;
+  box-sizing: border-box;
+  transition: all .2s linear;
+  transform: scaleX(1);
+  overflow: hidden;
+}
+.dropdown ul > li{
+  padding: 20px 0 20px 50px;
+  width: 190px;
+  cursor: pointer;
+  position: relative;
+  box-sizing: border-box;
+}
+.dropdown ul > li::before{
+  content: '';
+  background: url(../img/info.png) no-repeat;
+  position: absolute;
+  background-size: 24px;
+  width: 26px;
+  height: 26px;
+  top: 18px;
+  left: 18px;
+}
+.dropdown ul > li:nth-child(2)::before{
+  content: '';
+  background: url(../img/sett.png) no-repeat;
+  position: absolute;
+  background-size: 24px;
+  width: 26px;
+  height: 26px;
+  top: 18px;
+  left: 18px;
+}
+.dropdown ul > li:nth-child(3)::before{
+  content: '';
+  background: url(../img/acc.png) no-repeat;
+  position: absolute;
+  background-size: 24px;
+  width: 26px;
+  height: 26px;
+  top: 18px;
+  left: 18px;
+}
+.dropdown ul > li:hover {
+      background: rgba(255, 255, 255, .1);
+}
+.drop_pro{
+  left: 88%;
+  top: 42%;
+}
 
+.dot_line{
+  transition: all .2s linear;
+  width: 20px;
+  border-radius: 20%;
+}
 .firs_like_wrapper {
   width: 11vh;
   height: 10vh;
@@ -1663,6 +1756,7 @@ position: absolute;
 .active_dot {
   background: #f95783;
 }
+
 .plus_interval {
   transform: rotateY(180deg);
 }
@@ -1785,9 +1879,10 @@ input[type="range"]::-ms-thumb {
 
 /*----------------------------------------------------------------------------------------------------*/
 @media screen and (orientation:landscape) and (max-height: 1000px) {
-  .edit_wrapper .progress{
+  .edit_wrapper .progress {
     height: 1.2vh;
   }
+
   .logo_auth_img {
     margin: 10% auto 10% auto
   }
@@ -1928,7 +2023,6 @@ input[type="range"]::-ms-thumb {
   .about_plus3 {
     top: 180vh;
   }
-
 
   .content_card {
     height: 170vh;

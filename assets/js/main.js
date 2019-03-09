@@ -138,11 +138,15 @@ app.run(($rootScope) => {
 
 
     $rootScope.saveTask = function(){
+      if($rootScope.newTask.textarea.length < 40){
+        return false;
+      }
       if ($rootScope.app.taskFunc == 'add') {
         $rootScope.data.tasks.push(angular.copy($rootScope.newTask))
       } else {
         $rootScope.data.tasks[$rootScope.app.taskFunc] = angular.copy($rootScope.newTask);
       }
+      $rootScope.goTo('home');
       $rootScope.save();
     }
     $rootScope.save = function(e) {
@@ -198,7 +202,7 @@ app.controller('editCtrl', function($scope, $rootScope) {
     let selected_option;
     $scope.ta_maxLength = 400;
     $scope.ta_minLength = 40;
-    
+
 
     $scope.selected = function(a) {
         $scope.selected_option = $rootScope.app.filters[a]

@@ -1,13 +1,5 @@
 let storage = window.localStorage;
 console.log(storage)
-let payed = 0;
-// let pro_stor = storage.getItem('pro');
-if (payed == 1) {
-    pro_stor = "pro.html";
-    storage.setItem('pro', 'pro.html')
-} else {
-    pro_stor = "home.html";
-}
 let app = angular.module("Routing", ["ngRoute", 'ngAnimate']);
 //Routing
 app.config(['$compileProvider', function ($compileProvider) {
@@ -21,33 +13,35 @@ app.filter('reverse', function() {
 app.config(($routeProvider) => {
     $routeProvider
     .when("/", {
-        templateUrl: "logo.html",
+        templateUrl: "logo.html"
     }).when("/home", {
-        templateUrl: pro_stor,
+        templateUrl: "home.html"
+    }).when("/pro", {
+      templateUrl: "pro.html"
     }).when("/edit", {
-        templateUrl: "edit.html",
+        templateUrl: "edit.html"
     }).when("/logo", {
-        templateUrl: "logo.html",
+        templateUrl: "logo.html"
     }).when("/card", {
-        templateUrl: "card.html",
+        templateUrl: "card.html"
     }).when("/info", {
-        templateUrl: "info.html",
+        templateUrl: "info.html"
     }).when("/auth", {
-        templateUrl: "auth.html",
+        templateUrl: "auth.html"
     }).when("/liked", {
-        templateUrl: "liked.html",
+        templateUrl: "liked.html"
     }).when("/lessons:count_less", {
-        templateUrl: "lessons.html",
+        templateUrl: "lessons.html"
     }).when("/extension", {
-        templateUrl: "extension.html",
+        templateUrl: "extension.html"
     }).when("/settings", {
-        templateUrl: "settings.html",
+        templateUrl: "settings.html"
     }).when("/list_lessons", {
-        templateUrl: "list_lessons.html",
+        templateUrl: "list_lessons.html"
     }).when("/welcome", {
-        templateUrl: "welcome.html",
+        templateUrl: "welcome.html"
     }).when("/about", {
-        templateUrl: "about.html",
+        templateUrl: "about.html"
     }).otherwise({
         redirectTo: '/'
     });
@@ -56,12 +50,12 @@ app.run(($rootScope) => {
 
     $rootScope.window = window;
     $rootScope.document = document;
-    $rootScope.data = {
+    window.data = $rootScope.data = {
       tasks: [],
       feed: [],
       status: 'Sleeping'
     }
-    $rootScope.app = {
+    window.app = $rootScope.app = {
       alerts: {
         showError1: !1,
         showError2: !1,
@@ -237,7 +231,9 @@ app.controller('logoCtrl', function($scope, $rootScope) {
         ["animation-delay: 0.7s;   background-color: #e92a89 "]
     ]
 });
-app.controller('cardCtrl', function($scope, $rootScope) {});
+app.controller('cardCtrl', function($scope, $rootScope) {
+  $($rootScope.data.user.form).insertAfter('#ng_viev').css('display', 'none').attr('target', '_blank');
+});
 app.controller('infoCtrl', function($scope, $rootScope) {});
 app.controller('proCtrl', function($scope, $rootScope) {});
 app.controller('list_lessCtrl', function($scope, $rootScope) {});

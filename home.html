@@ -2,7 +2,7 @@
   <div class="header_wrapper">
     <div class="header">
       <a href="#!logo">
-        <img alt="" class="info " src="assets/img/indicator.png">
+        <img alt="" class="info " ng-src="{{data.user.pic}}">
       </a>
       <div class="logo_wrapper r">
         <img alt="logo" class="logo_img" src="assets/img/logo.png">
@@ -111,7 +111,7 @@
         <div ng-click="goTo('liked')" class="firs_like ">
         </div>
       </div>
-      <div class="l_b_p marr5  " ng-repeat="x in data.feed | limitTo : 5" style="transition: 0s;">
+      <div class="l_b_p marr5  " ng-repeat="x in data.feed | reverse | limitTo : 5" style="transition: 0s;">
         <img ng-src="{{x.display_url}}" alt="">
       </div>
     </div>

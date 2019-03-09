@@ -145,7 +145,11 @@ p {
   background: -o-linear-gradient(right, rgba(255, 255, 255, 1) 0%, rgba(255, 255, 255, 0) 100%);
   background: linear-gradient(to left, rgba(255, 255, 255, 1) 0%, rgba(255, 255, 255, 0) 100%);
 }
-
+.header .acc_photo{
+  border-radius: 50%;
+height: 64px;
+width: 64px;
+}
 .nicescroll-cursors {
   border: none !important;
 }
@@ -157,7 +161,7 @@ p {
   padding-bottom: 0;
   box-sizing: border-box;
   display: flex;
-  height: 50%;
+  height: 100%;
   justify-content: space-between;
   align-items: center;
 }
@@ -165,7 +169,6 @@ p {
 .header .logo_img {
   display: flex;
   height: 13vh;
-  margin-top: 10vh;
 }
 
 .pulse {

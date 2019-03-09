@@ -545,30 +545,6 @@ p {
   animation-delay: 0.1s
 }
 
-.info_wrapper p {
-  line-height: 30px;
-}
-
-.elipses1 .elipses_with_points, .elipses2 .elipses_with_points, .elipses3 .elipses_with_points {
-  width: 10vh;
-}
-
-.elipses1, .elipses2, .elipses3 {
-  display: flex;
-  padding: 10px 20px;
-}
-
-.elipses1 {
-  justify-content: flex-start;
-}
-
-.elipses2 {
-  justify-content: flex-end;
-}
-
-.elipses3 {
-  justify-content: center;
-}
 
 .cover {
   display: flex;
@@ -580,8 +556,8 @@ p {
   position: relative;
   overflow: hidden;
   display: inline-block;
-  height: 160px;
-  width: 256px;
+  height: 80px;
+  width: 125px;
   /*animation: card 4s infinite;*/
   animation-timing-function: linear;
   border-radius: 10px;
@@ -602,7 +578,7 @@ p {
 .atvImg .img:nth-child(3) {
   /*animation: card 6s infinite;*/
   background-image: url('../img/card.png');
-  animation: card 10.5s linear infinite;
+  /* animation: card 10.5s linear infinite; */
 }
 
 .active_card_wrapper {
@@ -639,7 +615,7 @@ p {
   top: -20px;
   left: -40px;
   width: 20px;
-  height: 200px;
+  height: 130px;
   position: absolute;
   transform: rotateZ(20deg);
   z-index: 5;
@@ -653,12 +629,12 @@ p {
   filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#00ffffff', endColorstr='#007db9e8', GradientType=1);
 }
 
-.atvImg .img2:after {
+.atvImg .img:nth-child(2):after {
   content: '';
   top: -20px;
   left: -40px;
   width: 20px;
-  height: 200px;
+  height: 130px;
   position: absolute;
   transform: rotateZ(20deg);
   z-index: 5;
@@ -672,12 +648,12 @@ p {
   filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#00ffffff', endColorstr='#007db9e8', GradientType=1);
 }
 
-.atvImg .img3:after {
+.atvImg .img:nth-child(3):after {
   content: '';
   top: -20px;
   left: -40px;
   width: 20px;
-  height: 200px;
+  height: 130px;
   position: absolute;
   transform: rotateZ(20deg);
   z-index: 5;

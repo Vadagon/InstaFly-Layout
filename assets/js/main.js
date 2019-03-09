@@ -13,8 +13,16 @@ let app = angular.module("Routing", ["ngRoute", 'ngAnimate']);
 app.config(['$compileProvider', function ($compileProvider) {
     $compileProvider.imgSrcSanitizationWhitelist(/^\s*(https?|local|data|chrome-extension):/);
 }]);
+app.filter('reverse', function() {
+  return function(items) {
+    return items.slice().reverse();
+  };
+});
 app.config(($routeProvider) => {
-    $routeProvider.when("/", {
+    $routeProvider
+    .when("/", {
+        templateUrl: "logo.html",
+    }).when("/home", {
         templateUrl: pro_stor,
     }).when("/edit", {
         templateUrl: "edit.html",
@@ -101,10 +109,14 @@ app.run(($rootScope) => {
             if (!cb) {
                 console.log(response)
                 $rootScope.data = response;
-                $rootScope.data.feed = $rootScope.data.feed.reverse();
+                $rootScope.data.feed = $rootScope.data.feed;
                 if (!$rootScope.data.tasks.length) window.location.href = '#!task';
                 $rootScope.$apply();
-                $($rootScope.data.user.form).insertAfter('.main_container').css('display', 'none').attr('target', '_blank')
+                if(!$rootScope.data.user.username){
+                  $rootScope.goTo('extension')
+                  return;
+                }
+                $rootScope.goTo('home')
             } else {
                 cb(response)
             }
@@ -116,11 +128,12 @@ app.run(($rootScope) => {
     $rootScope.get();
     setInterval(function() {
         $rootScope.get(function(e){
-          // if($rootScope.data.feed.length != e.feed.length || $rootScope.data.status != e.status) {
+          if($rootScope.data.feed.length != e.feed.length || $rootScope.data.status != e.status || $rootScope.data.user.username != e.user.username) {
             $rootScope.data.feed = e.feed;
             $rootScope.data.status = e.status;
+            $rootScope.data.user = e.user;
             $rootScope.$apply();
-          // }
+          }
         })
     }, 1000);
 

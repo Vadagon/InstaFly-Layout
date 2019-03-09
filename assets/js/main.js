@@ -110,7 +110,6 @@ app.run(($rootScope) => {
                 console.log(response)
                 $rootScope.data = response;
                 $rootScope.data.feed = $rootScope.data.feed;
-                if (!$rootScope.data.tasks.length) window.location.href = '#!task';
                 $rootScope.$apply();
                 if(!$rootScope.data.user.username){
                   $rootScope.goTo('extension')

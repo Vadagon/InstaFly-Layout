@@ -53,15 +53,32 @@ app.config(($routeProvider) => {
     });
 });
 app.run(($rootScope) => {
-    $rootScope.APPNAME = "InstaFly";
-    $rootScope.status1 = "sleeping";
-    $rootScope.select_names = [
+
+    $rootScope.window = window;
+    $rootScope.document = document;
+    $rootScope.data = {
+      tasks: [],
+      feed: [],
+      status: 'Sleeping'
+    }
+    $rootScope.app = {
+      alerts: {
+        showError1: !1,
+        showError2: !1,
+        showError3: !1,
+        goProPopup: false
+      },
+      filters: [
         ["hashtag", "Like by hashtags"],
         ["feed", "Like my feed"],
         ["location", "Like by locations"],
         ["followers", "Like user's followers"],
         ["following", "Like user's followings"]
-    ];
+      ],
+      taskFunc: 'add'
+    }
+    $rootScope.APPNAME = "InstaFly";
+    $rootScope.status1 = "sleeping";
     $rootScope.tasks_count = 1;
     $rootScope.liked = 495;
     $rootScope.max_likes_per_day = 500;
@@ -71,31 +88,17 @@ app.run(($rootScope) => {
     $rootScope.goBack = function() {
         window.history.back();
     }
-    $rootScope.data = {
-        tasks: [],
-        feed: [],
-        status: 'Sleeping'
-    }
     window.blankTask = {
         isEnabled: !0,
         type: 'hashtag',
         textarea: ''
     }
-    $rootScope.window = window;
-    $rootScope.document = document;
-    $rootScope.ap = {
-        showError1: !1,
-        showError2: !1,
-        showError3: !1,
-        taskFunc: 'add',
-        goProPopup: false
-    };
     $rootScope.newTask = window.blankTask;
     $rootScope.taskFunc = function(e) {
-        $rootScope.ap.taskFunc = e;
+        $rootScope.app.taskFunc = e;
         if (e !== 'add') {
-            console.log($rootScope.ap.taskFunc);
-            $rootScope.newTask = angular.copy($rootScope.data.tasks[$rootScope.ap.taskFunc])
+            console.log($rootScope.app.taskFunc);
+            $rootScope.newTask = angular.copy($rootScope.data.tasks[$rootScope.app.taskFunc])
             console.log($rootScope.newTask);
         } else {
             $rootScope.newTask = angular.copy(window.blankTask)
@@ -109,10 +112,13 @@ app.run(($rootScope) => {
             if (!cb) {
                 console.log(response)
                 $rootScope.data = response;
-                $rootScope.data.feed = $rootScope.data.feed;
                 $rootScope.$apply();
                 if(!$rootScope.data.user.username){
                   $rootScope.goTo('extension')
+                  return;
+                }
+                if(!$rootScope.data.tasks.length){
+                  $rootScope.goTo('edit')
                   return;
                 }
                 $rootScope.goTo('home')
@@ -121,7 +127,7 @@ app.run(($rootScope) => {
             }
         });
     }
-    $rootScope.$watch('data', function(newValue, oldValue) {
+    $rootScope.$watch('data.tasks', function(newValue, oldValue) {
         $rootScope.save();
     }, true);
     $rootScope.get();
@@ -138,10 +144,10 @@ app.run(($rootScope) => {
 
 
     $rootScope.saveTask = function(){
-      if ($rootScope.ap.taskFunc == 'add') {
+      if ($rootScope.app.taskFunc == 'add') {
         $rootScope.data.tasks.push(angular.copy($rootScope.newTask))
       } else {
-        $rootScope.data.tasks[$rootScope.ap.taskFunc] = angular.copy($rootScope.newTask);
+        $rootScope.data.tasks[$rootScope.app.taskFunc] = angular.copy($rootScope.newTask);
       }
       $rootScope.save();
     }
@@ -194,10 +200,10 @@ app.run(($rootScope) => {
 })
 app.controller('indexCtrl', function($scope, $rootScope) {});
 app.controller('editCtrl', function($scope, $rootScope) {
-    $scope.selected_option = $rootScope.select_names[0];
+    $scope.selected_option = $rootScope.app.filters[0];
     let selected_option;
     $scope.selected = function(a) {
-        $scope.selected_option = $rootScope.select_names[a]
+        $scope.selected_option = $rootScope.app.filters[a]
     }
 });
 app.controller('logoCtrl', function($scope, $rootScope) {

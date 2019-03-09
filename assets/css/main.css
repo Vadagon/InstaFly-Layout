@@ -176,7 +176,11 @@ width: 64px;
 .pulse {
   animation: pulse 2s infinite;
 }
-
+.red_scale{
+  color: red;
+  animation: bounceIn .2s linear;
+  transform-origin:0 100% ;
+}
 .pulse_black {
   animation: pulse_black 2s infinite;
 }

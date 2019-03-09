@@ -49,7 +49,6 @@ body {
   min-height: 100%;
 display: flex;
 flex-flow: column;
-height: 100%;
 }
 #ng_viev {
   height: 100%;
@@ -73,7 +72,9 @@ p {
   background-size: cover;
   cursor: pointer;
 }
-
+.header_simple{
+  height: 60px;
+}
 .header_wrapper {
   display: flex;
   height: 15vh;
@@ -217,7 +218,7 @@ p {
 }
 
 .card_wrapper .header {
-  height: 15vh;
+  height: 10vh;
 }
 
 .logo_img {
@@ -882,7 +883,6 @@ p {
 
 .plus {
   padding: 10px;
-  margin-top: 14vh;
   border: 1px solid rgba(255, 255, 255, .1);
   border-radius: 30px;
 }
@@ -981,10 +981,14 @@ p {
   height: 100%;
 }
 .header_wrapper .progress{
-  height: 0.6vh;
+  height: 0.4vh;
+}
+.info_wrapper .header_wrapper{
+  height: 10vh;
 }
 .info_wrapper .header_wrapper .header {
   padding: 10px 0;
+  height: 100%
 }
 
 .onoffswitch .info_wrapper .btn {
@@ -1291,10 +1295,6 @@ input:-webkit-autofill, input:-webkit-autofill:hover, input:-webkit-autofill:foc
   top: -3px;
 }
 
-#filter {
-  margin-top: 15px;
-}
-
 .page-home.ng-leave {
   -webkit-transform-origin: 0% 0%;
   -webkit-animation: 0.3s both ease-in;
@@ -1358,12 +1358,20 @@ input:-webkit-autofill, input:-webkit-autofill:hover, input:-webkit-autofill:foc
   height: 20vh;
 }
 .edit_wrapper .progress{
-  height: 0.6vh;
+  height: 0.4vh;
+}
+.info_wrapper .progress{
+  height: 0.4vh;
 }
 .edit_task .edit_wrapper {
   height: 100%;
 }
-
+.edit_wrapper .header_wrapper{
+  height: 10vh;
+}
+.edit_wrapper .header{
+  height: 10vh;
+}
 .liked_photos_wrapper {
   background: url(../img/liked_wave.png);
   background-size: cover;
@@ -1906,16 +1914,13 @@ input[type="range"]::-ms-thumb {
     top: 180vh;
   }
 
-  .plus {
-    margin-top: 28vh;
-  }
 
   .content_card {
     height: 170vh;
   }
 
   .card_wrapper .header {
-    height: 30vh;
+    height: 20vh;
   }
 
   .card_wrapper .wawes_2 img, .card_wrapper .wawes_1 img {
@@ -2019,16 +2024,6 @@ input[type="range"]::-ms-thumb {
     height: 16vh;
   }
 
-  .ellipse2_img {
-    width: 10vh;
-    height: 10vh;
-  }
-
-  .ellipse_img {
-    width: 16vh;
-    height: 16vh;
-  }
-
   .hash_img, .edit_img {
     width: 4vh;
     height: 4vh;
@@ -2046,41 +2041,4 @@ input[type="range"]::-ms-thumb {
     width: 6vh;
     height: 6vh;
   }
-}
-
-/* for chrome ext css */
-@media only screen and (width:360px) {
-  *{
-      -webkit-tap-highlight-color: rgba(0,0,0,.4);
-  }
-  ::selection {
-    background: rgba(255,255,255,.4);
-  }
-
-  ::-moz-selection {
-    background: rgba(255,255,255,.4);
-  }
-
-  .active_card {
-    transform: scale(1.2);
-  }
-
-  .about_plus {
-    margin: 20px;
-    margin-top: 50px;
-  }
-
-.select .options{
-  border-radius: 10px;
-  width: 101%;
-  top: 66px;
-}
-.options{
-  left: -2px;
-  height: 266px;
-}
-.status_dot{
-  height: 2vh;
-  width: 2vh;
-}
 }

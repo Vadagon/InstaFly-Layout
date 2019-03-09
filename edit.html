@@ -1,48 +1,43 @@
 <div class="edit_wrapper" ng-controller="editCtrl">
   <div class="header_wrapper">
-    <div class="header">
-      <a ng-click="goBack()">
-        <img alt="" class="info " src="assets/img/back.png">
+    <div class="header F_RCC">
+      <a ng-click="goBack()" class="a left0 top0">
+        <img alt="" class="info pad20" src="assets/img/back.png">
       </a>
-      <div class="onoffswitch">
-        <input ng-checked="newTask.isEnabled" class="onoffswitch-checkbox" id="myonoffswitch" name="onoffswitch" type="checkbox">
-        <label class="onoffswitch-label" for="myonoffswitch">
-          <span class="onoffswitch-inner">
-          </span>
-          <span class="onoffswitch-switch">
-          </span>
-        </label>
-
-      </div>
-    </div>
-    <div class="mar5 flex">
-      <h2 class="fvh4_8 fcl_w F_RCC">
-        <div class="dot mar5">
-        </div>
+      <h2 class="fvh4_8 w100 fcl_w F_RCC">
         New Task Creation
       </h2>
     </div>
   </div>
   <div class="progress">
-    <div class="progress_bar" style="width: 100%; height: 100%">
-    </div>
+    <div class="progress_bar gradient_purple" style="width: 100%; height: 100%"></div>
   </div>
   <div class="content">
     <div class="flex">
 
       <!-- {{newTask.isEnabled}} -->
-
-      <h2 class="w70 mart15 fcl_w fvh2_4 " id="filter">Filter:</h2>
+      <div class="F_RAC pad10">
+        <h2 class="w70  fcl_w fvh2_4 " id="filter">Filter:</h2>
+        <div class="onoffswitch">
+          <input ng-checked="newTask.isEnabled" class="onoffswitch-checkbox" id="myonoffswitch" name="onoffswitch" type="checkbox">
+          <label class="onoffswitch-label" for="myonoffswitch">
+            <span class="onoffswitch-inner">
+            </span>
+            <span class="onoffswitch-switch">
+            </span>
+          </label>
+        </div>
+      </div>
       <div class="select F_RSC fvh3_6" ng-click="options_val = !options_val; selected1 = !selected1">
         <div class="F_RCC">
 
-        <div class="dot marr10"></div>{{selected_option[1]}}
+          <div class="dot marr10"></div>{{selected_option[1]}}
         </div>
         <div class="options " ng-show="options_val">
           <a ng-repeat="x in select_names">
             <span ng-click="newTask.type = select_names[$index][0]; selected($index)" class="fvh3_6 marb10 F_RSCNW" title="{{select_names[$index][1]}}">
-                <div class="dot marr10"></div>
-                {{select_names[$index][1]}}
+              <div class="dot marr10"></div>
+              {{select_names[$index][1]}}
             </span>
           </a>
         </div>

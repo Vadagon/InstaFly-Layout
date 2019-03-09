@@ -88,15 +88,15 @@
         </div>
       </div>
     </div>
-    <div class="add_btn F_RAC mar10  fcl_w" ng-show="ap.showError1">
-      <span class="fvh2_4" ng-click="ap.goProPopup = true">Only
+    <div class="add_btn F_RAC mar10  fcl_w" ng-show="app.alerts.showError1">
+      <span class="fvh2_4" ng-click="app.alerts.goProPopup = true">Only
         <span ng-click="goTo(card)" class="purple_cl fvh2_4">PLUS member</span>
         is able to add
       </span>
-      <div class="close_img" ng-click="ap.showError1=!1">
+      <div class="close_img" ng-click="app.alerts.showError1=!1">
       </div>
     </div>
-    <a ng-click="(data.tasks.length > 0 && !data.user.isMember)?ap.showError1 = true:taskFunc('add')">
+    <a ng-click="(data.tasks.length > 0 && !data.user.isMember)?app.alerts.showError1 = true:taskFunc('add')">
       <div class="add_btn  F_RCC mar10 mart0 ">
         <img alt="" class="info ico_plus" src="assets/img/plus.png">
         <span class="fcl_w fvh2_4 marl10">

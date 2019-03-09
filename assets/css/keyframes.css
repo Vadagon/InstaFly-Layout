@@ -302,10 +302,12 @@
   50%{
     opacity: 0.9;
     transform: scale(1.1);
+    color: red;
   }
   80%{
     opacity: 1;
     transform: scale(0.89);
+    color: red;
   }
   100%{
     opacity: 1;

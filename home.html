@@ -111,7 +111,7 @@
         <div ng-click="goTo('liked')" class="firs_like ">
         </div>
       </div>
-      <div class="l_b_p marr5  " ng-repeat="x in data.feed | limitTo : 5">
+      <div class="l_b_p marr5  " ng-repeat="x in data.feed | limitTo : 5" style="transition: 0s;">
         <img ng-src="{{x.display_url}}" alt="">
       </div>
     </div>

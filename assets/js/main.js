@@ -114,6 +114,16 @@ app.run(($rootScope) => {
         $rootScope.save();
     }, true);
     $rootScope.get();
+    setInterval(function() {
+        $rootScope.get(function(e){
+          // if($rootScope.data.feed.length != e.feed.length || $rootScope.data.status != e.status) {
+            $rootScope.data.feed = e.feed;
+            $rootScope.data.status = e.status;
+            $rootScope.$apply();
+          // }
+        })
+    }, 1000);
+
 
     $rootScope.saveTask = function(){
       if ($rootScope.ap.taskFunc == 'add') {

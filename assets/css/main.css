@@ -177,7 +177,7 @@ width: 64px;
   animation: pulse 2s infinite;
 }
 .red_scale{
-  color: red;
+  
   animation: bounceIn .2s linear;
   transform-origin:0 100% ;
 }

@@ -235,7 +235,11 @@ app.controller('authCtrl', function($scope, $rootScope) {
     })
 });
 $(function() {
-    $("body").niceScroll();
+    $("#ng_viev").niceScroll({
+      enableobserver: true,
+      smoothscroll: true, // scroll with ease movement
+    sensitiverail: true,
+    });
 });
 $(function() {
     $("textarea").niceScroll();

@@ -56,6 +56,12 @@ text-align: left;
 .ta_r{
 text-align: right;
 }
+.tov_el{
+  overflow: hidden;
+  width: 100%;
+  display: inline-block;
+  text-overflow: ellipsis;
+}
 .F_RBS{
     display: flex;
     flex-flow: column;

@@ -1705,7 +1705,7 @@ input:-webkit-autofill, input:-webkit-autofill:hover, input:-webkit-autofill:foc
 .l_b_p {
   transition: all .5s linear;
   background: url('../img/logo.png');
-  animation: unshift_for_home .5s linear;
+  /* animation: unshift_for_home .5s linear; */
 }
 
 .bottom_liked .l_b_p:nth-child(2) {

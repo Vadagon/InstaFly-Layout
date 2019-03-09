@@ -202,6 +202,13 @@ app.controller('indexCtrl', function($scope, $rootScope) {});
 app.controller('editCtrl', function($scope, $rootScope) {
     $scope.selected_option = $rootScope.app.filters[0];
     let selected_option;
+    $scope.ta_maxLength = 400;
+    $scope.ta_minLength = 40;
+    // $scope.$watch('message',()=>{
+    //   console.log($scope.message.length);
+    //
+    // })
+
     $scope.selected = function(a) {
         $scope.selected_option = $rootScope.app.filters[a]
     }

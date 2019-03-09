@@ -62,6 +62,9 @@ body {
 .a{
     position: absolute;
 }
+.f{
+    position: fixed;
+}
 .nls{
     letter-spacing: normal;
 }

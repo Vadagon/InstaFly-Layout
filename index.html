@@ -1,54 +1,48 @@
 <!DOCTYPE html>
 <html lang="en" ng-app="Routing">
-    <head>
-        <meta charset="utf-8">
-        <title> {{APPNAME}} </title>
-        <link href="assets/css/verblike.css" rel="stylesheet">
-        <link href="assets/css/keyframes.css" rel="stylesheet">
-        <link href="assets/img/indicator.png" rel="shortcut icon" type="image/x-icon">
-        <link href="assets/css/main.css" rel="stylesheet">
-        <link href="../platform/index.css" rel="stylesheet">
-        <script src="assets/js/all_scripts.min.js"></script>
-        <script src="../platform/index.js"> </script>
-        <meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport"/>
-        <script src="assets/js/main.js"></script>
-        <script src="assets/js/niceScrool.js"></script>
 
-    </head>
+<head>
+  <meta charset="utf-8">
+  <title> {{APPNAME}} </title>
+  <link href="assets/css/verblike.css" rel="stylesheet">
+  <link href="assets/css/keyframes.css" rel="stylesheet">
+  <link href="assets/img/indicator.png" rel="shortcut icon" type="image/x-icon">
+  <link href="assets/css/main.css" rel="stylesheet">
+  <link href="../platform/index.css" rel="stylesheet">
+  <script src="assets/js/all_scripts.min.js"></script>
+  <script src="../platform/index.js"> </script>
+  <meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport" />
+  <script src="assets/js/main.js"></script>
+  <script src="assets/js/niceScrool.js"></script>
 
-    <body class="page page-home r">
+</head>
 
-      <div class="modal_cant_add_task fcl_w F_CCC" ng-show="ap.goProPopup" ng-click="modal_cant_add_task = !modal_cant_add_task">
-        <div class="home_modal" ng-click="ap.goProPopup = false">
-        <a href="#!info" class="" >
-          <div class="F_CCC info_button">
-            <div class="dot_info"></div>
-            <div class="dot_info"></div>
-            <div class="dot_info"></div>
-          </div>
-          </a>
-          </div>
-        <a class="getpro_wrapper mar10 mart20 w90" href="#!card">
-          <div class="getpro gradient_purple fcl_w pad15 ">
-            <h1 class="ta_c padt30 mart30 fvh5_10">You cant add more tasks</h1>
-            <div class="wave_bg"></div>
-            <img alt="" class="stars_pro" src="assets/img/stars.png">
-            <img alt="" class="cup_pro" src="assets/img/cup.png">
-            <div class="wawe_bg">
-            </div>
-          </div>
-          <span class="pro_go pulse">
-            GO PRO
-          </span>
-        </a>
-        <div class="close" ng-click="ap.goProPopup = false">
-          <div class="close_img"></div>
+<body class="page page-home r">
+  <div class="modal_cant_add_task fcl_w F_CCC" ng-show="app.alerts.goProPopup" ng-click="modal_cant_add_task = !modal_cant_add_task">
+    <div class="home_modal" ng-click="app.alerts.goProPopup = false">
+    </div>
+    <h1 class="w90 ta_c padb30 marb30 fvh5_10">You cant add more tasks</h1>
+    <a class="getpro_wrapper mar10 mart30" href="#!card">
+      <div class="getpro gradient_purple fcl_w pad15 ">
+        <div class="wave_bg"></div>
+        <img alt="" class="stars_pro" src="assets/img/stars.png">
+        <img alt="" class="cup_pro" src="assets/img/cup.png">
+        <div class="wawe_bg">
         </div>
       </div>
+      <span class="pro_go pulse" ng-click="app.alerts.goProPopup = false">
+        GO PRO
+      </span>
+    </a>
+    <div class="close" ng-click="app.alerts.goProPopup = false">
+      <div class="close_img"></div>
+    </div>
+  </div>
 
-       <div id="ng_viev" class="r" ng-view>
+  <div id="ng_viev" class="" ng-view>
 
-       </div>
+  </div>
 
-    </body>
+</body>
+
 </html>

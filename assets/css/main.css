@@ -177,7 +177,7 @@ width: 64px;
   animation: pulse 2s infinite;
 }
 .red_scale{
-  
+
   animation: bounceIn .2s linear;
   transform-origin:0 100% ;
 }
@@ -1529,20 +1529,7 @@ left: 200px;
   height: 100%;
 }
 
-.home_modal {
-  position: absolute;
-  top: 6%;
-  left: 7%;
-  width: 20px;
-  z-index: 2;
-  height: 20px;
-}
 
-.modal_cant_add_task .getpro_wrapper {
-  height: 100%;
-}
-
-.modal_cant_add_task .getpro {}
 
 .in_block {
   width: 50px;
@@ -1568,23 +1555,8 @@ left: 200px;
 }
 
 .modal_cant_add_task .getpro {
-  height: 91vh;
-}
-
-.modal_cant_add_task .getpro .cup_pro {
-  top: 63%;
-  width: 75%;
-  z-index: 2;
-  position: absolute;
-  left: 12.5%;
-}
-
-.modal_cant_add_task .getpro .stars_pro {
-  width: 50%;
-  top: 56%;
-  z-index: 2;
-  left: 25%;
-  position: absolute;
+  width: 90vw;
+  height: 35vh;
 }
 
 .modal_cant_add_task .getpro .wave_bg {

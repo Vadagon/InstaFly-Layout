@@ -396,36 +396,10 @@ p {
 .logo_page .wave_img {
   position: fixed;
 }
-
-.select {
-  padding: 0px 12px;
-  box-sizing: border-box;
-  display: flex;
-  width: 95%;
-  height: 9vh;
-  background: #121921;
-  background-repeat: no-repeat;
-  background-position: right;
-  -webkit-background-size: 8.8vh;
-  background-size: 8.8vh;
-  border-radius: 50px;
-  margin: 15px auto;
-  border: 1px solid rgba(255, 255, 255, 0.1);
-  justify-content: space-between;
-  align-items: center;
-  color: #fff;
-  position: relative;
-  transition: all .5 ease;
-}
-
-.ellipse_img_selected {
-  animation: pulse 2s infinite;
-}
-
 .arrow_img_reverse {
   transform: rotateZ(180deg);
+  transition: all .2s linear;
 }
-
 #edit_hash {
   box-sizing: border-box;
   border: none;
@@ -442,30 +416,67 @@ p {
   width: 2vh;
   height: 2vh;
 }
-
-.select .options {
-  border-radius: 36px;
-  width: 100%;
-  position: absolute;
-  z-index: 9999;
+.select {
+  padding: 0px 12px;
   box-sizing: border-box;
+  display: flex;
+  width: 95%;
+  height: 9vh;
+  background: #121921;
+  background-repeat: no-repeat;
+  background-position: right;
+  -webkit-background-size: 8.8vh;
+  background-size: 8.8vh;
+  border-radius: 10px;
+  margin: 15px auto;
   border: 1px solid rgba(255, 255, 255, 0.1);
+  justify-content: space-between;
+  align-items: center;
+  color: #fff;
+  position: relative;
+  transition: all .5 ease;
 }
 
+
+.select .options {
+  border-radius: 10px;
+width: 100%;
+position: absolute;
+z-index: 9999;
+border: 1px solid rgba(255, 255, 255, 0.1);
+border-radius: 0px 0px 10px 10px;
+border-top: 0px;
+top: 7vh;
+transform: scale(1) translateX(-1px);
+}
+.select .options.ng-hide{
+  top: 0;
+  transform: rotateX(90deg);
+    transform-origin: 50% 0;
+    color: #000;
+    background: rgba(0,0,0,0)
+
+}
 .options {
-  -webkit-transition: all linear 0.5s;
-  transition: all linear 0.5s;
-  top: 9vh;
+  -webkit-transition: all linear 0.2s;
+  transition: all linear 0.2s;
   left: 0;
   display: flex;
   flex-flow: column;
   position: relative;
   left: 0;
   background: #121921;
-  padding: 20px;
   color: #fff;
 }
+.options > a{
+  padding: 5px 12px;
 
+}
+.options > a:hover{
+background: rgba(255, 255, 255, .1);
+
+
+}
 .select_arrow {
   display: flex;
   justify-content: center;
@@ -476,6 +487,7 @@ p {
   width: 2vh;
   height: 2vh;
   cursor: pointer;
+  transition: all .2s linear;
 }
 
 .elipses_with_points {

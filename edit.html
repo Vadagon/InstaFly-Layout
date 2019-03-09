@@ -30,13 +30,11 @@
       </div>
       <div class="select F_RSC fvh3_6" ng-click="options_val = !options_val; selected1 = !selected1">
         <div class="F_RCC">
-
-          <div class="dot marr10"></div>{{selected_option[1]}}
+          {{selected_option[1]}}
         </div>
         <div class="options " ng-show="options_val">
-          <a ng-repeat="x in select_names">
-            <span ng-click="newTask.type = select_names[$index][0]; selected($index)" class="fvh3_6 marb10 F_RSCNW" title="{{select_names[$index][1]}}">
-              <div class="dot marr10"></div>
+          <a ng-repeat="x in select_names" class=" pad5">
+            <span ng-click="newTask.type = select_names[$index][0]; selected($index)" class="fvh3_6  F_RSCNW" title="{{select_names[$index][1]}}">
               {{select_names[$index][1]}}
             </span>
           </a>
@@ -56,12 +54,9 @@
       <div class="task_filter  w95" ng-if="(newTask.type == 'hashtag' || newTask.type == 'location')">
         <div class="scroll-wrapper scrollbar-inner" style="position: relative;">
           <div class="scrollbar-inner scroll-content scroll-scrolly_visible" style="height: auto; margin-bottom: 0px; margin-right: 0px; max-height: 250px;">
-
-            <div class="status_dot" ng-class="active_dot"></div>
             <textarea id="edit_hash" cols="30" rows="10" class="fcl_w " ng-if="newTask.type == 'hashtag'"
               placeholder="#love #instagood #me #cute #tbt #photooftheday #instamood #iphonesia #tweegram #picoftheday #igers #girl #beautiful #instadaily #summer #instagramhub #iphoneonly #follow #igdaily" ng-model="newTask.textarea"></textarea>
             <textarea id="edit_hash" cols="30" rows="10" class="fcl_w " ng-if="newTask.type == 'location'" placeholder="New York; London; Brazil; Ukraine; Los Angeles; United Kingdom" ng-model="newTask.textarea"></textarea>
-            <!-- <textarea class="fcl_w"  name="hash" id="edit_hash" cols="30" rows="10" placeholder=""></textarea> -->
           </div>
         </div>
         <img alt="points" class="points_img" src="assets/img/points.jpg" width="100%">

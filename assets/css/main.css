@@ -652,9 +652,8 @@ bottom: 10px;
 .cover {
   display: flex;
   z-index: 3;
-  overflow: hidden;
+  overflow-x: scroll;
 outline: none;
-touch-action: none;
 padding: 20px;
 }
 

@@ -270,17 +270,16 @@ app.controller('authCtrl', function($scope, $rootScope) {
     })
 });
   $(function() {
-      $("#ng_view").niceScroll({
-        enableobserver: true
-      });
-      $(".cover").niceScroll({
-        enableobserver: true
-      });
-      $("textarea").niceScroll({
-        enableobserver: true
-      });
-      $(".homex_scrool").niceScroll({
-        enableobserver: true
-      });
+      // $("#ng_view").niceScroll({
+      //   enableobserver: true
+      // });
+      // $(".cover").niceScroll({
+      //   enableobserver: true
+      // });
+      // $("textarea").niceScroll({
+      //   enableobserver: true
+      // });
+      $(".cover").niceScroll();
+      $(".do-nicescroll4").niceScroll();
 
   });

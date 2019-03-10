@@ -46,6 +46,7 @@ html {}
 
 body {
   background: #161c24;
+      overflow: hidden;
 }
 
 .page {

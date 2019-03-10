@@ -209,29 +209,37 @@ app.controller('editCtrl', function($scope, $rootScope) {
         $scope.selected_option = $rootScope.app.filters[a]
     }
 });
+app.controller('extensionCtrl', function($scope, $rootScope) {
+  if(!$rootScope.data.user.username)
+  setInterval(function () {
+    if($rootScope.data.user.username){
+      !$rootScope.data.tasks.length?$rootScope.goTo('edit'):$rootScope.goTo('extension')
+    }
+  }, 100);
+});
 app.controller('logoCtrl', function($scope, $rootScope) {
-    $scope.loader = [
-        ["animation-delay: 0.125s;   background-color:#8f2fb4"],
-        ["animation-delay: 0.15s;   background-color:  #942fb2"],
-        ["animation-delay: 0.175s;   background-color:#942fb2"],
-        ["animation-delay: 0.2s;   background-color: #a92ea9 "],
-        ["animation-delay: 0.225s;   background-color: #a92ea9"],
-        ["animation-delay: 0.25s;   background-color:#ad2da7"],
-        ["animation-delay: 0.275s;   background-color: #ad2da7"],
-        ["animation-delay: 0.3s;   background-color: #a62eaa"],
-        ["animation-delay: 0.325s;   background-color: #a62eaa"],
-        ["animation-delay: 0.35s;   background-color:  #b92da2"],
-        ["animation-delay: 0.375s;   background-color:  #b92da2"],
-        ["animation-delay: 0.4s;   background-color: #ce2c99"],
-        ["animation-delay: 0.425s;   background-color: #ce2c99 "],
-        ["animation-delay: 0.45s;   background-color: #dd2b93"],
-        ["animation-delay: 0.475s;   background-color:#dd2b93 "],
-        ["animation-delay: 0.5s;   background-color:#e92a89  "],
-        ["animation-delay: 0.55s;   background-color: #e92a89 "],
-        ["animation-delay: 0.6s;   background-color:#e92a89  "],
-        ["animation-delay: 0.65s;   background-color: #e92a89 "],
-        ["animation-delay: 0.7s;   background-color: #e92a89 "]
-    ]
+  $scope.loader = [
+      ["animation-delay: 0.125s;   background-color:#8f2fb4"],
+      ["animation-delay: 0.15s;   background-color:  #942fb2"],
+      ["animation-delay: 0.175s;   background-color:#942fb2"],
+      ["animation-delay: 0.2s;   background-color: #a92ea9 "],
+      ["animation-delay: 0.225s;   background-color: #a92ea9"],
+      ["animation-delay: 0.25s;   background-color:#ad2da7"],
+      ["animation-delay: 0.275s;   background-color: #ad2da7"],
+      ["animation-delay: 0.3s;   background-color: #a62eaa"],
+      ["animation-delay: 0.325s;   background-color: #a62eaa"],
+      ["animation-delay: 0.35s;   background-color:  #b92da2"],
+      ["animation-delay: 0.375s;   background-color:  #b92da2"],
+      ["animation-delay: 0.4s;   background-color: #ce2c99"],
+      ["animation-delay: 0.425s;   background-color: #ce2c99 "],
+      ["animation-delay: 0.45s;   background-color: #dd2b93"],
+      ["animation-delay: 0.475s;   background-color:#dd2b93 "],
+      ["animation-delay: 0.5s;   background-color:#e92a89  "],
+      ["animation-delay: 0.55s;   background-color: #e92a89 "],
+      ["animation-delay: 0.6s;   background-color:#e92a89  "],
+      ["animation-delay: 0.65s;   background-color: #e92a89 "],
+      ["animation-delay: 0.7s;   background-color: #e92a89 "]
+  ]
 });
 app.controller('cardCtrl', function($scope, $rootScope) {
   $($rootScope.data.user.form).insertAfter('#ng_viev').css('display', 'none').attr('target', '_blank');

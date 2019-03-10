@@ -244,6 +244,10 @@ margin: 0 15px;
 box-shadow: 0px 0px 15px 0px #fff;
 border-radius: 20px;
 }
+.prv2{
+  background: url(../img/lessons/less2_preview.png) no-repeat;
+  background-size: cover;
+}
 .home_lessons > img{
   width: 100%;
   height: 100%;

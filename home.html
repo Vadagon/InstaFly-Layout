@@ -131,14 +131,14 @@
       </div>
     </a>
     <div class="bottom_liked pad5  r F_RSCNW boxs">
-      <div class="wave_bg">
+      <div class="wave_bg" style="pointer-events: none;">
       </div>
       <div class="firs_like_wrapper  F_CCC">
         <div ng-click="goTo('liked')" class="firs_like ">
         </div>
       </div>
-      <div class="l_b_p marr5  " ng-repeat="x in data.feed | reverse | limitTo : 5" style="transition: 0s;">
+      <a ng-repeat="x in data.feed | reverse | limitTo : 5" href="https://www.instagram.com/p/{{x.shortcode}}/" target="_blank" class="l_b_p marr5" style="transition: 0s;">
         <img ng-src="{{x.display_url}}" alt="">
-      </div>
+      </a>
     </div>
   </div>

@@ -116,6 +116,7 @@ app.run(($rootScope) => {
                   return;
                 }
                 $rootScope.goTo('home')
+
             } else {
                 cb(response)
             }

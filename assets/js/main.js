@@ -210,12 +210,14 @@ app.controller('editCtrl', function($scope, $rootScope) {
     }
 });
 app.controller('extensionCtrl', function($scope, $rootScope) {
-  if(!$rootScope.data.user.username)
-  setInterval(function () {
-    if($rootScope.data.user.username){
-      !$rootScope.data.tasks.length?$rootScope.goTo('edit'):$rootScope.goTo('extension')
-    }
-  }, 100);
+  if(!$rootScope.data.user.username){
+    var interval = setInterval(function () {
+      if($rootScope.data.user.username){
+        !$rootScope.data.tasks.length?$rootScope.goTo('edit'):$rootScope.goTo('home')
+        clearInterval(interval);
+      }
+    }, 100);
+  }
 });
 app.controller('logoCtrl', function($scope, $rootScope) {
   $scope.loader = [

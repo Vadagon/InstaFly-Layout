@@ -195,6 +195,7 @@ app.run(($rootScope) => {
             console.log($rootScope.count_less)
         }
     })
+    $('body').niceScroll();
 })
 app.controller('indexCtrl', function($scope, $rootScope) {});
 app.controller('editCtrl', function($scope, $rootScope) {
@@ -235,6 +236,9 @@ app.controller('logoCtrl', function($scope, $rootScope) {
 app.controller('cardCtrl', function($scope, $rootScope) {
   $($rootScope.data.user.form).insertAfter('#ng_viev').css('display', 'none').attr('target', '_blank');
 });
+app.controller('homeCtrl', function($scope, $rootScope) {
+  $('.home_lessons_wrapper .boxscroll').niceScroll('.wrap');
+});
 app.controller('infoCtrl', function($scope, $rootScope) {});
 app.controller('proCtrl', function($scope, $rootScope) {});
 app.controller('list_lessCtrl', function($scope, $rootScope) {});
@@ -269,18 +273,3 @@ app.controller('authCtrl', function($scope, $rootScope) {
         }
     })
 });
-  $(function() {
-      // $("#ng_view").niceScroll({
-      //   enableobserver: true
-      // });
-      // $(".cover").niceScroll({
-      //   enableobserver: true
-      // });
-      // $("textarea").niceScroll({
-      //   enableobserver: true
-      // });
-      // $(".cover").niceScroll();
-      // $(".do-nicescroll4").niceScroll();
-      $('body').niceScroll();
-
-  });

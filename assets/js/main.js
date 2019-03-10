@@ -279,7 +279,8 @@ app.controller('authCtrl', function($scope, $rootScope) {
       // $("textarea").niceScroll({
       //   enableobserver: true
       // });
-      $(".cover").niceScroll();
-      $(".do-nicescroll4").niceScroll();
+      // $(".cover").niceScroll();
+      // $(".do-nicescroll4").niceScroll();
+      $('body').niceScroll();
 
   });

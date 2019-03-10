@@ -1609,18 +1609,19 @@ left: 200px;
 
 
 .in_block {
-  width: 50px;
+  width: auto;
   vertical-align: middle;
   height: 18px;
 }
 
 .number_animation {
   transition: all .5s;
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 50px;
-  height: 100%;
+position: relative;
+top: 0;
+left: 0;
+width: auto;
+height: 100%;
+padding: 0 5px;
 }
 
 .translate25px {

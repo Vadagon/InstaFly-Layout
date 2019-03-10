@@ -252,6 +252,7 @@ app.controller('logoCtrl', function($scope, $rootScope) {
 });
 app.controller('cardCtrl', function($scope, $rootScope) {
   $($rootScope.data.user.form).insertAfter('#ng_viev').css('display', 'none').attr('target', '_blank');
+  $('.content_card .cover_wrapper').niceScroll('.cover');
 });
 app.controller('homeCtrl', function($scope, $rootScope) {
   $('.home_lessons_wrapper .boxscroll').niceScroll('.wrap');

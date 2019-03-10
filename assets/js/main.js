@@ -271,16 +271,16 @@ app.controller('authCtrl', function($scope, $rootScope) {
 });
   $(function() {
       $("#ng_view").niceScroll({
-        enableobserver: true,
+        enableobserver: true
       });
       $(".cover").niceScroll({
-        enableobserver: true,
+        enableobserver: true
       });
       $("textarea").niceScroll({
-        enableobserver: true,
+        enableobserver: true
       });
       $(".homex_scrool").niceScroll({
-        enableobserver: true,
+        enableobserver: true
       });
 
   });

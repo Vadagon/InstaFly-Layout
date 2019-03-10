@@ -173,6 +173,22 @@ width: 64px;
   background: rgba(52, 133, 214, 0.91);
   border-radius: 50%;
   cursor: pointer;
+  transition: all .2s linear;
+
+}
+.plus_less2{
+  width: 100px;
+  transition: all .2s linear;
+  border-radius: 20px;
+}
+.plus_less2::after{
+  content: 'BUY';
+  position: absolute;
+  font-size: 20px;
+  left: 35px;
+  top: 2px;
+  transition: all 0.3s linear;
+  color: #fff;
 
 }
 .hori, .vert{
@@ -182,6 +198,7 @@ height: 15px;
 position: absolute;
 top: 7px;
 border-radius: 1px;
+transition: all 0.3s linear;
 left: 13px;
 }
 .hori{
@@ -189,6 +206,9 @@ left: 13px;
   height: 3px;
   top: 13px;
   left: 7px;
+}
+.hori_r, .vert_r{
+  transform: rotateZ(90deg);
 }
 .home_less_cout{
   position: absolute;

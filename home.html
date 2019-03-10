@@ -32,7 +32,7 @@
       </div>
     </div>
   </div>
-  <div class="index_wrapper padb140 F_RBS">
+  <div class="index_wrapper padb70 F_RBS">
     <div class="status_wrapper">
       <div class="status pad10">
         <div class=" w70 r fcl_w fvh1_5_3 ta_c" ng-class="{'was_liked':status = 'sleeping'}">
@@ -55,25 +55,38 @@
         </a> -->
 
         <div class="home_lessons_wrapper r w100">
-          <div class="lessons_dot_counter  F_RCC   w50">
+          <!-- <div class="lessons_dot_counter  F_RCC   w50">
             <a ng-click="goTo('lessons')" ng-repeat="x in [0,1,2,3,4,5,6,7,8,9,10]">
               <div ng-class="{'active_dot': $index == 1}" class="dot_info  mar5"></div>
             </a>
-          </div>
+          </div> -->
 
           <div class="F_RSCNW homex_scrool boxscroll do-nicescroll4 r">
             <div class="wrap">
-              <div class="home_lessons  r F_CCC" ng-repeat=" x in [0,1,2,3,4,5]">
+              <div class="home_lessons  r F_CCC">
                 <div class="div_less_preview F_CCC">
                   <div ng-click="a = !a" class="plus_less"  ng-class="{'plus_less2': a == true}">
                     <div class="hori a" ng-class="{'hori_r': a == true}"></div>
                     <div class="vert a" ng-class="{'vert_r': a == true}"></div>
                   </div>
-                  <span class="fvh1_5_3 home_less_cout ta_c mar20 marb5 fcl_w">{{1}}/{{31}} lessons</span>
+                  <span class="fvh1_5_3 home_less_cout ta_c mar20 marb5 fcl_w">{{1}}/{{31}} ideas</span>
                 </div>
                 <div class="F_RAC w100 mart15">
-                  <h1  class="fcl_w fvh2_4">lessons{{$index}}</h1>
-                  <div ng-click="goTo('lessons:'+$index+'')" class="btn_pulse_bg_wave w30m0 ta_c">Continue</div>
+                  <h1  class="fcl_w fvh2_4">Idea #1</h1>
+                  <div ng-click="goTo('lessons:0')" class="btn_pulse_bg_wave w30m0 ta_c">Open</div>
+                </div>
+              </div>
+              <div class="home_lessons  r F_CCC">
+                <div class="div_less_preview F_CCC">
+                  <div ng-click="a = !a" class="plus_less"  ng-class="{'plus_less2': a == true}">
+                    <div class="hori a" ng-class="{'hori_r': a == true}"></div>
+                    <div class="vert a" ng-class="{'vert_r': a == true}"></div>
+                  </div>
+                  <!-- <span class="fvh1_5_3 home_less_cout ta_c mar20 marb5 fcl_w">All ideas</span> -->
+                </div>
+                <div class="F_RAC w100 mart15">
+                  <h1  class="fcl_w fvh2_4">All Ideas</h1>
+                  <div ng-click="data.user.isMember?goTo('lessons'):app.alerts.goProPopup = true" class="btn_pulse_bg_wave w30m0 ta_c">Show All</div>
                 </div>
               </div>
               </div>
@@ -116,7 +129,7 @@
     </div>
     <div class="add_btn F_RAC mar10  fcl_w" ng-show="app.alerts.showError1">
       <span class="fvh2_4" ng-click="app.alerts.goProPopup = true">Only
-        <span ng-click="goTo('card')" class="purple_cl fvh2_4">PLUS member</span>
+        <span class="purple_cl fvh2_4">PLUS member</span>
         is able to add
       </span>
       <div class="close_img" ng-click="app.alerts.showError1=!1">

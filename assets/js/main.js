@@ -31,13 +31,13 @@ app.config(($routeProvider) => {
     }).when("/liked", {
         templateUrl: "liked.html"
     }).when("/lessons:count_less", {
-        templateUrl: "lessons.html"
+        templateUrl: "lesson.html"
     }).when("/extension", {
         templateUrl: "extension.html"
     }).when("/settings", {
         templateUrl: "settings.html"
-    }).when("/list_lessons", {
-        templateUrl: "list_lessons.html"
+    }).when("/lessons", {
+        templateUrl: "lessons.html"
     }).when("/welcome", {
         templateUrl: "welcome.html"
     }).when("/about", {
@@ -103,6 +103,7 @@ app.run(($rootScope) => {
         api.sendMessage({
             why: "getData"
         }, function(response) {
+            // response.user.isMember = !0;
             if (!cb) {
                 console.log(response)
                 $rootScope.data = response;
@@ -116,7 +117,6 @@ app.run(($rootScope) => {
                   return;
                 }
                 $rootScope.goTo('home')
-
             } else {
                 cb(response)
             }
@@ -125,6 +125,12 @@ app.run(($rootScope) => {
     $rootScope.$watch('data.tasks', function(newValue, oldValue) {
         $rootScope.save();
     }, true);
+    $rootScope.$watch('app.alerts', function(newValue, oldValue) {
+      setTimeout(function () {
+        $('body').niceScroll().resize();
+      }, 200);
+    }, true);
+
     $rootScope.get();
     setInterval(function() {
         $rootScope.get(function(e){
@@ -263,6 +269,9 @@ app.controller('settingsCtrl', function($scope, $rootScope) {
     })
 });
 app.controller('likedCtrl', function($scope, $rootScope) {
+    setInterval(function () {
+      $('body').niceScroll().resize();
+    }, 400);
     let d = new Date(new Date().toString().split('GMT')[0] + ' UTC').toISOString().split('.')[0].replace('T', ' ');
     $scope.d = d;
     $scope.count = 0;

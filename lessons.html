@@ -4,14 +4,19 @@
 			<img alt="" class="info " src="assets/img/back.png">
 
 		</a>
-		<a href="#!info">
+		<div ng-click="drop = !drop" class="r">
 			<div class="F_CCC info_button">
-				<div class="dot_info"></div>
-				<div class="dot_info"></div>
-				<div class="dot_info"></div>
+				<div ng-repeat="x in [0,1,2]" class="dot_info" ng-class="{'dot_line': drop}"></div>
 			</div>
-
-		</a>
+			<div class="dropdown" ng-hide="!drop">
+				<ul class="list_n  fvh2_4">
+					<li ng-click="goTo(info)" class="fcl_w fvh3_6 pad5">Info</li>
+					<li ng-click="goTo(settings)" class="fcl_w fvh3_6 pad5">Settings</li>
+					<li ng-click="goTo(about)" class="fcl_w fvh3_6 pad5">About us</li>
+				</ul>
+			</div>
+		</div>
+	</div>
 	</div>
 	<img src="assets/img/hint.png" class="hint" alt="">
 	<h1 class="fvh4_8 fcl_w padb0 padt0 pad20  mar10 marb0 mart0 ta_c">Lesson {{count_less}}</h1>

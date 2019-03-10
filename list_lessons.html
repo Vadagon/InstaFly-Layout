@@ -1,17 +1,22 @@
-<div class="list_wrapper fcl_w">
-<div class="F_RBC ">
+<div class="list_wrapper F_CBC  fcl_w">
+<div class="F_RBC pad20 bb w100">
   <a ng-click="goBack()">
-    <img alt="" class="info pad20" src="assets/img/back.png">
+    <img alt="" class="info " src="assets/img/back.png">
   </a>
-  <a href="#!info">
-    <div class="F_CCC info_button pad20">
-      <div class="dot_info"></div>
-      <div class="dot_info"></div>
-      <div class="dot_info"></div>
+  <div ng-click="drop = !drop" class="r">
+    <div class="F_CCC info_button">
+      <div ng-repeat="x in [0,1,2]" class="dot_info" ng-class="{'dot_line': drop}"></div>
     </div>
-  </a>
+    <div class="dropdown" ng-hide="!drop">
+      <ul class="list_n  fvh2_4">
+        <li ng-click="goTo(info)" class="fcl_w fvh3_6 pad5">Info</li>
+        <li ng-click="goTo(settings)" class="fcl_w fvh3_6 pad5">Settings</li>
+        <li ng-click="goTo(about)" class="fcl_w fvh3_6 pad5">About us</li>
+      </ul>
+    </div>
+  </div>
 </div>
-<div class="lesson_img_wrapper">
+<div class="lesson_img_wrapper F_CCC">
   <img src="assets/img/lessons/lessons1.png" alt="">
 </div>
 <h1 class="fvh4_8  w80 mart15 marb15">What is important in instagram</h1>
@@ -24,6 +29,6 @@
 </div>
 <h6 class="fvh1_5_3 ta_c mar20 marb5">{{1}}/{{31}} lessons</h6>
 <div class="lessons_dot_counter mart0 F_RCC  marb20 w50">
-  <a ng-click="goTo(lessons:2)" ng-repeat="x in [0,1,2,3,4,5,6,7,8,9,10]"><div ng-class="{'active_dot': $index == 1}"  class="dot_info  mar5"></div></a>
+  <a ng-click="goTo('lessons:'+$index)" ng-repeat="x in [0,1,2,3,4,5,6,7,8,9,10]"><div ng-class="{'active_dot': $index == 1}"  class="dot_info  mar5"></div></a>
 </div>
 </div>

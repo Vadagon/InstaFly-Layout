@@ -56,6 +56,9 @@ body {
 .in_block{
     display: inline-block;
 }
+.bb{
+  box-sizing: border-box;
+}
 .r{
     position: relative;
 }
@@ -187,7 +190,10 @@ text-align: right;
     font-size: 8vh ;
 }
 /*------------font-size-----------------*/
-
+.w30m0{
+  width: 30%;
+  margin: 0;
+}
 
 /*------------margin-----------------*/
 .mart0{

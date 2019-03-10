@@ -41,7 +41,7 @@
 
       </div>
       <div class="flex">
-        <a class="getpro_wrapper mar10 marb30" href="#!card">
+        <!-- <a class="getpro_wrapper mar10 marb30" href="#!card">
           <div class="getpro gradient_purple fcl_w pad15 ">
             <div class="wave_bg"></div>
             <img alt="" class="stars_pro" src="assets/img/stars.png">
@@ -52,7 +52,30 @@
           <span class="pro_go pulse">
             GO PRO
           </span>
-        </a>
+        </a> -->
+
+        <div class="home_lessons_wrapper w100">
+          <div class="lessons_dot_counter  F_RCC   w50">
+            <a ng-click="goTo(lessons)" ng-repeat="x in [0,1,2,3,4,5,6,7,8,9,10]">
+              <div ng-class="{'active_dot': $index == 1}" class="dot_info  mar5"></div>
+            </a>
+          </div>
+          <div class="F_RSCNW homex_scrool">
+              <div class="home_lessons r F_CCC" ng-repeat=" x in [0,1,2,3,4,5]">
+                <div class="div_less_preview F_CCC">
+                  <div class="plus_less">
+                    <div class="hori a"></div>
+                    <div class="vert a"></div>
+                  </div>
+                  <span class="fvh1_5_3 home_less_cout ta_c mar20 marb5 fcl_w">{{1}}/{{31}} lessons</span>
+                </div>
+                <div class="F_RAC w100 mart15">
+                  <h1 class="fcl_w fvh2_4">lessons{{$index}}</h1>
+                  <div ng-click="goTo('lessons:'+$index+'')" class="btn_pulse_bg_wave w30m0 ta_c">Continue</div>
+                </div>
+              </div>
+            </div>
+        </div>
         <div class="task_wrapper ">
           <div class="tasc_block" ng-repeat="i in data.tasks">
             <div class="edit_task">

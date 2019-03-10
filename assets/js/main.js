@@ -270,19 +270,17 @@ app.controller('authCtrl', function($scope, $rootScope) {
     })
 });
   $(function() {
-      $("#ng_viev").niceScroll({
+      $("#ng_view").niceScroll({
         enableobserver: true,
-        smoothscroll: true, // scroll with ease movement
-      sensitiverail: true,
       });
       $(".cover").niceScroll({
         enableobserver: true,
-        smoothscroll: true, // scroll with ease movement
-      sensitiverail: true,
       });
       $("textarea").niceScroll({
         enableobserver: true,
-        smoothscroll: true, // scroll with ease movement
-      sensitiverail: true,
       });
+      $(".homex_scrool").niceScroll({
+        enableobserver: true,
+      });
+
   });

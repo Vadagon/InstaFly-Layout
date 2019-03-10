@@ -10,7 +10,7 @@
 ::-moz-selection {
   background: transparent;
 }
-span{
+span:not(.tooltip){
   transition: all .4s linear;
 }
 textarea::placeholder {
@@ -1842,8 +1842,8 @@ left: 200px;
 input[type="range"] {
   -webkit-appearance: none;
   -webkit-tap-highlight-color: rgba(255, 255, 255, 0);
-  width: 120px;
-  height: 50px;
+  height: 10px;
+  width: 95%;
   margin: 0;
   box-sizing: border-box;
   border: none;
@@ -1880,8 +1880,8 @@ input[type="range"]::-ms-tooltip {
 /* thumb */
 input[type="range"]::-webkit-slider-thumb {
   -webkit-appearance: none;
-  width: 45px;
-  height: 45px;
+  width: 15px;
+  height: 15px;
   border: none;
   border-radius: 50%;
   background: #fa2a87;

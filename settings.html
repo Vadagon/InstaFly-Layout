@@ -41,16 +41,18 @@
                 </label>
         </div>
     </div>
-    <div class="fvh2_4 mart20 ta_c fcl_w welcome_block F_RBC">
-        <span class="fvh3_6">
+    <div class="fvh2_4 mart20 ta_c fcl_w welcome_block F_CBC">
+        <span class="fvh3_6 w100 ta_l marb20">
             Dayily limit
         </span>
 
-        <div class="slider">
-        	<div class="range r">
-        		 <span class="a tooltip fvh1_5_3 " style="top: -25px; left: calc({{dayily_limit/90}}% + 5% )">{{dayily_limit}}</span>
+        <div class="slider F_RBC w95">
+          <span class="fvh1_5_3">{{500}}</span>
+        	<div class="range w95 r">
+        		 <span class="a tooltip fvh1_5_3 " style="top: -16px; left: calc({{dayily_limit/500*10}}% - 12%)">{{dayily_limit}}</span>
             <input type="range" min="{{500}}" max="{{5000}}" ng-value="dayily_limit" ng-model="dayily_limit">
-            </div>
+          </div>
+            <span class="fvh1_5_3">{{5000}}</span>
         </div>
     </div>
 </div>

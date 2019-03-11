@@ -55,11 +55,11 @@
         </a> -->
 
         <div class="home_lessons_wrapper r w100">
-          <!-- <div class="lessons_dot_counter  F_RCC   w50">
-            <a ng-click="goTo('lessons')" ng-repeat="x in [0,1,2,3,4,5,6,7,8,9,10]">
-              <div ng-class="{'active_dot': $index == 1}" class="dot_info  mar5"></div>
+          <div class="lessons_dot_counter  F_RCC   w50">
+            <a title="{{$index}}" ng-click="select($index)" ng-repeat="x in [0,1,2,3,4,5,6,7,8,9,10]">
+              <div ng-class="{'active_dot': selected == $index}" class="dot_info  mar5"></div>
             </a>
-          </div> -->
+          </div>
 
           <div class="F_RSCNW homex_scrool boxscroll do-nicescroll4 r">
             <div class="wrap">

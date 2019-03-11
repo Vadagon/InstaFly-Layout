@@ -257,6 +257,9 @@ app.controller('cardCtrl', function($scope, $rootScope) {
 });
 app.controller('homeCtrl', function($scope, $rootScope) {
   $('.home_lessons_wrapper .boxscroll').niceScroll('.wrap');
+  $scope.select= function(index) {
+     $scope.selected = index;
+  };
 });
 app.controller('infoCtrl', function($scope, $rootScope) {});
 app.controller('proCtrl', function($scope, $rootScope) {});

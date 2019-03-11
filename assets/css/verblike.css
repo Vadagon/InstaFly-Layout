@@ -26,6 +26,18 @@ body {
 
 
 }
+.h50vh{
+  height: 50vh;
+}
+.h200vh{
+  height: 200vh !important;
+}
+.h100vh{
+  height: 100vh;
+}
+.mh100vh{
+  min-height: 100vh;
+}
 .wsn{
   white-space: normal;
 }

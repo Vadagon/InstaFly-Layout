@@ -1,4 +1,4 @@
-<div class="list_wrapper  F_CBC  fcl_w" ng-class="{'readmore':readmore}" ng-controller="lessonsCtrl">
+<div class="list_wrapper h100vh  F_CBC  fcl_w" ng-class="{'h200vh':readmore == !readmore}"  ng-controller="lessonsCtrl">
 	<div class="F_RBC pad20 bb w100">
 		<a ng-click="goBack()">
 			<img alt="" class="info " src="assets/img/back.png">
@@ -17,14 +17,14 @@
 		</div>
 	</div>
 
-	<div class="boxscroll homex_scrool  w100 do-nicescroll4 " >
+	<div class="boxscroll homex_scrool  w100 do-nicescroll4 "  >
 		<div class="wrap F_RSCNW w100 ">
-			<div class="lesson_container pad20 F_CCC w100" ng-repeat="x in [0,1,2,3,4,5]">
+			<div class="lesson_container pad20 F_CCC w100"  ng-class="{'h50vh':readmore}" ng-repeat="x in [0,1,2,3,4,5]">
 			<div class="lesson_img_wrapper ta_c">
-				<img src="assets/img/lessons/lessons1.png" alt="">
+				<img src="assets/img/lessons/lessons1.png" alt="" ng-hide="readmore">
 			</div>
 			<h1 class="fvh4_8 ta_c mart15 marb15 wsn">What is important in instagram</h1>
-			<p class="fvh2_4 ta_l ta_c mart15 marb15 wsn">
+			<p class="fvh2_4 ta_l ta_c mart15 marb15 wsn" ng-hide="readmore">
 				The most important thing in Instagram is your subscribers!
 				For them, you create content, share your thoughts,
 				and if you are a business account holder,
@@ -48,6 +48,31 @@
 			<img alt="" class="info reverse_img" src="assets/img/back.png">
 		</a>
 	</div>
-	<div class="readmore_but" ng-class="{'reversY': readmore}" ng-click="readmore = !readmore">
+	<div class="readmore_but" ng-class="{'reversY': !readmore}" ng-click="readmore = !readmore">
+	</div>
+	<div  class="boxscroll homex_scrool  w100 do-nicescroll4 " ng-hide="!readmore">
+		<div class="wrap F_RSCNW w100 ">
+			<div class="lesson_container pad20 F_CCC w100" ng-repeat="x in [0,1,2,3,4,5]">
+			<h1 class="fvh4_8 ta_c mart15 marb15 wsn">What is important in instagram</h1>
+			<p class="fvh2_4 ta_l ta_c mart15 marb15 wsn">
+				The most important thing in Instagram is your subscribers!
+				For them, you create content, share your thoughts,
+				and if you are a business account holder,
+				then they are your potential customer base.
+			</p>
+			<p class="fvh2_4 ta_l ta_c mart15 marb15 wsn">
+				The most important thing in Instagram is your subscribers!
+				For them, you create content, share your thoughts,
+				and if you are a business account holder,
+				then they are your potential customer base.
+			</p>
+			<p class="fvh2_4 ta_l ta_c mart15 marb15 wsn">
+				The most important thing in Instagram is your subscribers!
+				For them, you create content, share your thoughts,
+				and if you are a business account holder,
+				then they are your potential customer base.
+			</p>
+			</div>
+		</div>
 	</div>
 </div>

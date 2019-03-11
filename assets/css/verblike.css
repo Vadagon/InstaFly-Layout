@@ -26,6 +26,13 @@ body {
 
 
 }
+.h0{
+  height: 0px !important;
+    padding: 0 !important;
+}
+.h20vh{
+  height: 20vh;
+}
 .h50vh{
   height: 50vh;
 }

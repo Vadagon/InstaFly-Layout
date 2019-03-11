@@ -1567,6 +1567,9 @@ input:-webkit-autofill, input:-webkit-autofill:hover, input:-webkit-autofill:foc
   border: 10px solid transparent;
   	border-top: 10px solid #767f89;
 }
+.boxscroll_lessons{
+  margin-top: 200px;
+}
 .readmore_but:hover{
   position: relative;
   margin-bottom: 5px;
@@ -1577,12 +1580,17 @@ input:-webkit-autofill, input:-webkit-autofill:hover, input:-webkit-autofill:foc
   box-sizing: border-box;
       display: inline-block;
 }
+
+.transition{
+  transition: all .2s linear;
+}
 .lesson_img {
   width: 100vw;
 }
 
 .lesson_img_wrapper>img {
   width: 200px;
+  transition: all .2s linear;
 }
 
 .info_button {

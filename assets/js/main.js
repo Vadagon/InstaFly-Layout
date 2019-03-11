@@ -203,6 +203,7 @@ app.run(($rootScope) => {
         }
     })
     $('body').niceScroll();
+    $('.boxscroll_lessons').getNiceScroll().resize();
 })
 app.controller('indexCtrl', function($scope, $rootScope) {});
 app.controller('editCtrl', function($scope, $rootScope) {

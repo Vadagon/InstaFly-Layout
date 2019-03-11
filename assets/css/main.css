@@ -1549,7 +1549,29 @@ input:-webkit-autofill, input:-webkit-autofill:hover, input:-webkit-autofill:foc
   overflow: hidden;
   display: inline-block;
 }
+.list_wrapper{
 
+  transition: all .4s linear;
+}
+.readmore{
+  transform: translateY(-50vh);
+  transition: all .4s linear;
+  position: relative;
+}
+.reversY{
+  transition: all .4s linear;
+  transform: rotateZ(180deg) translateY(80px);
+}
+.readmore_but{
+  transition: all .4s linear;
+  border: 10px solid transparent;
+  	border-top: 10px solid #767f89;
+}
+.readmore_but:hover{
+  position: relative;
+  margin-bottom: 5px;
+  cursor: pointer;
+}
 .list_wrapper .wrap .lesson_container{
   width: 360px;
   box-sizing: border-box;

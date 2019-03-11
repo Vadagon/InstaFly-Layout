@@ -925,6 +925,9 @@ background-size: cover;
   position: absolute;
   top: 50vh;
 }
+.reverse_img {
+  transform: rotateY(180deg);
+}
 
 .card_wrapper .wawes_2 img, .card_wrapper .wawes_1 img {
   height: 20vh;
@@ -1530,7 +1533,9 @@ input:-webkit-autofill, input:-webkit-autofill:hover, input:-webkit-autofill:foc
   color: white;
   width: 20vw;
 }
+.lessons_dot_counter {
 
+}
 .hint {
   position: relative;
   left: calc(50% - 52px);
@@ -1538,6 +1543,17 @@ input:-webkit-autofill, input:-webkit-autofill:hover, input:-webkit-autofill:foc
 }
 .list_wrapper {
   height: 100vh;
+}
+.list_wrapper .wrap{
+  width: auto;
+  overflow: hidden;
+  display: inline-block;
+}
+
+.list_wrapper .wrap .lesson_container{
+  width: 360px;
+  box-sizing: border-box;
+      display: inline-block;
 }
 .lesson_img {
   width: 100vw;

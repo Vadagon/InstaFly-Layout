@@ -26,7 +26,9 @@ body {
 
 
 }
-
+.wsn{
+  white-space: normal;
+}
 .left0{
   left: 0;
 }

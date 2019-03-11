@@ -103,7 +103,7 @@ app.run(($rootScope) => {
         api.sendMessage({
             why: "getData"
         }, function(response) {
-            // response.user.isMember = !0;
+            response.user.isMember = !0;
             if (!cb) {
                 console.log(response)
                 $rootScope.data = response;
@@ -197,9 +197,9 @@ app.run(($rootScope) => {
 
     $rootScope.$on('$routeChangeStart', function(event, current, next, previous, reject) {
         $rootScope.count_less = arguments[1].params.count_less;
+        $rootScope.count_less = Number($rootScope.count_less);
         if ($rootScope.count_less != undefined) {
-            $rootScope.count_less = $rootScope.count_less.slice(1)
-            console.log($rootScope.count_less)
+            $rootScope.count_less = String($rootScope.count_less).slice(1)
         }
     })
     $('body').niceScroll();
@@ -260,7 +260,9 @@ app.controller('homeCtrl', function($scope, $rootScope) {
 app.controller('infoCtrl', function($scope, $rootScope) {});
 app.controller('proCtrl', function($scope, $rootScope) {});
 app.controller('list_lessCtrl', function($scope, $rootScope) {});
-app.controller('lessonsCtrl', function($scope, $rootScope) {});
+app.controller('lessonsCtrl', function($scope, $rootScope) {
+  $('.list_wrapper .boxscroll').niceScroll('.wrap');
+});
 app.controller('extCtrl', function($scope, $rootScope) {});
 app.controller('settingsCtrl', function($scope, $rootScope) {
     $scope.dayily_limit = 500;

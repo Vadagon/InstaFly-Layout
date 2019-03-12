@@ -70,11 +70,11 @@
                     <div class="hori a" ng-class="{'hori_r': a == true}"></div>
                     <div class="vert a" ng-class="{'vert_r': a == true}"></div>
                   </div>
-                  <span class="fvh1_5_3 home_less_cout ta_c mar20 marb5 fcl_w">{{$index+1}}/{{less_preview.length}} ideas</span>
+                  <span class="fvh1_5_3 home_less_cout ta_c mar20 marb5 fcl_w">{{$index+1}}/{{less_preview.length-1}} ideas</span>
                 </div>
                 <div class="F_RAC w100 mart15">
                   <h1  class="fcl_w fvh2_4">Idea #{{$index+1}}</h1>
-                  <div  ng-click="data.user.isMember && $index != 1?goTo('lessons'):app.alerts.goProPopup = true" class="btn_pulse_bg_wave w30m0 ta_c">Open</div>
+                  <div  ng-click="data.user.isMember?goTo('lessons'):app.alerts.goProPopup = true" class="btn_pulse_bg_wave w30m0 ta_c">Open</div>
                 </div>
               </div>
 

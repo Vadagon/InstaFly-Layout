@@ -37,9 +37,9 @@
 		</div>
 	</div>
 
-	<h6 class="fvh1_5_3 ta_c mar20 marb5">{{2}}/{{31}} lessons</h6>
+	<h6 class="fvh1_5_3 ta_c mar20 marb5">{{selected1}}/{{less_preview.length-1}} lessons</h6>
 	<div class="lessons_dot_counter mart0 F_RAC  marb10 w100">
-		<a ng-click="select1($index==0? 0 : $index - 1);">
+		<a ng-click="select1(selected1==0? 0 : selected1 - 1);">
 			<img alt="" class="info " src="assets/img/back.png">
 		</a>
 		<div class="F_RCC">
@@ -47,7 +47,7 @@
 				<div ng-class="{'active_dot': selected1 == $index}" class="dot_info  mar5"></div>
 			</a>
 		</div>
-		<a ng-click="select1($index+1);">
+		<a ng-click="select1(selected1==less_preview.length-1? less_preview.length-1 : selected1 + 1);">
 			<img alt="" class="info reverse_img" src="assets/img/back.png">
 		</a>
 	</div>

@@ -257,11 +257,18 @@ app.controller('cardCtrl', function($scope, $rootScope) {
 });
 app.controller('homeCtrl', function($scope, $rootScope) {
   $('.home_lessons_wrapper .boxscroll').niceScroll('.wrap');
-$rootScope.less_preview = [0,1];
+$rootScope.less_preview = [0,1,2,3,4,5];
 $('.list_wrapper .boxscroll').niceScroll('.wrap');
-
+if ($scope.selected == undefined) {
+  $scope.selected = 0;
+}
+if ($scope.selected1 == undefined) {
+  $scope.selected1 = 0;
+}
   $scope.select= function(index) {
      $scope.selected = index;
+     console.log($('.home_lessons')[index].offsetLeft);
+
      $('.home_lessons_wrapper .boxscroll').getNiceScroll(0).doScrollLeft($('.home_lessons')[index].offsetLeft);
 
   };

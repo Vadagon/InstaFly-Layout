@@ -150,8 +150,8 @@ p {
 }
 .header .acc_photo{
   border-radius: 50%;
-height: 64px;
-width: 64px;
+height: 36px;
+width: 36px;
 }
 .homex_scrool{
   padding: 20px 0;
@@ -1531,9 +1531,7 @@ input:-webkit-autofill, input:-webkit-autofill:hover, input:-webkit-autofill:foc
   color: white;
   width: 20vw;
 }
-.lessons_dot_counter {
 
-}
 .hint {
   position: relative;
   left: calc(50% - 52px);
@@ -1588,7 +1586,6 @@ input:-webkit-autofill, input:-webkit-autofill:hover, input:-webkit-autofill:foc
 
 .lesson_img_wrapper>img {
   width: 200px;
-  transition: all .2s linear;
 }
 
 .info_button {

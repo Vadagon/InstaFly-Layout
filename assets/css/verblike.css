@@ -173,6 +173,11 @@ text-align: right;
     justify-content: center;
     align-items: center;
 }
+.F_CCS{
+  display: flex;
+ flex-flow: column;
+ justify-content: center;
+}
 
 .fcl_w {
     color: #fff;

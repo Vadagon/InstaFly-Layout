@@ -103,7 +103,7 @@ app.run(($rootScope) => {
         api.sendMessage({
             why: "getData"
         }, function(response) {
-            response.user.isMember = !1;
+            response.user.isMember = !0;
             if (!cb) {
                 console.log(response)
                 $rootScope.data = response;
@@ -257,20 +257,26 @@ app.controller('cardCtrl', function($scope, $rootScope) {
 });
 app.controller('homeCtrl', function($scope, $rootScope) {
   $('.home_lessons_wrapper .boxscroll').niceScroll('.wrap');
-$scope.less_preview = [0,1]
+$rootScope.less_preview = [0,1];
+$('.list_wrapper .boxscroll').niceScroll('.wrap');
+
   $scope.select= function(index) {
      $scope.selected = index;
-     $scope.scrollTo = index;
      $('.home_lessons_wrapper .boxscroll').getNiceScroll(0).doScrollLeft($('.home_lessons')[index].offsetLeft);
+
+  };
+  $scope.select1= function(index) {
+
+     $scope.selected1 = index;
+     $('.lessons_title_scroll').getNiceScroll(0).doScrollLeft($('.lesson_container')[index].offsetLeft);
 
   };
 });
 app.controller('infoCtrl', function($scope, $rootScope) {});
 app.controller('proCtrl', function($scope, $rootScope) {});
 app.controller('list_lessCtrl', function($scope, $rootScope) {});
-app.controller('lessonsCtrl', function($scope, $rootScope) {
-  $('.list_wrapper .boxscroll').niceScroll('.wrap');
-});
+app.controller('lessonsCtrl', function($scope, $rootScope) {});
+
 app.controller('extCtrl', function($scope, $rootScope) {});
 app.controller('settingsCtrl', function($scope, $rootScope) {
     $scope.dayily_limit = 500;

@@ -1,4 +1,4 @@
-<div class="list_wrapper h100vh  F_CBC  fcl_w"  ng-class="{'h200vh':readmore == !readmore}"  ng-controller="lessonsCtrl">
+<div class="list_wrapper h100vh  F_CBC  fcl_w"  ng-class="{'h200vh':readmore == !readmore}"  ng-controller="homeCtrl">
 	<div class="F_RBC pad20 bb w100">
 		<a ng-click="goBack()">
 			<img alt="" class="info " src="assets/img/back.png">
@@ -18,18 +18,20 @@
 	</div>
 
 	<div class="boxscroll homex_scrool lessons_title_scroll  w100 do-nicescroll4 "  >
-		<div class="wrap F_RSCNW w100 ">
-			<div class="lesson_container transition pad20 F_CCC w100"  ng-class="{'h20vh':readmore}" ng-repeat="x in [0,1,2,3,4,5]">
-			<div class="lesson_img_wrapper ta_c">
-				<img src="assets/img/lessons/lessons1.png" alt="" ng-hide="readmore">
+		<div class="wrap F_RSCNW transition w100 ">
+			<div class="lesson_container transition pad20 F_CCC w100"  ng-class="{'h20vh':readmore}" ng-repeat="x in less_preview">
+
+			<div class="wrapper_previev" ng-hide="readmore"><div class="lesson_img_wrapper transition ta_c">
+				<img src="assets/img/lessons/lessons1.png" alt="" class="transition" >
 			</div>
-			<h1 class="fvh4_8 ta_c mart15 marb15 wsn transition" ng-hide="readmore">What is important in instagram</h1>
-			<p class="fvh2_4 ta_l ta_c mart15 marb15 wsn transition" ng-hide="readmore">
+			<h1 class="fvh4_8 ta_c mart15 marb15 wsn transition" >What is important in instagram {{$index}}</h1>
+			<p class="fvh2_4 ta_l ta_c mart15 marb15 wsn transition" >
 				The most important thing in Instagram is your subscribers!
 				For them, you create content, share your thoughts,
 				and if you are a business account holder,
 				then they are your potential customer base.
 			</p>
+			</div>
 			<h1 class="fvh4_8 ta_c mart15 marb15 wsn transition" ng-hide="!readmore">lesson {{$index+1}}</h1>
 			</div>
 		</div>
@@ -37,15 +39,15 @@
 
 	<h6 class="fvh1_5_3 ta_c mar20 marb5">{{2}}/{{31}} lessons</h6>
 	<div class="lessons_dot_counter mart0 F_RAC  marb10 w100">
-		<a ng-click="goTo('lessons:1')">
+		<a ng-click="select1($index==0? 0 : $index - 1);">
 			<img alt="" class="info " src="assets/img/back.png">
 		</a>
 		<div class="F_RCC">
-			<a class="w50  mar10" ng-click="goTo('lessons:'+$index)" ng-repeat="x in [0,1,2,3,4,5,6,7,8,9,10]">
-				<div ng-class="{'active_dot': $index == 1}" class="dot_info  mar5"></div>
+			<a class="w50  mar10" ng-click="select1($index);"  ng-repeat="x in less_preview">
+				<div ng-class="{'active_dot': selected1 == $index}" class="dot_info  mar5"></div>
 			</a>
 		</div>
-		<a ng-click="goTo('lessons:2')">
+		<a ng-click="select1($index+1);">
 			<img alt="" class="info reverse_img" src="assets/img/back.png">
 		</a>
 	</div>

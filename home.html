@@ -57,12 +57,12 @@
         <div class="home_lessons_wrapper r w100">
           <div class="lessons_dot_counter  F_RCC   w50">
             <a  ng-click="select($index);" ng-repeat="x in less_preview">
-              <div ng-class="{'active_dot': selected == $index}" class="dot_info  mar5"></div>
+              <div ng-class="{'active_dot': scrolled == $index}" class="dot_info   mar5"></div>
             </a>
           </div>
 
           <div class="F_RSCNW homex_scrool boxscroll do-nicescroll4 r">
-            <div class="wrap">
+            <div class="wrap r">
 
               <div class="home_lessons  r F_CCC" ng-repeat="x in less_preview" >
                 <div class="div_less_preview  F_CCC" style="background-image: url(assets/img/lessons/less{{$index+1}}_preview.png)">

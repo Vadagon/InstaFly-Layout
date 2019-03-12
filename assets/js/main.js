@@ -265,10 +265,12 @@ if ($scope.selected == undefined) {
 if ($scope.selected1 == undefined) {
   $scope.selected1 = 0;
 }
+
   $scope.select= function(index) {
      $scope.selected = index;
      console.log($('.home_lessons')[index].offsetLeft);
 
+     console.log($scope.selected);
      $('.home_lessons_wrapper .boxscroll').getNiceScroll(0).doScrollLeft($('.home_lessons')[index].offsetLeft);
 
   };
@@ -278,6 +280,25 @@ if ($scope.selected1 == undefined) {
      $('.lessons_title_scroll').getNiceScroll(0).doScrollLeft($('.lesson_container')[index].offsetLeft);
 
   };
+  $('.boxscroll').scroll(function(){
+    var scrolled_x = $('.wrap').css('transform').slice(20,-4);
+    scrolled_x = Math.ceil(Number(scrolled_x));
+    if (scrolled_x == 0) {
+      scrolled_x = 0;
+    }
+    console.log(scrolled_x);
+    var pos_first = $('.home_lessons')[0].offsetLeft
+    pos_first =  Math.ceil(Number(pos_first));
+    $scope.scrolled = (scrolled_x - pos_first)/360;
+    $scope.$apply(()=>{
+      $scope.scrolled = Math.ceil($scope.scrolled)
+
+    })
+    console.log($scope.scrolled);
+
+  })
+
+
 });
 app.controller('infoCtrl', function($scope, $rootScope) {});
 app.controller('proCtrl', function($scope, $rootScope) {});

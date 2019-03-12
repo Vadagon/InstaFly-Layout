@@ -103,7 +103,7 @@ app.run(($rootScope) => {
         api.sendMessage({
             why: "getData"
         }, function(response) {
-            response.user.isMember = !0;
+            response.user.isMember = !1;
             if (!cb) {
                 console.log(response)
                 $rootScope.data = response;
@@ -257,8 +257,12 @@ app.controller('cardCtrl', function($scope, $rootScope) {
 });
 app.controller('homeCtrl', function($scope, $rootScope) {
   $('.home_lessons_wrapper .boxscroll').niceScroll('.wrap');
+$scope.less_preview = [0,1]
   $scope.select= function(index) {
      $scope.selected = index;
+     $scope.scrollTo = index;
+     $('.home_lessons_wrapper .boxscroll').getNiceScroll(0).doScrollLeft($('.home_lessons')[index].offsetLeft);
+
   };
 });
 app.controller('infoCtrl', function($scope, $rootScope) {});

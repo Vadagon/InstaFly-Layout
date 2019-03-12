@@ -71,6 +71,8 @@ app.run(($rootScope) => {
     ],
     taskFunc: 'add'
   }
+
+
   $rootScope.APPNAME = "InstaFly";
   $rootScope.status1 = "sleeping";
   $rootScope.tasks_count = 1;
@@ -214,6 +216,16 @@ app.controller('editCtrl', function($scope, $rootScope) {
 
 
   $scope.selected = function(a) {
+    if (a == 1 || a == 3 || a == 4) {
+      $scope.no = true;
+        $scope.ta_maxLength = 0;
+        $scope.ta_minLength = 0;
+    }
+    else {
+      $scope.no = false;
+        $scope.ta_maxLength = 400;
+        $scope.ta_minLength = 40;
+    }
     $scope.selected_option = $rootScope.app.filters[a]
   }
 });

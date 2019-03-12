@@ -255,29 +255,23 @@ app.controller('cardCtrl', function($scope, $rootScope) {
   $($rootScope.data.user.form).insertAfter('#ng_viev').css('display', 'none').attr('target', '_blank');
   $('.content_card .cover_wrapper').niceScroll('.cover');
 });
-app.controller('homeCtrl', function($scope, $rootScope) {
+app.controller('homeCtrl', function($scope, $rootScope, $location) {
   $('.home_lessons_wrapper .boxscroll').niceScroll('.wrap');
 $rootScope.less_preview = [0,1,2,3,4,5];
 $('.list_wrapper .boxscroll').niceScroll('.wrap');
-if ($scope.selected == undefined) {
-  $scope.selected = 0;
-}
-if ($scope.selected1 == undefined) {
-  $scope.selected1 = 0;
-}
-
+var path = $location.path();
+console.log(path);
+if (path == '/home') {
+  if ($scope.selected == undefined) {
+    $scope.selected = 0;
+  }
   $scope.select= function(index) {
      $scope.selected = index;
+
      console.log($('.home_lessons')[index].offsetLeft);
 
      console.log($scope.selected);
      $('.home_lessons_wrapper .boxscroll').getNiceScroll(0).doScrollLeft($('.home_lessons')[index].offsetLeft);
-
-  };
-  $scope.select1= function(index) {
-
-     $scope.selected1 = index;
-     $('.lessons_title_scroll').getNiceScroll(0).doScrollLeft($('.lesson_container')[index].offsetLeft);
 
   };
   $('.boxscroll').scroll(function(){
@@ -294,11 +288,40 @@ if ($scope.selected1 == undefined) {
       $scope.scrolled = Math.ceil($scope.scrolled)
 
     })
-    console.log($scope.scrolled);
+  })
+}
+if (path == '/lessons') {
+
+if ($scope.selected1 == undefined) {
+  $scope.selected1 = 0;
+}
+
+
+  $scope.select1= function(index) {
+
+     $scope.selected1 = index;
+     $('.lessons_title_scroll').getNiceScroll(0).doScrollLeft($('.lesson_container')[index].offsetLeft);
+
+  };
+
+  $('.lessons_title_scroll').scroll(function(){
+    var scrolled_x = $('.less_mazafaka').css('transform').slice(20,-4);
+    scrolled_x = Math.ceil(Number(scrolled_x));
+    if (scrolled_x == 0) {
+      scrolled_x = 0;
+    }
+    console.log(scrolled_x);
+    var pos_first = $('.less_mazafaka')[0].offsetLeft
+    pos_first =  Math.ceil(Number(pos_first));
+    $scope.scrolled1 = (scrolled_x - pos_first)/360;
+    $scope.$apply(()=>{
+        $scope.scrolled1 = Math.ceil($scope.scrolled1)
+    })
+    console.log($scope.scrolled1);
 
   })
 
-
+}
 });
 app.controller('infoCtrl', function($scope, $rootScope) {});
 app.controller('proCtrl', function($scope, $rootScope) {});

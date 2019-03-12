@@ -18,7 +18,7 @@
 	</div>
 
 	<div class="boxscroll homex_scrool lessons_title_scroll  w100 do-nicescroll4 "  >
-		<div class="wrap F_RSCNW transition w100 ">
+		<div class="wrap less_mazafaka F_RSCNW transition w100 ">
 			<div class="lesson_container transition pad20 F_CCC w100"  ng-class="{'h20vh':readmore}" ng-repeat="x in less_preview">
 
 			<div class="wrapper_previev" ng-hide="readmore"><div class="lesson_img_wrapper transition ta_c">
@@ -37,14 +37,14 @@
 		</div>
 	</div>
 
-	<h6 class="fvh1_5_3 ta_c mar20 marb5">{{selected1}}/{{less_preview.length-1}} lessons</h6>
+	<h6 class="fvh1_5_3 ta_c mar20 marb5">{{scrolled1}}/{{less_preview.length-1}} lessons</h6>
 	<div class="lessons_dot_counter mart0 F_RAC  marb10 w100">
 		<a ng-click="select1(selected1==0? 0 : selected1 - 1);">
 			<img alt="" class="info " src="assets/img/back.png">
 		</a>
 		<div class="F_RCC">
 			<a class="w50  mar10" ng-click="select1($index);"  ng-repeat="x in less_preview">
-				<div ng-class="{'active_dot': selected1 == $index}" class="dot_info  mar5"></div>
+				<div ng-class="{'active_dot': scrolled1 == $index}" class="dot_info  mar5"></div>
 			</a>
 		</div>
 		<a ng-click="select1(selected1==less_preview.length-1? less_preview.length-1 : selected1 + 1);">
@@ -54,7 +54,7 @@
 	<div class="readmore_but" ng-class="{'reversY': !readmore}" ng-click="readmore = !readmore">
 	</div>
 	<div class="boxscroll homex_scrool   w100 do-nicescroll4 h100vh" ng-class="{'h0 ':!readmore}">
-		<div class="wrap F_RSCNW w100 ">
+		<div class="wrap  F_RSCNW w100 ">
 			<div class="lesson_container pad20 F_CCC w100" >
 			<h1 class="fvh4_8 ta_c mart15 marb15 wsn">What is important in instagram</h1>
 			<p class="fvh2_4 ta_l ta_c mart15 marb15 wsn">

@@ -957,7 +957,40 @@ background-size: cover;
   background: linear-gradient(to right, rgba(142, 47, 180, 1) 0%, rgba(249, 42, 135, 1) 100%);
   filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#8e2fb4', endColorstr='#f92a87', GradientType=1);
 }
+.star{
+  background-image: url('../img/star.png');
+  width: 32px;
+  height: 32px;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+.star:last-child{
+  background-image: url('../img/star_no.png');
+}
+.ring_wrapper{
+  top: 10px;
+  width: 55px;
+  height: 55px;
+  border-radius: 50%;
+}
+.ring{
+  top: -10px;
+  background-image: url('../img/ring.png');
+  width: 32px;
+  height: 40px;
+  background-repeat: no-repeat;
+  background-size: cover;
 
+}
+.feedback_wrapper .close{
+  position: absolute;
+}
+.feedback{
+  width: 200px;
+  height: 200px;
+  border-radius: 10px;
+  background: #1b232c;
+}
 .close {
   position: fixed;
   top: 6%;

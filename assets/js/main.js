@@ -51,7 +51,8 @@ app.run(($rootScope, $interval) => {
     $rootScope.data = {
       tasks: [],
       feed: [],
-      status: 'Sleeping'
+      status: 'Sleeping',
+      user: {}
     }
     window.app = $rootScope.app = {
       alerts: {
@@ -103,7 +104,6 @@ app.run(($rootScope, $interval) => {
         }, function(response) {
             // response.user.isMember = !0;
             if (!cb) {
-                console.log(response)
                 $rootScope.data = response;
                 $rootScope.$apply();
                 if(!$rootScope.data.user.policy){
@@ -212,6 +212,7 @@ app.controller('editCtrl', function($scope, $rootScope) {
     }
 });
 app.controller('logoCtrl', function($scope, $rootScope) {
+  console.log($rootScope.data);
   if(!$rootScope.data.user.username){
     var interval = setInterval(function () {
       if($rootScope.data.user.username){
@@ -308,8 +309,8 @@ app.controller('lessonsCtrl', function($scope, $rootScope) {})
 app.controller('extCtrl', function($scope, $rootScope) {});
 app.controller('welcomeCtrl', function($scope, $rootScope) {
   $scope.acceptPrivacy = function(){
-    data.user.policy = !0;
-    update();
+    $rootScope.data.user.policy = !0;
+    $rootScope.save();
     if(!$rootScope.data.user.username){
       platform.name=='chrome'?$rootScope.goTo('extension'):$rootScope.goTo('auth');
       return;

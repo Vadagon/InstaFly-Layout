@@ -307,33 +307,31 @@ app.controller('aboutCtrl', function($scope, $rootScope) {
   $('.about_wrapper .boxscroll').niceScroll('.wrap');
   $rootScope.F = true;
   $rootScope.fix = [{
-      'date': '07:07 03.02.2019',
-      'fix': 'Beta-testing We are improving lessons and practice scenes now.'
+      'date': '07:07 03.03.2019',
+      'fix': 'Beta-testing We are improving app now.'
   }, {
-      'date': '12:20  04.02.2019',
-      'fix': 'Fixed some bugs with tips of a day, lessons and sounds settings.'
+      'date': '12:20  04.03.2019',
+      'fix': 'Fixed some bugs, lessons and settings added.'
   }, {
-      'date': '14:25 04.02.2019',
-      'fix': '-Fixed redirect to lessons page, and if lesson is undefined then  "There is no lesson to this level yet!" -Improved in info page footer.'
+      'date': '14:25 04.03.2019',
+      'fix': 'Fixed redirect'
   }, {
-      'date': '20:10 05.02.2019',
-      'fix': 'NEW gameplay! Impoved design!'
+      'date': '20:10 05.03.2019',
+      'fix': 'NEW functional! Impoved design!'
   }, {
-      'date': '11:30 08.02.2019',
+      'date': '11:30 08.03.2019',
       'fix': 'Fixed some bugs...'
   }, {
-      'date': '14:21 08.02.2019',
-      'fix': 'Added functional for Campaign. Now showed word wrank - if you rank so small. And fixed some small bugs'
-  }, {
-      'date': '18:03 09.02.2019',
-      'fix': 'Added in settings button "update". Tips of day now better'
-  }, {
-      'date': '12:16 17.02.2019',
-      'fix': 'New Menu!'
+      'date': '14:21 08.03.2019',
+      'fix': 'Added liked by followers and following.'
+  },
+   {
+      'date': '12:16 17.03.2019',
+      'fix': 'New pages and more cool things!'
   }
   , {
-      'date': '12:27 21.02.2019',
-      'fix': 'Improved Menu!, and fixed some bugs. Some design changes'
+      'date': '22:57 13.03.2019',
+      'fix': 'Improved liking functions!, and fixed some bugs. Some design changes'
   }]
   $rootScope.fix.reverse()
 });

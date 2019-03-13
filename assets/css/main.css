@@ -2,6 +2,10 @@
   font-family: Kelson;
   src: url(../fonts/KelsonSansBold.otf);
 }
+@font-face {
+    font-family: 'Sanchez';
+    src: url(../fonts/Sanchez-Regular.ttf);
+}
 
 ::selection {
   background: transparent;
@@ -627,7 +631,9 @@ p {
   justify-content: center;
   align-items: center;
 }
-
+.small{
+  height: .4vh;
+}
 .social {
   position: relative;
   bottom: 0;
@@ -639,6 +645,12 @@ p {
 
 .social .soc {
   padding: 0 10px;
+  cursor: pointer;
+}
+.link_to_git {
+    color: white;
+    font-size: 20px;
+    text-decoration: underline;
 }
 
 .info_head {
@@ -984,6 +996,24 @@ p {
   filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#8e2fb4', endColorstr='#f92a87', GradientType=1);
 }
 
+.verblike_tree {
+    background-image: url(../img/tree.svg);
+    width: 260px;
+    height: 260px;
+}
+.info_verblike {
+    font-family: 'Sanchez', sans-serif !important;
+    font-size: 50px;
+    margin: 20px 0;
+}
+.info_we {
+    font-family: 'Sanchez', sans-serif !important;
+    font-size: 21px;
+    font-weight: 300;
+    line-height: 1.4;
+    margin: 0;
+    margin-bottom: 20px;
+}
 .star {
   background-image: url('../img/star.png');
   width: 32px;
@@ -1002,7 +1032,9 @@ p {
   height: 55px;
   border-radius: 50%;
 }
-
+.homex_scrool .nicescroll-cursors{
+      background-color: rgb(250, 42, 135) !important;
+}
 .app_store, .play_market {
   background: #9f2ead;
   border-radius: 10px;

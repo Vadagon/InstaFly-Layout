@@ -110,6 +110,9 @@ text-align: right;
 .h600{
   height: 600px;
 }
+.F{
+  display: flex;
+}
 .F_RBS{
     display: flex;
     flex-flow: column;

@@ -198,6 +198,7 @@ app.run(($rootScope) => {
 
 
   $rootScope.$on('$routeChangeStart', function(event, current, next, previous, reject) {
+$rootScope.F = false;
     $rootScope.count_less = arguments[1].params.count_less;
     $rootScope.count_less = Number($rootScope.count_less);
     if ($rootScope.count_less != undefined) {
@@ -324,7 +325,40 @@ app.controller('infoCtrl', function($scope, $rootScope) {});
 app.controller('proCtrl', function($scope, $rootScope) {});
 app.controller('list_lessCtrl', function($scope, $rootScope) {});
 app.controller('lessonsCtrl', function($scope, $rootScope) {});
-
+app.controller('aboutCtrl', function($scope, $rootScope) {
+  $('.about_wrapper .boxscroll').niceScroll('.wrap');
+  $rootScope.F = true;
+  $rootScope.fix = [{
+      'date': '07:07 03.02.2019',
+      'fix': 'Beta-testing We are improving lessons and practice scenes now.'
+  }, {
+      'date': '12:20  04.02.2019',
+      'fix': 'Fixed some bugs with tips of a day, lessons and sounds settings.'
+  }, {
+      'date': '14:25 04.02.2019',
+      'fix': '-Fixed redirect to lessons page, and if lesson is undefined then  "There is no lesson to this level yet!" -Improved in info page footer.'
+  }, {
+      'date': '20:10 05.02.2019',
+      'fix': 'NEW gameplay! Impoved design!'
+  }, {
+      'date': '11:30 08.02.2019',
+      'fix': 'Fixed some bugs...'
+  }, {
+      'date': '14:21 08.02.2019',
+      'fix': 'Added functional for Campaign. Now showed word wrank - if you rank so small. And fixed some small bugs'
+  }, {
+      'date': '18:03 09.02.2019',
+      'fix': 'Added in settings button "update". Tips of day now better'
+  }, {
+      'date': '12:16 17.02.2019',
+      'fix': 'New Menu!'
+  }
+  , {
+      'date': '12:27 21.02.2019',
+      'fix': 'Improved Menu!, and fixed some bugs. Some design changes'
+  }]
+  $rootScope.fix.reverse()
+});
 app.controller('extCtrl', function($scope, $rootScope) {});
 app.controller('settingsCtrl', function($scope, $rootScope) {
   $scope.dayily_limit = 500;

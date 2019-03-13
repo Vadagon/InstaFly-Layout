@@ -273,7 +273,9 @@ width: 22px;
 height: 25px;
 margin: 0 auto;
 }
-
+.help{
+  background-image: url(../img/help.png) !important; 
+}
 
 .header .logo_img {
   display: flex;

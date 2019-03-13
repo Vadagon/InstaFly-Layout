@@ -21,8 +21,8 @@
           </ul>
         </div>
       </div>
-      <div ng-hide="data.feed.length == 500" ng-click="app.alerts.goProPopup = true" class="ring_wrapper was_liked gradient_purple F_CCC r">
-      <div class="ring"></div>
+      <div ng-hide="data.feed.length == 500" ng-click="app.alerts.goProPopup = true" class="ring_wrapper  gradient_purple F_CCC r" ng-class="{'was_liked':data.feed.length == 500}">
+      <div class="ring" ng-class="{'help':data.feed.length < 500}"></div>
       </div>
     </div>
   </div>

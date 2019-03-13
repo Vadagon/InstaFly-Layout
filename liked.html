@@ -31,6 +31,11 @@ Liker has a built-in pornspam detection mechanism
           <img ng-src="{{x.display_url}}" alt="">
         </a>
 
+       <div ng-if="data.feed.length == 0" class="no_photos F_CSS pad5 r">
+         <h2 class="fvh3_6 fcl_w pad5 padb0">NO PHOTOS</h2>
+         <p class="fvh2_4 pad5">No publications at this time</p>
+         <div class="no_photos_img a"></div>
+       </div>
     </div>
 </div>
 

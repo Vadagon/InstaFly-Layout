@@ -284,6 +284,16 @@ left: 90px;
 height: 9vh;
 width: 230px;
 }
+.liked_photos_wrapper .no_photos{
+  background: #1b232c;
+z-index: 3;
+position: absolute;
+left: calc(50% - 115px);
+height: 9vh;
+width: 230px;
+top: 50%;
+border-radius: 10px;
+}
 .no_photos_img{
   background-image: url(../img/no_photos.png);
     background-repeat: no-repeat;

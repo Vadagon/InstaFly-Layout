@@ -99,9 +99,10 @@ app.run(($rootScope, $interval) => {
         window.location.href = '#!edit';
     }
     $rootScope.get = function(cb) {
-        api.sendMessage({
+        api.runtime.sendMessage({
             why: "getData"
         }, function(response) {
+            console.log(response);
             // response.user.isMember = !0;
             if (!cb) {
                 $rootScope.data = response;
@@ -158,7 +159,7 @@ app.run(($rootScope, $interval) => {
       $rootScope.save();
     }
     $rootScope.save = function(e) {
-        api.sendMessage({
+        api.runtime.sendMessage({
             why: "setData",
             data: angular.copy($rootScope.data)
         });
@@ -221,7 +222,7 @@ app.controller('logoCtrl', function($scope, $rootScope) {
       }
     }, 100);
   }
-  
+
 });
 app.controller('cardCtrl', function($scope, $rootScope) {
   $($rootScope.data.user.form).insertAfter('#ng_viev').css('display', 'none').attr('target', '_blank');

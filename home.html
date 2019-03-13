@@ -1,7 +1,7 @@
 <div class="page r" ng-controller="homeCtrl">
   <div class="header_wrapper">
     <div class="header">
-      <a href="#!welcome">
+      <a href="#!logo">
         <img alt="" class="info acc_photo" ng-src="{{data.user.pic}}">
       </a>
       <div class="logo_wrapper r">
@@ -20,6 +20,9 @@
             <li ng-click="goTo('about')" class="fcl_w fvh3_6 pad5">About us</li>
           </ul>
         </div>
+      </div>
+      <div ng-hide="data.feed.length == 500" ng-click="app.alerts.goProPopup = true" class="ring_wrapper was_liked gradient_purple F_CCC r">
+      <div class="ring"></div>
       </div>
     </div>
   </div>

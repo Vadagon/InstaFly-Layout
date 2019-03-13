@@ -137,6 +137,12 @@ text-align: right;
     justify-content: space-around;
     align-items: center;
 }
+.F_CSS{
+  display: flex;
+  flex-flow: column;
+  justify-content: flex-start;
+  align-items: flex-start;
+}
 .F_RCC {
     display: flex;
     flex-flow: row;

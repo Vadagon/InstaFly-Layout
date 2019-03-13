@@ -45,6 +45,9 @@ body {
 .mh100vh{
   min-height: 100vh;
 }
+.display{
+  display: none;
+}
 .wsn{
   white-space: normal;
 }
@@ -53,6 +56,9 @@ body {
 }
 .top0{
   top: 0;
+}
+.top100{
+  top: 100%;
 }
 .right0{
   right: 0;
@@ -130,6 +136,12 @@ text-align: right;
     flex-flow: row;
     justify-content: space-around;
     align-items: center;
+}
+.F_CSS{
+  display: flex;
+  flex-flow: column;
+  justify-content: flex-start;
+  align-items: flex-start;
 }
 .F_RCC {
     display: flex;

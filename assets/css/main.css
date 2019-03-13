@@ -48,8 +48,12 @@ a {
   cursor: pointer;
 }
 
-html {}
-
+.ng-enter{
+  opacity: 1;
+}
+.ng-leave{
+  opacity: 0;
+}
 body {
   background: #161c24;
   overflow: hidden;
@@ -116,14 +120,25 @@ p {
   width: 100%;
 }
 
-.hash {
+.hashtag, .feed, .followers, .following, .location {
   background-image: url(../img/hash.png);
   background-size: contain;
   background-repeat: no-repeat;
   width: 4vh;
   height: 4vh;
 }
-
+.feed{
+  background-image: url(../img/feed.png);
+}
+.followers{
+  background-image: url(../img/followers.png);
+}
+.location{
+  background-image: url(../img/location.png);
+}
+.following{
+  background-image: url(../img/following.png);
+}
 .progress_bar {
   position: relative;
   background: rgb(142, 47, 180);
@@ -234,16 +249,52 @@ p {
 
 .header {
   position: relative;
-  width: 100%;
-  padding: 0 30px;
-  padding-bottom: 0;
-  box-sizing: border-box;
-  display: flex;
-  height: 100%;
-  justify-content: space-between;
-  align-items: center;
+width: 100%;
+padding: 20px;
+padding-bottom: 0;
+box-sizing: border-box;
+display: flex;
+height: 100%;
+justify-content: space-between;
+align-items: flex-start;
 }
+.header>.ring_wrapper{
+  position: absolute;
+  top: 70%;
+  right: 17px;
+  cursor: pointer;
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
 
+}
+.header>.ring_wrapper>.ring{
+width: 22px;
+height: 25px;
+margin: 0 auto;
+}
+.help{
+  background-image: url(../img/help.png) !important;
+}
+.no_photos{
+  background: #1b232c;
+z-index: 3;
+position: absolute;
+left: 90px;
+height: 9vh;
+width: 230px;
+}
+.no_photos_img{
+  background-image: url(../img/no_photos.png);
+    background-repeat: no-repeat;
+    background-size: cover;
+    width: 50px;
+    height: 50px;
+    right: 0;
+    bottom: 0;
+        margin-right: 10px;
+            margin-bottom: 5px;
+}
 .header .logo_img {
   display: flex;
   height: 13vh;
@@ -665,9 +716,9 @@ p {
   margin-top: 20vh;
 }
 
-.preloader {
-  position: absolute;
-  top: 25vh;
+.lds-roller {
+  top: calc(50vh - 32px);
+left: calc(50vw - 32px);
 }
 
 .circle {
@@ -1577,7 +1628,7 @@ input:-webkit-autofill, input:-webkit-autofill:hover, input:-webkit-autofill:foc
 }
 
 .wave_liked1 {
-  position: absolute;
+  position: fixed;
   width: 100vw;
   z-index: -1;
   min-height: 100vh;
@@ -1589,7 +1640,7 @@ input:-webkit-autofill, input:-webkit-autofill:hover, input:-webkit-autofill:foc
 }
 
 .wave_liked2 {
-  position: absolute;
+  position: fixed;
   width: 100vw;
   z-index: -1;
   min-height: 100vh;
@@ -2380,5 +2431,99 @@ input[type="range"]::-ms-thumb {
   .close_img {
     width: 6vh;
     height: 6vh;
+  }
+}
+
+
+.lds-roller {
+  display: inline-block;
+  position: relative;
+  width: 64px;
+  height: 64px;
+}
+.lds-roller div {
+  animation: lds-roller 1.2s cubic-bezier(0.5, 0, 0.5, 1) infinite;
+  transform-origin: 32px 32px;
+}
+.lds-roller div:after {
+  content: " ";
+  display: block;
+  position: absolute;
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: #fff;
+  margin: -3px 0 0 -3px;
+}
+.lds-roller div:nth-child(1) {
+  animation-delay: -0.036s;
+}
+.lds-roller div:nth-child(1):after {
+  top: 50px;
+  left: 50px;
+  background: #912fb3;
+}
+.lds-roller div:nth-child(2) {
+  animation-delay: -0.072s;
+}
+.lds-roller div:nth-child(2):after {
+  top: 54px;
+  left: 45px;
+  background: #912fb3;
+}
+.lds-roller div:nth-child(3) {
+  animation-delay: -0.108s;
+}
+.lds-roller div:nth-child(3):after {
+  top: 57px;
+  left: 39px;
+  background: #c82c9c;
+}
+.lds-roller div:nth-child(4) {
+  animation-delay: -0.144s;
+}
+.lds-roller div:nth-child(4):after {
+  top: 58px;
+  left: 32px;
+  background: #c82c9c;
+}
+.lds-roller div:nth-child(5) {
+  animation-delay: -0.18s;
+}
+.lds-roller div:nth-child(5):after {
+  top: 57px;
+  left: 25px;
+  background: #e22a86;
+}
+.lds-roller div:nth-child(6) {
+  animation-delay: -0.216s;
+}
+.lds-roller div:nth-child(6):after {
+  top: 54px;
+  left: 19px;
+  background: #e22a86;
+}
+.lds-roller div:nth-child(7) {
+  animation-delay: -0.252s;
+}
+.lds-roller div:nth-child(7):after {
+  top: 50px;
+  left: 14px;
+  background: #fa2a87;
+}
+.lds-roller div:nth-child(8) {
+  animation-delay: -0.288s;
+}
+.lds-roller div:nth-child(8):after {
+  top: 45px;
+  left: 10px;
+  background: #fa2a87;
+}
+@keyframes lds-roller {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
   }
 }

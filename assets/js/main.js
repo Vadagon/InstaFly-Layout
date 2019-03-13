@@ -247,13 +247,64 @@ app.controller('cardCtrl', function($scope, $rootScope) {
   $($rootScope.data.user.form).insertAfter('#ng_viev').css('display', 'none').attr('target', '_blank');
   $('.content_card .cover_wrapper').niceScroll('.cover');
 });
-app.controller('homeCtrl', function($scope, $rootScope) {
-  $('.home_lessons_wrapper .boxscroll').niceScroll('.wrap');
+app.controller('homeCtrl', function($scope, $rootScope, $location) {
+  $rootScope.less_preview = [0, 1];
+  var path = $location.path();
+
+  if (path == '/home') {
+    $('.home_lessons_wrapper .boxscroll').niceScroll('.wrap');
+    if ($scope.selected == undefined) {
+      $scope.selected = 0;
+    }
+    $scope.select = function(index) {
+      $scope.selected = index;
+      $('.home_lessons_wrapper .boxscroll').getNiceScroll(0).doScrollLeft($('.home_lessons')[index].offsetLeft);
+    };
+    $('.boxscroll').scroll(function() {
+      var scrolled_x = $('.wrap').css('transform').slice(20, -4);
+      scrolled_x = Math.ceil(Number(scrolled_x));
+      if (scrolled_x == 0) {
+        scrolled_x = 0;
+      }
+      var pos_first = $('.home_lessons')[0].offsetLeft
+      pos_first = Math.ceil(Number(pos_first));
+      $scope.scrolled = (scrolled_x - pos_first) / 360;
+      $scope.$apply(() => {
+        $scope.scrolled = Math.ceil($scope.scrolled)
+
+      })
+    })
+  }
+  if (path == '/lessons') {
+    $('.list_wrapper .lessons_title_scroll').niceScroll('.wrap');
+    if ($scope.selected1 == undefined) {
+      $scope.selected1 = 0;
+    }
+    $scope.select1 = function(index) {
+      $scope.selected1 = index;
+      $('.lessons_title_scroll').getNiceScroll(0).doScrollLeft($('.lesson_container')[index].offsetLeft);
+    };
+    $('.lessons_title_scroll').scroll(function() {
+      var scrolled_x = $('.less_mazafaka').css('transform').slice(20, -4);
+      scrolled_x = Math.ceil(Number(scrolled_x));
+      if (scrolled_x == 0) {
+        scrolled_x = 0;
+      }
+      var pos_first = $('.less_mazafaka')[0].offsetLeft
+      pos_first = Math.ceil(Number(pos_first));
+      $scope.scrolled1 = (scrolled_x - pos_first) / 360;
+      $scope.$apply(() => {
+        $scope.scrolled1 = Math.ceil($scope.scrolled1)
+      })
+
+    })
+
+  }
 });
 app.controller('infoCtrl', function($scope, $rootScope) {});
 app.controller('proCtrl', function($scope, $rootScope) {});
 app.controller('list_lessCtrl', function($scope, $rootScope) {});
-app.controller('lessonsCtrl', function($scope, $rootScope) {});
+app.controller('lessonsCtrl', function($scope, $rootScope) {})
 app.controller('extCtrl', function($scope, $rootScope) {});
 app.controller('welcomeCtrl', function($scope, $rootScope) {
   $scope.acceptPrivacy = function(){
@@ -269,6 +320,38 @@ app.controller('welcomeCtrl', function($scope, $rootScope) {
     }
     $rootScope.goTo('home')
   }
+});
+app.controller('aboutCtrl', function($scope, $rootScope) {
+  $('.about_wrapper .boxscroll').niceScroll('.wrap');
+  $rootScope.F = true;
+  $rootScope.fix = [{
+      'date': '07:07 03.03.2019',
+      'fix': 'Beta-testing We are improving app now.'
+  }, {
+      'date': '12:20  04.03.2019',
+      'fix': 'Fixed some bugs, lessons and settings added.'
+  }, {
+      'date': '14:25 04.03.2019',
+      'fix': 'Fixed redirect'
+  }, {
+      'date': '20:10 05.03.2019',
+      'fix': 'NEW functional! Impoved design!'
+  }, {
+      'date': '11:30 08.03.2019',
+      'fix': 'Fixed some bugs...'
+  }, {
+      'date': '14:21 08.03.2019',
+      'fix': 'Added liked by followers and following.'
+  },
+   {
+      'date': '12:16 17.03.2019',
+      'fix': 'New pages and more cool things!'
+  }
+  , {
+      'date': '22:57 13.03.2019',
+      'fix': 'Improved liking functions!, and fixed some bugs. Some design changes'
+  }]
+  $rootScope.fix.reverse()
 });
 app.controller('settingsCtrl', function($scope, $rootScope) {
     $scope.dayily_limit = 500;

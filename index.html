@@ -15,7 +15,7 @@
   <script src="assets/js/main.js"></script>
 </head>
 
-<body class="page page-home r">
+<body class="page  r">
   <div class="modal_cant_add_task fcl_w F_CCC" ng-show="app.alerts.goProPopup" ng-click="modal_cant_add_task = !modal_cant_add_task">
     <div class="home_modal" ng-click="app.alerts.goProPopup = false">
     </div>
@@ -36,6 +36,7 @@
       <div class="close_img"></div>
     </div>
   </div>
+  <!-- МОДАЛКА feedback_wrapper  -->
   <!-- <div class="feedback_wrapper modal_cant_add_task F_CCC">
     <div class="feedback r F_CCC" >
       <div class="ring_wrapper r gradient_purple F_CCC">
@@ -51,7 +52,11 @@
       </div>
     </div>
   </div> -->
-  <div id="ng_viev" ng-class="{'F':F==true}" ng-view>
+  <!-- LOADER  -->
+  <!-- <div class="loader_wrapper modal_cant_add_task ">
+    <div class="lds-roller"><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div></div>
+  </div> -->
+  <div id="ng_viev" ng-class="{'F':F==true}" class="page-home " ng-view>
 
   </div>
 

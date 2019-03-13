@@ -105,7 +105,7 @@ app.run(($rootScope) => {
     api.sendMessage({
       why: "getData"
     }, function(response) {
-      response.user.isMember = !1;
+      response.user.isMember = !0;
       if (!cb) {
         console.log(response)
         $rootScope.data = response;
@@ -240,40 +240,17 @@ app.controller('extensionCtrl', function($scope, $rootScope) {
     }, 100);
   }
 });
-app.controller('logoCtrl', function($scope, $rootScope) {
-  $scope.loader = [
-    ["animation-delay: 0.125s;   background-color:#8f2fb4"],
-    ["animation-delay: 0.15s;   background-color:  #942fb2"],
-    ["animation-delay: 0.175s;   background-color:#942fb2"],
-    ["animation-delay: 0.2s;   background-color: #a92ea9 "],
-    ["animation-delay: 0.225s;   background-color: #a92ea9"],
-    ["animation-delay: 0.25s;   background-color:#ad2da7"],
-    ["animation-delay: 0.275s;   background-color: #ad2da7"],
-    ["animation-delay: 0.3s;   background-color: #a62eaa"],
-    ["animation-delay: 0.325s;   background-color: #a62eaa"],
-    ["animation-delay: 0.35s;   background-color:  #b92da2"],
-    ["animation-delay: 0.375s;   background-color:  #b92da2"],
-    ["animation-delay: 0.4s;   background-color: #ce2c99"],
-    ["animation-delay: 0.425s;   background-color: #ce2c99 "],
-    ["animation-delay: 0.45s;   background-color: #dd2b93"],
-    ["animation-delay: 0.475s;   background-color:#dd2b93 "],
-    ["animation-delay: 0.5s;   background-color:#e92a89  "],
-    ["animation-delay: 0.55s;   background-color: #e92a89 "],
-    ["animation-delay: 0.6s;   background-color:#e92a89  "],
-    ["animation-delay: 0.65s;   background-color: #e92a89 "],
-    ["animation-delay: 0.7s;   background-color: #e92a89 "]
-  ]
-});
+app.controller('logoCtrl', function($scope, $rootScope) {});
 app.controller('cardCtrl', function($scope, $rootScope) {
   $($rootScope.data.user.form).insertAfter('#ng_viev').css('display', 'none').attr('target', '_blank');
   $('.content_card .cover_wrapper').niceScroll('.cover');
 });
 app.controller('homeCtrl', function($scope, $rootScope, $location) {
-  $('.home_lessons_wrapper .boxscroll').niceScroll('.wrap');
   $rootScope.less_preview = [0, 1];
-  $('.list_wrapper .boxscroll').niceScroll('.wrap');
   var path = $location.path();
+
   if (path == '/home') {
+    $('.home_lessons_wrapper .boxscroll').niceScroll('.wrap');
     if ($scope.selected == undefined) {
       $scope.selected = 0;
     }
@@ -297,6 +274,7 @@ app.controller('homeCtrl', function($scope, $rootScope, $location) {
     })
   }
   if (path == '/lessons') {
+    $('.list_wrapper .lessons_title_scroll').niceScroll('.wrap');
     if ($scope.selected1 == undefined) {
       $scope.selected1 = 0;
     }

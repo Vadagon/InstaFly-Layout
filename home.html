@@ -1,4 +1,4 @@
-<div class="page" ng-controller="homeCtrl">
+<div class="page r" ng-controller="homeCtrl">
   <div class="header_wrapper">
     <div class="header">
       <a href="#!logo">
@@ -66,18 +66,17 @@
 
               <div class="home_lessons  r F_CCC" ng-repeat="x in less_preview" >
                 <div class="div_less_preview  F_CCC" style="background-image: url(assets/img/lessons/less{{$index+1}}_preview.png)">
-                  <div  ng-click="a = !a" class="plus_less"  ng-class="{'plus_less2': a == true}">
-                    <div class="hori a" ng-class="{'hori_r': a == true}"></div>
-                    <div class="vert a" ng-class="{'vert_r': a == true}"></div>
+                  <div  ng-click="$index = !$index" class="plus_less"  ng-class="{'plus_less2': a == true}">
+                    <div class="hori a" ng-class="{'hori_r': $index == true}"></div>
+                    <div class="vert a" ng-class="{'vert_r': $index == true}"></div>
                   </div>
-                  <span class="fvh1_5_3 home_less_cout ta_c mar20 marb5 fcl_w">{{$index+1}}/{{less_preview.length-1}} ideas</span>
+                  <span class="fvh1_5_3 home_less_cout ta_c mar20 marb5 fcl_w">{{$index+1}}/{{less_preview.length}} ideas</span>
                 </div>
                 <div class="F_RAC w100 mart15">
                   <h1  class="fcl_w fvh2_4">Idea #{{$index+1}}</h1>
                   <div  ng-click="data.user.isMember?goTo('lessons'):app.alerts.goProPopup = true" class="btn_pulse_bg_wave w30m0 ta_c">Open</div>
                 </div>
               </div>
-
               </div>
             </div>
         </div>
@@ -85,7 +84,7 @@
           <div class="tasc_block" ng-repeat="i in data.tasks">
             <div class="edit_task">
               <label for="s1" class="edit_wrapper F_CAC">
-                <div class="hash"></div>
+                <div class="{{i.type}}"></div>
                 <div class="onoffswitch">
                   <input class="onoffswitch-checkbox" id="s1" name="onoffswitch" ng-model="i.isEnabled" type="checkbox">
                   <label class="onoffswitch-label" for="s1">

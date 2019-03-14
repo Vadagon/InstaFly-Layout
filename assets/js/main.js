@@ -206,8 +206,8 @@ app.run(($rootScope, $interval) => {
         }
     })
     var intervalInit = setInterval(function () {
-      if(!!a){
-        if(a.isReadyToInit){
+      if(!!a || platform.name == 'chrome'){
+        if(a.isReadyToInit || platform.name == 'chrome'){
           clearInterval(intervalInit);
           $rootScope.get();
         }

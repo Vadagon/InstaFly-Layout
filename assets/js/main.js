@@ -231,62 +231,42 @@ app.controller('cardCtrl', function($scope, $rootScope) {
 app.controller('homeCtrl', function($scope, $rootScope, $location) {
   $rootScope.less_preview = [0, 1];
   var path = $location.path();
-
-
     var h_wrapp = '.scrollbox';
-    var h_
-    if (path == '/home') {
     $(h_wrapp).niceScroll('.wrap');
     if ($scope.selected == undefined) {
       $scope.selected = 0;
     }
     $scope.select = function(index) {
       $scope.selected = index;
-      $(h_wrapp).getNiceScroll(0).doScrollLeft($('.home_lessons')[index].offsetLeft);
+      $(h_wrapp).getNiceScroll(0).doScrollLeft($('.scroll_inset')[index].offsetLeft);
     };
-    $('.boxscroll').scroll(function() {
+    $(h_wrapp).scroll(function() {
       var scrolled_x = $('.wrap').css('transform').slice(20, -4);
       scrolled_x = Math.ceil(Number(scrolled_x));
       if (scrolled_x == 0) {
         scrolled_x = 0;
       }
-      var pos_first = $('.home_lessons')[0].offsetLeft
+      var pos_first = $('.scroll_inset')[0].offsetLeft
       pos_first = Math.ceil(Number(pos_first));
-      $scope.scrolled = (scrolled_x - pos_first) / 360;
-
-      $scope.scrolled = Math.ceil($scope.scrolled)
-      $scope.$apply();
-
-
-    })
-  }
-  if (path == '/lessons') {
-    $(h_wrapp).niceScroll('.wrap');
-    $scope.select = function(index) {
-      $scope.selected = index;
-      $(h_wrapp).getNiceScroll(0).doScrollLeft($('.lesson_container')[index].offsetLeft);
-    };
-    $('.lessons_title_scroll').scroll(function() {
-      var scrolled_x = $('.less_mazafaka').css('transform').slice(20, -4);
-      scrolled_x = Math.ceil(Number(scrolled_x));
-      if (scrolled_x == 0) {
-        scrolled_x = 0;
-      }
-      var pos_first = $('.less_mazafaka')[0].offsetLeft
-      pos_first = Math.ceil(Number(pos_first));
-      $scope.scrolled = (scrolled_x - pos_first) / 360;
-        $scope.scrolled = Math.ceil($scope.scrolled)
-      $scope.$apply()
-      setTimeout(()=>{
-        if ($scope.scrolled == 1) {
-        $rootScope.app.alerts.goProPopup = true;
-        $scope.scrolled = 0;
-        $('.lessons_title_scroll').getNiceScroll(0).doScrollLeft(0);
+      $scope.$apply(()=>{
+        $scope.scrolled = Math.ceil((scrolled_x - pos_first) / 360);
+        if (path == '/lessons') {
+          $scope.$watch('scrolled',()=>{
+            if ($scope.scrolled == 2) {
+            $rootScope.app.alerts.goProPopup = true;
+            $scope.scrolled = 1;
+            $('.lessons_title_scroll').getNiceScroll(0).doScrollLeft(0);
+            }
+          })
         }
-      },500)
-    })
+      });
 
+
+    })
+      if (path == '/home') {
   }
+
+
 });
 app.controller('infoCtrl', function($scope, $rootScope) {});
 app.controller('proCtrl', function($scope, $rootScope) {});

@@ -64,7 +64,7 @@
             </a>
           </div>
 
-          <div class="F_RSCNW homex_scrool boxscroll do-nicescroll4 r">
+          <div class="F_RSCNW homex_scrool boxscroll scrollbox do-nicescroll4 r">
             <div class="wrap r">
 
               <div class="home_lessons  r F_CCC" ng-repeat="x in less_preview" >
@@ -77,7 +77,7 @@
                 </div>
                 <div class="F_RAC w100 mart15">
                   <h1  class="fcl_w fvh2_4">Idea #{{$index+1}}</h1>
-                  <div  ng-click="data.user.isMember?goTo('lessons'):app.alerts.goProPopup = true" class="btn_pulse_bg_wave w30m0 ta_c">Open</div>
+                  <div  ng-click="data.user.isMember && scrolled == 1?goTo('lessons'):app.alerts.goProPopup = true" class="btn_pulse_bg_wave w30m0 ta_c">Open</div>
                 </div>
               </div>
               </div>

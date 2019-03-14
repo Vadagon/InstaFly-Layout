@@ -17,6 +17,7 @@
 
 span:not(.tooltip) {
   transition: all .4s linear;
+  white-space: nowrap;
 }
 
 textarea::placeholder {
@@ -1094,7 +1095,7 @@ left: calc(50vw - 32px);
   border-radius: 50%;
 }
 .homex_scrool .nicescroll-cursors{
-      background-color: rgb(250, 42, 135) !important;
+      background-color: rgba(250, 42, 135,.5) !important;
 }
 .app_store, .play_market {
   background: #9f2ead;

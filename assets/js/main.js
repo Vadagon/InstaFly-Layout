@@ -196,6 +196,14 @@ app.run(($rootScope, $interval) => {
             $rootScope.count_less = $rootScope.count_less.slice(1)
             console.log($rootScope.count_less)
         }
+        var path = current.$$route.originalPath;
+        $rootScope.path = path.slice(1).split(':')[0];
+        if ( /(lessons|info|edit|about|settings)/ig.test(path) ) {
+          $rootScope.header_show = true;
+        }
+        else{
+            $rootScope.header_show = false;
+        }
     })
     $rootScope.get();
     $('body').niceScroll();

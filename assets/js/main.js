@@ -140,7 +140,7 @@ app.run(($rootScope, $interval) => {
             $rootScope.data.feed = e.feed;
             $rootScope.data.status = e.status;
             $rootScope.data.user = e.user;
-            $rootScope.data.user.isMember = !0;
+            // $rootScope.data.user.isMember = !0;
           }
         })
     }, 1000);
@@ -198,7 +198,7 @@ app.run(($rootScope, $interval) => {
         }
         var path = current.$$route.originalPath;
         $rootScope.path = path.slice(1).split(':')[0];
-        if ( /(lessons|info|edit|about|settings)/ig.test(path) ) {
+        if ( /(lessons:|info|edit|about|settings)/ig.test(path) ) {
           $rootScope.header_show = true;
         }
         else{

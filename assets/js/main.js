@@ -199,7 +199,7 @@ app.run(($rootScope, $interval) => {
 
         var path = current.$$route.originalPath;
         $rootScope.path = path.slice(1)
-        if (path == '/lessons' || path == '/info' || path == '/edit' || path == '/about' ) {
+        if (path == '/lessons' || path == '/info' || path == '/edit' || path == '/about' || path == '/settings' ) {
           $rootScope.header_show = true;
       }
       else {

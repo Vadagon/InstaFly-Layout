@@ -86,6 +86,9 @@ body {
 .b0{
   bottom: 0;
 }
+.flB::first-letter{
+  text-transform: uppercase;
+}
 .bb{
   box-sizing: border-box;
 }

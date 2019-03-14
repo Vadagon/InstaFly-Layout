@@ -1,15 +1,4 @@
-<div class="F_RBC ">
-    <a ng-click="goBack()">
-        <img alt="" class="info pad20" src="assets/img/back.png">
-
-    </a>
-    <h1 class="fcl_w fvh4_8">
-        Settings
-    </h1>
-    <div class="pad30">
-    </div>
-</div>
-<div class="settings_wrapper" ng-controller="settingsCtrl">
+<div class="settings_wrapper" ng-class="{'content':header_show}" ng-controller="settingsCtrl">
     <div class=" mart20 ta_c fcl_w welcome_block F_RBC">
         <h2 class="fvh3_6">
             Interval spacing
@@ -55,7 +44,7 @@
             <span class="fvh1_5_3">{{5000}}</span>
         </div>
     </div>
-</div>
-<div class="btn_pulse_bg_wave w50 marb20 mart20 ta_c">
-    Save
+    <div class="btn_pulse_bg_wave w50 marb20 mart20 ta_c">
+        Save
+    </div>
 </div>

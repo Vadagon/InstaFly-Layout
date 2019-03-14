@@ -205,7 +205,14 @@ app.run(($rootScope, $interval) => {
             $rootScope.header_show = false;
         }
     })
-    $rootScope.get();
+    var intervalInit = setInterval(function () {
+      if(!!a){
+        if(a.isReadyToInit){
+          clearInterval(intervalInit);
+          $rootScope.get();
+        }
+      }
+    }, 10);
     $('body').niceScroll();
 })
 app.controller('indexCtrl', function($scope, $rootScope) {});

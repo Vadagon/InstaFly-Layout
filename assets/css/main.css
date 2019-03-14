@@ -1854,7 +1854,7 @@ input:-webkit-autofill, input:-webkit-autofill:hover, input:-webkit-autofill:foc
 .modal_cant_add_task {
   position: fixed;
   z-index: 100;
-  background: #000000db;
+  background: black;
   transition: all .5s;
   top: 0;
   left: 0;

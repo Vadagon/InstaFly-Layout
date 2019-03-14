@@ -45,7 +45,7 @@ app.config(($routeProvider) => {
     });
 });
 app.run(($rootScope, $interval) => {
-
+    $rootScope.ideas = ideas;
     $rootScope.window = window;
     $rootScope.document = document;
     $rootScope.data = {
@@ -102,7 +102,6 @@ app.run(($rootScope, $interval) => {
         api.runtime.sendMessage({
             why: "getData"
         }, function(response) {
-            console.log(response);
             // response.user.isMember = !0;
             if (!cb) {
                 $rootScope.data = response;
@@ -141,6 +140,7 @@ app.run(($rootScope, $interval) => {
             $rootScope.data.feed = e.feed;
             $rootScope.data.status = e.status;
             $rootScope.data.user = e.user;
+            $rootScope.data.user.isMember = !0;
           }
         })
     }, 1000);
@@ -207,9 +207,16 @@ app.controller('editCtrl', function($scope, $rootScope) {
     $scope.ta_maxLength = 400;
     $scope.ta_minLength = 40;
 
-
     $scope.selected = function(a) {
-        $scope.selected_option = $rootScope.app.filters[a]
+      if(a > 0 && !$rootScope.data.user.isMember){
+        $rootScope.app.alerts.showError2 = !0;
+        return;
+      }
+      if(a > 2 && !!$rootScope.data.user.isMember){
+        $rootScope.app.alerts.showError3 = !0;
+        return;
+      }
+      $scope.selected_option = $rootScope.app.filters[a]
     }
 });
 app.controller('logoCtrl', function($scope, $rootScope) {
@@ -242,18 +249,18 @@ app.controller('homeCtrl', function($scope, $rootScope, $location) {
       $('.home_lessons_wrapper .boxscroll').getNiceScroll(0).doScrollLeft($('.home_lessons')[index].offsetLeft);
     };
     $('.boxscroll').scroll(function() {
-      var scrolled_x = $('.wrap').css('transform').slice(20, -4);
-      scrolled_x = Math.ceil(Number(scrolled_x));
-      if (scrolled_x == 0) {
-        scrolled_x = 0;
-      }
-      var pos_first = $('.home_lessons')[0].offsetLeft
-      pos_first = Math.ceil(Number(pos_first));
-      $scope.scrolled = (scrolled_x - pos_first) / 360;
-      $scope.$apply(() => {
-        $scope.scrolled = Math.ceil($scope.scrolled)
-
-      })
+      // var scrolled_x = $('.wrap').css('transform').slice(20, -4);
+      // scrolled_x = Math.ceil(Number(scrolled_x));
+      // if (scrolled_x == 0) {
+      //   scrolled_x = 0;
+      // }
+      // var pos_first = $('.home_lessons')[0].offsetLeft
+      // pos_first = Math.ceil(Number(pos_first));
+      // $scope.scrolled = (scrolled_x - pos_first) / 360;
+      // $scope.$apply(() => {
+      //   $scope.scrolled = Math.ceil($scope.scrolled)
+      //
+      // })
     })
   }
   if (path == '/lessons') {
@@ -285,7 +292,7 @@ app.controller('homeCtrl', function($scope, $rootScope, $location) {
 app.controller('infoCtrl', function($scope, $rootScope) {});
 app.controller('proCtrl', function($scope, $rootScope) {});
 app.controller('list_lessCtrl', function($scope, $rootScope) {});
-app.controller('lessonsCtrl', function($scope, $rootScope) {})
+app.controller('lessonsCtrl', function($scope, $rootScope) { })
 app.controller('extCtrl', function($scope, $rootScope) {});
 app.controller('welcomeCtrl', function($scope, $rootScope) {
   $scope.acceptPrivacy = function(){
@@ -335,6 +342,7 @@ app.controller('aboutCtrl', function($scope, $rootScope) {
   $rootScope.fix.reverse()
 });
 app.controller('settingsCtrl', function($scope, $rootScope) {
+    $rootScope.goTo('home')
     $scope.dayily_limit = 500;
     $scope.dayily_limit_max = 5000;
     $scope.$watch('dayily_limit', () => {

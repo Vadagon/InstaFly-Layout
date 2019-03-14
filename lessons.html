@@ -19,17 +19,14 @@
 
 	<div class="boxscroll homex_scrool lessons_title_scroll  w100 do-nicescroll4 "  >
 		<div class="wrap less_mazafaka F_RSCNW transition w100 ">
-			<div class="lesson_container transition pad20 F_CCC w100"  ng-class="{'h20vh':readmore}" ng-repeat="x in less_preview">
+			<div class="lesson_container transition pad20 F_CCC w100"  ng-class="{'h20vh':readmore}" ng-repeat="x in ideas">
 
 			<div class="wrapper_previev" ng-hide="readmore"><div class="lesson_img_wrapper transition ta_c">
-				<img src="assets/img/lessons/lessons1.png" alt="" class="transition" >
+				<img ng-src="{{x.pic}}" alt="" class="transition" >
 			</div>
-			<h1 class="fvh4_8 ta_c mart15 marb15 wsn transition" >What is important in instagram </h1>
+			<h1 class="fvh4_8 ta_c mart15 marb15 wsn transition" >Idea #{{$index}}</h1>
 			<p class="fvh2_4 ta_l ta_c mart15 marb15 wsn transition" >
-				The most important thing in Instagram is your subscribers!
-				For them, you create content, share your thoughts,
-				and if you are a business account holder,
-				then they are your potential customer base.
+				{{x.text}}
 			</p>
 			</div>
 			<h1 class="fvh4_8 ta_c mart15 marb15 wsn transition" ng-hide="!readmore">lesson {{$index+1}}</h1>
@@ -37,18 +34,18 @@
 		</div>
 	</div>
 <div class="w100 F_CBC">
-	<h6 class="fvh1_5_3 ta_c mar20 marb5">{{scrolled1+1}}/{{less_preview.length}} lessons</h6>
+	<h6 class="fvh1_5_3 ta_c mar20 marb5">{{scrolled1+1}}/{{ideas.length}} lessons</h6>
 	<div class="lessons_dot_counter mart0 F_RAC  marb10 w100">
 		<a ng-click="select1(selected1==0? 0 : selected1 - 1);">
 			<img alt="" class="info " src="assets/img/back.png">
 		</a>
 		<div class="F_RCC">
-			<a class="w50  mar10" ng-click="select1($index);"  ng-repeat="x in less_preview">
+			<a class="w50  mar10" ng-click="select1($index);"  ng-repeat="x in ideas">
 				<div ng-class="{'active_dot': scrolled1 == $index}" class="dot_info  mar5"></div>
 			</a>
 		</div>
-		<a ng-click="select1(selected1==less_preview.length-1? less_preview.length : selected1 + 1);">
-			<img alt="" class="info reverse_img" src="assets/img/back.png">
+		<a ng-click="select1(selected1==ideas.length-1? ideas.length : selected1 + 1);">
+			<img alt="" class="info reverse_img" ng-src="{{x.pic}}">
 		</a>
 	</div>
 	<!-- <div class="readmore_but" ng-class="{'reversY': !readmore}" ng-click="readmore = !readmore">
@@ -56,15 +53,12 @@
 	</div>
 	<div class="boxscroll homex_scrool bottom_scrool_less lessons_title_scroll  w100 do-nicescroll4 "  ng-hide="!readmore">
 		<div class="wrap less_mazafaka F_RSCNW transition w100 ">
-			<div class="lesson_container transition pad20 F_CCC w100"  ng-repeat="x in less_preview">
+			<div class="lesson_container transition pad20 F_CCC w100"  ng-repeat="x in ideas">
 
 			<div class="wrapper_previev">
 
 			<p class="fvh2_4 ta_l ta_c mart15 marb15 wsn transition" >
-				The most important thing in Instagram is your subscribers!
-				For them, you create content, share your thoughts,
-				and if you are a business account holder,
-				then they are your potential customer base.
+				{{x.text}}
 			</p>
 			</div>
 			</div>

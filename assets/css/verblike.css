@@ -83,6 +83,9 @@ body {
 .in_block{
     display: inline-block;
 }
+.b0{
+  bottom: 0;
+}
 .bb{
   box-sizing: border-box;
 }

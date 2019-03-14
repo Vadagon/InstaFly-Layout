@@ -196,11 +196,25 @@ app.run(($rootScope, $interval) => {
             $rootScope.count_less = $rootScope.count_less.slice(1)
             console.log($rootScope.count_less)
         }
+
+        var path = current.$$route.originalPath;
+        $rootScope.path = path.slice(1)
+        if (path == '/lessons' || path == '/info' || path == '/edit' || path == '/about' ) {
+          $rootScope.header_show = true;
+      }
+      else {
+          $rootScope.header_show = false;
+      }
+
     })
     $rootScope.get();
     $('body').niceScroll();
+
+
 })
-app.controller('indexCtrl', function($scope, $rootScope) {});
+app.controller('indexCtrl', function($scope, $rootScope, $location) {
+
+});
 app.controller('editCtrl', function($scope, $rootScope) {
     $scope.selected_option = $rootScope.app.filters[0];
     let selected_option;
@@ -263,8 +277,7 @@ app.controller('homeCtrl', function($scope, $rootScope, $location) {
 
 
     })
-      if (path == '/home') {
-  }
+
 
 
 });

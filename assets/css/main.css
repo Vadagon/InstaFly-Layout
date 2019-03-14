@@ -58,6 +58,7 @@ a {
 body {
   background: #161c24;
   overflow: hidden;
+  position: relative;
 }
 
 .page {
@@ -120,7 +121,15 @@ p {
   position: relative;
   width: 100%;
 }
-
+.header_index{
+  height: 10vh;
+}
+.content{
+  height: 90vh !important;
+  top: 10vh !important;
+  width: 100%;
+  position: relative;
+}
 .hashtag, .feed, .followers, .following, .location {
   background-image: url(../img/hash.png);
   background-size: contain;
@@ -441,13 +450,6 @@ border-radius: 10px;
   height: 2vh;
 }
 
-.content {
-  height: calc(70vh - 0.6vh);
-  display: flex;
-  flex-flow: column;
-  position: relative;
-  justify-content: space-between;
-}
 
 .liked_wrapper {
   display: block;
@@ -695,6 +697,7 @@ border-radius: 10px;
 }
 .small{
   height: .4vh;
+  top: -1.4vh;
 }
 .social {
   position: relative;
@@ -2417,9 +2420,7 @@ input[type="range"]::-ms-thumb {
     display: none;
   }
 
-  .content {
-    height: calc(140vh - 1.2vh);
-  }
+
 
   .heshtag, .edit {
     width: 16vh;

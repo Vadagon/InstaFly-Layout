@@ -31,12 +31,12 @@
         </div>
       </div>
       <div class="add_btn F_RAC mar10  fcl_w" ng-if="app.alerts.showError2">
-        <span ng-click="app.alerts.goProPopup = true" class="fvh2_4">Only
-          <span ng-click="goTo('card')" class="purple_cl fvh2_4">PLUS member</span>
-          is able to add
-        </span>
-        <div class="close_img" ng-click="ap.showError2 = false;">
-        </div>
+        <span ng-click="app.alerts.goProPopup = true" class="fvh2_4">Only <span class="purple_cl fvh2_4">PLUS member</span> is able to add </span>
+        <div class="close_img" ng-click="app.alertsshowError2 = false;"></div>
+      </div>
+      <div class="add_btn F_RAC mar10  fcl_w" ng-if="app.alerts.showError3">
+        <span class="fvh2_4">In developement...</span>
+        <div class="close_img" ng-click="app.alertsshowError3 = false;"></div>
       </div>
       <div class="task_filter  w95" ng-if="(newTask.type == 'hashtag' || newTask.type == 'location')">
         <div class="scroll-wrapper scrollbar-inner" style="position: relative;">

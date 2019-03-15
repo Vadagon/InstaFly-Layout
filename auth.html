@@ -17,15 +17,15 @@
   <div class="auth_form w70 ta_c">
     <div class="form F_CCC">
       <div class="input_wrapper">
-        <input class="input__field "  placeholder="Phone number, or email" type="text" />
+        <input class="input__field "  ng-model="instagramLogData.username" placeholder="Phone number, or email" type="text" />
         <img alt="" class="input_ico" src="assets/img/pers_ico.png">
       </div>
       <div class="input_wrapper">
-        <input class="input__field " placeholder="Password" type="{{pass}}" />
+        <input class="input__field " ng-model="instagramLogData.password" placeholder="Password" type="{{pass}}" />
         <img alt="" class="input_ico" src="assets/img/parol_ico.png">
         <img alt="" class="input_ico eye" ng-click="eye_pass = !eye_pass" src="assets/img/eaye_ico.png">
       </div>
-      <button class="btn_pulse_bg_wave mart15" type="submit">
+      <button class="btn_pulse_bg_wave mart15" type="submit" ng-submit="instagramLogin()" ng-click="instagramLogin()">
         Sign Up
       </button>
     </div>

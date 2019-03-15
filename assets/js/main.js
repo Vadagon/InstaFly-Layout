@@ -1,8 +1,15 @@
 let app = angular.module("Routing", ["ngRoute", 'ngAnimate']);
+app.directive("pagination", function() {
+  return {
+
+      template : '<a  ng-click="select($index);" ng-repeat="x in less_preview"><div ng-class="{active_dot: scrolled == $index}" class="dot_info   mar5"></div></a>'
+  };
+});
 //Routing
 app.config(['$compileProvider', function ($compileProvider) {
     $compileProvider.imgSrcSanitizationWhitelist(/^\s*(https?|local|data|chrome-extension):/);
 }]);
+
 app.filter('reverse', function() {
   return function(items) {
     return items.slice().reverse();
@@ -70,6 +77,7 @@ app.run(($rootScope, $interval) => {
       ],
       taskFunc: 'add'
     }
+
     $rootScope.APPNAME = "InstaFly";
     $rootScope.status1 = "sleeping";
     $rootScope.tasks_count = 1;
@@ -199,7 +207,7 @@ app.run(($rootScope, $interval) => {
 
         var path = current.$$route.originalPath;
         $rootScope.path = path.slice(1)
-        if (path == '/lessons' || path == '/info' || path == '/edit' || path == '/about' || path == '/settings' ) {
+        if (path == '/lessons' || path == '/info' || path == '/edit' || path == '/about' || path == '/settings' || path == '/settings' ) {
           $rootScope.header_show = true;
       }
       else {

@@ -28,9 +28,7 @@
 			<img alt="" class="info " src="assets/img/back.png">
 		</a>
 		<div class="F_RCC">
-			<a class="w50  mar10" ng-click="select($index);"  ng-repeat="x in less_preview">
-				<div ng-class="{'active_dot': scrolled == $index}" class="dot_info  mar5"></div>
-			</a>
+		<pagination class="lessons_dot_counter  F_RCC w50"></pagination>
 		</div>
 		<a ng-hide="less_preview.length == 2" ng-click="select(selected==less_preview.length-1? less_preview.length : selected + 1);">
 			<img alt="" class="info reverse_img" src="assets/img/back.png">

@@ -48,7 +48,9 @@ a {
   text-decoration: none;
   cursor: pointer;
 }
-
+.opacity{
+  transition: all .4s linear;
+}
 .ng-enter{
   opacity: 1;
 }
@@ -126,7 +128,6 @@ p {
 }
 .content{
   height: 90vh !important;
-  top: 10vh !important;
   width: 100%;
   position: relative;
 }

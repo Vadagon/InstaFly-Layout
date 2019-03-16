@@ -120,7 +120,7 @@ p {
 .progress {
   background: #141f28;
   height: 3.5vh;
-  position: relative;
+  position: absolute;
   width: 100%;
 }
 .header_index{
@@ -269,7 +269,7 @@ height: 100%;
 justify-content: space-between;
 align-items: flex-start;
 }
-.header>.ring_wrapper{
+.ring_wrapper{
   position: absolute;
   top: 70%;
   right: 17px;
@@ -279,7 +279,7 @@ align-items: flex-start;
   border-radius: 50%;
 
 }
-.header>.ring_wrapper>.ring{
+.ring_wrapper>.ring{
 width: 22px;
 height: 25px;
 margin: 0 auto;
@@ -684,21 +684,8 @@ border-radius: 10px;
   align-items: center;
 }
 
-.arrow_img, .small_ellipse_img {
-  width: 2vh;
-  height: 2vh;
-  cursor: pointer;
-  transition: all .2s linear;
-}
-
-.elipses_with_points {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
 .small{
   height: .4vh;
-  top: -1.4vh;
 }
 .social {
   position: relative;
@@ -1094,7 +1081,7 @@ left: calc(50vw - 32px);
   background-image: url('../img/star_no.png');
 }
 
-.ring_wrapper {
+.feedback_wrapper .ring_wrapper {
   top: 10px;
   width: 55px;
   height: 55px;
@@ -1614,25 +1601,8 @@ input:-webkit-autofill, input:-webkit-autofill:hover, input:-webkit-autofill:foc
   height: 20vh;
 }
 
-.edit_wrapper .progress {
-  height: 0.4vh;
-}
 
-.info_wrapper .progress {
-  height: 0.4vh;
-}
 
-.edit_task .edit_wrapper {
-  height: 100%;
-}
-
-.edit_wrapper .header_wrapper {
-  height: 10vh;
-}
-
-.edit_wrapper .header {
-  height: 10vh;
-}
 
 .liked_photos_wrapper {
   background: url(../img/liked_wave.png);
@@ -2366,10 +2336,6 @@ input[type="range"]::-ms-thumb {
     height: 18vh;
     -webkit-background-size: 17.6vh;
     background-size: 17.6vh;
-  }
-
-  .progress {
-    height: 7vh;
   }
 
   .header_wrapper {

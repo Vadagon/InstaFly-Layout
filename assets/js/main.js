@@ -221,7 +221,7 @@ app.run(($rootScope, $interval) => {
         }
       }
     }, 10);
-    $('body').niceScroll();
+    $('.boxscroll').niceScroll();
 })
 app.controller('indexCtrl', function($scope, $rootScope) {});
 app.controller('editCtrl', function($scope, $rootScope) {

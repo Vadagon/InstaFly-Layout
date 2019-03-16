@@ -1,8 +1,4 @@
-<div class="page home_content r w100" ng-controller="homeCtrl">
-
-  <div class="index_wrapper padb70 F_RBS">
-
-      <div class="flex">
+<div class="page home_content boxscroll r w100" ng-controller="homeCtrl">
         <!-- <a class="getpro_wrapper mar10 marb30" href="#!card">
           <div class="getpro gradient_purple fcl_w pad15 ">
             <div class="wave_bg"></div>
@@ -15,18 +11,15 @@
             GO PRO
           </span>
         </a> -->
-
         <div class="home_lessons_wrapper r w100">
           <div class="status pad30 padb0 marb10">
             <div class=" w70 r fcl_w fvh1_5_3 ta_c" ng-class="{'was_liked':status = 'sleeping'}">
               {{data.status}}
             </div>
-
           </div>
             <pagination class="lessons_dot_counter  F_RCC w50"></pagination>
           <div class="F_RSCNW homex_scrool boxscroll scrollbox do-nicescroll4 r">
             <div class="wrap r">
-
               <div class="home_lessons  r F_CCC">
                 <div class="div_less_preview  F_CCC" style="background-image: url(assets/img/lessons/less1_preview.png)">
                   <span class="fvh1_5_3 home_less_cout ta_c mar20 marb5 fcl_w">1/31 idea</span>
@@ -61,7 +54,6 @@
                     <span class="onoffswitch-switch">
                     </span>
                   </label>
-
                 </div>
               </label>
             </div>
@@ -81,8 +73,6 @@
             </a>
           </div>
         </div>
-      </div>
-    </div>
     <div class="add_btn F_RAC mar10  fcl_w" ng-show="app.alerts.showError1">
       <span class="fvh2_4" ng-click="app.alerts.goProPopup = true">Only
         <span class="purple_cl fvh2_4">PLUS member</span>

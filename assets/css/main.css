@@ -76,7 +76,6 @@ body {
 
 #ng_viev {
   height: 100%;
-  min-height: 100vh;
 }
 
 p {
@@ -85,10 +84,6 @@ p {
   letter-spacing: 0;
 }
 
-.page .header_wrapper {
-  height: 20vh;
-  position: relative;
-}
 
 .close_img {
   width: 3vh;
@@ -124,7 +119,7 @@ p {
   width: 100%;
 }
 .header_index{
-  height: 10vh;
+  height: 20vh;
 }
 .content{
   height: 90vh !important;
@@ -584,7 +579,10 @@ border-radius: 10px;
 .logo_page .wave_img {
   position: fixed;
 }
-
+.arrow_img{
+  cursor: pointer;
+  width: 50%;
+}
 .arrow_img_reverse {
   transform: rotateZ(180deg);
   transition: all .2s linear;
@@ -1219,18 +1217,6 @@ left: calc(50vw - 32px);
 .info_cont_wrapper {
   height: 100%;
 }
-
-
-
-.info_wrapper .header_wrapper {
-  height: 10vh;
-}
-
-.info_wrapper .header_wrapper .header {
-  padding: 10px 0;
-  height: 100%
-}
-
 .onoffswitch .info_wrapper .btn {
   border-radius: 0 20px 20px 0;
   background: #121921;
@@ -1535,15 +1521,15 @@ input:-webkit-autofill, input:-webkit-autofill:hover, input:-webkit-autofill:foc
   background-size: 130%;
   top: -3px;
 }
-
-.page-home.ng-enter {
-  /* -webkit-transform-origin: 0% 0%;
-  -webkit-animation: 0.1s both ease-in;
+.page-home.ng-enter{
+  -webkit-transform-origin: 0% 0%;
+  -webkit-animation:0.2s both ease-in;
   -moz-transform-origin: 0% 0%;
-  -moz-animation: circle 0.1s both ease-in;
+  -moz-animation: circle 0.2s both ease-in;
   transform-origin: 0% 0%;
-  animation: circle 0.1s both ease-in; */
+  animation: circle 0.2s both ease-in;
 }
+
 
 .back {
   border-radius: 0 50px 50px 0;
@@ -1885,7 +1871,6 @@ input:-webkit-autofill, input:-webkit-autofill:hover, input:-webkit-autofill:foc
 
 .bottom_liked .wave_bg {
   background-size: 399% 62%;
-  z-index: 3;
 }
 
 .dropdown.ng-hide {
@@ -1981,8 +1966,8 @@ input:-webkit-autofill, input:-webkit-autofill:hover, input:-webkit-autofill:foc
 }
 
 .l_b_p>img {
-  width: 55px;
-  height: 55px;
+  width: 40px;
+  height: 40px;
   cursor: pointer;
 }
 
@@ -2261,9 +2246,6 @@ input[type="range"]::-ms-thumb {
     margin-top: 0vh;
   }
 
-  .page .header_wrapper {
-    height: 40vh;
-  }
 
   .soc_label {
     display: inline;
@@ -2336,10 +2318,6 @@ input[type="range"]::-ms-thumb {
     height: 18vh;
     -webkit-background-size: 17.6vh;
     background-size: 17.6vh;
-  }
-
-  .header_wrapper {
-    height: 30vh;
   }
 
   .liked_wrapper {

@@ -1,4 +1,4 @@
-<div class="page home_content boxscroll r w100" ng-controller="homeCtrl">
+<div class="page home_content boxscroll r w100 padb70" ng-controller="homeCtrl">
         <!-- <a class="getpro_wrapper mar10 marb30" href="#!card">
           <div class="getpro gradient_purple fcl_w pad15 ">
             <div class="wave_bg"></div>
@@ -89,14 +89,14 @@
         </span>
       </div>
     </a>
-    <div class="bottom_liked pad5  r F_RSCNW boxs">
-      <div class="wave_bg" style="pointer-events: none;">
+    <div class="bottom_liked   r F_RSCNW boxs">
+      <div class="wave_bg z1" style="pointer-events: none;">
       </div>
       <div class="firs_like_wrapper  F_CCC">
         <div ng-click="goTo('liked')" class="firs_like ">
         </div>
       </div>
-      <a ng-repeat="x in data.feed | reverse | limitTo : 5" href="https://www.instagram.com/p/{{x.shortcode}}/" target="_blank" class="l_b_p marr7" style="transition: 0s;">
+      <a ng-repeat="x in data.feed | reverse | limitTo : 5" href="https://www.instagram.com/p/{{x.shortcode}}/" target="_blank" class="l_b_p F_CCC marr7" style="transition: 0s;">
         <img ng-src="{{x.display_url}}" alt="">
       </a>
       <!-- IF no liked photos -->

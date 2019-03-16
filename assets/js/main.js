@@ -137,7 +137,7 @@ app.run(($rootScope, $interval) => {
     }, true);
     $rootScope.$watch('app.alerts', function(newValue, oldValue) {
       setTimeout(function () {
-        $('body').niceScroll().resize();
+        $('#ng_viev').niceScroll().resize();
       }, 200);
     }, true);
 
@@ -221,7 +221,7 @@ app.run(($rootScope, $interval) => {
         }
       }
     }, 10);
-    $('.boxscroll').niceScroll();
+    // $('.boxscroll').niceScroll();
 })
 app.controller('indexCtrl', function($scope, $rootScope) {});
 app.controller('editCtrl', function($scope, $rootScope) {
@@ -384,7 +384,7 @@ app.controller('settingsCtrl', function($scope, $rootScope) {
 });
 app.controller('likedCtrl', function($scope, $rootScope) {
     setInterval(function () {
-      $('body').niceScroll().resize();
+      $('#ng_viev').niceScroll().resize();
     }, 400);
     let d = new Date(new Date().toString().split('GMT')[0] + ' UTC').toISOString().split('.')[0].replace('T', ' ');
     $scope.d = d;

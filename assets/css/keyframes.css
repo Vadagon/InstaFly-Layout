@@ -28,10 +28,14 @@
 }
 @keyframes circle{
   0%{
-    opacity: 1;
+    transform: scale(1.1);
+    opacity: .0;
+    transform-origin: 50% 50%;
   }
    100% {
-  opacity: 0;
+     opacity: 1;
+    transform: scale(1);
+    transform-origin: 50% 50%;
    }
 }
 

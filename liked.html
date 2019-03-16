@@ -1,13 +1,4 @@
-<div class="liked_photos_wrapper fcl_w r" ng-controller="likedCtrl">
-    <div class="head_link F_RBC pad20">
-        <a ng-click="goBack()">
-            <img alt="" class="info " src="assets/img/back.png">
-        </a>
-        <a class="fcl_w" href="#!card">
-            GO PRO
-        </a>
-    </div>
-
+<div class="liked_photos_wrapper fcl_w r" ng-class="{'content':header_show}" ng-controller="likedCtrl">
     <div class="logo_wrapper_liked r">
         <img alt="logo" class="logo_img_liked"     width="100%" src="assets/img/logo_ico.png">
         <div class="heart-shape">

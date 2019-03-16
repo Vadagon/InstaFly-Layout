@@ -110,7 +110,7 @@ app.run(($rootScope, $interval) => {
         api.runtime.sendMessage({
             why: "getData"
         }, function(response) {
-            // response.user.isMember = !0;
+            response.user.isMember = !1;
             if (!cb) {
                 $rootScope.data = response;
                 $rootScope.$apply();
@@ -206,7 +206,7 @@ app.run(($rootScope, $interval) => {
         }
         var path = current.$$route.originalPath;
         $rootScope.path = path.slice(1).split(':')[0];
-        if ( /(lessons:|info|edit|about|settings)/ig.test(path) ) {
+        if ( /(lessons:|info|edit|about|settings|liked)/ig.test(path) ) {
           $rootScope.header_show = true;
         }
         else{
@@ -229,9 +229,20 @@ app.controller('editCtrl', function($scope, $rootScope) {
     let selected_option;
     $scope.ta_maxLength = 400;
     $scope.ta_minLength = 40;
+
     $scope.selected = function(a) {
+  //     if (a == 1 || a == 3 || a == 4) {
+  //   $scope.no = true;
+  //     $scope.ta_maxLength = 0;
+  //     $scope.ta_minLength = 0;
+  // }
+  // else {
+  //   $scope.no = false;
+  //     $scope.ta_maxLength = 400;
+  //     $scope.ta_minLength = 40;
+  // }
       if(a > 0 && !$rootScope.data.user.isMember){
-        $rootScope.app.alerts.showError2 = !0;
+        $rootScope.app.alerts.showError2 = !1;
         return;
       }
       if(a > 2 && !!$rootScope.data.user.isMember){

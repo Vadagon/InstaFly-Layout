@@ -1,48 +1,7 @@
-<div class="page r" ng-controller="homeCtrl">
-  <div class="header_wrapper">
-    <div class="header">
-      <a href="https://www.instagram.com/{{data.user.username}}" target="_blank">
-        <img alt="" class="info acc_photo" ng-src="{{data.user.pic}}">
-      </a>
-      <div class="logo_wrapper r">
-        <img alt="logo" class="logo_img" src="assets/img/logo.png">
-        <!-- <div id="heart"></div>   -->
+<div class="page home_content r w100" ng-controller="homeCtrl">
 
-      </div>
-      <div ng-click="drop = !drop" class="r">
-        <div class="F_CCC info_button">
-          <div ng-repeat="x in [0,1,2]" class="dot_info" ng-class="{'dot_line': drop}"></div>
-        </div>
-        <div class="dropdown" ng-hide="!drop">
-          <ul class="list_n  fvh2_4">
-            <li ng-click="goTo('info')" class="fcl_w fvh3_6 pad5">Info</li>
-            <li ng-click="goTo('settings')" class="fcl_w fvh3_6 pad5">Settings</li>
-            <li ng-click="goTo('about')" class="fcl_w fvh3_6 pad5">About us</li>
-          </ul>
-        </div>
-      </div>
-      <div ng-hide="data.feed.length == 500" ng-click="app.alerts.goProPopup = true" class="ring_wrapper  gradient_purple F_CCC r" ng-class="{'was_liked':data.feed.length == 500}">
-      <div class="ring" ng-class="{'help':data.feed.length < 500}"></div>
-      </div>
-    </div>
-  </div>
-  <div class="progress">
-    <div class="a w100 z1 h100 F_RCC fcl_w fvh2_4 ta_c o_h ">
-      Likes made today: <div class="r in_block"><span ng-class="{true:'translate25px', false:'translate0px' }[liked == liked1%2*liked1]" class="number_animation F_CCC">{{data.feed.length}}</span></div> of {{data.user.limitTo}}
-    </div>
-    <div class="progress_bar F_CCC" style="width:{{data.feed.length/(data.user.limitTo/5)*100/5}}%; height: 100%">
-      <div class="progress_bar_animation ">
-      </div>
-    </div>
-  </div>
   <div class="index_wrapper padb70 F_RBS">
-    <div class="status_wrapper">
-      <div class="status pad10">
-        <div class=" w70 r fcl_w fvh1_5_3 ta_c" ng-class="{'was_liked':status = 'sleeping'}">
-          {{data.status}}
-        </div>
 
-      </div>
       <div class="flex">
         <!-- <a class="getpro_wrapper mar10 marb30" href="#!card">
           <div class="getpro gradient_purple fcl_w pad15 ">
@@ -58,6 +17,12 @@
         </a> -->
 
         <div class="home_lessons_wrapper r w100">
+          <div class="status pad30 padb0 marb10">
+            <div class=" w70 r fcl_w fvh1_5_3 ta_c" ng-class="{'was_liked':status = 'sleeping'}">
+              {{data.status}}
+            </div>
+
+          </div>
             <pagination class="lessons_dot_counter  F_RCC w50"></pagination>
           <div class="F_RSCNW homex_scrool boxscroll scrollbox do-nicescroll4 r">
             <div class="wrap r">

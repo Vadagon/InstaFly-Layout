@@ -86,6 +86,10 @@ body {
 .b0{
   bottom: 0;
 }
+
+.visibility{
+  visibility: hidden;
+}
 .flB::first-letter{
   text-transform: uppercase;
 }

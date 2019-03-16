@@ -49,13 +49,19 @@ a {
   cursor: pointer;
 }
 .opacity{
-  transition: all .4s linear;
+  transition: all .0s linear;
+}
+.opacity.ng-hide{
+  transform: translateY(0);
+  visibility: visible;
 }
 .ng-enter{
   opacity: 1;
+  transform: none;
 }
 .ng-leave{
   opacity: 0;
+    transform: none;
 }
 body {
   background: #161c24;
@@ -96,13 +102,7 @@ p {
   height: 60px;
 }
 
-.header_wrapper {
-  display: flex;
-  height: 15vh;
-  flex-flow: column;
-  width: 100%;
-  align-items: center;
-}
+
 
 .welcome_block {
   background: #1b232c;
@@ -889,7 +889,9 @@ left: calc(50vw - 32px);
   height: 2vh;
 }
 
-.status {}
+.status {
+  margin: 10px auto;
+}
 
 .task_wrapper {
   flex-flow: column;
@@ -1231,9 +1233,7 @@ left: calc(50vw - 32px);
   height: 100%;
 }
 
-.header_wrapper .progress {
-  height: 0.4vh;
-}
+
 
 .info_wrapper .header_wrapper {
   height: 10vh;
@@ -1549,13 +1549,13 @@ input:-webkit-autofill, input:-webkit-autofill:hover, input:-webkit-autofill:foc
   top: -3px;
 }
 
-.page-home.ng-leave {
-  -webkit-transform-origin: 0% 0%;
-  -webkit-animation: 0.3s both ease-in;
+.page-home.ng-enter {
+  /* -webkit-transform-origin: 0% 0%;
+  -webkit-animation: 0.1s both ease-in;
   -moz-transform-origin: 0% 0%;
-  -moz-animation: circle 0.3s both ease-in;
+  -moz-animation: circle 0.1s both ease-in;
   transform-origin: 0% 0%;
-  animation: circle 0.3s both ease-in;
+  animation: circle 0.1s both ease-in; */
 }
 
 .back {
@@ -1606,8 +1606,8 @@ input:-webkit-autofill, input:-webkit-autofill:hover, input:-webkit-autofill:foc
   width: 25vh;
   height: 20vh;
   position: relative;
-  left: calc(50% - 12.5vh);
   justify-content: center;
+  margin: 40px auto;
 }
 
 .logo_img {

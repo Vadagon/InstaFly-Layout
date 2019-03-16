@@ -1,22 +1,4 @@
-<div class="list_wrapper h100vh  F_CBC  fcl_w"  ng-class="{'h200vh':readmore == !readmore}"  ng-controller="homeCtrl">
-	<div class="F_RBC pad20 bb w100">
-		<a ng-click="goBack()">
-			<img alt="" class="info " src="assets/img/back.png">
-		</a>
-		<div ng-click="drop = !drop" class="r">
-			<div class="F_CCC info_button">
-				<div ng-repeat="x in [0,1,2]" class="dot_info" ng-class="{'dot_line': drop}"></div>
-			</div>
-			<div class="dropdown" ng-hide="!drop">
-				<ul class="list_n  fvh2_4">
-					<li ng-click="goTo('info')" class="fcl_w fvh3_6 pad5">Info</li>
-					<li ng-click="goTo('settings')" class="fcl_w fvh3_6 pad5">Settings</li>
-					<li ng-click="goTo('about')" class="fcl_w fvh3_6 pad5">About us</li>
-				</ul>
-			</div>
-		</div>
-	</div>
-
+<div class="list_wrapper h100vh  F_CBC  fcl_w"  ng-class="{'content':header_show}"  ng-controller="homeCtrl">
 	<div class="boxscroll homex_scrool lessons_title_scroll  w100 do-nicescroll4 "  >
 		<div class="wrap less_mazafaka F_RSCNW transition w100 ">
 			<div class="lesson_container transition pad20 F_CCC w100"  ng-class="{'h20vh':readmore}" ng-repeat="x in ideas">

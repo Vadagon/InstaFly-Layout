@@ -206,8 +206,13 @@ app.run(($rootScope, $interval) => {
         }
         var path = current.$$route.originalPath;
         $rootScope.path = path.slice(1).split(':')[0];
+
+
         if ( /(lessons:|info|edit|about|settings|liked)/ig.test(path) ) {
           $rootScope.header_show = true;
+        }
+        else if ( /(card|welcome|auth|extension|logo)/ig.test(path)) {
+            $rootScope.header_show = 'no';
         }
         else{
             $rootScope.header_show = false;

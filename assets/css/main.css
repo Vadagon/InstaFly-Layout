@@ -1545,8 +1545,8 @@ input:-webkit-autofill, input:-webkit-autofill:hover, input:-webkit-autofill:foc
 }
 
 .l_p {
-  width: 100px;
-  height: 100px;
+  width: 22%;
+  height: auto;
   margin: 5px;
   background-size: cover;
   transition: all .5s linear;
@@ -1562,11 +1562,9 @@ input:-webkit-autofill, input:-webkit-autofill:hover, input:-webkit-autofill:foc
 }*/
 .l_p:first-child {
   animation: unshift .5s linear;
-  background-color: white;
 }
 
 .l_p:nth-child(4n+5) {
-  background-color: blue;
   animation: unshift_fifth .5s linear;
 }
 

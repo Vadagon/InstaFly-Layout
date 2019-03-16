@@ -1860,7 +1860,7 @@ input:-webkit-autofill, input:-webkit-autofill:hover, input:-webkit-autofill:foc
 
 /* home page */
 .bottom_liked {
-  background: #1b232c;
+  background: url('../img/falling_hearts.gif');
   width: 100vw;
   box-sizing: border-box;
   position: fixed;

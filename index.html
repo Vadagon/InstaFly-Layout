@@ -68,7 +68,7 @@
       <a ng-if="header_show" ng-click="goBack()">
         <img alt="" class="info " src="assets/img/back.png">
       </a>
-      <h1 ng-if="header_show" class="fcl_w flB fvh4_8">{{path}}</h1>
+      <h1 ng-hide="!header_show" class="fcl_w flB fvh4_8 transition a w30 ta_c header_path" ng-class="{'opacity0': path == home}">{{path}}</h1>
       <div ng-click="drop = !drop" class="r">
         <div class="F_CCC info_button">
           <div ng-repeat="x in [0,1,2]" class="dot_info" ng-class="{'dot_line': drop}"></div>

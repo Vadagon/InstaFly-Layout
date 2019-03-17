@@ -342,7 +342,20 @@ p {
 .home_lessons {
   display: inline-block;
 }
-
+.lesson_img_wrapper {
+  box-shadow: 0 0 10px rgba(255,255,255,.5);
+border-radius: 10px;
+position: relative;
+height: 40vh;
+width: 35vh;
+overflow: hidden;
+}
+.lesson_img_wrapper>img {
+  width: 200%;
+height: 100%;
+left: -50%;
+position: absolute;
+}
 .div_less_preview {
   background-image: url(../img/lessons/less1_preview.png);
   background-repeat: no-repeat;
@@ -1617,14 +1630,19 @@ input:-webkit-autofill, input:-webkit-autofill:hover, input:-webkit-autofill:foc
   width: 100vw;
   position: absolute;
   height: 13vh;
+  opacity: 1;
 }
-
-.logo_wrapper.ng-hide {
+.header_path{
+      left: calc(50% - 15%);
+      opacity: 1;
+}
+.logo_wrapper.ng-hide,.header_path.ng-hide {
   transform: translateY(-9vh);
   margin: 0 auto;
   left: 0;
   width: 100vw;
   height: 13vh;
+  opacity: 0;
 }
 
 .logo_wrapper.ng-hide .logo_img {
@@ -1785,13 +1803,6 @@ input:-webkit-autofill, input:-webkit-autofill:hover, input:-webkit-autofill:foc
   transition: all .2s linear;
 }
 
-.lesson_img {
-  width: 100vw;
-}
-
-.lesson_img_wrapper>img {
-  width: 200px;
-}
 
 .info_button {
   height: 22px;
@@ -1852,7 +1863,9 @@ input:-webkit-autofill, input:-webkit-autofill:hover, input:-webkit-autofill:foc
   position: relative;
   box-sizing: border-box;
 }
-
+.purchase.btn_pulse_bg_wave{
+  animation: Gradient 15s infinite;
+}
 /* Styles for home_modal */
 .modal_cant_add_task {
   position: fixed;

@@ -1,9 +1,9 @@
-<div class="list_wrapper h100vh  F_CBC  fcl_w"  ng-class="{'content':header_show}"  ng-controller="homeCtrl">
-	<div class="boxscroll homex_scrool lessons_title_scroll  w100 do-nicescroll4 "  >
-		<div class="wrap less_mazafaka F_RSCNW transition w100 ">
-			<div class="lesson_container transition pad20 F_CCC w100"  ng-class="{'h20vh':readmore}" ng-repeat="x in ideas">
-
-			<div class="wrapper_previev" ng-hide="readmore"><div class="lesson_img_wrapper transition ta_c">
+<div class="list_wrapper h100vh padb20 bb F_CBC  fcl_w"  ng-class="{'content':header_show}"  ng-controller="homeCtrl">
+	<div class="boxscroll scrollbox  h100 homex_scrool lessons_title_scroll  w100 do-nicescroll4 "  >
+		<div class="wrap h100  less_mazafaka F_RSCNW transition w100 ">
+			<div class="lesson_container wrap h100 transition  F_CCC w100"   ng-repeat="x in ideas">
+			<div class="wrapper_previev h100 F_CAC">
+				<div class="lesson_img_wrapper transition ta_c">
 				<img ng-src="{{x.pic}}" alt="" class="transition" >
 			</div>
 			<h1 class="fvh4_8 ta_c mart15 marb15 wsn transition" >Idea #{{$index}}</h1>
@@ -15,7 +15,7 @@
 			</div>
 		</div>
 	</div>
-<div class="w100 F_CBC">
+<!-- <div class="w100 F_CBC">
 	<h6 class="fvh1_5_3 ta_c mar20 marb5">{{scrolled1+1}}/{{ideas.length}} lessons</h6>
 	<div class="lessons_dot_counter mart0 F_RAC  marb10 w100">
 		<a ng-click="select1(selected1==0? 0 : selected1 - 1);">
@@ -30,7 +30,7 @@
 	</div>
 	<!-- <div class="readmore_but" ng-class="{'reversY': !readmore}" ng-click="readmore = !readmore">
 	</div> -->
-	</div>
+	<!-- </div>
 	<div class="boxscroll homex_scrool bottom_scrool_less lessons_title_scroll  w100 do-nicescroll4 "  ng-hide="!readmore">
 		<div class="wrap less_mazafaka F_RSCNW transition w100 ">
 			<div class="lesson_container transition pad20 F_CCC w100"  ng-repeat="x in ideas">
@@ -43,5 +43,5 @@
 			</div>
 			</div>
 		</div>
-	</div>
+	</div> -->
 </div>

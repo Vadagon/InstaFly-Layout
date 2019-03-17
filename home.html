@@ -1,4 +1,4 @@
-<div class="page home_content boxscroll r w100 padb70" ng-controller="homeCtrl">
+<div class="page home_content scrollbox boxscroll r w100 padb70" ng-controller="homeCtrl">
         <!-- <a class="getpro_wrapper mar10 marb30" href="#!card">
           <div class="getpro gradient_purple fcl_w pad15 ">
             <div class="wave_bg"></div>
@@ -11,9 +11,9 @@
             GO PRO
           </span>
         </a> -->
-        <div class="home_lessons_wrapper r w100">
+        <div class="home_lessons_wrapper wrap r w100">
           <div class="status pad30 padb0 marb10">
-            <div class=" w70 r fcl_w fvh1_5_3 ta_c" ng-class="{'was_liked':status = 'sleeping'}">
+            <div ng-click="goTo('lessons')" class=" w70 r fcl_w fvh1_5_3 ta_c" ng-class="{'was_liked':status = 'sleeping'}">
               {{data.status}}
             </div>
           </div>

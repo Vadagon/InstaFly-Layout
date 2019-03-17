@@ -208,17 +208,14 @@ app.run(($rootScope, $interval) => {
         $rootScope.path = path.slice(1).split(':')[0];
 
 
-        if ( /(lessons:|info|edit|about|settings|liked)/ig.test(path) ) {
+        if ( /(lessons|info|edit|about|settings|liked)/ig.test(path) ) {
           $rootScope.header_show = true;
-          $rootScope.$apply()
         }
         else if ( /(card|welcome|auth|extension|logo)/ig.test(path)) {
             $rootScope.header_show = 'no';
-            $rootScope.$apply()
         }
         else{
             $rootScope.header_show = false;
-            $rootScope.$apply()
         }
     })
     var intervalInit = setInterval(function () {
@@ -233,34 +230,20 @@ app.run(($rootScope, $interval) => {
 })
 app.controller('indexCtrl', function($scope, $rootScope) {});
 app.controller('editCtrl', function($scope, $rootScope) {
-    $scope.selected_option = $rootScope.app.filters[0];
-    let selected_option;
-    $scope.ta_maxLength = 400;
-    $scope.ta_minLength = 40;
+  $scope.selected_option = $rootScope.app.filters[0];
+ let selected_option;
+ $scope.ta_maxLength = 400;
+ $scope.ta_minLength = 40;
 
-    $scope.selected = function(a) {
-  //     if (a == 1 || a == 3 || a == 4) {
-  //   $scope.no = true;
-  //     $scope.ta_maxLength = 0;
-  //     $scope.ta_minLength = 0;
-  // }
-  // else {
-  //   $scope.no = false;
-  //     $scope.ta_maxLength = 400;
-  //     $scope.ta_minLength = 40;
-  // }
-      if(a > 0 && !$rootScope.data.user.isMember){
-        $rootScope.app.alerts.showError2 = !1;
-        $scope.$apply();
-        return;
-      }
-      if(a > 2 && !!$rootScope.data.user.isMember){
-        $rootScope.app.alerts.showError3 = !0;
-        $scope.$apply();
-        return;
-      }
-      $scope.selected_option = $rootScope.app.filters[a]
-    }
+ $scope.selected = function(a) {
+   if(a > 0 && !$rootScope.data.user.isMember){
+     $rootScope.app.alerts.showError2 = !0;
+   }
+   if(a > 2 && !!$rootScope.data.user.isMember){
+     $rootScope.app.alerts.showError3 = !0;
+   }
+   $scope.selected_option = $rootScope.app.filters[a]
+ }
 });
 app.controller('logoCtrl', function($scope, $rootScope) {
   console.log($rootScope.data);

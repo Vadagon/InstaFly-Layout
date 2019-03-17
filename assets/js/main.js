@@ -41,8 +41,8 @@ app.config(($routeProvider) => {
         templateUrl: "extension.html"
     }).when("/settings", {
         templateUrl: "settings.html"
-    }).when("/lessons", {
-        templateUrl: "lessons.html"
+    }).when("/ideas", {
+        templateUrl: "ideas.html"
     }).when("/welcome", {
         templateUrl: "welcome.html"
     }).when("/about", {
@@ -208,7 +208,7 @@ app.run(($rootScope, $interval) => {
         $rootScope.path = path.slice(1).split(':')[0];
 
 
-        if ( /(lessons|info|edit|about|settings|liked)/ig.test(path) ) {
+        if ( /(ideas|info|edit|about|settings|liked)/ig.test(path) ) {
           $rootScope.header_show = true;
         }
         else if ( /(card|welcome|auth|extension|logo)/ig.test(path)) {

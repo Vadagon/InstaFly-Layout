@@ -110,7 +110,7 @@ app.run(($rootScope, $interval) => {
         api.runtime.sendMessage({
             why: "getData"
         }, function(response) {
-            response.user.isMember = !1;
+          response.user.isMember = !1;
             if (!cb) {
                 $rootScope.data = response;
                 $rootScope.$apply();
@@ -154,18 +154,7 @@ app.run(($rootScope, $interval) => {
     }, 1000);
 
 
-    $rootScope.saveTask = function(){
-      if($rootScope.newTask.textarea.length < 40){
-        return false;
-      }
-      if ($rootScope.app.taskFunc == 'add') {
-        $rootScope.data.tasks.push(angular.copy($rootScope.newTask))
-      } else {
-        $rootScope.data.tasks[$rootScope.app.taskFunc] = angular.copy($rootScope.newTask);
-      }
-      $rootScope.goTo('home');
-      $rootScope.save();
-    }
+
     $rootScope.save = function(e) {
         api.runtime.sendMessage({
             why: "setData",
@@ -231,18 +220,46 @@ app.run(($rootScope, $interval) => {
 app.controller('indexCtrl', function($scope, $rootScope) {});
 app.controller('editCtrl', function($scope, $rootScope) {
   $scope.selected_option = $rootScope.app.filters[0];
+
  let selected_option;
  $scope.ta_maxLength = 400;
  $scope.ta_minLength = 40;
 
  $scope.selected = function(a) {
+   if (a == 1 | a == 3 || a == 4) {
+    $scope.no = true;
+    $scope.ta_maxLength = 0;
+    $scope.ta_minLength = 0;
+    console.log($scope.ta_minLength , $scope.ta_maxLength);
+   }
+   else {
+       $scope.no = false;
+       $scope.ta_maxLength = 400;
+       $scope.ta_minLength = 40;
+   }
    if(a > 0 && !$rootScope.data.user.isMember){
      $rootScope.app.alerts.showError2 = !0;
+     return;
    }
    if(a > 2 && !!$rootScope.data.user.isMember){
      $rootScope.app.alerts.showError3 = !0;
+      return;
    }
+   $rootScope.newTask.type = $rootScope.app.filters[a][0]; 
+   console.log($scope.ta_minLength , $scope.ta_maxLength);
    $scope.selected_option = $rootScope.app.filters[a]
+ }
+ $rootScope.saveTask = function(){
+   if($rootScope.newTask.textarea.length < $scope.ta_minLength){
+     return false;
+   }
+   if ($rootScope.app.taskFunc == 'add') {
+     $rootScope.data.tasks.push(angular.copy($rootScope.newTask))
+   } else {
+     $rootScope.data.tasks[$rootScope.app.taskFunc] = angular.copy($rootScope.newTask);
+   }
+   $rootScope.goTo('home');
+   $rootScope.save();
  }
 });
 app.controller('logoCtrl', function($scope, $rootScope) {

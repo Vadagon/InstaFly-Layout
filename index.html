@@ -54,10 +54,8 @@
     </div>
   </div> -->
   <!-- LOADER  -->
-  <!-- <div class="loader_wrapper modal_cant_add_task ">
-    <div class="lds-roller"><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div></div>
-  </div> -->
-  <div class="h_wrapp r  header_index w100 transition opacity" ng-class="{'header_index':!header_show}" ng-hide="header_show == 'no'">
+
+  <div class="h_wrapp r  header_index w100 opacity" ng-class="{'header_index':!header_show}" ng-if="header_show != 'no'">
     <div class="F_RBC h10vh pad20  bb w100" ng-class="{'header':!header_show}">
       <a ng-hide="header_show" href="https://www.instagram.com/{{data.user.username}}" target="_blank">
         <img alt="{{APPNAME}}" class="info transition acc_photo" ng-src="{{data.user.pic}}">

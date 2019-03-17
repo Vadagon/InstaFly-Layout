@@ -210,12 +210,15 @@ app.run(($rootScope, $interval) => {
 
         if ( /(lessons:|info|edit|about|settings|liked)/ig.test(path) ) {
           $rootScope.header_show = true;
+          $rootScope.$apply()
         }
         else if ( /(card|welcome|auth|extension|logo)/ig.test(path)) {
             $rootScope.header_show = 'no';
+            $rootScope.$apply()
         }
         else{
             $rootScope.header_show = false;
+            $rootScope.$apply()
         }
     })
     var intervalInit = setInterval(function () {

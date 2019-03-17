@@ -281,27 +281,27 @@ app.controller('homeCtrl', function($scope, $rootScope, $location) {
 
   if (path == '/home') {
     $('.home_lessons_wrapper .boxscroll').niceScroll('.wrap');
-    if ($scope.selected == undefined) {
-      $scope.selected = 0;
-    }
-    $scope.select = function(index) {
-      $scope.selected = index;
-      $('.home_lessons_wrapper .boxscroll').getNiceScroll(0).doScrollLeft($('.home_lessons')[index].offsetLeft);
-    };
-    $('.boxscroll').scroll(function() {
-      var scrolled_x = $('.wrap').css('transform').slice(20, -4);
-      scrolled_x = Math.ceil(Number(scrolled_x));
-      if (scrolled_x == 0) {
-        scrolled_x = 0;
-      }
-      var pos_first = $('.home_lessons')[0].offsetLeft
-      pos_first = Math.ceil(Number(pos_first));
-      $scope.scrolled = (scrolled_x - pos_first) / 360;
-      $scope.$apply(() => {
-        $scope.scrolled = Math.ceil($scope.scrolled)
-
-      })
-    })
+    // if ($scope.selected == undefined) {
+    //   $scope.selected = 0;
+    // }
+    // $scope.select = function(index) {
+    //   $scope.selected = index;
+    //   $('.home_lessons_wrapper .boxscroll').getNiceScroll(0).doScrollLeft($('.home_lessons')[index].offsetLeft);
+    // };
+    // $('.boxscroll').scroll(function() {
+    //   var scrolled_x = $('.wrap').css('transform').slice(20, -4);
+    //   scrolled_x = Math.ceil(Number(scrolled_x));
+    //   if (scrolled_x == 0) {
+    //     scrolled_x = 0;
+    //   }
+    //   var pos_first = $('.home_lessons')[0].offsetLeft
+    //   pos_first = Math.ceil(Number(pos_first));
+    //   $scope.scrolled = (scrolled_x - pos_first) / 360;
+    //   $scope.$apply(() => {
+    //     $scope.scrolled = Math.ceil($scope.scrolled)
+    //
+    //   })
+    // })
   }
   if (path == '/lessons') {
     $('.list_wrapper .lessons_title_scroll').niceScroll('.wrap');

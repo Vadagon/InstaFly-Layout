@@ -82,6 +82,9 @@
           </ul>
         </div>
       </div>
+      <div class="modal_drop" ng-hide="!drop" ng-click="drop = !drop">
+        asddsasaddsa
+      </div>
       <div ng-click="app.alerts.goProPopup = true" ng-if="!header_show" class="z2 ring_wrapper  gradient_purple F_CCC r" ng-class="{'was_liked':data.feed.length == 500}">
       <div class="ring" ng-class="{'help':data.feed.length < 500}"    >
       </div>
@@ -100,7 +103,6 @@
       </div>
     </div>
   </div>
-
 
 
   <div id="ng_viev" ng-class="{'F':F==true}" class="page-home " ng-view>

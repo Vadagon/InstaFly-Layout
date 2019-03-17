@@ -1875,6 +1875,20 @@ input:-webkit-autofill, input:-webkit-autofill:hover, input:-webkit-autofill:foc
   width: 100%;
   height: 100%;
 }
+.modal_drop{
+  position: fixed;
+  z-index: 1;
+  background: rgba(0,0,0,.1);
+  transition: all .5s;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+.modal_drop.ng-hide{
+  transform: none;
+  transition: none;
+}
 
 .in_block {
   width: auto;

@@ -242,7 +242,7 @@ app.controller('editCtrl', function($scope, $rootScope) {
     }
     console.log($rootScope.data.user.isMember,'$rootScope.data.user.isMember');
 
-  if (a => 1 && !$rootScope.data.user.isMember) {
+  if (a > 1 && !$rootScope.data.user.isMember) {
     $scope.no = true;
   }
     if (a > 0 && !$rootScope.data.user.isMember) {
@@ -254,11 +254,13 @@ app.controller('editCtrl', function($scope, $rootScope) {
     if (a > 2 && !!$rootScope.data.user.isMember) {
       $rootScope.app.alerts.showError3 = !0;
       return;
-    } else {
+    }
+     else {
       $rootScope.app.alerts.showError3 = !1;
     }
     $rootScope.newTask.type = $rootScope.app.filters[a][0];
-    $scope.selected_option = $rootScope.app.filters[a]
+    $scope.selected_option = $rootScope.app.filters[a];
+    $scope.$apply();
   }
   $rootScope.saveTask = function() {
     if ($rootScope.newTask.textarea.length < $scope.ta_minLength) {

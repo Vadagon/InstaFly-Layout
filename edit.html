@@ -47,11 +47,11 @@
           </div>
         </div>
       </div>
-      <span ng-class="{'red_scale':red}" ng-hide="newTask.textarea.length > ta_minLength || newTask.textarea.length == ta_minLength " class="fcl_w f min_char">Characters left to min: {{ta_minLength - newTask.textarea.length}}</span>
+      <span ng-class="{'red_scale':red}" ng-hide="newTask.textarea.length > ta_minLength || newTask.textarea.length == ta_minLength || no " class="fcl_w f min_char">Characters left to min: {{ta_minLength - newTask.textarea.length}}</span>
       <span  ng-hide="newTask.textarea.length < ta_minLength || newTask.textarea.length == undefined || no" class="fcl_w f max_char">Characters left: {{ta_maxLength - newTask.textarea.length}}</span>
       <div class="footer" ng-click="red = !red">
         <div class="buttons_group F_RCC" >
-          <div class="w40 ta_c  mart15  fvh3_6 fcl_w " ng-class="{'btn_pulse_n_active': ta_minLength > newTask.textarea.length || newTask.textarea.length == undefined || newTask.textarea.length == ta_minLength , 'btn_pulse_bg_wave':newTask.textarea.length > ta_minLength || newTask.textarea.length == ta_minLength}"  ng-click="saveTask()">
+          <div class="w40 ta_c  mart15  fvh3_6 fcl_w " ng-class="{'btn_pulse_n_active': ta_minLength > newTask.textarea.length || newTask.textarea.length == undefined || newTask.textarea.length == ta_minLength , 'btn_pulse_bg_wave':newTask.textarea.length > ta_minLength || newTask.textarea.length == ta_minLength && data.user.isMember}"  ng-click="saveTask()">
             Save
           </div>
         </div>

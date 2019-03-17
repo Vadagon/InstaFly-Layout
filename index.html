@@ -55,21 +55,21 @@
   </div> -->
   <!-- LOADER  -->
 
-  <div class="h_wrapp r  header_index w100 opacity" ng-class="{'header_index':!header_show}" ng-if="header_show != 'no'">
+  <div class="h_wrapp r  header_index w100 transition_back" ng-class="{'header_index':!header_show}" ng-if="header_show != 'no'">
     <div class="F_RBC h10vh pad20  bb w100" ng-class="{'header':!header_show}">
-      <a ng-hide="header_show" href="https://www.instagram.com/{{data.user.username}}" target="_blank" class="z2">
+      <a ng-hide="header_show" href="https://www.instagram.com/{{data.user.username}}" target="_blank" class="z2 transition_back">
         <img alt="{{APPNAME}}" class="info transition acc_photo" ng-src="{{data.user.pic}}">
       </a>
-      <div ng-hide="header_show" class="logo_wrapper F_CCC z1 transition w100 a">
-        <img alt="logo" class="logo_img  " src="assets/img/logo.png">
+      <div ng-hide="header_show" class="logo_wrapper  F_CCC z1 transition w100 a">
+        <img alt="logo" class="logo_img  a" src="assets/img/logo.png">
         <!-- <div id="heart"></div>   -->
       </div>
 
-      <a ng-if="header_show" ng-click="goBack()">
+      <a ng-hide="!header_show" ng-click="goBack()" class="transition_back info_header logo_animation">
         <img alt="" class="info " src="assets/img/back.png">
       </a>
       <h1 ng-hide="!header_show" class="fcl_w flB fvh4_8 transition a w30 ta_c header_path" ng-class="{'opacity0': path == home}">{{path}}</h1>
-      <div ng-click="drop = !drop" class="r">
+      <div ng-click="drop = !drop" class="r transition_back droper" >
         <div class="F_CCC info_button">
           <div ng-repeat="x in [0,1,2]" class="dot_info" ng-class="{'dot_line': drop}"></div>
         </div>
@@ -83,17 +83,16 @@
         </div>
       </div>
       <div class="modal_drop" ng-hide="!drop" ng-click="drop = !drop">
-        asddsasaddsa
       </div>
-      <div ng-click="app.alerts.goProPopup = true" ng-if="!header_show" class="z2 ring_wrapper  gradient_purple F_CCC r" ng-class="{'was_liked':data.feed.length == 500}">
+      <div ng-click="app.alerts.goProPopup = true" ng-hide="header_show" class="z2 ring_wrapper transition_back gradient_purple F_CCC r" ng-class="{'was_liked':data.feed.length == 500}">
       <div class="ring" ng-class="{'help':data.feed.length < 500}"    >
       </div>
     </div>
     </div>
-    <div class="progress small z1 b0" ng-if="header_show">
+    <div class="progress transition_back small z1 b0" ng-hide="!header_show">
       <div class="progress_bar gradient_purple" style="width: 100%; height: 100%"></div>
     </div>
-    <div class="progress z1" ng-if="!header_show">
+    <div class="progress z1" ng-hide="header_show">
       <div class="a w100  z1 h100 F_RCC fcl_w fvh2_4 ta_c o_h ">
         Likes made today: <div class="r in_block"><span ng-class="{true:'translate25px', false:'translate0px' }[liked == liked1%2*liked1]" class="number_animation F_CCC">{{data.feed.length}}</span></div> of {{data.user.limitTo}}
       </div>

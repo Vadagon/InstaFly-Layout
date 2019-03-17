@@ -1800,7 +1800,23 @@ input:-webkit-autofill, input:-webkit-autofill:hover, input:-webkit-autofill:foc
 .transition {
   transition: all .2s linear;
 }
+.transition_back.ng-hide{
+  transform: translateY(-9vh);
+}
+.transition_back{
+    transition: all .2s linear;
+}
+.info_header{
+  position: absolute;
 
+    transition: all .2s linear;
+  transition:
+  left: 20px;
+}
+.droper{
+  position: absolute;
+    right: 20px;
+}
 
 .info_button {
   height: 22px;

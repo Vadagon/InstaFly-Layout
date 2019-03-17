@@ -57,10 +57,10 @@
 
   <div class="h_wrapp r  header_index w100 opacity" ng-class="{'header_index':!header_show}" ng-if="header_show != 'no'">
     <div class="F_RBC h10vh pad20  bb w100" ng-class="{'header':!header_show}">
-      <a ng-hide="header_show" href="https://www.instagram.com/{{data.user.username}}" target="_blank">
+      <a ng-hide="header_show" href="https://www.instagram.com/{{data.user.username}}" target="_blank" class="z2">
         <img alt="{{APPNAME}}" class="info transition acc_photo" ng-src="{{data.user.pic}}">
       </a>
-      <div ng-hide="header_show" class="logo_wrapper F_CCC  transition w100 a">
+      <div ng-hide="header_show" class="logo_wrapper F_CCC z1 transition w100 a">
         <img alt="logo" class="logo_img  " src="assets/img/logo.png">
         <!-- <div id="heart"></div>   -->
       </div>
@@ -82,10 +82,10 @@
           </ul>
         </div>
       </div>
-      <ng-if ng-click="app.alerts.goProPopup = true" ng-if="!header_show" class="ring_wrapper  gradient_purple F_CCC r" ng-class="{'was_liked':data.feed.length == 500}">
+      <div ng-click="app.alerts.goProPopup = true" ng-if="!header_show" class="z2 ring_wrapper  gradient_purple F_CCC r" ng-class="{'was_liked':data.feed.length == 500}">
       <div class="ring" ng-class="{'help':data.feed.length < 500}"    >
       </div>
-      </ng-if>
+    </div>
     </div>
     <div class="progress small z1 b0" ng-if="header_show">
       <div class="progress_bar gradient_purple" style="width: 100%; height: 100%"></div>

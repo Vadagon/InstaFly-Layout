@@ -35,13 +35,13 @@ app.config(($routeProvider) => {
       templateUrl: "auth.html"
     }).when("/liked", {
       templateUrl: "liked.html"
-    }).when("/lessons:count_less", {
-      templateUrl: "lesson.html"
+    }).when("/idea:count_less", {
+      templateUrl: "idea.html"
     }).when("/extension", {
       templateUrl: "extension.html"
     }).when("/settings", {
       templateUrl: "settings.html"
-    }).when("/ideas", {
+    }).when("/idea", {
       templateUrl: "ideas.html"
     }).when("/welcome", {
       templateUrl: "welcome.html"
@@ -110,7 +110,7 @@ app.run(($rootScope, $interval) => {
     api.runtime.sendMessage({
       why: "getData"
     }, function(response) {
-      response.user.isMember = !0;
+      response.user.isMember = !1; // 0 member // 1 not member
       if (!cb) {
         $rootScope.data = response;
         $rootScope.$apply();
@@ -197,7 +197,7 @@ app.run(($rootScope, $interval) => {
     $rootScope.path = path.slice(1).split(':')[0];
 
 
-    if (/(ideas|info|edit|about|settings|liked)/ig.test(path)) {
+    if (/(idea|info|edit|about|settings|liked)/ig.test(path)) {
       $rootScope.header_show = true;
     } else if (/(card|welcome|auth|extension|logo)/ig.test(path)) {
       $rootScope.header_show = 'no';

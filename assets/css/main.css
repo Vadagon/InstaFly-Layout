@@ -1273,7 +1273,10 @@ position: absolute;
   background-size: cover;
   box-sizing: border-box;
 }
-
+.auth_wrapper .logo_auth_img .logo_wrapper {
+  position: relative;
+  width: auto;
+}
 .logo_auth_img {
   margin: 30% auto 10% auto;
 }
@@ -1961,7 +1964,7 @@ input:-webkit-autofill, input:-webkit-autofill:hover, input:-webkit-autofill:foc
   left: 18px;
 }
 
-.dropdown ul>li:nth-child(2)::before {
+.dropdown ul>li:nth-child(3)::before {
   content: '';
   background: url(../img/sett.png) no-repeat;
   position: absolute;
@@ -1972,7 +1975,7 @@ input:-webkit-autofill, input:-webkit-autofill:hover, input:-webkit-autofill:foc
   left: 18px;
 }
 
-.dropdown ul>li:nth-child(3)::before {
+.dropdown ul>li:nth-child(2)::before {
   content: '';
   background: url(../img/acc.png) no-repeat;
   position: absolute;

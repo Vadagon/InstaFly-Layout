@@ -310,6 +310,20 @@ height: 9vh;
 width: 230px;
 top: 50%;
 border-radius: 10px;
+left: 0;
+    position: relative;
+    width: 90%;
+    margin: 0 auto;
+    padding: 20px 5px 0;
+    height: 14vh;
+}
+.liked_photos_wrapper .no_photos_img{
+  width: 70px;
+    height: 70px;
+    position: absolute;
+    right: 0;
+    margin: 20px;
+    top: 0;
 }
 .header .logo_img {
   display: flex;

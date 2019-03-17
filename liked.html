@@ -1,33 +1,31 @@
 <div class="liked_photos_wrapper fcl_w r" ng-class="{'content':header_show}" ng-controller="likedCtrl">
-    <div class="logo_wrapper_liked r">
-        <img alt="logo" class="logo_img_liked"     width="100%" src="assets/img/logo_ico.png">
-        <div class="heart-shape">
-        </div>
+  <div class="logo_wrapper_liked r">
+    <img alt="logo" class="logo_img_liked" width="100%" src="assets/img/logo_ico.png">
+    <div class="heart-shape">
     </div>
-    <p class="fvh2_4 pad20 padb0 mar10 marb0 ta_c">
-        View or dislike any post below in one click.
+  </div>
+  <p ng-if="data.feed.length != 0" class="fvh2_4 pad20 padb0 mar10 marb0 ta_c">
+    View or dislike any post below in one click.
+    Liker has a built-in pornspam detection mechanism
+    and automatically filters most unwanted content.
+  </p>
+  <h1 ng-if="data.feed.length != 0" class="fvh4_8 pad20  mar10 marb0 mart0 ta_c">
+    {{i.textarea}}
+  </h1>
+  <h3 ng-if="data.feed.length != 0" class="fvh1_5_3 marb10 ta_c">
+    {{d}}
+  </h3>
+  <div class="F_RSC r liked_photos_block">
+    <a ng-repeat="x in data.feed | reverse" href="https://www.instagram.com/p/{{x.shortcode}}/" target="_blank" class="l_p">
+      <img ng-src="{{x.display_url}}" alt="">
+    </a>
 
-Liker has a built-in pornspam detection mechanism
-
- and automatically filters most unwanted content.
-    </p>
-    <h1 class="fvh3_6 pad20  mar10 marb0 mart0 ta_c">
-        #Instagram
-    </h1>
-    <h3 class="fvh1_5_3 marb10 ta_c">
-        {{d}}
-    </h3>
-    <div class="F_RSC r liked_photos_block">
-        <a ng-repeat="x in data.feed | reverse" href="https://www.instagram.com/p/{{x.shortcode}}/" target="_blank" class="l_p">
-          <img ng-src="{{x.display_url}}" alt="">
-        </a>
-
-       <div ng-if="data.feed.length == 0" class="no_photos F_CSS pad5 r">
-         <h2 class="fvh3_6 fcl_w pad5 padb0">NO PHOTOS</h2>
-         <p class="fvh2_4 pad5">No publications at this time</p>
-         <div class="no_photos_img a"></div>
-       </div>
+    <div ng-if="data.feed.length == 0" class="no_photos F_CSS pad5 r">
+      <h2 class="fvh5_10 fcl_w pad5 padb0">NO PHOTOS</h2>
+      <p class="fvh2_4 pad5">No publications at this time</p>
+      <div class="no_photos_img a"></div>
     </div>
+  </div>
 </div>
 
 <div class="wave_liked1"></div>

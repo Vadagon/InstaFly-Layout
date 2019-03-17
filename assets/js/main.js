@@ -248,10 +248,12 @@ app.controller('editCtrl', function($scope, $rootScope) {
   // }
       if(a > 0 && !$rootScope.data.user.isMember){
         $rootScope.app.alerts.showError2 = !1;
+        $scope.$apply();
         return;
       }
       if(a > 2 && !!$rootScope.data.user.isMember){
         $rootScope.app.alerts.showError3 = !0;
+        $scope.$apply();
         return;
       }
       $scope.selected_option = $rootScope.app.filters[a]
@@ -287,18 +289,18 @@ app.controller('homeCtrl', function($scope, $rootScope, $location) {
       $('.home_lessons_wrapper .boxscroll').getNiceScroll(0).doScrollLeft($('.home_lessons')[index].offsetLeft);
     };
     $('.boxscroll').scroll(function() {
-      // var scrolled_x = $('.wrap').css('transform').slice(20, -4);
-      // scrolled_x = Math.ceil(Number(scrolled_x));
-      // if (scrolled_x == 0) {
-      //   scrolled_x = 0;
-      // }
-      // var pos_first = $('.home_lessons')[0].offsetLeft
-      // pos_first = Math.ceil(Number(pos_first));
-      // $scope.scrolled = (scrolled_x - pos_first) / 360;
-      // $scope.$apply(() => {
-      //   $scope.scrolled = Math.ceil($scope.scrolled)
-      //
-      // })
+      var scrolled_x = $('.wrap').css('transform').slice(20, -4);
+      scrolled_x = Math.ceil(Number(scrolled_x));
+      if (scrolled_x == 0) {
+        scrolled_x = 0;
+      }
+      var pos_first = $('.home_lessons')[0].offsetLeft
+      pos_first = Math.ceil(Number(pos_first));
+      $scope.scrolled = (scrolled_x - pos_first) / 360;
+      $scope.$apply(() => {
+        $scope.scrolled = Math.ceil($scope.scrolled)
+
+      })
     })
   }
   if (path == '/lessons') {

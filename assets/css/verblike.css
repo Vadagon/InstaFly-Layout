@@ -30,6 +30,12 @@ body {
   height: 0px !important;
     padding: 0 !important;
 }
+.t0{
+  top:0;
+}
+.l0{
+  left: 0;
+}
 .h10vh{
     height: 10vh;
 }

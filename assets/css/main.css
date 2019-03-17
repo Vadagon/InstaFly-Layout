@@ -328,6 +328,7 @@ left: 0;
 .header .logo_img {
   display: flex;
   height: 13vh;
+  margin: 0 auto;
 }
 
 .home_lessons {
@@ -422,10 +423,6 @@ left: 0;
   height: 10vh;
 }
 
-.logo_img {
-  height: 5vh;
-  margin: 0 auto;
-}
 
 .heshtag, .edit {
   width: 8vh;
@@ -1595,12 +1592,24 @@ input:-webkit-autofill, input:-webkit-autofill:hover, input:-webkit-autofill:foc
   margin: 40px auto;
 }
 
-.logo_img {
-  height: 20vh;
+.logo_wrapper{
+    transform: translateY(0);
+    margin: 0 auto;
+    left: 0;
+        width: 100vw;
+          position: absolute;
+            height: 13vh;
 }
-
-
-
+.logo_wrapper.ng-hide{
+  transform: translateY(-9vh);
+  margin: 0 auto;
+  left: 0;
+      width: 100vw;
+}
+.logo_wrapper.ng-hide .logo_img{
+  height: 100%;
+  margin: 0 auto;
+}
 
 .liked_photos_wrapper {
   background: url(../img/liked_wave.png);
@@ -1937,6 +1946,16 @@ input:-webkit-autofill, input:-webkit-autofill:hover, input:-webkit-autofill:foc
 .dropdown ul>li:nth-child(3)::before {
   content: '';
   background: url(../img/acc.png) no-repeat;
+  position: absolute;
+  background-size: 24px;
+  width: 26px;
+  height: 26px;
+  top: 18px;
+  left: 18px;
+}
+.dropdown ul>li:last-child::before {
+  content: '';
+  background: url(../img/logout.png) no-repeat;
   position: absolute;
   background-size: 24px;
   width: 26px;

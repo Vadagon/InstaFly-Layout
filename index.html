@@ -57,13 +57,13 @@
   <!-- <div class="loader_wrapper modal_cant_add_task ">
     <div class="lds-roller"><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div></div>
   </div> -->
-  <div class="h_wrapp r  header_index w100 opacity" ng-class="{'header_index':!header_show}" ng-if="header_show != 'no'">
+  <div class="h_wrapp r  header_index w100 transition opacity" ng-class="{'header_index':!header_show}" ng-hide="header_show == 'no'">
     <div class="F_RBC h10vh pad20  bb w100" ng-class="{'header':!header_show}">
-      <a ng-if="!header_show" href="https://www.instagram.com/{{data.user.username}}" target="_blank">
-        <img alt="" class="info acc_photo" ng-src="{{data.user.pic}}">
+      <a ng-hide="header_show" href="https://www.instagram.com/{{data.user.username}}" target="_blank">
+        <img alt="{{APPNAME}}" class="info transition acc_photo" ng-src="{{data.user.pic}}">
       </a>
-      <div ng-if="!header_show" class="logo_wrapper r">
-        <img alt="logo" class="logo_img" src="assets/img/logo.png">
+      <div ng-hide="header_show" class="logo_wrapper F_CCC  transition w100 a">
+        <img alt="logo" class="logo_img  " src="assets/img/logo.png">
         <!-- <div id="heart"></div>   -->
       </div>
 
@@ -78,8 +78,9 @@
         <div class="dropdown" ng-hide="!drop">
           <ul class="list_n  fvh2_4">
             <li ng-click="goTo('info')" class="fcl_w fvh3_6 pad5">Info</li>
-            <li ng-click="goTo('settings')" class="fcl_w fvh3_6 pad5">Settings</li>
-            <li ng-click="goTo('about')" class="fcl_w fvh3_6 pad5">About us</li>
+            <li ng-if="data.user.isMember" ng-click="goTo('settings')" class="fcl_w fvh3_6 pad5">Settings</li>
+            <li  ng-click="goTo('about')" class="fcl_w fvh3_6 pad5">About us</li>
+            <li ng-click="goTo('settings')" class="fcl_w fvh3_6 pad5">Log out</li>
           </ul>
         </div>
       </div>

@@ -778,34 +778,29 @@ position: absolute;
   margin-right: -200px;
 }
 
-.atvImg .img {
+.img {
   margin: 0 10px;
   position: relative;
   overflow: hidden;
   display: inline-block;
   height: 100px;
   width: 160px;
-  /* animation: card 4s infinite; */
   animation-timing-function: linear;
   border-radius: 10px;
-  /* box-shadow: 0 0 20px rgba(0, 0, 0, 0.35); */
   transition: all 0.3s linear;
-  background: url(../img/card2.png);
+  background-image: url(../img/card2.png);
   background-repeat: no-repeat;
   background-size: cover;
-  /* animation: card 10.5s linear infinite; */
+}
+.card1 {
+  background-image: url('../img/card1.png');
+}
+.card2 {
+  background-image: url('../img/card2.png');
 }
 
-.atvImg .img:nth-child(1) {
-  /*animation: card 6s infinite;*/
-  /*background-image: url('../img/card.png');*/
-  /*animation: card 10.5s linear infinite ;*/
-}
-
-.atvImg .img:nth-child(3) {
-  /*animation: card 6s infinite;*/
-  background-image: url('../img/card.png');
-  /* animation: card 10.5s linear infinite; */
+.card3 {
+  background-image: url('../img/card3.png');
 }
 
 .atvImg .img:nth-child(1)::after, .atvImg .img:nth-child(2)::after, .atvImg .img:nth-child(3)::after {

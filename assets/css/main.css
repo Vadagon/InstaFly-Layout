@@ -1949,7 +1949,8 @@ input:-webkit-autofill, input:-webkit-autofill:hover, input:-webkit-autofill:foc
   width: 100vw;
   box-sizing: border-box;
   position: fixed;
-  bottom: 0
+  bottom: 0;
+  overflow: hidden;
 }
 
 .bottom_liked .wave_bg {
@@ -2043,12 +2044,13 @@ input:-webkit-autofill, input:-webkit-autofill:hover, input:-webkit-autofill:foc
 }
 
 .firs_like_wrapper {
-  width: 11vh;
-  height: 10vh;
+  width: 12vh;
+  height: 12vh;
   z-index: 5;
   background: #1b232c;
   cursor: pointer;
-  margin: 0 0 0 -5px;
+  margin: 0 0 0 0;
+  box-shadow: 8px 0 10px rgba(0,0,0,.9);
 }
 
 .firs_like {

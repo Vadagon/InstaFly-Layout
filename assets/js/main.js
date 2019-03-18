@@ -1,7 +1,10 @@
-let app = angular.module("Routing", ["ngRoute", 'ngAnimate']);
+window.location.hash = '';
+document.addEventListener("touchmove", function(event){
+    // event.preventDefault();
+});
+var app = angular.module("Routing", ["ngRoute", 'ngAnimate']);
 app.directive("pagination", function() {
   return {
-
     template: '<a  ng-click="select($index);" ng-repeat="x in less_preview"><div ng-class="{active_dot: scrolled == $index}" class="dot_info   mar5"></div></a>'
   };
 });
@@ -52,6 +55,7 @@ app.config(($routeProvider) => {
     });
 });
 app.run(($rootScope, $interval) => {
+  $rootScope.platform = platform;
   $rootScope.ideas = ideas;
   $rootScope.window = window;
   $rootScope.document = document;
@@ -94,6 +98,9 @@ app.run(($rootScope, $interval) => {
     type: 'hashtag',
     textarea: ''
   }
+  $rootScope.logOut = function(){
+
+  }
   $rootScope.newTask = window.blankTask;
   $rootScope.taskFunc = function(e) {
     $rootScope.app.taskFunc = e;
@@ -104,32 +111,14 @@ app.run(($rootScope, $interval) => {
     } else {
       $rootScope.newTask = angular.copy(window.blankTask)
     }
-    window.location.href = '#!edit';
+    $rootScope.goTo('edit');
   }
   $rootScope.get = function(cb) {
     api.runtime.sendMessage({
       why: "getData"
     }, function(response) {
-      response.user.isMember = !1; // 0 member // 1 not member
-      if (!cb) {
-        $rootScope.data = response;
-        $rootScope.$apply();
-        if (!$rootScope.data.user.policy) {
-          $rootScope.goTo('welcome')
-          return;
-        }
-        if (!$rootScope.data.user.username) {
-          platform.name == 'chrome' ? $rootScope.goTo('extension') : $rootScope.goTo('auth')
-          return;
-        }
-        if (!$rootScope.data.tasks.length) {
-          $rootScope.goTo('edit')
-          return;
-        }
-        $rootScope.goTo('home')
-      } else {
-        cb(response)
-      }
+      // response.user.isMember = !1; // 0 member // 1 not member
+        cb&&cb(response)
     });
   }
   $rootScope.$watch('data.tasks', function(newValue, oldValue) {
@@ -144,10 +133,10 @@ app.run(($rootScope, $interval) => {
   $interval(function() {
     $rootScope.get(function(e) {
       if ($rootScope.data.feed.length != e.feed.length || $rootScope.data.status != e.status || $rootScope.data.user.username != e.user.username) {
-        console.log('updated');
         $rootScope.data.feed = e.feed;
         $rootScope.data.status = e.status;
         $rootScope.data.user = e.user;
+        !$rootScope.data.user.username&&$rootScope.goTo('logo');
         // $rootScope.data.user.isMember = !0;
       }
     })
@@ -174,7 +163,7 @@ app.run(($rootScope, $interval) => {
 
   $rootScope.goBack = function goBack() {
     // window.history.back();
-    window.location.href = '#!home';
+    $rootScope.goTo('home');
   }
   // ДЛЯ СТОРІНКИ НАСТРОЙКИ
   $rootScope.minus = function() {
@@ -205,250 +194,5 @@ app.run(($rootScope, $interval) => {
       $rootScope.header_show = false;
     }
   })
-  var intervalInit = setInterval(function() {
-    if (!!a) {
-      if (a.isReadyToInit) {
-        clearInterval(intervalInit);
-        $rootScope.get();
-      }
-    }
-  }, 10);
-  // $('.boxscroll').niceScroll();
+  $('.boxscroll').niceScroll();
 })
-app.controller('indexCtrl', function($scope, $rootScope) {});
-app.controller('editCtrl', function($scope, $rootScope) {
-  $scope.selected_option = $rootScope.app.filters[0];
-
-  let selected_option;
-  $scope.ta_maxLength = 400;
-  $scope.ta_minLength = 40;
-
-  $scope.selected = function(a) {
-    if (a == 1 || a == 3 || a == 4 ) {
-      $scope.no = true;
-      $scope.ta_maxLength = 0;
-      $scope.ta_minLength = 0;
-    } else {
-      $scope.no = false;
-      $scope.ta_maxLength = 400;
-      $scope.ta_minLength = 40;
-    }
-    console.log(a, 'a' , a == 2 && $rootScope.data.user.isMember);
-    if (a == 2 && !$rootScope.data.user.isMember) {
-      $scope.no = true;
-      $scope.ta_maxLength = 0;
-      $scope.ta_minLength = 0;
-
-    }
-    console.log($rootScope.data.user.isMember,'$rootScope.data.user.isMember');
-
-  if (a > 1 && !$rootScope.data.user.isMember) {
-    $scope.no = true;
-  }
-    if (a > 0 && !$rootScope.data.user.isMember) {
-      $rootScope.app.alerts.showError2 = !0;
-      return;
-    } else {
-      $rootScope.app.alerts.showError2 = !1;
-    }
-    if (a > 2 && !!$rootScope.data.user.isMember) {
-      $rootScope.app.alerts.showError3 = !0;
-      return;
-    }
-     else {
-      $rootScope.app.alerts.showError3 = !1;
-    }
-    $rootScope.newTask.type = $rootScope.app.filters[a][0];
-    $scope.selected_option = $rootScope.app.filters[a];
-    $scope.$apply();
-  }
-  $rootScope.saveTask = function() {
-    if ($rootScope.newTask.textarea.length < $scope.ta_minLength) {
-      return false;
-    }
-    if ($rootScope.app.taskFunc == 'add') {
-      $rootScope.data.tasks.push(angular.copy($rootScope.newTask))
-    } else {
-      $rootScope.data.tasks[$rootScope.app.taskFunc] = angular.copy($rootScope.newTask);
-    }
-    $rootScope.goTo('home');
-    $rootScope.save();
-  }
-});
-app.controller('logoCtrl', function($scope, $rootScope) {
-  console.log($rootScope.data);
-  if (!$rootScope.data.user.username) {
-    var interval = setInterval(function() {
-      if ($rootScope.data.user.username) {
-        !$rootScope.data.tasks.length ? $rootScope.goTo('edit') : $rootScope.goTo('home')
-        clearInterval(interval);
-      }
-    }, 100);
-  }
-
-});
-app.controller('cardCtrl', function($scope, $rootScope) {
-  $($rootScope.data.user.form).insertAfter('#ng_viev').css('display', 'none').attr('target', '_blank');
-  $('.content_card .cover_wrapper').niceScroll('.cover');
-});
-app.controller('homeCtrl', function($scope, $rootScope, $location) {
-  $rootScope.less_preview = [0, 1];
-  var path = $location.path();
-  var h_wrapp = '.scrollbox';
-  $(h_wrapp).niceScroll('.wrap');
-  //   if ($scope.selected == undefined) {
-  //     $scope.selected = 0;
-  //   }
-  //   $scope.select = function(index) {
-  //     $scope.selected = index;
-  //     $(h_wrapp).getNiceScroll(0).doScrollLeft($('.scroll_inset')[index].offsetLeft);
-  //   };
-  //   $(h_wrapp).scroll(function() {
-  //     var scrolled_x = $('.wrap').css('transform').slice(20, -4);
-  //     scrolled_x = Math.ceil(Number(scrolled_x));
-  //     if (scrolled_x == 0) {
-  //       scrolled_x = 0;
-  //     }
-  //     var pos_first = $('.scroll_inset')[0].offsetLeft
-  //     pos_first = Math.ceil(Number(pos_first));
-  //     $scope.$apply(()=>{
-  //       $scope.scrolled = Math.ceil((scrolled_x - pos_first) / 360);
-  //       if (path == '/lessons') {
-  //         $scope.$watch('scrolled',()=>{
-  //           if ($scope.scrolled == 2) {
-  //           $rootScope.app.alerts.goProPopup = true;
-  //           $scope.scrolled = 1;
-  //           $('.lessons_title_scroll').getNiceScroll(0).doScrollLeft(0);
-  //           }
-  //         })
-  //       }
-  //     });
-  // });
-});
-app.controller('infoCtrl', function($scope, $rootScope) {});
-app.controller('proCtrl', function($scope, $rootScope) {});
-app.controller('list_lessCtrl', function($scope, $rootScope) {});
-app.controller('lessonsCtrl', function($scope, $rootScope) {})
-app.controller('extCtrl', function($scope, $rootScope) {});
-app.controller('welcomeCtrl', function($scope, $rootScope) {
-  $scope.acceptPrivacy = function() {
-    $rootScope.data.user.policy = !0;
-    $rootScope.save();
-    if (!$rootScope.data.user.username) {
-      platform.name == 'chrome' ? $rootScope.goTo('extension') : $rootScope.goTo('auth');
-      return;
-    }
-    if (!$rootScope.data.tasks.length) {
-      $rootScope.goTo('edit')
-      return;
-    }
-    $rootScope.goTo('home')
-  }
-});
-app.controller('aboutCtrl', function($scope, $rootScope) {
-  $('.about_wrapper .boxscroll').niceScroll('.wrap');
-  $rootScope.F = true;
-  $rootScope.fix = [{
-      'date': '07:07 03.03.2019',
-      'fix': 'Beta-testing We are improving app now.'
-    }, {
-      'date': '12:20  04.03.2019',
-      'fix': 'Fixed some bugs, lessons and settings added.'
-    }, {
-      'date': '14:25 04.03.2019',
-      'fix': 'Fixed redirect'
-    }, {
-      'date': '20:10 05.03.2019',
-      'fix': 'NEW functional! Impoved design!'
-    }, {
-      'date': '11:30 08.03.2019',
-      'fix': 'Fixed some bugs...'
-    }, {
-      'date': '14:21 08.03.2019',
-      'fix': 'Added liked by followers and following.'
-    },
-    {
-      'date': '12:16 17.03.2019',
-      'fix': 'New pages and more cool things!'
-    }, {
-      'date': '22:57 13.03.2019',
-      'fix': 'Improved liking functions!, and fixed some bugs. Some design changes'
-    }
-  ]
-  $rootScope.fix.reverse()
-});
-app.controller('settingsCtrl', function($scope, $rootScope) {
-  $rootScope.goTo('home')
-  $scope.dayily_limit = 500;
-  $scope.dayily_limit_max = 5000;
-  $scope.$watch('dayily_limit', () => {
-    console.log($scope.dayily_limit, '$rootScope.dayily_limit')
-  })
-});
-app.controller('likedCtrl', function($scope, $rootScope) {
-  setInterval(function() {
-    $('#ng_viev').niceScroll().resize();
-  }, 400);
-  let d = new Date(new Date().toString().split('GMT')[0] + ' UTC').toISOString().split('.')[0].replace('T', ' ');
-  $scope.d = d;
-  $scope.count = 0;
-  $scope.liked_photos = [0];
-  setInterval(() => {
-    $scope.count++;
-    $scope.count1 = 0;
-    $scope.count1 += $scope.count;
-    $scope.liked_photos.unshift($scope.count)
-  }, 3000);
-});
-app.controller('extensionCtrl', function($scope, $rootScope) {
-  if (!$rootScope.data.user.username) {
-    var interval = setInterval(function() {
-      if ($rootScope.data.user.username) {
-        !$rootScope.data.tasks.length ? $rootScope.goTo('edit') : $rootScope.goTo('home')
-        clearInterval(interval);
-      }
-    }, 100);
-  }
-});
-app.controller('authCtrl', function($scope, $rootScope) {
-  console.log($scope.pass)
-  $scope.instagramLogData = {
-    username: '',
-    password: ''
-  }
-  $scope.$watch('eye_pass', () => {
-    if ($scope.eye_pass == true) {
-      $scope.pass = "text"
-    } else {
-      $scope.pass = "password"
-    }
-  })
-  $scope.instagramLogin = function() {
-    $rootScope.goTo('logo');
-    $.ajax({
-      url: 'https://www.instagram.com/accounts/login/ajax/',
-      type: 'post',
-      data: {
-        username: $scope.instagramLogData.username,
-        password: $scope.instagramLogData.password,
-        queryParams: {}
-      },
-      headers: {
-        'x-csrftoken': data.user.csrf_token,
-        'x-requested-with': 'XMLHttpRequest'
-      }
-    }).done(function(e) {
-      if (!e.authenticated) {
-        $rootScope.goTo('auth');
-      }
-    });
-  }
-  if (!$rootScope.data.user.username) {
-    var interval = setInterval(function() {
-      if ($rootScope.data.user.username) {
-        !$rootScope.data.tasks.length ? $rootScope.goTo('edit') : $rootScope.goTo('home')
-        clearInterval(interval);
-      }
-    }, 100);
-  }
-});

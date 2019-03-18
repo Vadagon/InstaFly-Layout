@@ -1,3 +1,7 @@
+.hidden{
+  visibility: hidden;;
+  transition: 0;
+}
 @font-face {
   font-family: Kelson;
   src: url(../fonts/KelsonSansBold.otf);

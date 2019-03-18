@@ -17,7 +17,7 @@
 </head>
 
 <body class="page  r">
-  <div class="modal_cant_add_task fcl_w F_CCC" ng-show="app.alerts.goProPopup" ng-click="modal_cant_add_task = !modal_cant_add_task">
+  <div class="hidden modal_cant_add_task fcl_w F_CCC" ng-show="app.alerts.goProPopup" ng-click="modal_cant_add_task = !modal_cant_add_task">
     <div class="home_modal" ng-click="app.alerts.goProPopup = false">
     </div>
     <h1 class="w90 ta_c padb30 marb30 fvh5_10">You can't use this feature.</h1>
@@ -55,7 +55,7 @@
   </div> -->
   <!-- LOADER  -->
 
-  <div class="h_wrapp r  header_index w100 transition_back" ng-class="{'header_index':!header_show}" ng-if="header_show != 'no'">
+  <div class="hidden h_wrapp r  header_index w100 transition_back" ng-class="{'header_index':!header_show}" ng-if="header_show != 'no'">
     <div class="F_RBC h10vh pad20  bb w100" ng-class="{'header':!header_show}">
       <a ng-hide="header_show" href="https://www.instagram.com/{{data.user.username}}" target="_blank" class="z2 transition_back">
         <img alt="{{APPNAME}}" class="info transition acc_photo" ng-src="{{data.user.pic}}">
@@ -78,7 +78,7 @@
             <li ng-click="goTo('info')" class="fcl_w fvh3_6 pad5">Info</li>
             <li  ng-click="goTo('about')" class="fcl_w fvh3_6 pad5">About us</li>
             <li ng-if="data.user.isMember" ng-click="goTo('settings')" class="fcl_w fvh3_6 pad5">Settings</li>
-            <li ng-click="goTo('settings')" class="fcl_w fvh3_6 pad5">Log out</li>
+            <li ng-if="platform.name!='chrome'" ng-click="logOut()" class="fcl_w fvh3_6 pad5">Log out</li>
           </ul>
         </div>
       </div>
@@ -123,6 +123,14 @@
 
   <script src="assets/js/ideas.js"></script>
   <script src="assets/js/main.js"></script>
+  <script src="assets/js/controllers/aboutCtrl.js"></script>
+  <script src="assets/js/controllers/authCtrl.js"></script>
+  <script src="assets/js/controllers/cardCtrl.js"></script>
+  <script src="assets/js/controllers/editCtrl.js"></script>
+  <script src="assets/js/controllers/homeCtrl.js"></script>
+  <script src="assets/js/controllers/logoCtrl.js"></script>
+  <script src="assets/js/controllers/othersCtrl.js"></script>
+
 
 
 </body>

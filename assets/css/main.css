@@ -1,4 +1,4 @@
-.hidden{
+.hiddenHeader > div:not(#ng_viev){
   position: fixed;
   visibility: hidden;
   transition: 0;
@@ -68,13 +68,13 @@ html{
     background: #161c24;
 }
 body {
-    background: #161c24;
+  background: #161c24;
   overflow: hidden;
   position: relative;
 }
 
 .page {
-  display: flex;
+  display: block;
   flex-flow: column;
 }
 

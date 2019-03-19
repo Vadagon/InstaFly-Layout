@@ -4,16 +4,15 @@ app.controller('logoCtrl', function($scope, $rootScope) {
     if(platform.name == 'chrome'){
       bgIsReady = true;
     }else{
-      if (!!a) {
-        if (a.isReadyToInit) {
+      try{
+        if(a.isReadyToInit){
           bgIsReady = true;
         }
-      }
+      }catch(err){console.log(err);}
     }
     bgIsReady&&$rootScope.get(function(response){
-      console.log('remove');
+      $('body').removeClass('hiddenHeader')
       $rootScope.data = response;
-      console.log(response);
       $rootScope.$apply();
       if (!$rootScope.data.user.policy) {
         $rootScope.goTo('welcome')
@@ -24,9 +23,9 @@ app.controller('logoCtrl', function($scope, $rootScope) {
       }else{
         $rootScope.goTo('home');
       }
-      $('body > div:not(#ng_viev)').removeClass('hidden')
+      $('body').removeClass('hiddenHeader')
       clearInterval(interval);
 
     })
-  }, 10);
+  }, 600);
 });

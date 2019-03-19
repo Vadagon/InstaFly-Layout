@@ -12,7 +12,7 @@ app.controller('authCtrl', function($scope, $rootScope) {
     }
   })
   $scope.instagramLogin = function() {
-    $rootScope.goTo('logo');
+    $rootScope.app.alerts.loading = !0
     $.ajax({
       url: 'https://www.instagram.com/accounts/login/ajax/',
       type: 'post',
@@ -27,8 +27,22 @@ app.controller('authCtrl', function($scope, $rootScope) {
       }
     }).done(function(e) {
       if (!e.authenticated) {
-        $rootScope.goTo('auth');
+        $rootScope.app.alerts.loading = !1
+      }else{
+        var interval = setInterval(function () {
+          if($rootScope.data.user.username){
+            $rootScope.app.alerts.loading = !1
+            if (!$rootScope.data.tasks.length) {
+              $rootScope.goTo('edit')
+            }else{
+              $rootScope.goTo('home');
+            }
+            clearInterval(interval);
+          }
+        }, 500);
       }
+    }).fail(function(){
+      $rootScope.app.alerts.loading = !1
     });
   }
   if (!$rootScope.data.user.username) {

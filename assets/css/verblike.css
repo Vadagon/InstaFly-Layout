@@ -134,8 +134,12 @@ text-align: right;
 .tov_el{
   overflow: hidden;
   width: 100%;
-  display: inline-block;
+  overflow: hidden;
   text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+      word-break: break-word;
 }
 .h600{
   height: 600px;

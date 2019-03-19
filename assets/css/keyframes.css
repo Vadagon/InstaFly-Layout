@@ -1,22 +1,11 @@
-@-webkit-keyframes load3 {
-    0% {
-        -webkit-transform: rotate(0deg);
-        transform: rotate(0deg);
-    }
-    100% {
-        -webkit-transform: rotate(360deg);
-        transform: rotate(360deg);
-    }
-}
-@keyframes load3 {
-    0% {
-        -webkit-transform: rotate(0deg);
-        transform: rotate(0deg);
-    }
-    100% {
-        -webkit-transform: rotate(360deg);
-        transform: rotate(360deg);
-    }
+@keyframes lds-roller {
+  0% {
+    transform: rotate(0deg);
+  }
+
+  100% {
+    transform: rotate(360deg);
+  }
 }
 @keyframes card {
   0% {transform:translateX(-200vw) }
@@ -64,31 +53,6 @@
         box-shadow: 0 0 0 0 rgb(141, 55, 165);
     }
 }
-@-webkit-keyframes pulse_black {
-    0% {
-        -webkit-box-shadow: 0 0 0 0 rgba(0, 0, 0, 0.4);
-    }
-    70% {
-        -webkit-box-shadow: 0 0 0 5px rgba(0, 0, 0, 0.4);
-    }
-    100% {
-        -webkit-box-shadow: 0 0 0 0 rgba(0, 0, 0, 0.4);
-    }
-}
-@keyframes pulse_black {
-    0% {
-        -moz-box-shadow: 0 0 0 0 rgba(0, 0, 0, 0.4);
-        box-shadow: 0 0 0 0 rgba(0, 0, 0, 0.4);
-    }
-    70% {
-        -moz-box-shadow: 0 0 10px 5px rgba(0, 0, 0, 0.4);
-        box-shadow: 0 0 10px 5px rgba(0, 0, 0, 0.4);
-    }
-    100% {
-        -moz-box-shadow: 0 0 0 0 rgba(0, 0, 0, 0.4);
-        box-shadow: 0 0 0 0 rgba(0, 0, 0, 0.4);
-    }
-}
 
 @-webkit-keyframes pulse_for_btn {
     0% {
@@ -115,31 +79,7 @@
         box-shadow: 0 0 0 0 rgba(18, 25, 33, 0.4);
     }
 }
-@-webkit-keyframes pulse_for_btn_active {
-    0% {
-        -webkit-box-shadow: 0 0 0 0 rgba(18, 25, 33, 0.4);
-    }
-    70% {
-        -webkit-box-shadow: 0 0 0 100px rgba(18, 25, 33, 0.4);
-    }
-    100% {
-        -webkit-box-shadow: 0 0 0 0 rgba(18, 25, 33, 0.4);
-    }
-}
-@keyframes pulse_for_btn_active {
-    0% {
-        -moz-box-shadow: 0 0 0 0 rgba(18, 25, 33, 0.4);
-        box-shadow: 0 0 0 0 rgba(18, 25, 33, 0.4);
-    }
-    70% {
-        -moz-box-shadow: 0 0 0 100px rgba(18, 25, 33, 0.4);
-        box-shadow: 0 0 0 100px rgba(18, 25, 33, 0.4);
-    }
-    100% {
-        -moz-box-shadow: 0 0 0 0 rgba(18, 25, 33, 0.4);
-        box-shadow: 0 0 0 0 rgba(18, 25, 33, 0.4);
-    }
-}
+
 
 @keyframes pulse_inset {
     0% {
@@ -325,16 +265,5 @@
     }
     100% {
         margin:5px;
-    }
-}
-
-@keyframes unshift_fifth {
-   0% {
-
-      margin-right: -25%;
-    }
-    100% {
-        margin-left: 5px;
-      margin-top: 5px;
     }
 }

@@ -14,16 +14,15 @@
 }
 
 ::selection {
-  background: transparent;
+  background: rgba(255, 255, 255, .1);
 }
 
 ::-moz-selection {
-  background: transparent;
+  background: rgba(255, 255, 255, .1);
 }
 
 span:not(.tooltip) {
   transition: all .4s linear;
-  white-space: nowrap;
 }
 
 textarea::placeholder {
@@ -184,7 +183,8 @@ p {
   left: 0;
   width: 25%;
   height: 100%;
-  z-index: 1 background: -webkit-linear-gradient(right, rgba(255, 255, 255, 1) 0%, rgba(255, 255, 255, 0) 100%);
+  z-index: 1 ;
+  background: -webkit-linear-gradient(right, rgba(255, 255, 255, 1) 0%, rgba(255, 255, 255, 0) 100%);
   background: -o-linear-gradient(right, rgba(255, 255, 255, 1) 0%, rgba(255, 255, 255, 0) 100%);
   background: linear-gradient(to left, rgba(255, 255, 255, 1) 0%, rgba(255, 255, 255, 0) 100%);
 }
@@ -684,6 +684,7 @@ position: absolute;
   border-radius: 10px;
   width: 100%;
   position: absolute;
+  overflow: hidden;
   z-index: 9999;
   border: 1px solid rgba(255, 255, 255, 0.1);
   border-radius: 0px 0px 10px 10px;
@@ -942,6 +943,10 @@ position: absolute;
 }
 
 .info_task {
+  -webkit-column-width: 150px;
+  -moz-column-width: 150px;
+  column-width: 150px;
+  height: 100%;
   width: 70vw;
   box-sizing: border-box;
   padding: 5px 10px;
@@ -1615,9 +1620,9 @@ input:-webkit-autofill, input:-webkit-autofill:hover, input:-webkit-autofill:foc
   animation: unshift .5s linear;
 }
 
-.l_p:nth-child(4n+5) {
+/* .l_p:nth-child(4n+5) {
   animation: unshift_fifth .5s linear;
-}
+} */
 
 .was_liked {
   animation: was_liked 1s linear infinite;
@@ -1911,8 +1916,8 @@ input:-webkit-autofill, input:-webkit-autofill:hover, input:-webkit-autofill:foc
   transition: all .5s;
   top: 0;
   left: 0;
-  width: 100%;
-  height: 100%;
+  width: 100vw;
+  height: 100vh;
 }
 .modal_drop.ng-hide{
   transform: none;

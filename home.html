@@ -13,7 +13,7 @@
         </a> -->
         <div class="home_lessons_wrapper wrap r w100">
           <div class="status pad30 padb0 marb10">
-            <div ng-click="goTo('ideas')" class=" w70 r fcl_w fvh1_5_3 ta_c" ng-class="{'was_liked':status = 'sleeping'}">
+            <div  class=" w70 r fcl_w fvh1_5_3 ta_c" ng-class="{'was_liked':status = 'sleeping'}">
               {{data.status}}
             </div>
           </div>
@@ -57,17 +57,16 @@
                 </div>
               </label>
             </div>
-            <a ng-click="taskFunc($index)">
-              <div class="info_task fcl_w">
-                <h2 class="fvh2_4 pad10 padb0">
-                  {{i.type}}
-                </h2>
-                <p class="fvh1_5_3 ta_l pad10 nls padt5">
-                  <span class="tov_el">{{i.textarea}}</span>
-                  <br>
-                  <span>
-                    advanced settings:pro version only
-                  </span>
+            <a ng-click="taskFunc($index)" class="h100">
+              <div class="info_task fcl_w h100">
+                <p class="fvh1_5_3 ta_l  nls  h100" ng-if="i.type == 'hashtag'">
+                  <span class="tov_el h100">{{i.textarea}}</span>
+                </p>
+                <p class="fvh1_5_3 ta_l  nls  h100" ng-if="i.type == 'location'">
+                  <span class="tov_el h100">{{i.textarea}}</span>
+                </p>
+                <p class="fvh1_5_3 ta_l  nls  h100" ng-if="i.type == 'feed'">
+                  <span class="tov_el h100">Like my feed</span>
                 </p>
               </div>
             </a>
@@ -82,7 +81,7 @@
       </div>
     </div>
     <a ng-click="(data.tasks.length > 0 && !data.user.isMember)?app.alerts.showError1 = true:taskFunc('add')">
-      <div class="add_btn  F_RCC mar10 marb0 ">
+      <div class="add_btn  F_RCC mar10 marb20 ">
         <img alt="" class="info ico_plus" src="assets/img/plus.png">
         <span class="fcl_w fvh2_4 marl10">
           ADD TASK

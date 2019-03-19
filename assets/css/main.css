@@ -1,6 +1,5 @@
 .hidden{
   position: fixed;
-  top: 50%;
   visibility: hidden;
   transition: 0;
 }
@@ -65,8 +64,11 @@ a {
   opacity: 0;
   transform: none;
 }
+html{
+    background: #161c24;
+}
 body {
-  background: #161c24;
+    background: #161c24;
   overflow: hidden;
   position: relative;
 }
@@ -1895,7 +1897,7 @@ input:-webkit-autofill, input:-webkit-autofill:hover, input:-webkit-autofill:foc
 .modal_cant_add_task {
   position: fixed;
   z-index: 100;
-  background: black;
+  background: #161c24;
   transition: all .5s;
   top: 0;
   left: 0;
@@ -2469,7 +2471,7 @@ input[type="range"]::-ms-thumb {
 
 .lds-roller {
   display: inline-block;
-  position: relative;
+  position: fixed;
   width: 64px;
   height: 64px;
 }

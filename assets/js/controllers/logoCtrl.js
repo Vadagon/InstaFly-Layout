@@ -22,11 +22,11 @@ app.controller('logoCtrl', function($scope, $rootScope) {
       }else if (!$rootScope.data.tasks.length) {
         $rootScope.goTo('edit')
       }else{
-        $rootScope.goTo('home');        
+        $rootScope.goTo('home');
       }
       $('body > div:not(#ng_viev)').removeClass('hidden')
       clearInterval(interval);
 
     })
-  }, 200);
+  }, 10);
 });

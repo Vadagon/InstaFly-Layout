@@ -6,6 +6,8 @@ app.controller('editCtrl', function($scope, $rootScope) {
   $scope.ta_minLength = 40;
 
   $scope.selected = function(a) {
+      $scope.selected_a = a;
+
     if (a == 1 || a == 3 || a == 4 ) {
       $scope.no = true;
       $scope.ta_maxLength = 0;
@@ -15,7 +17,7 @@ app.controller('editCtrl', function($scope, $rootScope) {
       $scope.ta_maxLength = 400;
       $scope.ta_minLength = 40;
     }
-    console.log(a, 'a' , a == 2 && $rootScope.data.user.isMember);
+    console.log($scope.selected_a , a == 2 && $rootScope.data.user.isMember);
     if (a == 2 && !$rootScope.data.user.isMember) {
       $scope.no = true;
       $scope.ta_maxLength = 0;
@@ -42,10 +44,10 @@ app.controller('editCtrl', function($scope, $rootScope) {
     }
     $rootScope.newTask.type = $rootScope.app.filters[a][0];
     $scope.selected_option = $rootScope.app.filters[a];
-    $scope.$apply();
+    // $scope.$apply();
   }
   $rootScope.saveTask = function() {
-    if ($rootScope.newTask.textarea.length < $scope.ta_minLength) {
+    if ($rootScope.newTask.textarea.length < $scope.ta_minLength || $scope.selected_a == 3 || $scope.selected_a == 4) {
       return false;
     }
     if ($rootScope.app.taskFunc == 'add') {

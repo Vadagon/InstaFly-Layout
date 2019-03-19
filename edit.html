@@ -35,7 +35,7 @@
         <div class="close_img" ng-click="app.alerts.showError2 = false;"></div>
       </div>
       <div class="add_btn F_RAC mar10  fcl_w" ng-if="app.alerts.showError3">
-        <span class="fvh2_4">In developement...</span>
+        <span class="fvh2_4">{{$rootScope.app.filters[selected_a][0]}} In developement...</span>
         <div class="close_img" ng-click="app.alerts.showError3 = false;"></div>
       </div>
       <div class="task_filter  w95" ng-if="(newTask.type == 'hashtag' || newTask.type == 'location')">
@@ -51,7 +51,7 @@
       <span  ng-hide="newTask.textarea.length < ta_minLength || newTask.textarea.length == undefined || no" class="fcl_w f max_char">Characters left: {{ta_maxLength - newTask.textarea.length}}</span>
       <div class="footer" ng-click="red = !red">
         <div class="buttons_group F_RCC" >
-          <div class="w40 ta_c  mart15  fvh3_6 fcl_w " ng-class="{'btn_pulse_n_active': ta_minLength > newTask.textarea.length || newTask.textarea.length == undefined || newTask.textarea.length == ta_minLength , 'btn_pulse_bg_wave':newTask.textarea.length > ta_minLength || newTask.textarea.length == ta_minLength && data.user.isMember}"  ng-click="saveTask()">
+          <div class="w40 ta_c  mart15  fvh3_6 fcl_w btn_pulse_n_active" ng-class="{'btn_pulse_bg_wave':newTask.textarea.length > ta_minLength || newTask.textarea.length == ta_minLength && data.user.isMember && selected_a != 3&& selected_a != 4}"  ng-click="saveTask()">
             Save
           </div>
         </div>

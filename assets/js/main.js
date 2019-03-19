@@ -117,7 +117,7 @@ app.run(($rootScope, $interval) => {
     api.runtime.sendMessage({
       why: "getData"
     }, function(response) {
-      // response.user.isMember = !1; // 0 member // 1 not member
+      response.user.isMember = !0; // 0 member // 1 not member
         cb&&cb(response)
     });
   }

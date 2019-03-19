@@ -16,8 +16,8 @@
 
 </head>
 
-<body class="page  r">
-  <div class="hidden modal_cant_add_task fcl_w F_CCC" ng-show="app.alerts.goProPopup" ng-click="modal_cant_add_task = !modal_cant_add_task">
+<body class="page  r hiddenHeader boxscroll">
+  <div class="modal_cant_add_task fcl_w F_CCC" ng-show="app.alerts.goProPopup" ng-click="modal_cant_add_task = !modal_cant_add_task">
     <div class="home_modal" ng-click="app.alerts.goProPopup = false">
     </div>
     <h1 class="w90 ta_c padb30 marb30 fvh5_10">You can't use this feature.</h1>
@@ -56,7 +56,7 @@
   <!-- LOADER  -->
 
 
-  <div class="hidden h_wrapp r  header_index w100 transition_back" ng-class="{'header_index':!header_show}" ng-if="header_show != 'no'">
+  <div class="h_wrapp r  header_index w100 transition_back" ng-class="{'header_index':!header_show}" ng-if="header_show != 'no'">
     <div class="F_RBC h10vh pad20  bb w100" ng-class="{'header':!header_show}">
       <a ng-hide="header_show" href="https://www.instagram.com/{{data.user.username}}" target="_blank" class="z2 transition_back">
         <img alt="{{APPNAME}}" class="info transition acc_photo" ng-src="{{data.user.pic}}">
@@ -104,10 +104,9 @@
     </div>
   </div>
   <!-- Модалка мазафака  -->
-<!-- <a class="btn_pulse_bg_wave" ng-click="w=!w">modalka</a>
-    <div  class="loader_wrapper  modal_cant_add_task z1" ng-hide="!w">
-      <div class="lds-roller"><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div></div>
-    </div> -->
+  <div  class="loader_wrapper  modal_cant_add_task z1" ng-show="app.alerts.loading">
+    <div class="lds-roller"><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div></div>
+  </div>
 
   <div id="ng_viev" ng-class="{'F':F==true}" class="page-home " ng-view>
 

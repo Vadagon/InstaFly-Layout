@@ -2,7 +2,7 @@ app.controller('homeCtrl', function($scope, $rootScope, $location) {
   $rootScope.less_preview = [0, 1];
   var path = $location.path();
   var h_wrapp = '.scrollbox';
-  $(h_wrapp).niceScroll('.wrap');
+  platform.name=='chrome'&&$(h_wrapp).niceScroll('.wrap');
   //   if ($scope.selected == undefined) {
   //     $scope.selected = 0;
   //   }

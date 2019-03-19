@@ -1,5 +1,5 @@
 app.controller('aboutCtrl', function($scope, $rootScope) {
-  $('.about_wrapper .boxscroll').niceScroll('.wrap');
+  platform.name=='chrome'&&$('.about_wrapper .boxscroll').niceScroll('.wrap');
   $rootScope.F = true;
   $rootScope.fix = [{
       'date': '07:07 03.03.2019',

@@ -1,4 +1,4 @@
-<div class="page home_content scrollbox boxscroll r w100 padb70" ng-controller="homeCtrl">
+<div class="page home_content scrollbox r w100 padb100" ng-controller="homeCtrl">
         <!-- <a class="getpro_wrapper mar10 marb30" href="#!card">
           <div class="getpro gradient_purple fcl_w pad15 ">
             <div class="wave_bg"></div>
@@ -93,7 +93,7 @@
         <div ng-click="goTo('liked')" class="firs_like ">
         </div>
       </div>
-      <a ng-repeat="x in data.feed | reverse | limitTo : 5" href="https://www.instagram.com/p/{{x.shortcode}}/" target="_blank" class="l_b_p F_CCC mar5 marb10" style="transition: 0s;">
+      <a ng-repeat="x in data.feed | reverse | limitTo : 5 track by $index" href="https://www.instagram.com/p/{{x.shortcode}}/" target="_blank" class="l_b_p F_CCC mar5 marb10" style="transition: 0s;">
         <img ng-src="{{x.display_url}}" alt="">
       </a>
       <!-- IF no liked photos -->

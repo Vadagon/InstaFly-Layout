@@ -1,5 +1,7 @@
 .hidden{
-  visibility: hidden;;
+  position: fixed;
+  top: 50%;
+  visibility: hidden;
   transition: 0;
 }
 @font-face {
@@ -95,7 +97,11 @@ p {
 .header_simple {
   height: 60px;
 }
-
+.loader_wrapper{
+  position: fixed;
+  left: 50%;
+  top: 10%;
+}
 .welcome_block {
   background: #1b232c;
   padding: 30px 20px;
@@ -755,7 +761,8 @@ position: absolute;
 }
 
 .lds-roller {
-  top: calc(50vh - 32px);
+  position: fixed;
+  top: calc(50% - 32px);
   left: calc(50vw - 32px);
 }
 

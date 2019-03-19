@@ -31,7 +31,7 @@ app.config(($routeProvider) => {
     }).when("/logo", {
       templateUrl: "logo.html"
     }).when("/card", {
-      templateUrl: "card.html"
+      templateUrl: "Plus membership.html"
     }).when("/info", {
       templateUrl: "info.html"
     }).when("/auth", {
@@ -186,9 +186,9 @@ app.run(($rootScope, $interval) => {
     $rootScope.path = path.slice(1).split(':')[0];
 
 
-    if (/(idea|info|edit|about|settings|liked)/ig.test(path)) {
+    if (/(idea|info|edit|about|settings|liked|card)/ig.test(path)) {
       $rootScope.header_show = true;
-    } else if (/(card|welcome|auth|extension|logo)/ig.test(path)) {
+    } else if (/(welcome|auth|extension|logo)/ig.test(path)) {
       $rootScope.header_show = 'no';
     } else {
       $rootScope.header_show = false;

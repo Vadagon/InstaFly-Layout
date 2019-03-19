@@ -692,7 +692,7 @@ position: absolute;
 
 .select .options.ng-hide {
   top: 0;
-  
+
   transform-origin: 50% 0;
   color: #000;
   background: rgba(0, 0, 0, 0)
@@ -1995,9 +1995,9 @@ input:-webkit-autofill, input:-webkit-autofill:hover, input:-webkit-autofill:foc
   box-sizing: border-box;
 }
 
-.dropdown ul>li::before {
-  content: '';
-  background: url(../img/info.png) no-repeat;
+.dropdown ul .info_ico, .dropdown ul .settings_ico, .dropdown ul .about_ico, .dropdown ul .logout_ico{
+  background-image: url(../img/info.png);
+  background-repeat: no-repeat;
   position: absolute;
   background-size: 24px;
   width: 26px;
@@ -2005,40 +2005,15 @@ input:-webkit-autofill, input:-webkit-autofill:hover, input:-webkit-autofill:foc
   top: 18px;
   left: 18px;
 }
-
-.dropdown ul>li:nth-child(3)::before {
-  content: '';
-  background: url(../img/sett.png) no-repeat;
-  position: absolute;
-  background-size: 24px;
-  width: 26px;
-  height: 26px;
-  top: 18px;
-  left: 18px;
+.dropdown ul .settings_ico {
+  background-image: url(../img/sett.png);
 }
-
-.dropdown ul>li:nth-child(2)::before {
-  content: '';
-  background: url(../img/acc.png) no-repeat;
-  position: absolute;
-  background-size: 24px;
-  width: 26px;
-  height: 26px;
-  top: 18px;
-  left: 18px;
+.dropdown ul .about_ico {
+  background-image: url(../img/acc.png);
 }
-
-.dropdown ul>li:last-child::before {
-  content: '';
-  background: url(../img/logout.png) no-repeat;
-  position: absolute;
-  background-size: 24px;
-  width: 26px;
-  height: 26px;
-  top: 18px;
-  left: 18px;
+.dropdown ul .logout_ico{
+  background-image: url(../img/logout.png);
 }
-
 .dropdown ul>li:hover {
   background: rgba(255, 255, 255, .1);
 }

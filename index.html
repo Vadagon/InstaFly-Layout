@@ -75,10 +75,10 @@
         </div>
         <div class="dropdown" ng-hide="!drop">
           <ul class="list_n  fvh2_4">
-            <li ng-click="goTo('info')" class="fcl_w fvh3_6 pad5">Info</li>
-            <li  ng-click="goTo('about')" class="fcl_w fvh3_6 pad5">About us</li>
-            <li ng-if="data.user.isMember" ng-click="goTo('settings')" class="fcl_w fvh3_6 pad5">Settings</li>
-            <li ng-if="platform.name!='chrome'" ng-click="logOut()" class="fcl_w fvh3_6 pad5">Log out</li>
+            <li ng-click="goTo('info')" class="fcl_w fvh3_6 r pad5"><span class="ico info_ico"></span>Info</li>
+            <li  ng-click="goTo('about')" class="fcl_w fvh3_6 r pad5"><span class="ico about_ico"></span>About us</li>
+            <li ng-if="data.user.isMember" ng-click="goTo('settings')" class="fcl_w r fvh3_6 pad5"><span class="ico settings_ico"></span>Settings</li>
+            <li ng-if="platform.name!='chrome'" ng-click="logOut()" class="fcl_w fvh3_6 r pad5"><span class="ico logout_ico"></span>Log out</li>
           </ul>
         </div>
       </div>

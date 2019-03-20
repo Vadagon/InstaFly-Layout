@@ -16,7 +16,7 @@
     {{d}}
   </h3>
   <div class="F_RSC r liked_photos_block">
-    <a ng-repeat="x in data.feed | reverse" href="https://www.instagram.com/p/{{x.shortcode}}/" target="_blank" class="l_p">
+    <a ng-repeat="x in data.feed | reverse track by $index" href="https://www.instagram.com/p/{{x.shortcode}}/" target="_blank" class="l_p">
       <img ng-src="{{x.display_url}}" alt="">
     </a>
 
@@ -27,6 +27,6 @@
     </div>
   </div>
 </div>
-
+<!-- 
 <div class="wave_liked1"></div>
-<div class="wave_liked2"></div>
+<div class="wave_liked2"></div> -->

@@ -29,7 +29,9 @@ app.controller('authCtrl', function($scope, $rootScope) {
       if (!e.authenticated) {
         $rootScope.app.alerts.loading = !1
       }else{
+        a.readyUp();
         var interval = setInterval(function () {
+          console.log($rootScope.data.user);
           if($rootScope.data.user.username){
             $rootScope.app.alerts.loading = !1
             if (!$rootScope.data.tasks.length) {

@@ -99,7 +99,17 @@ app.run(($rootScope, $interval) => {
     textarea: ''
   }
   $rootScope.logOut = function(){
-
+    $.ajax({
+      url: 'https://www.instagram.com/accounts/logout/',
+      type: 'post',
+      data: {
+        csrfmiddlewaretoken: data.user.csrf_token
+      }
+    })
+    .always(function(){
+      changeAcc()
+      $rootScope.goTo('logo')
+    })
   }
   $rootScope.newTask = window.blankTask;
   $rootScope.taskFunc = function(e) {
@@ -126,7 +136,7 @@ app.run(($rootScope, $interval) => {
   }, true);
   $rootScope.$watch('app.alerts', function(newValue, oldValue) {
     setTimeout(function() {
-      $('#ng_viev').niceScroll().resize();
+      platform.name=='chrome'&&$('.boxscroll').niceScroll().resize();
     }, 200);
   }, true);
 
@@ -194,5 +204,5 @@ app.run(($rootScope, $interval) => {
       $rootScope.header_show = false;
     }
   })
-  $('.boxscroll').niceScroll();
+  platform.name=='chrome'&&$('.boxscroll').niceScroll();
 })

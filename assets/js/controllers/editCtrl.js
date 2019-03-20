@@ -3,7 +3,6 @@ app.controller('editCtrl', function($scope, $rootScope) {
   let selected_option;
   $scope.ta_maxLength = 400;
   $scope.ta_minLength = 40;
-
   $scope.selected = function(a) {
       $scope.selected_a = a;
     if (a == 1 || a == 3 || a == 4 ) {// то шо не треба вводити в текстарію
@@ -15,17 +14,25 @@ app.controller('editCtrl', function($scope, $rootScope) {
       $scope.ta_maxLength = 400;
       $scope.ta_minLength = 40;
     }
-
   // Якщо ти не підписаний вибрав не хештег
     if (a > 0 && !$rootScope.data.user.isMember) {
       $scope.active_btn = false; // якшо не підписаний and chose not hash bnt is not active
       $scope.no = true;
       $rootScope.app.alerts.showError2 = !0;
+      $('.task_filter textarea').prop( "disabled", true );
       return;
     } else {
       $rootScope.app.alerts.showError2 = !1;
-      $scope.active_btn = true;
+      $('.task_filter textarea').prop( "disabled", false );
     }
+
+      if (a == 2 && !$rootScope.data.user.isMember) {
+          $scope.active_btn = false;
+          $scope.$apply();
+      }
+      else {
+        $scope.active_btn = true;
+      }
     // ЯКЩО вибрав за фоловерами і ти підписаний або ні
     if (a > 2 && !!$rootScope.data.user.isMember) {
       $scope.active_btn = false;
@@ -39,6 +46,16 @@ app.controller('editCtrl', function($scope, $rootScope) {
     $scope.selected_option = $rootScope.app.filters[a];
     // $scope.$apply();
   }
+
+  // Якшо вводиш симовли в текстарію
+  $rootScope.$watch('newTask.textarea.length',()=>{
+    if ($rootScope.newTask.textarea.length >= $scope.ta_minLength && $scope.selected_a != 2) {
+      $scope.active_btn = true;
+    }
+    else {
+      $scope.active_btn = false;
+    }
+  })
   $rootScope.saveTask = function() {
     if ($rootScope.newTask.textarea.length == undefined) {
       $rootScope.newTask.textarea.length = 0;

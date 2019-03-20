@@ -47,7 +47,7 @@
       <span  ng-hide="newTask.textarea.length < ta_minLength || newTask.textarea.length == undefined || no" class="fcl_w f max_char">Characters left: {{ta_maxLength - newTask.textarea.length}}</span>
       <div class="footer" ng-click="red = !red">
         <div class="buttons_group F_RCC" >
-          <div class="w40 ta_c  mart15  fvh3_6 fcl_w btn_pulse_n_active" ng-class="{'btn_pulse_bg_wave':newTask.textarea.length > ta_minLength && !active_btn}"  ng-click="saveTask()">
+          <div class="w40 ta_c  mart15  fvh3_6 fcl_w btn_pulse_n_active" ng-class="{'btn_pulse_bg_wave':active_btn}"  ng-click="saveTask()">
             Save
           </div>
         </div>

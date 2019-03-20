@@ -4,24 +4,29 @@ app.controller('editCtrl', function($scope, $rootScope) {
   $scope.ta_maxLength = 400;
   $scope.ta_minLength = 40;
   $scope.selected = function(a) {
-    if (a == 1 || a == 3 || a == 4 ) {
-      // то шо не треба вводити в текстарію
-      $scope.no = !0;
-    }else {
-       if ($scope.newTask.textarea.length < $scope.ta_minLength || $scope.newTask.textarea.length > $scope.ta_maxLength) {
-         $scope.active_btn = false;
-         $scope.$apply();
-       }
-      $scope.no = !1;
-    }
-
-    if (a > 0 && !$rootScope.data.user.isMember) {
+    if($scope.selected_a==a){
+      return;
+    }else if (a > 0 && !$rootScope.data.user.isMember) {
       $rootScope.app.alerts.showError2 = !0;
       return;
-    }else if(a > 2 && !$rootScope.data.user.isMember){
+    }else if(a > 2 && $rootScope.data.user.isMember){
       $rootScope.app.alerts.showError3 = !0;
       return;
     }
+
+    $scope.active_btn = !0;
+    $scope.hideCaptions = !1;
+
+    if (a == 1) {
+      $scope.hideCaptions = !0;
+    }else {
+      if ($scope.newTask.textarea.length < $scope.ta_minLength || $scope.newTask.textarea.length > $scope.ta_maxLength) {
+        $scope.active_btn = false;
+      }else{
+        $scope.hideCaptions = !0;
+      }
+    }
+
     $rootScope.newTask.type = $rootScope.app.filters[a][0];
     $scope.selected_option = $rootScope.app.filters[a];
     $scope.selected_a = a;
@@ -29,17 +34,12 @@ app.controller('editCtrl', function($scope, $rootScope) {
   }
 
   // Якшо вводиш симовли в текстарію
-  $rootScope.$watch('newTask.textarea.length',()=>{
-
-    $scope.textarea_length = $rootScope.newTask.textarea.length;
-    if ($rootScope.newTask.textarea.length >= $scope.ta_minLength && $scope.selected_a != 2) {
-      $scope.active_btn = true;
-    }
-    else if ($rootScope.newTask.textarea.length >= $scope.ta_minLength && $scope.selected_a == 2 && $rootScope.data.user.isMember) {
-      $scope.active_btn = true;
-    }
-    else {
-      $scope.active_btn = false;
+  $rootScope.$watch('newTask.textarea.length', function(){
+    if ($rootScope.newTask.textarea.length >= $scope.ta_minLength && $rootScope.newTask.textarea.length < $scope.ta_maxLength) {
+      $scope.active_btn = !0
+      $scope.hideCaptions = !0
+    }else{
+      $scope.active_btn = !1
     }
   })
   $rootScope.saveTask = function() {

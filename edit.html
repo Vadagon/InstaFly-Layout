@@ -43,8 +43,8 @@
               placeholder="#love #instagood #me #cute #tbt #photooftheday #instamood #iphonesia #tweegram #picoftheday #igers #girl #beautiful #instadaily #summer #instagramhub #iphoneonly #follow #igdaily" ng-model="newTask.textarea"></textarea>
             <textarea  id="edit_hash" cols="30" rows="10" class="fcl_w " ng-if="newTask.type == 'location'" placeholder="New York; London; Brazil; Ukraine; Los Angeles; United Kingdom" ng-model="newTask.textarea"></textarea>
       </div>
-      <span ng-class="{'red_scale':red}" ng-hide="newTask.textarea.length > ta_minLength || newTask.textarea.length == ta_minLength || no " class="fcl_w f min_char">Characters left to min: {{ta_minLength - newTask.textarea.length}}</span>
-      <span  ng-hide="newTask.textarea.length < ta_minLength || newTask.textarea.length == undefined || no" class="fcl_w f max_char">Characters left: {{ta_maxLength - newTask.textarea.length}}</span>
+      <span ng-class="{'red_scale':red}" ng-hide="newTask.textarea.length > ta_minLength || newTask.textarea.length == ta_minLength || hideCaptions " class="fcl_w f min_char">Characters left to min: {{ta_minLength - newTask.textarea.length}}</span>
+      <span  ng-hide="newTask.textarea.length < ta_minLength || newTask.textarea.length == undefined || hideCaptions" class="fcl_w f max_char">Characters left: {{ta_maxLength - newTask.textarea.length}}</span>
       <div class="footer" ng-click="red = !red">
         <div class="buttons_group F_RCC" >
           <div class="w40 ta_c  mart15  fvh3_6 fcl_w btn_pulse_n_active" ng-class="{'btn_pulse_bg_wave':active_btn}"  ng-click="saveTask()">

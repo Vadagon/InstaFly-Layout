@@ -1,7 +1,4 @@
 window.location.hash = '';
-document.addEventListener("touchmove", function(event){
-    // event.preventDefault();
-});
 var app = angular.module("Routing", ["ngRoute", 'ngAnimate']);
 app.directive("pagination", function() {
   return {

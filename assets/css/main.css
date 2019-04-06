@@ -1,5 +1,6 @@
-.hidden{
-  visibility: hidden;;
+.hiddenHeader > div:not(#ng_viev){
+  position: fixed;
+  visibility: hidden;
   transition: 0;
 }
 @font-face {
@@ -13,16 +14,15 @@
 }
 
 ::selection {
-  background: transparent;
+  background: rgba(255, 255, 255, .1);
 }
 
 ::-moz-selection {
-  background: transparent;
+  background: rgba(255, 255, 255, .1);
 }
 
 span:not(.tooltip) {
   transition: all .4s linear;
-  white-space: nowrap;
 }
 
 textarea::placeholder {
@@ -63,6 +63,9 @@ a {
   opacity: 0;
   transform: none;
 }
+html{
+    background: #161c24;
+}
 body {
   background: #161c24;
   overflow: hidden;
@@ -70,7 +73,7 @@ body {
 }
 
 .page {
-  display: flex;
+  display: block;
   flex-flow: column;
 }
 
@@ -95,7 +98,11 @@ p {
 .header_simple {
   height: 60px;
 }
-
+.loader_wrapper{
+  position: fixed;
+  left: 50%;
+  top: 10%;
+}
 .welcome_block {
   background: #1b232c;
   padding: 30px 20px;
@@ -176,7 +183,8 @@ p {
   left: 0;
   width: 25%;
   height: 100%;
-  z-index: 1 background: -webkit-linear-gradient(right, rgba(255, 255, 255, 1) 0%, rgba(255, 255, 255, 0) 100%);
+  z-index: 1 ;
+  background: -webkit-linear-gradient(right, rgba(255, 255, 255, 1) 0%, rgba(255, 255, 255, 0) 100%);
   background: -o-linear-gradient(right, rgba(255, 255, 255, 1) 0%, rgba(255, 255, 255, 0) 100%);
   background: linear-gradient(to left, rgba(255, 255, 255, 1) 0%, rgba(255, 255, 255, 0) 100%);
 }
@@ -669,13 +677,14 @@ position: absolute;
   align-items: center;
   color: #fff;
   position: relative;
-  transition: all .5 ease;
+  transition: all .2s ease;
 }
 
 .select .options {
   border-radius: 10px;
   width: 100%;
   position: absolute;
+  overflow: hidden;
   z-index: 9999;
   border: 1px solid rgba(255, 255, 255, 0.1);
   border-radius: 0px 0px 10px 10px;
@@ -686,15 +695,15 @@ position: absolute;
 
 .select .options.ng-hide {
   top: 0;
-  transform: rotateX(90deg);
+
   transform-origin: 50% 0;
   color: #000;
   background: rgba(0, 0, 0, 0)
 }
 
 .options {
-  -webkit-transition: all linear 0.2s;
-  transition: all linear 0.2s;
+  -webkit-transition: all linear 0.1s;
+  transition: all linear 0.1s;
   left: 0;
   display: flex;
   flex-flow: column;
@@ -755,7 +764,8 @@ position: absolute;
 }
 
 .lds-roller {
-  top: calc(50vh - 32px);
+  position: fixed;
+  top: calc(50% - 32px);
   left: calc(50vw - 32px);
 }
 
@@ -933,6 +943,10 @@ position: absolute;
 }
 
 .info_task {
+  -webkit-column-width: 150px;
+  -moz-column-width: 150px;
+  column-width: 150px;
+  height: 100%;
   width: 70vw;
   box-sizing: border-box;
   padding: 5px 10px;
@@ -1606,9 +1620,9 @@ input:-webkit-autofill, input:-webkit-autofill:hover, input:-webkit-autofill:foc
   animation: unshift .5s linear;
 }
 
-.l_p:nth-child(4n+5) {
+/* .l_p:nth-child(4n+5) {
   animation: unshift_fifth .5s linear;
-}
+} */
 
 .was_liked {
   animation: was_liked 1s linear infinite;
@@ -1888,7 +1902,7 @@ input:-webkit-autofill, input:-webkit-autofill:hover, input:-webkit-autofill:foc
 .modal_cant_add_task {
   position: fixed;
   z-index: 100;
-  background: black;
+  background: #161c24;
   transition: all .5s;
   top: 0;
   left: 0;
@@ -1902,8 +1916,8 @@ input:-webkit-autofill, input:-webkit-autofill:hover, input:-webkit-autofill:foc
   transition: all .5s;
   top: 0;
   left: 0;
-  width: 100%;
-  height: 100%;
+  width: 100vw;
+  height: 100vh;
 }
 .modal_drop.ng-hide{
   transform: none;
@@ -1988,9 +2002,9 @@ input:-webkit-autofill, input:-webkit-autofill:hover, input:-webkit-autofill:foc
   box-sizing: border-box;
 }
 
-.dropdown ul>li::before {
-  content: '';
-  background: url(../img/info.png) no-repeat;
+.dropdown ul .info_ico, .dropdown ul .settings_ico, .dropdown ul .about_ico, .dropdown ul .logout_ico{
+  background-image: url(../img/info.png);
+  background-repeat: no-repeat;
   position: absolute;
   background-size: 24px;
   width: 26px;
@@ -1998,40 +2012,15 @@ input:-webkit-autofill, input:-webkit-autofill:hover, input:-webkit-autofill:foc
   top: 18px;
   left: 18px;
 }
-
-.dropdown ul>li:nth-child(3)::before {
-  content: '';
-  background: url(../img/sett.png) no-repeat;
-  position: absolute;
-  background-size: 24px;
-  width: 26px;
-  height: 26px;
-  top: 18px;
-  left: 18px;
+.dropdown ul .settings_ico {
+  background-image: url(../img/sett.png);
 }
-
-.dropdown ul>li:nth-child(2)::before {
-  content: '';
-  background: url(../img/acc.png) no-repeat;
-  position: absolute;
-  background-size: 24px;
-  width: 26px;
-  height: 26px;
-  top: 18px;
-  left: 18px;
+.dropdown ul .about_ico {
+  background-image: url(../img/acc.png);
 }
-
-.dropdown ul>li:last-child::before {
-  content: '';
-  background: url(../img/logout.png) no-repeat;
-  position: absolute;
-  background-size: 24px;
-  width: 26px;
-  height: 26px;
-  top: 18px;
-  left: 18px;
+.dropdown ul .logout_ico{
+  background-image: url(../img/logout.png);
 }
-
 .dropdown ul>li:hover {
   background: rgba(255, 255, 255, .1);
 }
@@ -2487,7 +2476,7 @@ input[type="range"]::-ms-thumb {
 
 .lds-roller {
   display: inline-block;
-  position: relative;
+  position: fixed;
   width: 64px;
   height: 64px;
 }

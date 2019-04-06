@@ -1,7 +1,4 @@
 window.location.hash = '';
-document.addEventListener("touchmove", function(event){
-    // event.preventDefault();
-});
 var app = angular.module("Routing", ["ngRoute", 'ngAnimate']);
 app.directive("pagination", function() {
   return {
@@ -31,7 +28,7 @@ app.config(($routeProvider) => {
     }).when("/logo", {
       templateUrl: "logo.html"
     }).when("/card", {
-      templateUrl: "card.html"
+      templateUrl: "Plus membership.html"
     }).when("/info", {
       templateUrl: "info.html"
     }).when("/auth", {
@@ -99,7 +96,17 @@ app.run(($rootScope, $interval) => {
     textarea: ''
   }
   $rootScope.logOut = function(){
-
+    $.ajax({
+      url: 'https://www.instagram.com/accounts/logout/',
+      type: 'post',
+      data: {
+        csrfmiddlewaretoken: data.user.csrf_token
+      }
+    })
+    .always(function(){
+      changeAcc()
+      $rootScope.goTo('logo')
+    })
   }
   $rootScope.newTask = window.blankTask;
   $rootScope.taskFunc = function(e) {
@@ -117,8 +124,8 @@ app.run(($rootScope, $interval) => {
     api.runtime.sendMessage({
       why: "getData"
     }, function(response) {
-      // response.user.isMember = !1; // 0 member // 1 not member
-        cb&&cb(response)
+      window.data = response;
+      cb&&cb(response)
     });
   }
   $rootScope.$watch('data.tasks', function(newValue, oldValue) {
@@ -126,7 +133,7 @@ app.run(($rootScope, $interval) => {
   }, true);
   $rootScope.$watch('app.alerts', function(newValue, oldValue) {
     setTimeout(function() {
-      $('#ng_viev').niceScroll().resize();
+      platform.name=='chrome'&&$('.boxscroll').niceScroll().resize();
     }, 200);
   }, true);
 
@@ -150,7 +157,6 @@ app.run(($rootScope, $interval) => {
       data: angular.copy($rootScope.data)
     });
   }
-  $rootScope.pay = pay;
   $rootScope.goTo = function(e) {
     window.location.href = '#!' + e;
   }
@@ -160,6 +166,7 @@ app.run(($rootScope, $interval) => {
     }, 100);
   }
 
+  $rootScope.pay = pay;
 
   $rootScope.goBack = function goBack() {
     // window.history.back();
@@ -186,13 +193,13 @@ app.run(($rootScope, $interval) => {
     $rootScope.path = path.slice(1).split(':')[0];
 
 
-    if (/(idea|info|edit|about|settings|liked)/ig.test(path)) {
+    if (/(idea|info|edit|about|settings|liked|card)/ig.test(path)) {
       $rootScope.header_show = true;
-    } else if (/(card|welcome|auth|extension|logo)/ig.test(path)) {
+    } else if (/(welcome|auth|extension|logo)/ig.test(path)) {
       $rootScope.header_show = 'no';
     } else {
       $rootScope.header_show = false;
     }
   })
-  $('.boxscroll').niceScroll();
+  platform.name=='chrome'&&$('.boxscroll').niceScroll();
 })

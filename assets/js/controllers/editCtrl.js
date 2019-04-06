@@ -1,52 +1,53 @@
 app.controller('editCtrl', function($scope, $rootScope) {
   $scope.selected_option = $rootScope.app.filters[0];
-
-  let selected_option;
+  $scope.selected_a = 0;
   $scope.ta_maxLength = 400;
   $scope.ta_minLength = 40;
-
   $scope.selected = function(a) {
-    if (a == 1 || a == 3 || a == 4 ) {
-      $scope.no = true;
-      $scope.ta_maxLength = 0;
-      $scope.ta_minLength = 0;
-    } else {
-      $scope.no = false;
-      $scope.ta_maxLength = 400;
-      $scope.ta_minLength = 40;
-    }
-    console.log(a, 'a' , a == 2 && $rootScope.data.user.isMember);
-    if (a == 2 && !$rootScope.data.user.isMember) {
-      $scope.no = true;
-      $scope.ta_maxLength = 0;
-      $scope.ta_minLength = 0;
-
-    }
-    console.log($rootScope.data.user.isMember,'$rootScope.data.user.isMember');
-
-  if (a > 1 && !$rootScope.data.user.isMember) {
-    $scope.no = true;
-  }
-    if (a > 0 && !$rootScope.data.user.isMember) {
+    if($scope.selected_a==a){
+      return;
+    }else if (a > 0 && !$rootScope.data.user.isMember) {
       $rootScope.app.alerts.showError2 = !0;
       return;
-    } else {
-      $rootScope.app.alerts.showError2 = !1;
-    }
-    if (a > 2 && !!$rootScope.data.user.isMember) {
+    }else if(a > 2 && $rootScope.data.user.isMember){
       $rootScope.app.alerts.showError3 = !0;
       return;
     }
-     else {
-      $rootScope.app.alerts.showError3 = !1;
+
+    $scope.active_btn = !0;
+    $scope.hideCaptions = !1;
+
+    if (a == 1) {
+      $scope.hideCaptions = !0;
+    }else {
+      if ($scope.newTask.textarea.length < $scope.ta_minLength || $scope.newTask.textarea.length > $scope.ta_maxLength) {
+        $scope.active_btn = false;
+      }else{
+        $scope.hideCaptions = !0;
+      }
     }
+
     $rootScope.newTask.type = $rootScope.app.filters[a][0];
     $scope.selected_option = $rootScope.app.filters[a];
+    $scope.selected_a = a;
     $scope.$apply();
   }
+
+  // Якшо вводиш симовли в текстарію
+  $rootScope.$watch('newTask.textarea.length', function(){
+    if ($rootScope.newTask.textarea.length >= $scope.ta_minLength && $rootScope.newTask.textarea.length < $scope.ta_maxLength) {
+      $scope.active_btn = !0
+      $scope.hideCaptions = !0
+    }else{
+      $scope.active_btn = !1
+    }
+  })
   $rootScope.saveTask = function() {
-    if ($rootScope.newTask.textarea.length < $scope.ta_minLength) {
-      return false;
+    if(!$scope.active_btn){
+      return;
+    }
+    if ($rootScope.newTask.textarea == undefined) {
+      $rootScope.newTask.textarea = '';
     }
     if ($rootScope.app.taskFunc == 'add') {
       $rootScope.data.tasks.push(angular.copy($rootScope.newTask))

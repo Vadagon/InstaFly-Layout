@@ -29,7 +29,7 @@ app.controller('settingsCtrl', function($scope, $rootScope) {
 });
 app.controller('likedCtrl', function($scope, $rootScope) {
   setInterval(function() {
-    $('#ng_viev').niceScroll().resize();
+    platform.name=='chrome'&&$('.boxscroll').niceScroll().resize();
   }, 400);
   let d = new Date(new Date().toString().split('GMT')[0] + ' UTC').toISOString().split('.')[0].replace('T', ' ');
   $scope.d = d;

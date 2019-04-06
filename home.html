@@ -1,4 +1,4 @@
-<div class="page home_content scrollbox boxscroll r w100 padb70" ng-controller="homeCtrl">
+<div class="page home_content scrollbox r w100 padb100" ng-controller="homeCtrl">
         <!-- <a class="getpro_wrapper mar10 marb30" href="#!card">
           <div class="getpro gradient_purple fcl_w pad15 ">
             <div class="wave_bg"></div>
@@ -13,7 +13,7 @@
         </a> -->
         <div class="home_lessons_wrapper wrap r w100">
           <div class="status pad30 padb0 marb10">
-            <div ng-click="goTo('ideas')" class=" w70 r fcl_w fvh1_5_3 ta_c" ng-class="{'was_liked':status = 'sleeping'}">
+            <div  class=" w70 r fcl_w fvh1_5_3 ta_c" ng-class="{'was_liked':status = 'sleeping'}">
               {{data.status}}
             </div>
           </div>
@@ -44,11 +44,11 @@
         <div class="task_wrapper marb0">
           <div class="tasc_block" ng-repeat="i in data.tasks">
             <div class="edit_task">
-              <label for="s1" class="edit_wrapper h100 F_CAC">
+              <label for="s{{$index}}" class="edit_wrapper h100 F_CAC">
                 <div class="{{i.type}}"></div>
                 <div class="onoffswitch">
-                  <input class="onoffswitch-checkbox" id="s1" name="onoffswitch" ng-model="i.isEnabled" type="checkbox">
-                  <label class="onoffswitch-label" for="s1">
+                  <input class="onoffswitch-checkbox" id="s{{$index}}" name="onoffswitch" ng-model="i.isEnabled" type="checkbox">
+                  <label class="onoffswitch-label" for="s{{$index}}">
                     <span class="onoffswitch-inner">
                     </span>
                     <span class="onoffswitch-switch">
@@ -57,17 +57,16 @@
                 </div>
               </label>
             </div>
-            <a ng-click="taskFunc($index)">
-              <div class="info_task fcl_w">
-                <h2 class="fvh2_4 pad10 padb0">
-                  {{i.type}}
-                </h2>
-                <p class="fvh1_5_3 ta_l pad10 nls padt5">
-                  <span class="tov_el">{{i.textarea}}</span>
-                  <br>
-                  <span>
-                    advanced settings:pro version only
-                  </span>
+            <a ng-click="taskFunc($index)" class="h100">
+              <div class="info_task fcl_w h100">
+                <p class="fvh1_5_3 ta_l  nls  h100" ng-if="i.type == 'hashtag'">
+                  <span class="tov_el h100">{{i.textarea}}</span>
+                </p>
+                <p class="fvh1_5_3 ta_l  nls  h100" ng-if="i.type == 'location'">
+                  <span class="tov_el h100">{{i.textarea}}</span>
+                </p>
+                <p class="fvh1_5_3 ta_l  nls  h100" ng-if="i.type == 'feed'">
+                  <span class="tov_el h100">Like my feed</span>
                 </p>
               </div>
             </a>
@@ -82,7 +81,7 @@
       </div>
     </div>
     <a ng-click="(data.tasks.length > 0 && !data.user.isMember)?app.alerts.showError1 = true:taskFunc('add')">
-      <div class="add_btn  F_RCC mar10 marb0 ">
+      <div class="add_btn  F_RCC mar10 marb20 ">
         <img alt="" class="info ico_plus" src="assets/img/plus.png">
         <span class="fcl_w fvh2_4 marl10">
           ADD TASK
@@ -94,7 +93,7 @@
         <div ng-click="goTo('liked')" class="firs_like ">
         </div>
       </div>
-      <a ng-repeat="x in data.feed | reverse | limitTo : 5" href="https://www.instagram.com/p/{{x.shortcode}}/" target="_blank" class="l_b_p F_CCC mar5 marb10" style="transition: 0s;">
+      <a ng-repeat="x in data.feed | reverse | limitTo : 5 track by $index" href="https://www.instagram.com/p/{{x.shortcode}}/" target="_blank" class="l_b_p F_CCC mar5 marb10" style="transition: 0s;">
         <img ng-src="{{x.display_url}}" alt="">
       </a>
       <!-- IF no liked photos -->

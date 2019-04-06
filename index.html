@@ -8,16 +8,16 @@
   <meta name="msapplication-tap-highlight" content="no">
   <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width">
 
+  <link href="../platform/index.css" rel="stylesheet">
   <link href="assets/css/verblike.css" rel="stylesheet">
   <link href="assets/css/keyframes.css" rel="stylesheet">
   <link href="assets/img/indicator.png" rel="shortcut icon" type="image/x-icon">
   <link href="assets/css/main.css" rel="stylesheet">
-  <link href="../platform/index.css" rel="stylesheet">
 
 </head>
 
-<body class="page  r">
-  <div class="hidden modal_cant_add_task fcl_w F_CCC" ng-show="app.alerts.goProPopup" ng-click="modal_cant_add_task = !modal_cant_add_task">
+<body class="page  r hiddenHeader boxscroll">
+  <div class="modal_cant_add_task fcl_w F_CCC" ng-show="app.alerts.goProPopup" ng-click="modal_cant_add_task = !modal_cant_add_task">
     <div class="home_modal" ng-click="app.alerts.goProPopup = false">
     </div>
     <h1 class="w90 ta_c padb30 marb30 fvh5_10">You can't use this feature.</h1>
@@ -55,7 +55,8 @@
   </div> -->
   <!-- LOADER  -->
 
-  <div class="hidden h_wrapp r  header_index w100 transition_back" ng-class="{'header_index':!header_show}" ng-if="header_show != 'no'">
+
+  <div class="h_wrapp r  header_index w100 transition_back" ng-class="{'header_index':!header_show}" ng-if="header_show != 'no'">
     <div class="F_RBC h10vh pad20  bb w100" ng-class="{'header':!header_show}">
       <a ng-hide="header_show" href="https://www.instagram.com/{{data.user.username}}" target="_blank" class="z2 transition_back">
         <img alt="{{APPNAME}}" class="info transition acc_photo" ng-src="{{data.user.pic}}">
@@ -75,10 +76,10 @@
         </div>
         <div class="dropdown" ng-hide="!drop">
           <ul class="list_n  fvh2_4">
-            <li ng-click="goTo('info')" class="fcl_w fvh3_6 pad5">Info</li>
-            <li  ng-click="goTo('about')" class="fcl_w fvh3_6 pad5">About us</li>
-            <li ng-if="data.user.isMember" ng-click="goTo('settings')" class="fcl_w fvh3_6 pad5">Settings</li>
-            <li ng-if="platform.name!='chrome'" ng-click="logOut()" class="fcl_w fvh3_6 pad5">Log out</li>
+            <li ng-click="goTo('info')" class="fcl_w fvh3_6 r pad5"><span class="ico info_ico"></span>Info</li>
+            <li  ng-click="goTo('about')" class="fcl_w fvh3_6 r pad5"><span class="ico about_ico"></span>About us</li>
+            <li ng-if="data.user.isMember" ng-click="goTo('settings')" class="fcl_w r fvh3_6 pad5"><span class="ico settings_ico"></span>Settings</li>
+            <li ng-if="platform.name!='chrome'" ng-click="logOut()" class="fcl_w fvh3_6 r pad5"><span class="ico logout_ico"></span>Log out</li>
           </ul>
         </div>
       </div>
@@ -93,7 +94,7 @@
       <div class="progress_bar gradient_purple" style="width: 100%; height: 100%"></div>
     </div>
     <div class="progress z1" ng-hide="header_show">
-      <div class="a w100  z1 h100 F_RCC fcl_w fvh2_4 ta_c o_h ">
+      <div class="a w100  z1 h100 F_RCC fcl_w fvh2_4 ta_c o_h " >
         Likes made today: <div class="r in_block"><span ng-class="{true:'translate25px', false:'translate0px' }[liked == liked1%2*liked1]" class="number_animation F_CCC">{{data.feed.length}}</span></div> of {{data.user.limitTo}}
       </div>
       <div class="progress_bar  F_CCC" ng-if="!header_show" style="width:{{data.feed.length/(data.user.limitTo/5)*100/5}}%; height: 100%">
@@ -102,7 +103,10 @@
       </div>
     </div>
   </div>
-
+  <!-- Модалка мазафака  -->
+  <div  class="loader_wrapper  modal_cant_add_task z1" ng-show="app.alerts.loading">
+    <div class="lds-roller"><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div></div>
+  </div>
 
   <div id="ng_viev" ng-class="{'F':F==true}" class="page-home " ng-view>
 
